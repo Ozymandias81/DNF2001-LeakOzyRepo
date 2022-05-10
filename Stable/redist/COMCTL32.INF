@@ -1,0 +1,26 @@
+; INF file for COMCTL32.ocx
+
+[DefaultInstall]
+CopyFiles=install.files
+RegisterOCXs=RegisterFiles
+
+[DestinationDirs]
+install.files=11
+
+[install.files]
+COMCTL32.OCX=COMCTL32.OCX
+
+[RegisterFiles]
+%11%\COMCTL32.OCX
+
+[COMCTL32.OCX]
+file-win32-x86=thiscab
+RegisterServer=Yes
+FileVersion=6,0,80,22
+
+[version]
+signature="$CHICAGO$"
+AdvancedINF=2.0
+
+[SourceDisksNames]
+1="default",,1

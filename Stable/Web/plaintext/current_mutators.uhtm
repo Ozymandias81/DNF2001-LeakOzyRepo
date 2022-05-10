@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<form method="post" action="%PostAction%">
+  <table width="300" border="0">
+    <tr nowrap> 
+      <td width="49%%" align="center" valign="middle">Mutators&nbsp;not&nbsp;Used</td>
+      <td width="2%%" align="center" valign="middle">&nbsp;</td>
+      <td width="49%%" align="center" valign="middle">Mutators&nbsp;Used</td>
+    </tr>
+    <tr> 
+      <td align="center" valign="middle"> 
+        <select name="ExcludeMutatorsSelect" size="9" multiple>
+%ExcludeMutatorsOptions%
+        </select>
+      </td>
+      <td align="center" valign="middle"> 
+        <p> 
+          <input type="submit" name="AddMutator" value="  &gt; "><br>
+          <input type="submit" name="DelMutator" value="  &lt; "><br>
+          &nbsp;<br>
+          <input type="submit" name="AddAllMutators" value="&gt; &gt;"><br>
+          <input type="submit" name="DelAllMutators" value="&lt; &lt;"><br>
+        </p>
+      </td>
+      <td align="center" valign="middle"> 
+        <select name="IncludeMutatorsSelect" size="9" multiple>
+%IncludeMutatorsOptions%
+        </select>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

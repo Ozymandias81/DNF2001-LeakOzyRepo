@@ -1,0 +1,41 @@
+class dnDukePiss extends SoftParticleSystem;
+
+defaultproperties
+{
+	DrawScale=0.5
+	Style=STY_Translucent
+	UseLines=true
+	Connected=true
+	LineEndWidth=0.3
+	LineStartWidth=0.3
+	LineEndColor=(R=202,G=199,B=132)
+	LineStartColor=(R=202,G=199,B=132)
+	Bounce=true
+	BounceElasticity=0.3
+	InitialAcceleration=(X=0,Y=10,Z=10)
+	InitialVelocity=(X=0,Y=100,Z=40)
+	MaxVelocityVariance=(X=10,Y=10,Z=10)
+	ParticlesCollideWithWorld=true
+	RealtimeVelocityVariance=(X=5,Y=5,Z=5)
+	RelativeLocation=true
+	RelativeRotation=true
+	Lifetime=0.6
+	LifetimeVariance=0.02
+	MaximumParticles=40
+	RelativeSpawn=true
+	SpawnNumber=2
+	SpawnPeriod=0.07
+	AlphaEnd=0.01
+	AlphaStart=1.0
+	AlphaVariance=0.1
+	DrawScaleVariance=0.07
+	EndDrawScale=0.3
+	StartDrawScale=0.01
+	Textures(0)=texture't_generic.rain.genrain6RC'
+	UseZoneTerminalVelocity=true
+	Enabled=true
+	CollisionHeight=0
+	CollisionRadius=0
+	Mass=100
+
+}

@@ -1,0 +1,85 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: freetype - Win32 Release Multithreaded--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Reinhart\LOCALS~1\Temp\RSP7B.tmp" with contents
+[
+/nologo /MT /Za /W4 /GX /O2 /I "..\..\..\include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /Fo"..\..\..\objs\release_mt/" /Fd"..\..\..\objs\release_mt/" /FD /c 
+"C:\Projects\ft204\freetype-2.0.4\src\autohint\autohint.c"
+"C:\Projects\ft204\freetype-2.0.4\src\cff\cff.c"
+"C:\Projects\ft204\freetype-2.0.4\src\base\ftbase.c"
+"C:\Projects\ft204\freetype-2.0.4\src\base\ftdebug.c"
+"C:\Projects\ft204\freetype-2.0.4\src\base\ftglyph.c"
+"C:\Projects\ft204\freetype-2.0.4\src\base\ftinit.c"
+"C:\Projects\ft204\freetype-2.0.4\src\base\ftmm.c"
+"C:\Projects\ft204\freetype-2.0.4\src\base\ftsystem.c"
+"C:\Projects\ft204\freetype-2.0.4\src\pcf\pcf.c"
+"C:\Projects\ft204\freetype-2.0.4\src\psaux\psaux.c"
+"C:\Projects\ft204\freetype-2.0.4\src\psnames\psmodule.c"
+"C:\Projects\ft204\freetype-2.0.4\src\raster\raster.c"
+"C:\Projects\ft204\freetype-2.0.4\src\sfnt\sfnt.c"
+"C:\Projects\ft204\freetype-2.0.4\src\smooth\smooth.c"
+"C:\Projects\ft204\freetype-2.0.4\src\truetype\truetype.c"
+"C:\Projects\ft204\freetype-2.0.4\src\type1\type1.c"
+"C:\Projects\ft204\freetype-2.0.4\src\cid\type1cid.c"
+"C:\Projects\ft204\freetype-2.0.4\src\winfonts\winfnt.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Reinhart\LOCALS~1\Temp\RSP7B.tmp" 
+Creating temporary file "C:\DOCUME~1\Reinhart\LOCALS~1\Temp\RSP7C.tmp" with contents
+[
+/nologo /out:"..\..\..\objs\freetype204MT.lib" 
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\autohint.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\cff.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\ftbase.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\ftdebug.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\ftglyph.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\ftinit.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\ftmm.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\ftsystem.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\pcf.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\psaux.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\psmodule.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\raster.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\sfnt.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\smooth.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\truetype.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\type1.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\type1cid.obj"
+"\Projects\ft204\freetype-2.0.4\objs\release_mt\winfnt.obj"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\Reinhart\LOCALS~1\Temp\RSP7C.tmp"
+<h3>Output Window</h3>
+Compiling...
+autohint.c
+cff.c
+ftbase.c
+ftdebug.c
+ftglyph.c
+ftinit.c
+ftmm.c
+ftsystem.c
+pcf.c
+C:\Projects\ft204\freetype-2.0.4\src\pcf\pcfread.c(720) : warning C4310: cast truncates constant value
+psaux.c
+psmodule.c
+raster.c
+sfnt.c
+smooth.c
+truetype.c
+type1.c
+type1cid.c
+winfnt.c
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+freetype204MT.lib - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

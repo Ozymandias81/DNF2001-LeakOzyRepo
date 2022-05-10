@@ -1,0 +1,778 @@
+Log: Log file open, 05/11/22 00:45:45
+Init: Name subsystem initialized
+Init: Detected: Microsoft Windows NT 6.1 (Build: 7601)
+Init: Version: 400
+Init: Compiled: Apr 22 2022 03:39:04
+Init: Command line: 
+Init: Base directory: D:\Games\DNF2001\Stable\System\
+Init: Character set: Unicode
+Init: Profile: Duke
+Log: Bound to Engine.dll
+Init: Object subsystem initialized.
+Init: Computer: VIRJPC
+Init: User: virj
+Init: Memory total: Phys=4194303K Pagef=4194303K Virt=2097024K
+Init: Working set: 32000 / 159000
+Init: CPU Speed=3515.882920 MHz
+Init: CPU Page size=4096, Processors=6
+Init: CPU Detected: Unknown processor (AuhenicAD)
+Init: CPU Features: CMov FPU RDTSC PAE MMX KNI
+Log: Loading: Package Engine
+Init: Unreal engine initialized.  Lincoln is pleased.
+Init: DirectInput initialized successfully.
+Init: Win32 client initialized.
+Init: Lighting manager initialized.
+Init: Render core initialized.
+Log: LoadMap: Entry
+Log: Loading: Package Entry
+Log: Loading: Package dnWindow
+Log: Loading: Package UWindow
+Log: Loading: Package dnGame
+Log: Loading: Package hud_effects
+Log: Loading: Package dnParticles
+Log: Loading: Package t_generic
+Log: Bound to Fire.dll
+Log: Loading: Package Fire
+Log: Loading: Package t_detail
+Log: Loading: Package t_firefx
+Log: Loading: Package a_impact
+Log: Loading: Package m_dnWeapon
+Log: Loading: Package palettes
+Log: Loading: Package m_vehicles
+Log: Loading: Package c_FX
+Log: Loading: Package t_explosionFx
+Log: Loading: Package dnModulation
+Log: Loading: Package afbproship
+Log: Loading: Package a_generic
+Log: Loading: Package mario
+Log: Loading: Package dnsWeapn
+Log: Loading: Package a_transport
+Log: Loading: Package t_test
+Log: Loading: Package m_generic
+Log: Loading: Package a_edf
+Log: Loading: Package c_generic
+Log: Loading: Package m_zone1_vegas
+Log: Loading: Package a_ambient
+Log: Loading: Package c_zone1_vegas
+Log: Loading: Package petalumahouse
+Log: Loading: Package powerpuzzle1
+Log: Loading: Package c_dnWeapon
+Log: Loading: Package a_dukevoice
+Log: Loading: Package circuitpuzzle1
+Log: Loading: Package ezmail
+Log: Loading: Package c_characters
+Log: Loading: Package ezvend
+Log: Loading: Package EZPhone
+Log: Loading: Package c_dukeitems
+Log: Loading: Package a_zone1_vegas
+Log: Loading: Package keypads
+Log: Loading: Package m_turretfx
+Log: Loading: Package m_characters
+Log: Loading: Package a_switch
+Log: Loading: Package a_inventory
+Log: Loading: Package c_hands
+Log: Loading: Package a_creatures
+Log: Loading: Package m_hands
+Log: Loading: Package dnsMaterials
+Log: Loading: Package SMK6
+Log: Loading: Package crane
+Log: Loading: Package ts01
+Log: Loading: Package SMK5
+Log: Loading: Package dukeED_gfx
+Log: Loading: Package canvasfx
+Log: Loading: Package arcadeFX
+Log: Loading: Package ShieldFX
+Log: Loading: Package SMK4
+Log: Loading: Package vegas
+Log: Loading: Package smk8
+Log: Loading: Package a_npcvoice
+Log: Loading: Package modelfx
+Log: Loading: Package c_vehicles
+Log: Loading: Package D3DSounds
+Log: Loading: Package UBrowser
+Log: Loading: Package SMK3
+Log: Loading: Package SMK7
+Log: EndLoadMap
+Log: LoadMap NumPreloads: 11973
+Log: LoadMap PreloadSize: 929059
+Log: LoadMap TexturePreloadSize: 413792
+Log: LoadMap SerializeTime: 0.251840
+Log: Setting Actor Collision.
+Log: Entered SetActorCollision.
+Log: Entering Actor collision loop 1.
+Log: Created new collision hash.
+Log: Exited SetActorCollision.
+Log: Setting up sound damping table.
+Log: Updating the level info's time.
+Log: Init the game info.
+Log: Get the GameInfo clas.
+Log: Game class is 'DukeIntro'
+Log: Bringing Level Entry.MyLevel up for play (0)...
+ScriptLog: GameInfo::InitGame: 
+ScriptLog: Base Mutator is Entry.Mutator___0
+ScriptLog: Using GameReplicationInfo class:GameReplicationInfo
+Log: Bound to Galaxy.dll
+Init: Galaxy is using DirectSound
+Init: Galaxy initialized
+Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
+Log: DnExec: Seconds: 6906.821046 CrossfadeStart:6906.821045
+Log: LoadMap TotalTime: 0.316853
+Log: URL: Original URL: Entry.dnf
+Log: URL: Escaped URL: Entry.dnf
+Log: Browse: Entry.dnf?Name=Duke%20Nukem?Class=dnGame.DukePlayer?team=0?Mesh=c_characters.duke?Face=?Torso=?Arms=?Legs=?Voice=dngame.MalePlayerSounds?Icon=p_portraiticons.p_NukeSymbol1?Spectate=
+Log: LoadMap: Entry.dnf?Name=Duke%20Nukem?Class=dnGame.DukePlayer?team=0?Mesh=c_characters.duke?Face=?Torso=?Arms=?Legs=?Voice=dngame.MalePlayerSounds?Icon=p_portraiticons.p_NukeSymbol1?Spectate=
+Log: EndLoadMap
+Log: LoadMap NumPreloads: 0
+Log: LoadMap PreloadSize: 0
+Log: LoadMap TexturePreloadSize: 0
+Log: LoadMap SerializeTime: 0.000000
+Log: Setting Actor Collision.
+Log: Entered SetActorCollision.
+Log: Exited SetActorCollision.
+Log: Setting up sound damping table.
+Log: Updating the level info's time.
+Log: Init the game info.
+DevAudio: Galaxy SetViewport: NULL
+Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
+Log: DnExec: Seconds: 6906.824198 CrossfadeStart:6906.824198
+Log: LoadMap TotalTime: 0.002671
+ScriptLog: Console: Duke Nukem Forever
+ScriptLog: Console: Copyright 2000-2001 3D Realms, Inc.
+ScriptLog: Console:  
+ScriptLog: Console:  
+Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
+Log: DnExec: Seconds: 6907.098299 CrossfadeStart:6907.098299
+ScriptLog: GameInfo::Login: Duke Nukem
+ScriptLog: LOGIN:Spawning New Player Class dnGame.DukePlayer
+Log: Loading: Package p_portraiticons
+Init: Input system initialized for WindowsViewport___0
+Log: Trying D3DDrv.D3DRenderDevice
+Log: Bound to D3DDrv.dll
+Init: Direct3D adapters detected:
+Log: Adaptor Detected: nvd3dum.dll/NVIDIA GeForce GT 1030
+Init: DukeForever Direct3D support initializing.
+Log: SetRes(NewX=1280,NewY=1024,NewColorBytes=4,Fullscreen1) (this:0a320000);
+Init: Best-match display mode: 1280x1024x32 (Error=0)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+DevAudio: Galaxy SetViewport: WindowsViewport___0
+Init: Game engine initialized
+Log: Startup time: 2.512106 seconds
+Log: DnExec: OpenNextMP3 NextJumpPattern:DukeNukemTheme.mp3 ChosenFilename:..\Music\DukeNukemTheme.mp3
+Log: Created 16 shadowcaster render targets
+Log: Loading: Package mtheme_cobaltblue
+ScriptLog: Theme doesn't implement sunglassesTL reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement sunglassesTL reverting to hud_effects.
+ScriptLog: Theme doesn't implement sunglassesTR reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement sunglassesTR reverting to hud_effects.
+ScriptLog: Theme doesn't implement sunglassesBL reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement sunglassesBL reverting to hud_effects.
+ScriptLog: Theme doesn't implement sunglassesBR reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement sunglassesBR reverting to hud_effects.
+ScriptLog: Theme doesn't implement sunglassesTLglo reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement sunglassesTLglo reverting to hud_effects.
+ScriptLog: Theme doesn't implement sunglassesTRglo reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement sunglassesTRglo reverting to hud_effects.
+ScriptLog: Theme doesn't implement sunglassesBLglo reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement sunglassesBLglo reverting to hud_effects.
+ScriptLog: Theme doesn't implement sunglassesBRglo reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement sunglassesBRglo reverting to hud_effects.
+ScriptLog: Theme doesn't implement mover_tleft reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement mover_tleft reverting to hud_effects.
+ScriptLog: Theme doesn't implement mover_tright reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement mover_tright reverting to hud_effects.
+ScriptLog: Theme doesn't implement mover_bleft reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement mover_bleft reverting to hud_effects.
+ScriptLog: Theme doesn't implement mover_bright reverting to mtheme_cobaltblue.
+ScriptLog: Cobalt Blue theme doesn't implement mover_bright reverting to hud_effects.
+Log: Loading: Package Screenshots
+Log: URL: Original URL: !z1l1_4?noauto
+Log: URL: Escaped URL: !z1l1_4?noauto
+Log: URL: Adding default option Name=Duke%20Nukem
+Log: URL: Adding default option team=0
+Log: URL: Adding default option Mesh=c_characters.duke
+Log: URL: Adding default option Face=
+Log: URL: Adding default option Torso=
+Log: URL: Adding default option Arms=
+Log: URL: Adding default option Legs=
+Log: URL: Adding default option Voice=dngame.MalePlayerSounds
+Log: URL: Adding default option Spectate=
+Log: Browse: !z1l1_4?noauto?Name=Duke%20Nukem?team=0?Mesh=c_characters.duke?Face=?Torso=?Arms=?Legs=?Voice=dngame.MalePlayerSounds?Spectate=
+Log: LoadMap: !z1l1_4?noauto?Name=Duke%20Nukem?team=0?Mesh=c_characters.duke?Face=?Torso=?Arms=?Legs=?Voice=dngame.MalePlayerSounds?Spectate=
+DevAudio: Galaxy SetViewport: WindowsViewport___0
+Log: Loading: Package !z1l1_4
+Log: Loading: Package EDF_1
+Log: Loading: Package airforcebase
+Log: Loading: Package Airforcebase2
+Log: Loading: Package skyboxes
+Log: Loading: Package stratosfear
+Log: Loading: Package Dam
+Log: Loading: Package Penthouse
+Log: Loading: Package dnAI
+Log: Loading: Package m_zone3_canyon
+Log: Loading: Package c_zone3_canyon
+Log: Loading: Package TEMPVOICE
+Log: Loading: Package a_doors
+Log: Loading: Package m_fx
+Log: Loading: Package dnMountables
+Log: Loading: Package EDF_2
+Log: Loading: Package dnMaskFX
+Log: Loading: Package U_Generic
+Log: Loading: Package c_zone4_afb
+Log: Loading: Package RocketFX
+Log: Loading: Package area51
+Log: Loading: Package hotel_gas
+Log: Loading: Package dcasino
+Log: Loading: Package Streets
+Log: Loading: Package AirforceSmacks04
+Log: Loading: Package a51_base1
+Log: Loading: Package Mineshaft
+Log: Loading: Package U_Zone2_Dam
+Log: Loading: Package c_zone2_dam
+Log: Loading: Package U_Zone5_Area51
+Log: Loading: Package c_zone5_area51
+Log: Loading: Package computer
+Log: Loading: Package m_zone5_area51
+Log: Loading: Package U_Zone3_Canyon
+Log: Loading: Package U_Zone1_Vegas
+Log: EndLoadMap
+Log: LoadMap NumPreloads: 7684
+Log: LoadMap PreloadSize: 27704539
+Log: LoadMap TexturePreloadSize: 19243458
+Log: LoadMap SerializeTime: 0.539529
+Log: Purging Unused Objects.
+Log: Collecting garbage
+Log: Purging garbage - DispatchDestroy
+Log: Purging garbage - DeleteGarbage
+Log: Purging garbage - DeleteNames
+Log: Garbage: objects: 32020->31970; refs: 482055
+Log: Garbage collection complete.
+Log: Unused Objects Purged.
+Log: Setting Actor Collision.
+Log: Entered SetActorCollision.
+Log: Entering Actor collision loop 1.
+Log: Created new collision hash.
+Log: Exited SetActorCollision.
+Log: Setting up sound damping table.
+Log: Updating the level info's time.
+Log: Init the game info.
+Log: Get the GameInfo clas.
+Log: Game class is 'dnSinglePlayer'
+Log: Bringing Level !z1l1_4.MyLevel up for play (0)...
+ScriptLog: GameInfo::InitGame: ?noauto?Name=Duke Nukem?team=0?Mesh=c_characters.duke?Face=?Torso=?Arms=?Legs=?Voice=dngame.MalePlayerSounds?Spectate=
+ScriptLog: Base Mutator is !z1l1_4.Mutator___1
+ScriptLog: Using GameReplicationInfo class:GameReplicationInfo
+ScriptWarning: G_PadLock !z1l1_4.G_PadLock___0 (Function dnGame.dnDecoration.AnimEnd:019F) LoopAnim: Sequence 'Idle' not found in Mesh 'LockDoor'
+ScriptWarning: G_PadLock_DoorLatch !z1l1_4.G_PadLock_DoorLatch___0 (Function dnGame.dnDecoration.AnimEnd:019F) LoopAnim: Sequence 'Idle' not found in Mesh 'LockLatch'
+Log: Spawning new actor for Viewport WindowsViewport___0
+ScriptLog: GameInfo::Login: Duke Nukem
+ScriptLog: LOGIN:Spawning New Player Class dnGame.DukePlayer
+Log: DnExec: *** MusicPlay: Filename:Exterior01
+Log: DnExec: Seconds: 6927.636852 CrossfadeStart:6927.636852
+Init: Initialized moving brush tracker for Level !z1l1_4.MyLevel
+DevAudio: Galaxy SetViewport: WindowsViewport___0
+Log: LoadMap TotalTime: 0.705333
+Log: Loading: Package m_dukeitems
+Log: Loading: Package area51_level2
+Log: Loading: Package dnMaterial
+Warning: Property Material of Texture is not serialiable
+Warning: Skipping 1 bytes of type 5
+Warning: Property Material of Texture is not serialiable
+Warning: Skipping 1 bytes of type 5
+Log: DnExec: OpenNextMP3 NextJumpPattern: ChosenFilename:..\Music\penth_interior02.mp3
+ScriptLog: Attaching HUD:dnGame.DukeHUD
+ScriptWarning: NPCMale3 !z1l1_4.NPCMale3___1 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptWarning: NPCMale3 !z1l1_4.NPCMale3___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___0
+ScriptLog: bUseMyWeapons is True
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface2RC
+ScriptLog:  New face is : m_characters.EDFsnch2dface2RC
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___1
+ScriptLog: bUseMyWeapons is True
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___1 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface3RC
+ScriptLog:  New face is : m_characters.EDFsnch3dface3RC
+ScriptLog: !z1l1_4.RandomSWAT___1 == Patrolling Begin Label 1
+ScriptLog: !z1l1_4.RandomSWAT___1 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___1 ORDER OBJECT: !z1l1_4.PathNode___28
+ScriptLog: !z1l1_4.RandomSWAT___1 == Patrolling Patrol Label 3
+ScriptLog: !z1l1_4.RandomSWAT___1 == Patrolling Patrol Label 4
+ScriptLog: !z1l1_4.RandomSWAT___1 == Patrolling MoveToPatrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___1 calling PickDestination
+ScriptLog: !z1l1_4.RandomSWAT___1 == Patrolling MoveToPatrol Label 7 with order object of !z1l1_4.PathNode___28
+ScriptLog: !z1l1_4.RandomSWAT___1 == Patrolling MoveToPatrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___1 == Patrolling MoveToPatrol Label 2
+ScriptLog: !z1l1_4.RandomSWAT___1 **** PRE MOVE !z1l1_4.RandomSWAT___1 OrderObject: !z1l1_4.PathNode___28
+ScriptLog: PreMove 1
+ScriptLog: Idling Count is: 4
+ScriptLog: CHOSE: a_edf.KilledDuke.EDF_AreaSecure
+ScriptLog: FindCoverFor !z1l1_4.RandomSWAT___0 returning !z1l1_4.CoverSpot___0
+ScriptLog: !z1l1_4.RandomSWAT___0 Move To Point label for !z1l1_4.RandomSWAT___0 to spot !z1l1_4.CoverSpot___0
+ScriptLog: !z1l1_4.RandomSWAT___1 Attack Pistol turning label for !z1l1_4.RandomSWAT___1
+ScriptLog: !z1l1_4.RandomSWAT___1 AttackPistol begin Label 3
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_HesMine
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ShortControlledBursts
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_PinHimDown
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_SprayTheArea
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_CheckThatCrossfire
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ReturnFire
+ScriptLog: * Checking: None
+ScriptLog: RangedAttackCount: 6
+ScriptLog: i: 4
+ScriptLog: Sound to play is a_edf.RangedAttack.EDF_CheckThatCrossfire
+ScriptLog: !z1l1_4.RandomSWAT___1 Attack Pistol turning label for !z1l1_4.RandomSWAT___1
+ScriptLog: !z1l1_4.RandomSWAT___1 AttackPistol begin Label 3
+ScriptLog: !z1l1_4.RandomSWAT___0 Attack Pistol turning label for !z1l1_4.RandomSWAT___0
+ScriptLog: !z1l1_4.RandomSWAT___0 AttackPistol begin Label 3
+ScriptLog: !z1l1_4.RandomSWAT___0 Attack Pistol turning label for !z1l1_4.RandomSWAT___0
+ScriptLog: !z1l1_4.RandomSWAT___0 AttackPistol begin Label 3
+ScriptLog: !z1l1_4.RandomSWAT___0 Attack Pistol turning label for !z1l1_4.RandomSWAT___0
+ScriptLog: !z1l1_4.RandomSWAT___0 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___1 Attack Pistol turning label for !z1l1_4.RandomSWAT___1
+ScriptLog: !z1l1_4.RandomSWAT___1 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___0 entered TransitionToCrouch state
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptLog: HAVING !z1l1_4.RandomSWAT___0 WARN FRIENDS
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___1 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: !z1l1_4.RandomSWAT___0 Attack Pistol turning label for !z1l1_4.RandomSWAT___0
+ScriptLog: !z1l1_4.RandomSWAT___0 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___0 Attack Pistol turning label for !z1l1_4.RandomSWAT___0
+ScriptLog: !z1l1_4.RandomSWAT___0 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___0 Attack Pistol turning label for !z1l1_4.RandomSWAT___0
+ScriptLog: !z1l1_4.RandomSWAT___0 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___0 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___2
+ScriptLog: bUseMyWeapons is True
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___2 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface3RC
+ScriptLog:  New face is : m_characters.EDFsnch3dface3RC
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___3
+ScriptLog: bUseMyWeapons is True
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___3 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface5RC
+ScriptLog:  New face is : m_characters.EDFsnch5dface5RC
+ScriptLog: Idling Count is: 4
+ScriptLog: CHOSE: a_edf.Idling.EDF_StayFrosty
+ScriptLog: Idling Count is: 4
+ScriptLog: CHOSE: a_edf.Idling.EDF_SectorSecure
+ScriptLog:  CALLING WARNFRIENDS
+ScriptLog: !z1l1_4.RandomSWAT___3 Retreat begin label 1
+ScriptLog: !z1l1_4.RandomSWAT___3 Retreat begin label 3
+ScriptLog: !z1l1_4.RandomSWAT___3 Retreat begin label 4
+ScriptLog: !z1l1_4.RandomSWAT___3 Retreat begin label 5
+ScriptLog: !z1l1_4.RandomSWAT___3 Retreat begin label 6
+ScriptLog: !z1l1_4.RandomSWAT___3 Retreat begin label 7
+ScriptLog: FindCoverFor !z1l1_4.RandomSWAT___3 returning !z1l1_4.CoverSpot___4
+ScriptLog: !z1l1_4.RandomSWAT___3 Move To Point label for !z1l1_4.RandomSWAT___3 to spot !z1l1_4.CoverSpot___4
+ScriptLog: !z1l1_4.RandomSWAT___3 Move To Point label for !z1l1_4.RandomSWAT___3 to spot !z1l1_4.CoverSpot___4
+ScriptLog: !z1l1_4.RandomSWAT___3 Move To Point label for !z1l1_4.RandomSWAT___3 to spot !z1l1_4.CoverSpot___4
+ScriptLog: !z1l1_4.RandomSWAT___3 Move To Point label for !z1l1_4.RandomSWAT___3 to spot !z1l1_4.CoverSpot___4
+ScriptLog: !z1l1_4.RandomSWAT___3 Attack Pistol turning label for !z1l1_4.RandomSWAT___3
+ScriptLog: !z1l1_4.RandomSWAT___3 AttackPistol begin Label 3
+ScriptLog: !z1l1_4.RandomSWAT___3 Attack Pistol turning label for !z1l1_4.RandomSWAT___3
+ScriptLog: !z1l1_4.RandomSWAT___3 AttackPistol begin Label 3
+ScriptLog: !z1l1_4.RandomSWAT___3 Attack Pistol turning label for !z1l1_4.RandomSWAT___3
+ScriptLog: !z1l1_4.RandomSWAT___3 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___3 entered TransitionToCrouch state
+ScriptLog: !z1l1_4.RandomSWAT___3 Attack Pistol turning label for !z1l1_4.RandomSWAT___3
+ScriptLog: !z1l1_4.RandomSWAT___3 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___3 Attack Pistol turning label for !z1l1_4.RandomSWAT___3
+ScriptLog: !z1l1_4.RandomSWAT___3 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptLog: HAVING !z1l1_4.RandomSWAT___2 WARN FRIENDS
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___3 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: !z1l1_4.RandomSWAT___2 GOING TO ATTACKING STATE 1
+ScriptLog: !z1l1_4.RandomSWAT___2 Attack Pistol turning label for !z1l1_4.RandomSWAT___2
+ScriptLog: !z1l1_4.RandomSWAT___2 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___2 entered TransitionToCrouch state
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_HesMine
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ShortControlledBursts
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_PinHimDown
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_SprayTheArea
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_CheckThatCrossfire
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ReturnFire
+ScriptLog: * Checking: None
+ScriptLog: RangedAttackCount: 6
+ScriptLog: i: 0
+ScriptLog: Sound to play is a_edf.RangedAttack.EDF_HesMine
+ScriptLog: !z1l1_4.RandomSWAT___2 Attack Pistol turning label for !z1l1_4.RandomSWAT___2
+ScriptLog: !z1l1_4.RandomSWAT___2 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___2 Attack Pistol turning label for !z1l1_4.RandomSWAT___2
+ScriptLog: !z1l1_4.RandomSWAT___2 AttackPistol begin Label 3
+ScriptLog: !z1l1_4.RandomSWAT___2 Attack Pistol turning label for !z1l1_4.RandomSWAT___2
+ScriptLog: !z1l1_4.RandomSWAT___2 AttackPistol begin Label 3
+ScriptLog: !z1l1_4.RandomSWAT___2 Attack Pistol turning label for !z1l1_4.RandomSWAT___2
+ScriptLog: !z1l1_4.RandomSWAT___2 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___2 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___4
+ScriptLog: bUseMyWeapons is False
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___4 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface5RC
+ScriptLog:  New face is : m_characters.EDFsnch5dface5RC
+ScriptLog: Idling Count is: 4
+ScriptLog: CHOSE: a_edf.Idling.EDF_StayFrosty
+ScriptLog:  CALLING WARNFRIENDS
+ScriptLog: !z1l1_4.RandomSWAT___4 entered TransitionToCrouch state
+Log: dnDecoration___7 fell out of the world!
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___4 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___5
+ScriptLog: bUseMyWeapons is True
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___6
+ScriptLog: bUseMyWeapons is True
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___5 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface4RC
+ScriptLog:  New face is : m_characters.EDFsnch4dface4RC
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___6 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface1RC
+ScriptLog:  New face is : m_characters.EDFsnch1dface1RC
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Begin Label 1
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___7
+ScriptLog: bUseMyWeapons is True
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___7 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface5RC
+ScriptLog:  New face is : m_characters.EDFsnch5dface5RC
+ScriptLog: Hunting[ 0 ] is a_edf.Hunting.EDF_ImGoingIn
+ScriptLog: Hunting[ 1 ] is a_edf.Hunting.EDF_MoveUpMoveUp
+ScriptLog: Hunting[ 2 ] is a_edf.Hunting.EDF_CoverMe
+ScriptLog: Hunting[ 3 ] is a_edf.Hunting.EDF_RequestingCoverFire
+ScriptLog: Hunting[ 4 ] is None
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 ORDER OBJECT: !z1l1_4.PathNode___46
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 3
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 4
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling MoveToPatrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 calling PickDestination
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___6 (State dnAI.HumanNPC.Patrolling:076F) Accessed None
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___6 (State dnAI.HumanNPC.Patrolling:0785) Accessed None
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 2
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Begin Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 ORDER OBJECT: !z1l1_4.PathNode___46
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 3
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 4
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling MoveToPatrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 calling PickDestination
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling MoveToPatrol Label 7 with order object of !z1l1_4.PathNode___46
+ScriptLog: Idling Count is: 4
+ScriptLog: CHOSE: a_edf.KilledDuke.EDF_AreaSecure
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling MoveToPatrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 calling PickDestination
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling MoveToPatrol Label 7 with order object of !z1l1_4.PathNode___46
+ScriptLog: !z1l1_4.RandomSWAT___7 Attack Pistol turning label for !z1l1_4.RandomSWAT___7
+ScriptLog: !z1l1_4.RandomSWAT___7 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___7 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Begin Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 2
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Begin Label 1
+ScriptWarning: Tentacle !z1l1_4.Tentacle___15 (State dnAI.Tentacle.ShoulderDamageTentacle:002E) Accessed None
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 ORDER OBJECT: !z1l1_4.PathNode___46
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 3
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling Patrol Label 4
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling MoveToPatrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___6 calling PickDestination
+ScriptLog: !z1l1_4.RandomSWAT___6 == Patrolling MoveToPatrol Label 7 with order object of !z1l1_4.PathNode___46
+ScriptWarning: Tentacle !z1l1_4.Tentacle___14 (State dnAI.Tentacle.ShoulderDamageTentacle:002E) Accessed None
+ScriptLog: !z1l1_4.RandomSWAT___6 Attack Pistol turning label for !z1l1_4.RandomSWAT___6
+ScriptLog: !z1l1_4.RandomSWAT___6 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___6 entered TransitionToCrouch state
+ScriptLog: !z1l1_4.RandomSWAT___6 Attack Pistol turning label for !z1l1_4.RandomSWAT___6
+ScriptLog: !z1l1_4.RandomSWAT___6 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___6 Attack Pistol turning label for !z1l1_4.RandomSWAT___6
+ScriptLog: !z1l1_4.RandomSWAT___6 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___6 Attack Pistol turning label for !z1l1_4.RandomSWAT___6
+ScriptLog: !z1l1_4.RandomSWAT___6 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___6 Attack Pistol turning label for !z1l1_4.RandomSWAT___6
+ScriptLog: !z1l1_4.RandomSWAT___6 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___6 Attack Pistol turning label for !z1l1_4.RandomSWAT___6
+ScriptLog: !z1l1_4.RandomSWAT___6 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___6 Attack Pistol turning label for !z1l1_4.RandomSWAT___6
+ScriptLog: !z1l1_4.RandomSWAT___6 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___6 Attack Pistol turning label for !z1l1_4.RandomSWAT___6
+ScriptLog: !z1l1_4.RandomSWAT___6 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptLog: HAVING !z1l1_4.RandomSWAT___5 WARN FRIENDS
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___6 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: Hunting[ 0 ] is a_edf.Hunting.EDF_ImGoingIn
+ScriptLog: Hunting[ 1 ] is a_edf.Hunting.EDF_MoveUpMoveUp
+ScriptLog: Hunting[ 2 ] is a_edf.Hunting.EDF_CoverMe
+ScriptLog: Hunting[ 3 ] is a_edf.Hunting.EDF_RequestingCoverFire
+ScriptLog: Hunting[ 4 ] is None
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: !z1l1_4.RandomSWAT___5 Attack Pistol turning label for !z1l1_4.RandomSWAT___5
+ScriptLog: !z1l1_4.RandomSWAT___5 AttackPistol begin Label 3
+ScriptLog:  MustTurn is false!
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___5 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___8
+ScriptLog: bUseMyWeapons is False
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___8 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___9
+ScriptLog: bUseMyWeapons is True
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___9 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface5RC
+ScriptLog:  New face is : m_characters.EDFsnch5dface5RC
+ScriptLog: !z1l1_4.RandomSWAT___9 == Patrolling Begin Label 1
+ScriptLog: !z1l1_4.RandomSWAT___9 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___9 ORDER OBJECT: !z1l1_4.PathNode___16
+ScriptLog: !z1l1_4.RandomSWAT___9 == Patrolling Patrol Label 3
+ScriptLog: !z1l1_4.RandomSWAT___9 == Patrolling Patrol Label 4
+ScriptLog: !z1l1_4.RandomSWAT___9 == Patrolling MoveToPatrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___9 == Patrolling MoveToPatrol Label 2
+ScriptLog: !z1l1_4.RandomSWAT___9 **** PRE MOVE !z1l1_4.RandomSWAT___9 OrderObject: !z1l1_4.PathNode___16
+ScriptLog: PReMove 2
+ScriptLog: HumanNPCFlags set bVisiblySnatched to True for !z1l1_4.RandomSWAT___10
+ScriptLog: bUseMyWeapons is True
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___10 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
+ScriptLog:  Old face was: m_characters.EDFsldrface3RC
+ScriptLog:  New face is : m_characters.EDFsnch3dface3RC
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling Begin Label 1
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___10 ORDER OBJECT: !z1l1_4.PathNode___16
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling Patrol Label 3
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling Patrol Label 4
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling MoveToPatrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling MoveToPatrol Label 2
+ScriptLog: !z1l1_4.RandomSWAT___10 **** PRE MOVE !z1l1_4.RandomSWAT___10 OrderObject: !z1l1_4.PathNode___16
+ScriptLog: PReMove 2
+ScriptLog: !z1l1_4.RandomSWAT___9 **** DONE MOVE !z1l1_4.RandomSWAT___9
+ScriptLog: !z1l1_4.RandomSWAT___9 entered TransitionToCrouch state
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_HesMine
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ShortControlledBursts
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_PinHimDown
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_SprayTheArea
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_CheckThatCrossfire
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ReturnFire
+ScriptLog: * Checking: None
+ScriptLog: RangedAttackCount: 6
+ScriptLog: i: 5
+ScriptLog: Sound to play is a_edf.RangedAttack.EDF_ReturnFire
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_HesMine
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ShortControlledBursts
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_PinHimDown
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_SprayTheArea
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_CheckThatCrossfire
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ReturnFire
+ScriptLog: * Checking: None
+ScriptLog: RangedAttackCount: 6
+ScriptLog: i: 0
+ScriptLog: Sound to play is a_edf.RangedAttack.EDF_HesMine
+ScriptLog: !z1l1_4.RandomSWAT___10 entered TransitionToCrouch state
+ScriptLog: !z1l1_4.RandomSWAT___9 entered TransitionToCrouch state
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_HesMine
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ShortControlledBursts
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_PinHimDown
+ScriptLog: * Checking: a_edf.PinDownFire.EDF_SprayTheArea
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_CheckThatCrossfire
+ScriptLog: * Checking: a_edf.RangedAttack.EDF_ReturnFire
+ScriptLog: * Checking: None
+ScriptLog: RangedAttackCount: 6
+ScriptLog: i: 3
+ScriptLog: Sound to play is a_edf.PinDownFire.EDF_SprayTheArea
+ScriptLog: !z1l1_4.RandomSWAT___9 entered TransitionToCrouch state
+ScriptLog: !z1l1_4.RandomSWAT___10 entered TransitionToCrouch state
+ScriptLog: WARN FRIENDS ON DEATH CALLED!
+ScriptWarning: RandomSWAT !z1l1_4.RandomSWAT___9 (Function dnAI.Grunt.Destroyed:0009) Accessed None
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling Begin Label 1
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling Patrol Label 1
+ScriptLog: !z1l1_4.RandomSWAT___10 == Patrolling Patrol Label 2
+ScriptLog: !z1l1_4.RandomSWAT___10 entered TransitionToCrouch state
+ScriptLog: Console: Unrecognized command
+ScriptLog: Console: 
+Log: DnExec: *** MusicPlay: Filename:stinger
+Log: DnExec: Seconds: 7061.066602 CrossfadeStart:7061.066602
+Log: DnExec: OpenNextMP3 NextJumpPattern:stinger ChosenFilename:..\Music\stinger
+Log: DnExec: Failed to open stream: ..\Music\stinger
+ScriptWarning: UWindowMessageBoxCW Transient.UWindowMessageBoxCW___0 (Function UWindow.UWindowMessageBoxCW.Resized:0030) Accessed None
+ScriptWarning: UWindowMessageBoxCW Transient.UWindowMessageBoxCW___0 (Function UWindow.UWindowMessageBoxCW.Resized:0030) Accessed None
+ScriptLog: Saving GRI defaults 
+Log: appRequestExit(0)
+Exit: Preparing to exit.
+Log: Purging garbage - DispatchDestroy
+Log: Unbound to Engine.dll
+Log: Unloading: Package Engine
+Exit: Game engine shut down
+Log: Cannibal shutdown...
+Log: ...Cannibal shutdown complete.
+Exit: Windows client shut down
+Exit: Rendering shut down
+Log: Unloading: Package Entry
+Log: Unloading: Package dnWindow
+Log: Unloading: Package UWindow
+Log: Unloading: Package dnGame
+Log: Unloading: Package hud_effects
+Log: Unloading: Package dnParticles
+Log: Unloading: Package t_generic
+Log: Unbound to Fire.dll
+Log: Unloading: Package Fire
+Log: Unloading: Package t_detail
+Log: Unloading: Package t_firefx
+Log: Unloading: Package a_impact
+Log: Unloading: Package m_dnWeapon
+Log: Unloading: Package palettes
+Log: Unloading: Package m_vehicles
+Log: Unloading: Package c_FX
+Log: Unloading: Package t_explosionFx
+Log: Unloading: Package dnModulation
+Log: Unloading: Package afbproship
+Log: Unloading: Package a_generic
+Log: Unloading: Package mario
+Log: Unloading: Package dnsWeapn
+Log: Unloading: Package a_transport
+Log: Unloading: Package t_test
+Log: Unloading: Package m_generic
+Log: Unloading: Package a_edf
+Log: Unloading: Package c_generic
+Log: Unloading: Package m_zone1_vegas
+Log: Unloading: Package a_ambient
+Log: Unloading: Package c_zone1_vegas
+Log: Unloading: Package petalumahouse
+Log: Unloading: Package powerpuzzle1
+Log: Unloading: Package c_dnWeapon
+Log: Unloading: Package a_dukevoice
+Log: Unloading: Package circuitpuzzle1
+Log: Unloading: Package ezmail
+Log: Unloading: Package c_characters
+Log: Unloading: Package ezvend
+Log: Unloading: Package EZPhone
+Log: Unloading: Package c_dukeitems
+Log: Unloading: Package a_zone1_vegas
+Log: Unloading: Package keypads
+Log: Unloading: Package m_turretfx
+Log: Unloading: Package m_characters
+Log: Unloading: Package a_switch
+Log: Unloading: Package a_inventory
+Log: Unloading: Package c_hands
+Log: Unloading: Package a_creatures
+Log: Unloading: Package m_hands
+Log: Unloading: Package dnsMaterials
+Log: Unloading: Package SMK6
+Log: Unloading: Package crane
+Log: Unloading: Package ts01
+Log: Unloading: Package SMK5
+Log: Unloading: Package dukeED_gfx
+Log: Unloading: Package canvasfx
+Log: Unloading: Package arcadeFX
+Log: Unloading: Package ShieldFX
+Log: Unloading: Package SMK4
+Log: Unloading: Package vegas
+Log: Unloading: Package smk8
+Log: Unloading: Package a_npcvoice
+Log: Unloading: Package modelfx
+Log: Unloading: Package c_vehicles
+Log: Unloading: Package D3DSounds
+Log: Unloading: Package UBrowser
+Log: Unloading: Package SMK3
+Log: Unloading: Package SMK7
+Log: Unbound to Galaxy.dll
+DevAudio: Galaxy SetViewport: NULL
+Exit: Galaxy shut down
+Log: Unloading TrueType fonts.
+Log: Unloading: Package p_portraiticons
+Log: Unbound to D3DDrv.dll
+Log: Unloading: Package mtheme_cobaltblue
+Log: Unloading: Package Screenshots
+Log: Unloading: Package !z1l1_4
+Log: Unloading: Package EDF_1
+Log: Unloading: Package airforcebase
+Log: Unloading: Package Airforcebase2
+Log: Unloading: Package skyboxes
+Log: Unloading: Package stratosfear
+Log: Unloading: Package Dam
+Log: Unloading: Package Penthouse
+Log: Unloading: Package dnAI
+Log: Unloading: Package m_zone3_canyon
+Log: Unloading: Package c_zone3_canyon
+Log: Unloading: Package TEMPVOICE
+Log: Unloading: Package a_doors
+Log: Unloading: Package m_fx
+Log: Unloading: Package dnMountables
+Log: Unloading: Package EDF_2
+Log: Unloading: Package dnMaskFX
+Log: Unloading: Package U_Generic
+Log: Unloading: Package c_zone4_afb
+Log: Unloading: Package RocketFX
+Log: Unloading: Package area51
+Log: Unloading: Package hotel_gas
+Log: Unloading: Package dcasino
+Log: Unloading: Package Streets
+Log: Unloading: Package AirforceSmacks04
+Log: Unloading: Package a51_base1
+Log: Unloading: Package Mineshaft
+Log: Unloading: Package U_Zone2_Dam
+Log: Unloading: Package c_zone2_dam
+Log: Unloading: Package U_Zone5_Area51
+Log: Unloading: Package c_zone5_area51
+Log: Unloading: Package computer
+Log: Unloading: Package m_zone5_area51
+Log: Unloading: Package U_Zone3_Canyon
+Log: Unloading: Package U_Zone1_Vegas
+Init: Shut down moving brush tracker for Level !z1l1_4.MyLevel
+Log: Unloading: Package m_dukeitems
+Log: Unloading: Package area51_level2
+Log: Unloading: Package dnMaterial
+Log: Purging garbage - DeleteGarbage
+Log: Purging garbage - DeleteNames
+Log: Garbage: objects: 32684->0; refs: 482055
+Exit: Object subsystem successfully closed.
+Log: Terminating main loop
+Exit: Exiting.
+Uninitialized: Name subsystem shut down
+Uninitialized: Memory Allocation Status
+Uninitialized: Curr Memory  1.306M /  5.059M
+Uninitialized: Peak Memory  325.855M /  327.441M
+Uninitialized: Allocs        2971 Current /  1024522 Total
+Uninitialized: Log file closed, 05/11/22 00:48:26

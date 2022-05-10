@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: D3DDrv - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP15C0.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /vd0 /GX /Zi /O2 /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\DirectX7\Inc" /I "..\..\Engine\src" /D "_MBCS" /D "_USRDLL" /D "D3DDRV_EXPORTS" /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /FAs /Fa"Release/" /FR"Release/" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\duke4\D3DDrv\Src\Direct3D8.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP15C0.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP15C1.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib advapi32.lib ole32.lib ..\..\DirectX7\Lib\DxGuid.lib ..\..\DirectX7\Lib\d3dim.lib ..\..\Engine\Lib\Engine.lib /nologo /dll /incremental:no /pdb:"..\..\system\D3DDrv.pdb" /debug /machine:I386 /out:"..\..\System\D3DDrv.dll" /implib:"..\Lib/D3DDrv.lib" 
+.\Release\Direct3D8.obj
+\duke4\Engine\Lib\Engine.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP15C1.tmp"
+<h3>Output Window</h3>
+Compiling...
+Direct3D8.cpp
+cl.exe terminated at user request.
+
+</pre>
+</body>
+</html>

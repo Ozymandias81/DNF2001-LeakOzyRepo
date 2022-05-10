@@ -1,0 +1,146 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Editor - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP233.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "." /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Window\Inc" /I "..\Inc" /I "..\..\Engine\Src" /D EDITOR_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /FR"Release/" /Fp"Release/Editor.pch" /Yu"EditorPrivate.h" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Editor\Src\CoolBsp.cpp"
+"C:\duke4\Editor\Src\TTFontImport.cpp"
+"C:\duke4\Editor\Src\UBatchExportCommandlet.cpp"
+"C:\duke4\Editor\Src\UBrushBuilder.cpp"
+"C:\duke4\Editor\Src\UConformCommandlet.cpp"
+"C:\duke4\Editor\Src\UKillUnrealCommandlet.cpp"
+"C:\duke4\Editor\Src\UMakeCommandlet.cpp"
+"C:\duke4\Editor\Src\UMapConvertCommandlet.cpp"
+"C:\duke4\Editor\Src\UMasterCommandlet.cpp"
+"C:\duke4\Editor\Src\UMergeDXTCommandlet.cpp"
+"C:\duke4\Editor\Src\UnBsp.cpp"
+"C:\duke4\Editor\Src\UnEdAct.cpp"
+"C:\duke4\Editor\Src\UnEdCam.cpp"
+"C:\duke4\Editor\Src\UnEdCnst.cpp"
+"C:\duke4\Editor\Src\UnEdExp.cpp"
+"C:\duke4\Editor\Src\UnEdFact.cpp"
+"C:\duke4\Editor\Src\UnEdRend.cpp"
+"C:\duke4\Editor\Src\UnEdSrv.cpp"
+"C:\duke4\Editor\Src\UnEdTran.cpp"
+"C:\duke4\Editor\Src\UnMeshEd.cpp"
+"C:\duke4\Editor\Src\UnMeshLP.cpp"
+"C:\duke4\Editor\Src\UnParams.cpp"
+"C:\duke4\Editor\Src\UnScrCom.cpp"
+"C:\duke4\Editor\Src\UnShadow.cpp"
+"C:\duke4\Editor\Src\UnSyntax.cpp"
+"C:\duke4\Editor\Src\UnTopics.cpp"
+"C:\duke4\Editor\Src\UnVisi.cpp"
+"C:\duke4\Editor\Src\UTextureCheckCommandlet.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP233.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP234.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "." /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Window\Inc" /I "..\Inc" /I "..\..\Engine\Src" /D EDITOR_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /FR"Release/" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Editor\Src\EdHook.cpp"
+"C:\duke4\Editor\Src\UnEdClick.cpp"
+"C:\duke4\Editor\Src\UnEdCsg.cpp"
+"C:\duke4\Editor\Src\UnEditor.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP234.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP235.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "." /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Window\Inc" /I "..\Inc" /I "..\..\Engine\Src" /D EDITOR_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /FR"Release/" /Fp"Release/Editor.pch" /Yc"EditorPrivate.h" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Editor\Src\Editor.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP235.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP236.tmp" with contents
+[
+..\..\Engine\Lib\Engine.lib user32.lib oleaut32.lib advapi32.lib shell32.lib gdi32.lib /nologo /base:"0x10200000" /subsystem:windows /dll /incremental:yes /pdb:"..\..\system\Editor.pdb" /debug /machine:I386 /out:"..\..\System\Editor.dll" /implib:"..\Lib/Editor.lib" 
+.\Release\CoolBsp.obj
+.\Release\EdHook.obj
+.\Release\Editor.obj
+.\Release\TTFontImport.obj
+.\Release\UBatchExportCommandlet.obj
+.\Release\UBrushBuilder.obj
+.\Release\UConformCommandlet.obj
+.\Release\UKillUnrealCommandlet.obj
+.\Release\UMakeCommandlet.obj
+.\Release\UMapConvertCommandlet.obj
+.\Release\UMasterCommandlet.obj
+.\Release\UMergeDXTCommandlet.obj
+.\Release\UnBsp.obj
+.\Release\UnEdAct.obj
+.\Release\UnEdCam.obj
+.\Release\UnEdClick.obj
+.\Release\UnEdCnst.obj
+.\Release\UnEdCsg.obj
+.\Release\UnEdExp.obj
+.\Release\UnEdFact.obj
+.\Release\UnEditor.obj
+.\Release\UnEdRend.obj
+.\Release\UnEdSrv.obj
+.\Release\UnEdTran.obj
+.\Release\UnMeshEd.obj
+.\Release\UnMeshLP.obj
+.\Release\UnParams.obj
+.\Release\UnScrCom.obj
+.\Release\UnShadow.obj
+.\Release\UnSyntax.obj
+.\Release\UnTopics.obj
+.\Release\UnVisi.obj
+.\Release\UTextureCheckCommandlet.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP236.tmp"
+<h3>Output Window</h3>
+Compiling...
+Editor.cpp
+Compiling...
+CoolBsp.cpp
+TTFontImport.cpp
+UBatchExportCommandlet.cpp
+UBrushBuilder.cpp
+UConformCommandlet.cpp
+UKillUnrealCommandlet.cpp
+UMakeCommandlet.cpp
+UMapConvertCommandlet.cpp
+UMasterCommandlet.cpp
+UMergeDXTCommandlet.cpp
+UnBsp.cpp
+UnEdAct.cpp
+UnEdCam.cpp
+UnEdCnst.cpp
+UnEdExp.cpp
+UnEdFact.cpp
+UnEdRend.cpp
+UnEdSrv.cpp
+UnEdTran.cpp
+UnMeshEd.cpp
+Generating Code...
+Compiling...
+UnMeshLP.cpp
+UnParams.cpp
+UnScrCom.cpp
+UnShadow.cpp
+UnSyntax.cpp
+UnTopics.cpp
+UnVisi.cpp
+UTextureCheckCommandlet.cpp
+Generating Code...
+Compiling...
+EdHook.cpp
+UnEdClick.cpp
+UnEdCsg.cpp
+UnEditor.cpp
+Generating Code...
+Linking...
+LINK : fatal error LNK1104: cannot open file "..\..\Engine\Lib\Engine.lib"
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+DukeEd.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<form method="post" action="%PostAction%" name="">
+  <table width="300" border="0">
+    <tr><td nowrap>Switch Game Type:</td>
+      <td nowrap>%GameTypeSelect%</td>
+      <td width="1%%">%GameTypeButton%</td>
+    </tr>
+    <tr><td nowrap>Switch Map:</td>
+      <td><select name="MapSelect">
+%MapSelect%
+      </select></td>
+      <td width="1%%">%MapButton%</td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

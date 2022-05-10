@@ -1,0 +1,6 @@
+Here is a list of items that need to be addressed in FreeType 2:
+
+* Add synthesized Unicode charmap processing to the CFF driver.
+
+* Add the new auto-hinting source code / native Type1/Type2 hinter
+  to the source code

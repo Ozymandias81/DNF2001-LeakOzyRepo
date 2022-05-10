@@ -1,0 +1,312 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GalaxyLib - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB0F.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\x86.obj /c /coff /Cp /Cx .\X86.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB0F.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB10.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\sbs.obj /c /coff /Cp /Cx .\Sbs.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB10.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB11.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\mmx.obj /c /coff /Cp /Cx .\Mmx.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB11.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB12.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\kni.obj /c /coff /Cp /Cx .\Kni.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB12.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB13.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\K3d.obj /c /coff /Cp /Cx .\K3d.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB13.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB14.tmp" with contents
+[
+/nologo /ML /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"GalaxyLib___Win32_Release/GalaxyLib.pch" /YX /Fo"GalaxyLib___Win32_Release/" /Fd"GalaxyLib___Win32_Release/" /FD /c 
+"C:\duke4\GalaxyLib\Galaxy.c"
+"C:\duke4\GalaxyLib\Glx-669.c"
+"C:\duke4\GalaxyLib\glx-ae.c"
+"C:\duke4\GalaxyLib\Glx-ai.c"
+"C:\duke4\GalaxyLib\Glx-am.c"
+"C:\duke4\GalaxyLib\Glx-as.c"
+"C:\duke4\GalaxyLib\Glx-au.c"
+"C:\duke4\GalaxyLib\Glx-dls.c"
+"C:\duke4\GalaxyLib\Glx-dmus.c"
+"C:\duke4\GalaxyLib\Glx-far.c"
+"C:\duke4\GalaxyLib\Glx-ima.c"
+"C:\duke4\GalaxyLib\Glx-mid.c"
+"C:\duke4\GalaxyLib\Glx-mod.c"
+"C:\duke4\GalaxyLib\Glx-mpa.c"
+"C:\duke4\GalaxyLib\Glx-mtm.c"
+"C:\duke4\GalaxyLib\Glx-ptm.c"
+"C:\duke4\GalaxyLib\Glx-s3m.c"
+"C:\duke4\GalaxyLib\Glx-sf2.c"
+"C:\duke4\GalaxyLib\Glx-smp.c"
+"C:\duke4\GalaxyLib\Glx-st3.c"
+"C:\duke4\GalaxyLib\Glx-stm.c"
+"C:\duke4\GalaxyLib\Glx-ult.c"
+"C:\duke4\GalaxyLib\Glx-voc.c"
+"C:\duke4\GalaxyLib\Glx-wav.c"
+"C:\duke4\GalaxyLib\Glx-xm.c"
+"C:\duke4\GalaxyLib\HUFFDEC.C"
+"C:\duke4\GalaxyLib\Loaders.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB14.tmp" 
+Performing Custom Build Step on .\X86.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\X86.asm
+Performing Custom Build Step on .\Sbs.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\Sbs.asm
+Performing Custom Build Step on .\Mmx.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\Mmx.asm
+Performing Custom Build Step on .\Kni.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\Kni.asm
+Performing Custom Build Step on .\K3d.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\K3d.asm
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB15.tmp" with contents
+[
+/nologo /out:"GalaxyLib___Win32_Release\GalaxyLib.lib" 
+.\GalaxyLib___Win32_Release\Galaxy.obj
+".\GalaxyLib___Win32_Release\Glx-669.obj"
+".\GalaxyLib___Win32_Release\glx-ae.obj"
+".\GalaxyLib___Win32_Release\Glx-ai.obj"
+".\GalaxyLib___Win32_Release\Glx-am.obj"
+".\GalaxyLib___Win32_Release\Glx-as.obj"
+".\GalaxyLib___Win32_Release\Glx-au.obj"
+".\GalaxyLib___Win32_Release\Glx-dls.obj"
+".\GalaxyLib___Win32_Release\Glx-dmus.obj"
+".\GalaxyLib___Win32_Release\Glx-far.obj"
+".\GalaxyLib___Win32_Release\Glx-ima.obj"
+".\GalaxyLib___Win32_Release\Glx-mid.obj"
+".\GalaxyLib___Win32_Release\Glx-mod.obj"
+".\GalaxyLib___Win32_Release\Glx-mpa.obj"
+".\GalaxyLib___Win32_Release\Glx-mtm.obj"
+".\GalaxyLib___Win32_Release\Glx-ptm.obj"
+".\GalaxyLib___Win32_Release\Glx-s3m.obj"
+".\GalaxyLib___Win32_Release\Glx-sf2.obj"
+".\GalaxyLib___Win32_Release\Glx-smp.obj"
+".\GalaxyLib___Win32_Release\Glx-st3.obj"
+".\GalaxyLib___Win32_Release\Glx-stm.obj"
+".\GalaxyLib___Win32_Release\Glx-ult.obj"
+".\GalaxyLib___Win32_Release\Glx-voc.obj"
+".\GalaxyLib___Win32_Release\Glx-wav.obj"
+".\GalaxyLib___Win32_Release\Glx-xm.obj"
+.\GalaxyLib___Win32_Release\HUFFDEC.OBJ
+.\GalaxyLib___Win32_Release\Loaders.obj
+.\GalaxyLib___Win32_Release\k3d.obj
+.\GalaxyLib___Win32_Release\kni.obj
+.\GalaxyLib___Win32_Release\mmx.obj
+.\GalaxyLib___Win32_Release\sbs.obj
+.\GalaxyLib___Win32_Release\x86.obj
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB15.tmp"
+<h3>Output Window</h3>
+Compiling...
+Galaxy.c
+Glx-669.c
+glx-ae.c
+Glx-ai.c
+Glx-am.c
+Glx-as.c
+Glx-au.c
+Glx-dls.c
+Glx-dmus.c
+Glx-far.c
+Glx-ima.c
+Glx-mid.c
+Glx-mod.c
+Glx-mpa.c
+Glx-mtm.c
+Glx-ptm.c
+Glx-s3m.c
+Glx-sf2.c
+Glx-smp.c
+Glx-st3.c
+Glx-stm.c
+Glx-ult.c
+Glx-voc.c
+Glx-wav.c
+Glx-xm.c
+HUFFDEC.C
+C:\duke4\GalaxyLib\HUFFDEC.C(56) : warning C4047: '=' : 'unsigned short *' differs in levels of indirection from 'int '
+Loaders.c
+Creating library...
+<h3>
+--------------------Configuration: xcore - Win32 Release--------------------
+</h3>
+
+
+Microsoft (R) Program Maintenance Utility   Version 6.00.8168.0
+Copyright (C) Microsoft Corp 1988-1998. All rights reserved.
+
+-------XCORE.DLL BUILD STARTING (RETAIL)--------
+----- Starting File Generation
+----- Ending File Generation
+Installing XCORE.DLL BUILD...
+Copied file "C:\duke4\xcore\obj\xcore.lib" to "C:\duke4\xcore\xcore.lib".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\system\xcore.dll".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\cannibaleditor\xcore.dll".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\meshed\xcore.dll".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\meshed3".
+Copied file "C:\duke4\xcore\obj\xcore.bsc" to "C:\duke4\xcore\xcore.bsc".
+Installing XCORE_WINAPP.LIB...
+Copied file "C:\duke4\xcore\obj\xcore_winapp.lib" to "C:\duke4\xcore\xcore_winapp.lib".
+Installing XCORE_CONSOLE.LIB...
+Copied file "C:\duke4\xcore\obj\xcore_console.lib" to "C:\duke4\xcore\xcore_console.lib".
+-------XCORE.DLL BUILD COMPLETE (RETAIL)--------
+<h3>
+--------------------Configuration: Cannibal - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB17.bat" with contents
+[
+@echo off
+ml /Fo.\Release\msg.obj /c /coff /Cp /Cx .\msg.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB17.bat"
+Creating command line "rc.exe /l 0x409 /fo"Release/MacEdit.res" /i "Res" /d "NDEBUG" "C:\duke4\Cannibal\Res\MacEdit.rc"" 
+Performing Custom Build Step on .\msg.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\msg.asm
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB18.tmp" with contents
+[
+/nologo /MD /W3 /GX /Zi /O2 /Ob2 /I "../core/inc" /I "../xcore" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "KRN_EXPORTS" /D "KRN_DLL" /U "XCORE_PURE" /Fp"Release/Cannibal.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\duke4\Cannibal\CorMain.cpp"
+"C:\duke4\Cannibal\Kernel.cpp"
+"C:\duke4\Cannibal\StrMain.cpp"
+"C:\duke4\Cannibal\LogMain.cpp"
+"C:\duke4\Cannibal\TimeMain.cpp"
+"C:\duke4\Cannibal\MemMain.cpp"
+"C:\duke4\Cannibal\FileBox.cpp"
+"C:\duke4\Cannibal\FileMain.cpp"
+"C:\duke4\Cannibal\LexMain.cpp"
+"C:\duke4\Cannibal\PrsMain.cpp"
+"C:\duke4\Cannibal\MsgMain.cpp"
+"C:\duke4\Cannibal\ObjMain.cpp"
+"C:\duke4\Cannibal\InMain.cpp"
+"C:\duke4\Cannibal\InWin.cpp"
+"C:\duke4\Cannibal\CpjFrm.cpp"
+"C:\duke4\Cannibal\CpjGeo.cpp"
+"C:\duke4\Cannibal\CpjLod.cpp"
+"C:\duke4\Cannibal\CpjMac.cpp"
+"C:\duke4\Cannibal\CpjMain.cpp"
+"C:\duke4\Cannibal\CpjProj.cpp"
+"C:\duke4\Cannibal\CpjSeq.cpp"
+"C:\duke4\Cannibal\CpjSkl.cpp"
+"C:\duke4\Cannibal\CpjSrf.cpp"
+"C:\duke4\Cannibal\MacEdit.cpp"
+"C:\duke4\Cannibal\PlgMain.cpp"
+"C:\duke4\Cannibal\IpcMain.cpp"
+"C:\duke4\Cannibal\WinCtrl.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB18.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB19.tmp" with contents
+[
+/nologo /MD /W3 /GX /Zi /O2 /Ob2 /I "../core/inc" /I "../xcore" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "KRN_EXPORTS" /D "KRN_DLL" /U "XCORE_PURE" /FAs /Fa"Release/" /Fp"Release/Cannibal.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\duke4\Cannibal\MacMain.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB19.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB1A.tmp" with contents
+[
+../xcore/xcore.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib /nologo /dll /incremental:no /pdb:"Release/Cannibal.pdb" /map:"Release/Cannibal.map" /debug /debugtype:both /machine:I386 /out:"..\System\Cannibal.dll" /implib:"Release/Cannibal.lib" 
+.\Release\CorMain.obj
+.\Release\Kernel.obj
+.\Release\StrMain.obj
+.\Release\LogMain.obj
+.\Release\TimeMain.obj
+.\Release\MemMain.obj
+.\Release\FileBox.obj
+.\Release\FileMain.obj
+.\Release\LexMain.obj
+.\Release\PrsMain.obj
+.\Release\MsgMain.obj
+.\Release\ObjMain.obj
+.\Release\InMain.obj
+.\Release\InWin.obj
+.\Release\CpjFrm.obj
+.\Release\CpjGeo.obj
+.\Release\CpjLod.obj
+.\Release\CpjMac.obj
+.\Release\CpjMain.obj
+.\Release\CpjProj.obj
+.\Release\CpjSeq.obj
+.\Release\CpjSkl.obj
+.\Release\CpjSrf.obj
+.\Release\MacEdit.obj
+.\Release\MacMain.obj
+.\Release\PlgMain.obj
+.\Release\IpcMain.obj
+.\Release\WinCtrl.obj
+.\Release\MacEdit.res
+.\Release\msg.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB1A.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+CorMain.cpp
+Kernel.cpp
+StrMain.cpp
+LogMain.cpp
+TimeMain.cpp
+MemMain.cpp
+FileBox.cpp
+FileMain.cpp
+LexMain.cpp
+PrsMain.cpp
+MsgMain.cpp
+ObjMain.cpp
+InMain.cpp
+InWin.cpp
+CpjFrm.cpp
+CpjGeo.cpp
+CpjLod.cpp
+CpjMac.cpp
+CpjMain.cpp
+CpjProj.cpp
+CpjSeq.cpp
+CpjSkl.cpp
+CpjSrf.cpp
+MacEdit.cpp
+PlgMain.cpp
+IpcMain.cpp
+WinCtrl.cpp
+Compiling...
+MacMain.cpp
+cl.exe terminated at user request.
+
+</pre>
+</body>
+</html>

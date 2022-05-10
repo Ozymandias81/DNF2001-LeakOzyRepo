@@ -1,0 +1,338 @@
+C3S (Cannibal 3D Scene)
+Format Specification Version 1.0
+Author: Chris Hargrove
+Last modified: 2/15/99
+
+_____Overview
+
+C3S is an RIFF-style format containing Cannibal 3D Scene information.
+Each C3S contains a scene header chunk and a series of model chunks.
+Each model chunk contains a series of model resource subchunks, which possess
+all relevant information regarding a model's structure.
+
+
+_____Conventions
+
+Several data types are used throughout this document to describe the format
+of the C3S chunks and subchunks.  Some correlate to basic data types, others
+to streams and structures.  These are described as follows:
+
+basic types:
+    byte        unsigned 8-bit integer
+    word        unsigned 16-bit integer
+    dword       unsigned 32-bit integer
+    sbyte       signed 8-bit integer
+    sword       signed 16-bit integer
+    sdword      signed 32-bit integer
+    float       IEEE 32-bit single-precision floating point value
+
+streams:
+    compdword   compressed dword, size is between 1 and 5 bytes depending
+                on the value.  For each byte "b" read, value += (b & 0x7F).
+                If (b & 0x80), then value <<= 7 and continue with next byte.
+    stringz     null-terminated byte character string
+
+structures:
+    vec2        2 float vector
+    vec3        3 float vector
+    quat        4 float quaternion (vec3 vector, float scalar)
+    ocs         10 float orthogonal coordinate system (vec3 scale,
+                quat rotate, vec3 translate)
+    struct {}   abstract data type structure
+
+
+All data types may have one or more bracket suffixes "[#]" after the type
+name, where # is constant for fixed-size arrays, or ? for dynamic arrays.
+Dynamic arrays store their count as a compdword before the array data begins.
+
+The coordinate system convention in C3S files is a right-handed coordinate
+system, where X represents vRight, Y represents vUp, and Z represents vOut
+(or vBackward, i.e. out of the screen backward toward the viewer).
+
+
+_____Layout
+
+The file begins with a "RIFF" dword marker, as all RIFF (Resource Interchange
+File Format) files do.  Following this marker is a dword length of the data
+that follows, i.e. the length of the file minus 8.  Following this length is
+the RIFF data type marker, which is "C3SB" (for C3S Binary) followed by the
+C3S data chunks.
+
+Only two types of top-level data chunks exist for RIFF C3SB at this time.
+These are the SHDR (Scene Header) chunk and SMDL (Scene Model) chunks.
+Only one SHDR chunk exists for a RIFF C3SB, and it must exist for the scene
+to be considered valid.  The file can (and often will) contain multiple
+SMDL chunks, however.  Both of these chunks are described in detail below.
+Any other chunk data types not recognized by the reader should be skipped
+over in the usual fashion, allowing for extensions.
+
+
+_____SHDR Chunk - Scene Header
+
+This chunk is unique for a scene and provides header information for the
+scene as a whole.
+
+If this chunk's length value is odd, the chunk will be followed by a single
+zero byte which is not included in the length value, in order to round the
+chunk to a word boundary (since all RIFF chunks must have word granularity).
+
+    dword sceneVersion; // 0x10000 = version 1.0 (hiword=major, loword=minor)
+    stringz name; // name of scene
+    stringz author; // scene author
+    stringz description; // description text
+
+
+_____SMDL Chunk - Scene Model
+
+One of these chunks exists for each model in the scene, and contains a small
+header block followed by a large number of subchunks, which consume the
+remainder of the chunk's data space.
+
+If this chunk's length value is odd, the chunk will be followed by a single
+zero byte which is not included in the length value, in order to round the
+chunk to a word boundary (since all RIFF chunks must have word granularity).
+
+    dword modelVersion; // 0x10000 = version 1.0 (hiword=major, loword=minor)
+                        // Note that this version can change independent of
+                        // the scene version.
+    stringz name; // name of model
+
+If the length of the model name (with null terminator) is odd, then an
+additional zero byte will be added so the first subchunk will begin at a
+word boundary.
+
+Each SMDL subchunk starts like a standard chunk (data type and length of
+subsequent data).  Any subchunk data types not recognized by the reader
+should be skipped over in the usual fashion, allowing for extensions.
+
+If a subchunk's length value is odd, the subchunk will be followed by a single
+zero byte which is not included in the length value, in order to round the
+chunk to a word boundary (since all RIFF chunks must have word granularity).
+
+When a subchunk lists a data member as referring to an index N of another
+subchunk, it means the Nth instance of that subchunk type in the order that
+it occurs within the model, starting with N=1.  If the index is 0, it is to
+be interpreted as a null pointer for that data member.
+
+Each subchunk's data block begins with the following:
+
+    compdword version; // subchunk version, listed with subchunk.
+                       // Note that these versions can change independent of
+                       // the scene and model versions.
+    stringz name; // subchunk name
+    compdword flags; // subchunk flags, usage described with subchunk
+
+The current set of SMDL subchunks is listed as follows:
+
+
+TXTR Texture
+Version 1
+Image texture used by materials
+
+    flags:
+        TEXF_MASKING = 0x00000001 // texture is a masking texture
+
+    compdword width; // width of texture, must be power of two
+    compdword height; // height of texture, must be power of two
+    stringz imageFile; // image filename path
+
+
+WAVE Sound
+Version 1
+Waveform used by materials and triggers
+
+    stringz waveFile; // waveform filename path
+
+
+MATR Material
+Version 1
+Surface material used by trifaces
+
+    flags:
+        MATF_UNLIT = 0x00000001 // texture is not lit by dynamic lighting
+
+    float transparency; // transparency value [0.0-1.0]
+    compdword[?] textures; // texture indices used by material
+    compdword[?] sounds; // sound indices used by material
+
+
+VRTX Vertex
+Version 1
+Model element linking edges and trifaces
+
+    flags:
+        VF_DISABLED   = 0x00000001 // vertex is disabled
+
+    float lodDeathLevel; // LOD level below which vertex is inactive
+    compdword[?] edgeLinks; // edge indices connected to vertex
+    compdword[?] triFaceLinks; // triface indices connected to vertex
+
+    struct[?]
+    {
+        float weightFactor; // bone weight factor [0.0-1.0]
+        vec3 offsetPos; // offset position to bone
+        compdword weightBone; // bone used by this weight
+    } weights; // vertex weights
+
+
+VGRP VertexGroup
+Version 1
+Block of vertices
+
+    compdword[?] vertices; // vertex indices of verts in group
+
+
+VFRM VertexFrame
+Version 1
+Frame of position keys for a vertex group
+
+    flags:
+        VFF_COMPRESSED  = 0x00000001 // vertex frame is compressed
+
+    compdword vertexGroup; // vertex group index for frame
+    vec3 bbMin; // bounding box minimum for frame
+    vec3 bbMax; // bounding box maximum for frame
+    vec3 scale; // scale position bytes by this, used if compressed
+    vec3 translate; // add this to positions after scale, used if compressed
+    byte[?][3] byteVertData; // byte vertex positions (xyz),
+                             // used if compressed
+    vec3[?] vertData; // raw vertex positions, used if NOT compressed
+
+
+EDGE Edge
+Version 1
+Model element linking vertices and trifaces
+
+    flags:
+        EF_DISABLED   = 0x00000001 // edge is disabled
+        EF_LODONLY    = 0x00000002 // edge is used only by lod ranges
+
+    float reserved; // reserved, must be zero
+    compdword headVertex; // head vertex index
+    compdword tailVertex; // tail vertex index
+    compdword invertedEdge; // inverted mirror edge index
+    compdword[?] triFaceLinks; // triface indices connected to edge
+
+
+TRIF TriFace
+Version 1
+Triangle face element linking vertices and edges, represents a surface
+
+    flags:
+        TFF_DISABLED   = 0x00000001 // triface is disabled
+        TFF_TWOSIDED   = 0x00000002 // triface is two-sided
+        TFF_NINVERT    = 0x00000004 // triface normal is inverted
+        TFF_VNIGNORE   = 0x00000008 // triface is ignored in vertex normal calcs
+        TFF_HIDDEN     = 0x00000010 // triface is present but invisible
+
+    float lodDeathLevel; // LOD level below which triface is inactive
+    compdword material; // material index applied to triface
+    compdword[3] edgeRing; // edge indices linked to triface, in clockwise
+                           // order.  1st edge tail is V0
+    compdword[3] texVertRing; // texture verts used at each vertex, in
+                              // clockwise order
+    struct[?]
+    {
+        float rangeStart; // LOD level at/above which the range is active
+        compdword material; // replaces above
+        compdword[3] edgeRing; // replaces above
+        compdword[3] texVertRing; // replaces above
+    } lodRanges; // LOD ranges for triface, in ascending order
+
+
+TVRT TexVertex
+Version 1
+Texture vertex
+
+    flags:
+        TVF_DISABLED   = 0x00000001 // texture vertex is disabled
+
+    No additional subchunk members at this time
+
+
+TGRP TexVertexGroup
+Version 1
+Block of texture vertices
+
+    compdword[?] texVertices; // texvertex indices of texverts in group
+
+
+TFRM TexVertexFrame
+Version 1
+Frame of UV keys for a texture vertex group
+
+    compdword texVertexGroup; // texture vertex group index for frame
+    vec2[?] texVertData; // UV values, [0.0-1.0] each
+
+
+BONE Bone
+Version 1
+Skeletal hierarchy component
+
+    flags:
+        BF_IMPLICIT   = 0x00000001 // bone is an implicit bone
+
+    ocs baseOCS; // base coordinate system, relative to parent
+    compdword parentBone; // parent bone index to this bone
+    compdword[?] childBones; // child bone indices for this bone
+
+
+ASEQ Sequence
+Version 1
+Animation sequence
+
+    float playRate; // play rate in frames per second
+    stringz sequenceGroup; // group name this sequence belongs to
+
+    struct[?]
+    {
+        compdword[?] texVertexFrameKeys; // texvertex frames for key, must
+                                         // contain frames for all texvertex
+                                         // groups in model, in order.
+        struct[?]
+        {
+            compdword keyBone; // bone index for key
+            OCS animOCS; // animation modifier relative to keyBone's baseOCS
+        } boneKeys; // bone animation keys, may not use all bones
+        compdword[?] vertexFrameKeys; // vertex frames for key, must
+                                      // contain frames for all vertex
+                                      // groups in model, in order, if
+                                      // boneKeys is empty (these should be
+                                      // ignored if boneKeys is not empty)
+    } keyFrames; // key frames for sequence
+
+    struct[?]
+    {
+        float timeVal; // time value for trigger [0.0-1.0]
+        dword command; // trigger command code
+        byte[?] parameters; // arbitrary parameters based on command
+    
+        Predefined trigger commands:
+          Generic Trigger: Command: TRIG  Parameters: STRINGZ triggerString
+    } seqTriggers; // triggers for sequence
+
+    compdword[?] linkedSeqs; // seq indices played along with this seq
+
+
+SMNT Surface Mount
+Version 1
+Describes a point on a model's surface
+
+    ocs mountBaseOCS; // base transformation coordinate system
+    compdword mountTriFace; // triface index of surface triangle
+    vec3 mountBarys; // barycentric coordinates of mount origin
+
+    // The mount's OCS is calculated on the fly as the mountBaseOCS shifted
+    // out of another OCS determined by the triface.  This OCS has a scale
+    // of (1,1,1), a translation of the point on the triangle described by
+    // the given barycentric coordinates, and a rotation described by the
+    // axial frame where Y is the normal of the triangle, Z is the normalized
+    // vector from the origin point to the triface's vertex 0, and X is the
+    // Y axis cross the Z axis
+
+
+End of SMDL Subchunks
+
+
+____EOF - End of file
+

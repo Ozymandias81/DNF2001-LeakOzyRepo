@@ -1,0 +1,13 @@
+LIBRARY vidd3d
+
+EXETYPE WINDOWS
+
+HEAPSIZE 256000
+
+VERSION 0.001
+
+EXPORTS
+	DllMain
+	VidQuery
+	VidVersion
+	VidRelease

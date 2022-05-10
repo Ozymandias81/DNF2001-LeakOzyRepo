@@ -1,0 +1,12 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="refresh" CONTENT="5; URL=%LogRefresh%">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+%LogText%
+<a name="END"></a> 
+</body>
+</html>

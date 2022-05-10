@@ -1,0 +1,699 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WIN_INPUTBOX DIALOG DISCARDABLE  0, 0, 212, 74
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Generic Input Box"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EB_WIN_INPUTBOX,7,31,198,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,47,53,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,113,53,50,14
+    LTEXT           "Insert Question Here",IDC_ST_WIN_INPUTBOX,7,7,198,19
+END
+
+IDD_WIN_SELECTIONBOX DIALOGEX 0, 0, 136, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Generic Selection Box"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Insert Question Here",IDC_ST_WIN_SELECTIONBOX,7,7,122,
+                    19
+    LISTBOX         IDC_LB_WIN_SELECTIONBOX,7,29,122,92,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "OK",IDOK,7,124,60,15
+    PUSHBUTTON      "Cancel",IDCANCEL,69,124,60,15
+END
+
+IDD_WIN_SELECTIONBOXMULTI DIALOGEX 0, 0, 136, 169
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Generic Selection Box"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Insert Question Here",IDC_ST_WIN_SELECTIONBOX,7,7,122,
+                    19
+    LISTBOX         IDC_LB_WIN_SELECTIONBOX,7,29,122,92,LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "Select All",IDC_BT_WIN_SELECTIONBOXMULTI_SELALL,7,124,
+                    60,15
+    PUSHBUTTON      "Select None",IDC_BT_WIN_SELECTIONBOXMULTI_SELNONE,69,
+                    124,60,15
+    PUSHBUTTON      "OK",IDOK,7,150,60,15
+    PUSHBUTTON      "Cancel",IDCANCEL,69,150,60,15
+END
+
+IDD_MAC_EDITOR DIALOGEX 0, 0, 553, 284
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Model Configuration Editor"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tree1",IDC_TV_MAC_BROWSER,"SysTreeView32",
+                    TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | 
+                    WS_BORDER | WS_TABSTOP,8,16,190,261,WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EB_MAC_GEOMETRY,242,75,160,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    CTEXT           "Geometry",IDC_STATIC,214,67,187,8,SS_CENTERIMAGE
+    PUSHBUTTON      "Clear",IDC_BT_MAC_CLEARGEO,214,75,26,9
+    EDITTEXT        IDC_EB_MAC_SURFACE0,242,100,160,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    CTEXT           "Primary Surface",IDC_STATIC,213,92,188,8,SS_CENTERIMAGE
+    PUSHBUTTON      "Clear",IDC_BT_MAC_CLEARSRF0,214,100,26,9
+    EDITTEXT        IDC_EB_MAC_SURFACE1,242,126,160,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    CTEXT           "Decal Surface",IDC_STATIC,214,118,188,8,SS_CENTERIMAGE
+    PUSHBUTTON      "Clear",IDC_BT_MAC_CLEARSRF1,214,126,26,9
+    EDITTEXT        IDC_EB_MAC_SKELETON,242,177,160,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    CTEXT           "Skeleton",IDC_STATIC,214,169,188,8,SS_CENTERIMAGE
+    PUSHBUTTON      "Clear",IDC_BT_MAC_CLEARSKL,214,177,26,9
+    EDITTEXT        IDC_EB_MAC_LODDATA,242,151,160,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    CTEXT           "LOD Data",IDC_STATIC,214,142,187,8,SS_CENTERIMAGE
+    PUSHBUTTON      "Clear",IDC_BT_MAC_CLEARLOD,214,151,26,9
+    CTEXT           "Frames",IDC_STATIC,213,194,188,8,SS_CENTERIMAGE
+    COMBOBOX        IDC_CB_MAC_FRAMES_FILES,242,203,160,51,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Clear",IDC_BT_MAC_CLEARFRM,213,204,26,9
+    CTEXT           "Sequences",IDC_STATIC,213,237,188,8,SS_CENTERIMAGE
+    COMBOBOX        IDC_CB_MAC_SEQUENCES_FILES,242,246,160,67,
+                    CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Clear",IDC_BT_MAC_CLEARSEQ,213,247,26,9
+    COMBOBOX        IDC_CB_MAC_SEQUENCES_OBJECTS,274,262,127,63,
+                    CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Working Configuration",IDC_STATIC,208,4,339,276
+    GROUPBOX        "Project Browser",IDC_STATIC,4,4,200,276
+    COMBOBOX        IDC_CB_MAC_FRAMES_OBJECTS,274,219,127,63,
+                    CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Available Frames",IDC_STATIC,215,219,56,9,
+                    SS_CENTERIMAGE
+    CTEXT           "Available Seqs",IDC_STATIC,220,263,52,9,SS_CENTERIMAGE
+    CTEXT           "Config Name:",IDC_STATIC,212,20,45,9,SS_CENTERIMAGE
+    EDITTEXT        IDC_EB_MAC_CONFIG,259,20,142,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "Save",IDC_BT_MAC_CONFIGSAVE,404,20,34,10
+    PUSHBUTTON      "Save As",IDC_BT_MAC_CONFIGSAVEAS,439,20,34,10
+    CONTROL         "Save Project File",IDC_CK_MAC_CONFIGSAVECPJ,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,475,20,68,10
+    CTEXT           "Author:",IDC_STATIC,211,35,28,9,SS_CENTERIMAGE
+    EDITTEXT        IDC_EB_MAC_AUTHOR,240,34,302,12,ES_AUTOHSCROLL
+    CTEXT           "Description:",IDC_STATIC,211,49,41,9,SS_CENTERIMAGE
+    EDITTEXT        IDC_EB_MAC_DESCRIPTION,254,48,288,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Origin",IDC_BT_MAC_ORIGIN,408,75,132,11
+    LTEXT           "X=0.000, Y=0.000, Z=0.000",IDC_ST_MAC_ORIGIN,408,88,132,
+                    8
+    PUSHBUTTON      "Scale",IDC_BT_MAC_SCALE,408,108,132,11
+    LTEXT           "X=1.000, Y=1.000, Z=1.000",IDC_ST_MAC_SCALE,408,121,132,
+                    8
+    PUSHBUTTON      "Rotation (in degrees)",IDC_BT_MAC_ROTATION,408,142,132,
+                    11
+    LTEXT           "Roll=0.0, Pitch=0.0, Yaw=0.0",IDC_ST_MAC_ROTATION,408,
+                    155,132,8
+    PUSHBUTTON      "Bounding Box Minimum",IDC_BT_MAC_BBMIN,408,175,132,11
+    LTEXT           "X=0.000, Y=0.000, Z=0.000",IDC_ST_MAC_BBMIN,408,188,132,
+                    8
+    PUSHBUTTON      "Bounding Box Maximum",IDC_BT_MAC_BBMAX,408,209,132,11
+    LTEXT           "X=0.000, Y=0.000, Z=0.000",IDC_ST_MAC_BBMAX,408,222,132,
+                    8
+    PUSHBUTTON      "Force Refresh",IDC_BT_MAC_REFRESH,431,263,87,12
+    PUSHBUTTON      "Auto-Generate Bounding Box",IDC_BT_MAC_BBAUTO,408,236,
+                    132,11
+    PUSHBUTTON      "Auto-Center From Bounding Box",IDC_BT_MAC_AUTOCENTER,
+                    408,248,132,11
+END
+
+IDD_MAC_PR_MAC DIALOG DISCARDABLE  0, 0, 252, 140
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Config Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_LB_MAC_PR_MAC_COMMANDS,14,14,223,113,
+                    LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    GROUPBOX        "Actor Commands",IDC_STATIC,7,3,238,131
+END
+
+IDD_MAC_PR_GEO DIALOG DISCARDABLE  0, 0, 187, 85
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Geometry Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_CB_MAC_PR_GEO_MOUNTS,65,58,77,70,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Rename",IDC_BT_MAC_PR_GEO_MOUNTRENAME,145,58,31,12
+    EDITTEXT        IDC_EB_MAC_PR_GEO_NUMVERTS,55,13,41,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EB_MAC_PR_GEO_NUMTRIS,131,19,45,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EB_MAC_PR_GEO_NUMMOUNTS,33,58,28,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EB_MAC_PR_GEO_NUMVERTSLOCKED,55,27,41,12,
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,34,14,19,9
+    RTEXT           "Total:",IDC_STATIC,109,20,19,9
+    RTEXT           "Total:",IDC_STATIC,9,59,20,9
+    RTEXT           "LOD Locked:",IDC_STATIC,10,28,43,9
+    GROUPBOX        "Vertices",IDC_STATIC,5,3,96,42
+    GROUPBOX        "Triangles",IDC_STATIC,104,3,78,42
+    GROUPBOX        "Mount Points",IDC_STATIC,5,46,176,33
+END
+
+IDD_MAC_PR_SRF DIALOG DISCARDABLE  0, 0, 182, 97
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Surface Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_CB_MAC_PR_SRF_TEXTURES,57,57,81,70,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Rename",IDC_BT_MAC_PR_SRF_TEXTURERENAME,141,57,31,12
+    EDITTEXT        IDC_EB_MAC_PR_SRF_TEXTUREOBJ,32,73,113,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Use",IDC_BT_MAC_PR_SRF_TEXTUREOBJUSE,148,73,24,12
+    EDITTEXT        IDC_EB_MAC_PR_SRF_NUMTEXTURES,32,58,21,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,9,59,20,9
+    EDITTEXT        IDC_EB_MAC_PR_SRF_NUMTRIS,36,19,45,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,14,20,19,9
+    GROUPBOX        "Triangles",IDC_STATIC,5,3,85,42
+    EDITTEXT        IDC_EB_MAC_PR_SRF_NUMUV,123,19,45,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,101,20,19,9
+    GROUPBOX        "UV Coordinates",IDC_STATIC,94,3,83,42
+    GROUPBOX        "Textures",IDC_STATIC,5,46,172,47
+    RTEXT           "Object:",IDC_STATIC,7,75,23,9
+END
+
+IDD_MAC_PR_SKL DIALOG DISCARDABLE  0, 0, 185, 114
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Skeleton Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_CB_MAC_PR_SKL_BONES,65,43,77,70,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Rename",IDC_BT_MAC_PR_SKL_BONERENAME,145,43,31,12
+    EDITTEXT        IDC_EB_MAC_PR_SKL_BONELENGTH,133,59,43,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CB_MAC_PR_SKL_MOUNTS,65,91,77,70,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Rename",IDC_BT_MAC_PR_SKL_MOUNTRENAME,145,91,31,12
+    EDITTEXT        IDC_EB_MAC_PR_SKL_NUMVERTS,31,13,41,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EB_MAC_PR_SKL_NUMWEIGHTS,131,13,41,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,10,14,19,9
+    RTEXT           "Weight Count:",IDC_STATIC,84,14,45,9
+    GROUPBOX        "Vertices",IDC_STATIC,5,3,175,28
+    EDITTEXT        IDC_EB_MAC_PR_SKL_NUMMOUNTS,33,91,28,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,9,92,20,9
+    GROUPBOX        "Mount Points",IDC_STATIC,5,79,176,33
+    GROUPBOX        "Bones",IDC_STATIC,5,33,175,44
+    EDITTEXT        IDC_EB_MAC_PR_SKL_NUMBONES,33,43,28,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,9,44,20,9
+    EDITTEXT        IDC_EB_MAC_PR_SKL_BONEPARENT,36,59,56,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Parent:",IDC_STATIC,10,60,24,9
+    RTEXT           "Rel.Length:",IDC_STATIC,94,60,37,9
+END
+
+IDD_MAC_PR_LOD DIALOG DISCARDABLE  0, 0, 175, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "LOD Data Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Generate from working configuration",
+                    IDC_BT_MAC_PR_LOD_GENERATE,15,19,147,27
+END
+
+IDD_MAC_PR_FRM DIALOG DISCARDABLE  0, 0, 190, 114
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Frames Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_LB_MAC_PR_FRM_FRAMES,10,29,77,75,
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Compressed",IDC_CK_MAC_PR_FRM_FRAMECOMPRESSED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,116,29,55,11
+    GROUPBOX        "Frames",IDC_STATIC,5,3,88,105
+    EDITTEXT        IDC_EB_MAC_PR_FRM_NUMFRAMES,43,13,41,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,21,14,19,9
+    GROUPBOX        "Frame Info",IDC_STATIC,97,3,88,105
+    EDITTEXT        IDC_EB_MAC_PR_FRM_FRAMENUMVERTS,137,15,41,12,
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Vertices:",IDC_STATIC,103,16,31,9
+END
+
+IDD_MAC_PR_SEQ DIALOG DISCARDABLE  0, 0, 196, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sequence Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EB_MAC_PR_SEQ_NUMFRAMES,36,13,45,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,14,14,19,9
+    GROUPBOX        "Frames",IDC_STATIC,5,3,85,28
+    EDITTEXT        IDC_EB_MAC_PR_SEQ_NUMBONES,127,14,51,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,101,15,19,9
+    GROUPBOX        "Bones",IDC_STATIC,94,3,93,57
+    COMBOBOX        IDC_CB_MAC_PR_SEQ_BONES,102,29,77,70,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CB_MAC_PR_SEQ_EVENTTYPE,130,72,52,70,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_BT_MAC_PR_SEQ_EVENTADD,95,68,31,10
+    EDITTEXT        IDC_EB_MAC_PR_SEQ_EVENTTIME,37,89,34,12,ES_AUTOHSCROLL
+    GROUPBOX        "Events",IDC_STATIC,5,62,181,44
+    EDITTEXT        IDC_EB_MAC_PR_SEQ_NUMEVENTS,53,72,20,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EB_MAC_PR_SEQ_EVENTSTRING,94,89,87,12,ES_AUTOHSCROLL | 
+                    NOT WS_TABSTOP
+    RTEXT           "Text:",IDC_STATIC,74,90,18,9
+    RTEXT           "Frame:",IDC_STATIC,9,90,26,9
+    EDITTEXT        IDC_EB_MAC_PR_SEQ_CUREVENT,24,72,20,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    CTEXT           "/",IDC_STATIC,44,73,8,9
+    PUSHBUTTON      "Delete",IDC_BT_MAC_PR_SEQ_EVENTDELETE,95,77,31,10
+    PUSHBUTTON      "<",IDC_BT_MAC_PR_SEQ_EVENTPREV,7,73,15,10
+    PUSHBUTTON      ">",IDC_BT_MAC_PR_SEQ_EVENTNEXT,75,73,15,10
+    EDITTEXT        IDC_EB_MAC_PR_SEQ_PLAYRATE,39,42,41,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Play Rate",IDC_STATIC,5,32,85,28
+    PUSHBUTTON      "Change",IDC_BT_MAC_PR_SEQ_PLAYRATE,7,43,31,10
+    PUSHBUTTON      "Remove References",IDC_BT_MAC_PR_SEQ_BONEREMOVE,101,46,
+                    78,10
+END
+
+IDD_WIN_VECTORBOX DIALOG DISCARDABLE  0, 0, 173, 71
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Generic Vector Input Box"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EB_WIN_VECTORBOX_X,49,5,120,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EB_WIN_VECTORBOX_Y,49,20,120,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EB_WIN_VECTORBOX_Z,49,35,120,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,33,53,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,89,53,50,14
+    RTEXT           "X",IDC_ST_WIN_VECTORBOX_X,5,7,40,10
+    RTEXT           "Y",IDC_ST_WIN_VECTORBOX_Y,5,22,40,10
+    RTEXT           "Z",IDC_ST_WIN_VECTORBOX_Z,5,37,40,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAC_EDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 546
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 277
+    END
+
+    IDD_MAC_PR_MAC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 133
+    END
+
+    IDD_MAC_PR_GEO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 78
+    END
+
+    IDD_MAC_PR_SRF, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_MAC_PR_SKL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 178
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_MAC_PR_LOD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 168
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_MAC_PR_FRM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 183
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_MAC_PR_SEQ, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 189
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_MAC_TREEPOPUPS MENU DISCARDABLE 
+BEGIN
+    POPUP "Folder"
+    BEGIN
+        POPUP "&New"
+        BEGIN
+            MENUITEM "&Folder",                     ID_MAC_FOLDER_NEW_FOLDER
+            MENUITEM "&Project",                    ID_MAC_FOLDER_NEW_PROJECT
+
+        END
+        POPUP "&Use In Configuration"
+        BEGIN
+            MENUITEM "&Frames",                     ID_MAC_FOLDER_USE_FRAMES
+            MENUITEM "&Sequences",                  ID_MAC_FOLDER_USE_SEQUENCES
+
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     ID_MAC_FOLDER_RENAME
+        MENUITEM "&Delete",                     ID_MAC_FOLDER_DELETE
+    END
+    POPUP "&Project"
+    BEGIN
+        POPUP "&New Item"
+        BEGIN
+            MENUITEM "&Config",                     ID_MAC_PROJECT_NEW_CONFIG
+
+            MENUITEM "&Frames",                     ID_MAC_PROJECT_NEW_FRAMES
+
+            MENUITEM "&Geometry",                   ID_MAC_PROJECT_NEW_GEOMETRY
+
+            MENUITEM "&LOD Data",                   ID_MAC_PROJECT_NEW_LODDATA
+
+            MENUITEM "&Sequence",                   ID_MAC_PROJECT_NEW_SEQUENCE
+
+            MENUITEM "S&keleton",                   ID_MAC_PROJECT_NEW_SKELETON
+
+            MENUITEM "S&urface",                    ID_MAC_PROJECT_NEW_SURFACE
+
+        END
+        POPUP "&Import Items"
+        BEGIN
+            MENUITEM "&Frames",                     ID_MAC_PROJECT_IMPORT_FRAMES
+
+            MENUITEM "&Sequences",                  ID_MAC_PROJECT_IMPORT_SEQUENCES
+
+        END
+        POPUP "Remo&ve All Items"
+        BEGIN
+            MENUITEM "&Config",                     ID_MAC_PROJECT_REMOVE_CONFIG
+
+            MENUITEM "&Frames",                     ID_MAC_PROJECT_REMOVE_FRAMES
+
+            MENUITEM "&Geometry",                   ID_MAC_PROJECT_REMOVE_GEOMETRY
+
+            MENUITEM "&LOD Data",                   ID_MAC_PROJECT_REMOVE_LODDATA
+
+            MENUITEM "&Sequence",                   ID_MAC_PROJECT_REMOVE_SEQUENCE
+
+            MENUITEM "S&keleton",                   ID_MAC_PROJECT_REMOVE_SKELETON
+
+            MENUITEM "S&urface",                    ID_MAC_PROJECT_REMOVE_SURFACE
+
+        END
+        POPUP "&Use Items In Configuration"
+        BEGIN
+            MENUITEM "&Frames",                     ID_MAC_PROJECT_USE_FRAMES
+
+            MENUITEM "&Sequences",                  ID_MAC_PROJECT_USE_SEQUENCES
+
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Save",                       ID_MAC_PROJECT_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Import",                     ID_MAC_PROJECT_IMPORT
+        MENUITEM "&Export",                     ID_MAC_PROJECT_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xpand",                     ID_MAC_PROJECT_EXPAND
+        MENUITEM "&Rename",                     ID_MAC_PROJECT_RENAME
+        MENUITEM "&Delete",                     ID_MAC_PROJECT_DELETE
+    END
+    POPUP "Config"
+    BEGIN
+        MENUITEM "&Load Configuration",         ID_MAC_CONFIG_LOAD
+        MENUITEM "&Save Configuration",         ID_MAC_CONFIG_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Import",                     ID_MAC_CHUNK_IMPORT
+        MENUITEM "&Export",                     ID_MAC_CHUNK_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     ID_MAC_CHUNK_RENAME
+        MENUITEM "&Delete",                     ID_MAC_CHUNK_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties",                 ID_MAC_CHUNK_DETAILS
+    END
+    POPUP "Geometry"
+    BEGIN
+        MENUITEM "&Use In Configuration",       ID_MAC_GEOMETRY_USE
+        MENUITEM SEPARATOR
+        MENUITEM "&Import",                     ID_MAC_CHUNK_IMPORT
+        MENUITEM "&Export",                     ID_MAC_CHUNK_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     ID_MAC_CHUNK_RENAME
+        MENUITEM "&Delete",                     ID_MAC_CHUNK_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties",                 ID_MAC_CHUNK_DETAILS
+    END
+    POPUP "Surface"
+    BEGIN
+        POPUP "&Use In Configuration"
+        BEGIN
+            MENUITEM "&Primary Surface",            ID_MAC_SURFACE_USE_PRIMARY
+
+            MENUITEM "&Decal Surface",              ID_MAC_SURFACE_USE_DECAL
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Import",                     ID_MAC_CHUNK_IMPORT
+        MENUITEM "&Export",                     ID_MAC_CHUNK_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     ID_MAC_CHUNK_RENAME
+        MENUITEM "&Delete",                     ID_MAC_CHUNK_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties",                 ID_MAC_CHUNK_DETAILS
+    END
+    POPUP "LodData"
+    BEGIN
+        MENUITEM "&Use In Configuration",       ID_MAC_LODDATA_USE
+        MENUITEM SEPARATOR
+        MENUITEM "&Import",                     ID_MAC_CHUNK_IMPORT
+        MENUITEM "&Export",                     ID_MAC_CHUNK_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     ID_MAC_CHUNK_RENAME
+        MENUITEM "&Delete",                     ID_MAC_CHUNK_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties",                 ID_MAC_CHUNK_DETAILS
+    END
+    POPUP "Skeleton"
+    BEGIN
+        MENUITEM "&Use In Configuration",       ID_MAC_SKELETON_USE
+        MENUITEM SEPARATOR
+        MENUITEM "&Import",                     ID_MAC_CHUNK_IMPORT
+        MENUITEM "&Export",                     ID_MAC_CHUNK_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     ID_MAC_CHUNK_RENAME
+        MENUITEM "&Delete",                     ID_MAC_CHUNK_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties",                 ID_MAC_CHUNK_DETAILS
+    END
+    POPUP "Frames"
+    BEGIN
+        MENUITEM "&Import",                     ID_MAC_CHUNK_IMPORT
+        MENUITEM "&Export",                     ID_MAC_CHUNK_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     ID_MAC_CHUNK_RENAME
+        MENUITEM "&Delete",                     ID_MAC_CHUNK_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties",                 ID_MAC_CHUNK_DETAILS
+    END
+    POPUP "Sequence"
+    BEGIN
+        MENUITEM "&Import",                     ID_MAC_CHUNK_IMPORT
+        MENUITEM "&Export",                     ID_MAC_CHUNK_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     ID_MAC_CHUNK_RENAME
+        MENUITEM "&Delete",                     ID_MAC_CHUNK_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties",                 ID_MAC_CHUNK_DETAILS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_FILE_OPEN           BITMAP  DISCARDABLE     "FileOpen.bmp"
+IDB_FILE_CLOSED         BITMAP  DISCARDABLE     "FileClosed.bmp"
+IDB_CPJ_MAC             BITMAP  DISCARDABLE     "CpjMac.bmp"
+IDB_CPJ_CPJ             BITMAP  DISCARDABLE     "CpjCpj.bmp"
+IDB_CPJ_GEO             BITMAP  DISCARDABLE     "CpjGeo.bmp"
+IDB_CPJ_SRF             BITMAP  DISCARDABLE     "CpjSrf.bmp"
+IDB_CPJ_LOD             BITMAP  DISCARDABLE     "CpjLod.bmp"
+IDB_CPJ_SKL             BITMAP  DISCARDABLE     "CpjSkl.bmp"
+IDB_CPJ_FRM             BITMAP  DISCARDABLE     "CpjFrm.bmp"
+IDB_CPJ_SEQ             BITMAP  DISCARDABLE     "CpjSeq.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MAC_CHUNK_RENAME     "Rename the current item\nRename"
+    ID_MAC_CHUNK_IMPORT     "Import a file into this item\nImport"
+    ID_MAC_CHUNK_EXPORT     "Export a file from this item\nExport"
+    ID_MAC_CHUNK_DELETE     "Delete this item\nDelete"
+    ID_MAC_PROJECT_EXPAND   "Expand the selected project\nExpand"
+    ID_MAC_PROJECT_DELETE   "Delete this project file\nDelete"
+    ID_MAC_FOLDER_DELETE    "Delete this folder\nDelete"
+    ID_MAC_FOLDER_RENAME    "Rename the current folder\nRename"
+    ID_MAC_FOLDER_NEW_FOLDER "Create a new folder\nNew Folder"
+    ID_MAC_FOLDER_NEW_PROJECT "Create a new project\nNew Project"
+    ID_MAC_PROJECT_SAVE     "Save the contents of this project\nSave"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MAC_PROJECT_NEW_CONFIG 
+                            "Create a new model actor configuration\nNew Config"
+    ID_MAC_PROJECT_NEW_GEOMETRY "Create a new geometry resource\nNew Geometry"
+    ID_MAC_PROJECT_NEW_SURFACE "Create a new surface resource\nNew Surface"
+    ID_MAC_PROJECT_NEW_SKELETON "Create a new skeleton resource\nNew Skeleton"
+    ID_MAC_PROJECT_NEW_LODDATA "Create a new LOD Data resource\nNew LOD Data"
+    ID_MAC_PROJECT_NEW_FRAMES 
+                            "Create a new vertex frames resource\nNew Frames"
+    ID_MAC_PROJECT_NEW_SEQUENCE 
+                            "Create a new animation sequence resource\nNew Sequence"
+    ID_MAC_PROJECT_IMPORT   "Import a file to this project\nImport"
+    ID_MAC_PROJECT_EXPORT   "Export a file from this project\nExport"
+    ID_MAC_PROJECT_RENAME   "Rename the current project\nRename"
+    ID_MAC_GEOMETRY_USE     "Use geometry in current configuration\nUse"
+    ID_MAC_LODDATA_USE      "Use LOD data in current configuration\nUse"
+    ID_MAC_SKELETON_USE     "Use skeleton in current configuration\nUse"
+    ID_MAC_FRAMES_USE       "Use frames in current configuration\nUse"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MAC_SEQUENCE_USE     "Use sequence in current configuration\nUse"
+    ID_MAC_SURFACE_USE_PRIMARY 
+                            "Use primary surface in current configuration\nUse"
+    ID_MAC_SURFACE_USE_DECAL "Use decal surface in current configuration\nUse"
+    ID_MAC_CONFIG_LOAD      "Load configuration resource to current configuration\nLoad"
+    ID_MAC_CONFIG_SAVE      "Save configuration resource from current configuration\nSave"
+    ID_MAC_PROJECT_USE_FRAMES 
+                            "Use project frames in current configuration\nUse"
+    ID_MAC_PROJECT_USE_SEQUENCES 
+                            "Use project sequences in current configuration\nUse"
+    ID_MAC_FOLDER_USE_FRAMES 
+                            "Use all folder project frames in current configuration\nUse"
+    ID_MAC_FOLDER_USE_SEQUENCES 
+                            "Use all folder project sequences in current configuration\nUse"
+    ID_MAC_CHUNK_DETAILS    "View and/or edit the property details of this item\nProperties"
+    ID_MAC_CONFIG_USE       "Use configuration resource\nUse"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

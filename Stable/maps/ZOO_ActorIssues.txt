@@ -1,0 +1,53 @@
+----------------------------------------
+General actor issues
+----------------------------------------
+- Can't apply the parent texture to my spawned particle meshes.
+- Heat Vision effect on meshes is broken.
+- Actors don't "die" when they take damage from the wall/floor.
+- Actors that have been grabbed won't follow through teleporters.
+- Actors often get stuck on the player or each other
+- Need the ability to offset "SpawnOnDestroyed" objects
+
+----------------------------------------
+dnDecoration Broken Actors
+----------------------------------------
+u_Generic.G_ashtray1 - Missing polys on bottom
+u_Generic.G_Banana - Can't step on anymore, grabbing looks wierd when it squirts out
+u_Generic.G_Barricade - ULTRA difficult to shoot
+u_Generic.G_SecurityCam1 - Very difficult to shoot
+u_Generic.G_SecurityGlobe - Very difficult to shoot
+u_Generic.G_TV1 - Pretty difficult to shoot
+u_Generic.G_Trashcan - Missing polys on bottom
+u_Generic.G_WallClock - Missing Polys on back
+u_Generic.G_TV2 - Spawns a whole lot of frag types, more than specified
+u_Generic.G_TV1 - Pretty difficult to shoot
+u_Generic.G_SecurityGlobe - Pretty difficult to shoot
+u_Zone1_Vegas.Z1_ClockGrandfather - Pretty difficult to shoot
+u_Zone1_Vegas.Z1_LampFloor1 - Difficult to shoot
+u_Zone1_Vegas.Z1_LampFloorPenthouse - Difficult to shoot
+u_Zone5_Area51.Z5_c_tower - Missing polys on bottom
+
+----------------------------------------
+dnDecoration New Obsolete Actors
+----------------------------------------
+u_Generic.G_Bath_Sink1
+u_Generic.G_Firepole
+u_Generic.G_Pole
+u_Generic.G_Light_Switch
+u_Generic.G_LightSwitch
+u_Zone1_Vegas.CoinCup_Z1
+u_Zone1_Vegas.Chandalier1
+u_Zone1_Vegas.Shower_Head
+u_Zone1_Vegas.Shower_Knob
+u_Zone3_Canyon.Z3_Cactus6
+u_Zone3_Canyon.Z3_ExplosiveBarrel
+
+----------------------------------------
+dnDecoration Misc. Issues
+----------------------------------------
+u_Generic.G_VehicleSpawn - Won't show in editor, but I didn't make it obsolete
+u_Generic.G_VehicleSkybox - Won't show in editor, but I didn't make it obsolete
+u_Generic.Vehicle - Specific case thing where mapper specifies visual, not in the Zoo for now
+u_Generic.VehicleHeadlight - Used by Vehicle
+u_Generic.VehicleTaillight - Used by Vehicle
+u_Zone2_Dam.Z2_FlingCan - Special case class for the boat level

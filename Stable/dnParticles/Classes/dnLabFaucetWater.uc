@@ -1,0 +1,31 @@
+class dnLabFaucetWater extends SoftParticleSystem;
+
+defaultproperties
+{
+     Enabled=False
+     SpawnPeriod=0.050000
+     MaximumParticles=25
+     Lifetime=0.100000
+     LifetimeVariance=0.020000
+     InitialVelocity=(Z=-200.000000)
+     MaxVelocityVariance=(X=40.000000,Y=40.000000)
+     RealtimeVelocityVariance=(X=10.000000)
+     BounceElasticity=0.300000
+     Bounce=True
+     ParticlesCollideWithWorld=True
+     LineStartColor=(R=103,G=111,B=114)
+     LineEndColor=(R=183,G=191,B=191)
+     LineStartWidth=1.020000
+     LineEndWidth=1.020000
+     Textures(0)=Texture't_generic.rain.genrain6RC'
+     DrawScaleVariance=0.070000
+     StartDrawScale=0.100000
+     EndDrawScale=0.300000
+     AlphaVariance=0.100000
+     AlphaStart=0.800000
+     AlphaEnd=0.010000
+     UpdateWhenNotVisible=True
+     Style=STY_Translucent
+     CollisionRadius=0.000000
+     CollisionHeight=0.000000
+}

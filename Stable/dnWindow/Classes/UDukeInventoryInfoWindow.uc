@@ -1,0 +1,1 @@
+class UDukeInventoryInfoWindow expands UWindowFramedWindow;

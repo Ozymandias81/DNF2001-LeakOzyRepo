@@ -1,0 +1,651 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GalaxyLib - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP6.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\x86.obj /c /coff /Cp /Cx .\X86.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP6.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP7.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\sbs.obj /c /coff /Cp /Cx .\Sbs.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP7.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP8.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\mmx.obj /c /coff /Cp /Cx .\Mmx.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP8.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP9.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\kni.obj /c /coff /Cp /Cx .\Kni.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP9.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPA.bat" with contents
+[
+@echo off
+ml /Fo.\GalaxyLib___Win32_Release\K3d.obj /c /coff /Cp /Cx .\K3d.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPA.bat"
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB.tmp" with contents
+[
+/nologo /ML /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"GalaxyLib___Win32_Release/GalaxyLib.pch" /YX /Fo"GalaxyLib___Win32_Release/" /Fd"GalaxyLib___Win32_Release/" /FD /c 
+"C:\duke4\GalaxyLib\Galaxy.c"
+"C:\duke4\GalaxyLib\Glx-669.c"
+"C:\duke4\GalaxyLib\glx-ae.c"
+"C:\duke4\GalaxyLib\Glx-ai.c"
+"C:\duke4\GalaxyLib\Glx-am.c"
+"C:\duke4\GalaxyLib\Glx-as.c"
+"C:\duke4\GalaxyLib\Glx-au.c"
+"C:\duke4\GalaxyLib\Glx-dls.c"
+"C:\duke4\GalaxyLib\Glx-dmus.c"
+"C:\duke4\GalaxyLib\Glx-far.c"
+"C:\duke4\GalaxyLib\Glx-ima.c"
+"C:\duke4\GalaxyLib\Glx-mid.c"
+"C:\duke4\GalaxyLib\Glx-mod.c"
+"C:\duke4\GalaxyLib\Glx-mpa.c"
+"C:\duke4\GalaxyLib\Glx-mtm.c"
+"C:\duke4\GalaxyLib\Glx-ptm.c"
+"C:\duke4\GalaxyLib\Glx-s3m.c"
+"C:\duke4\GalaxyLib\Glx-sf2.c"
+"C:\duke4\GalaxyLib\Glx-smp.c"
+"C:\duke4\GalaxyLib\Glx-st3.c"
+"C:\duke4\GalaxyLib\Glx-stm.c"
+"C:\duke4\GalaxyLib\Glx-ult.c"
+"C:\duke4\GalaxyLib\Glx-voc.c"
+"C:\duke4\GalaxyLib\Glx-wav.c"
+"C:\duke4\GalaxyLib\Glx-xm.c"
+"C:\duke4\GalaxyLib\HUFFDEC.C"
+"C:\duke4\GalaxyLib\Loaders.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPB.tmp" 
+Performing Custom Build Step on .\X86.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\X86.asm
+Performing Custom Build Step on .\Sbs.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\Sbs.asm
+Performing Custom Build Step on .\Mmx.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\Mmx.asm
+Performing Custom Build Step on .\Kni.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\Kni.asm
+Performing Custom Build Step on .\K3d.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\K3d.asm
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPC.tmp" with contents
+[
+/nologo /out:"GalaxyLib___Win32_Release\GalaxyLib.lib" 
+.\GalaxyLib___Win32_Release\Galaxy.obj
+".\GalaxyLib___Win32_Release\Glx-669.obj"
+".\GalaxyLib___Win32_Release\glx-ae.obj"
+".\GalaxyLib___Win32_Release\Glx-ai.obj"
+".\GalaxyLib___Win32_Release\Glx-am.obj"
+".\GalaxyLib___Win32_Release\Glx-as.obj"
+".\GalaxyLib___Win32_Release\Glx-au.obj"
+".\GalaxyLib___Win32_Release\Glx-dls.obj"
+".\GalaxyLib___Win32_Release\Glx-dmus.obj"
+".\GalaxyLib___Win32_Release\Glx-far.obj"
+".\GalaxyLib___Win32_Release\Glx-ima.obj"
+".\GalaxyLib___Win32_Release\Glx-mid.obj"
+".\GalaxyLib___Win32_Release\Glx-mod.obj"
+".\GalaxyLib___Win32_Release\Glx-mpa.obj"
+".\GalaxyLib___Win32_Release\Glx-mtm.obj"
+".\GalaxyLib___Win32_Release\Glx-ptm.obj"
+".\GalaxyLib___Win32_Release\Glx-s3m.obj"
+".\GalaxyLib___Win32_Release\Glx-sf2.obj"
+".\GalaxyLib___Win32_Release\Glx-smp.obj"
+".\GalaxyLib___Win32_Release\Glx-st3.obj"
+".\GalaxyLib___Win32_Release\Glx-stm.obj"
+".\GalaxyLib___Win32_Release\Glx-ult.obj"
+".\GalaxyLib___Win32_Release\Glx-voc.obj"
+".\GalaxyLib___Win32_Release\Glx-wav.obj"
+".\GalaxyLib___Win32_Release\Glx-xm.obj"
+.\GalaxyLib___Win32_Release\HUFFDEC.OBJ
+.\GalaxyLib___Win32_Release\Loaders.obj
+.\GalaxyLib___Win32_Release\k3d.obj
+.\GalaxyLib___Win32_Release\kni.obj
+.\GalaxyLib___Win32_Release\mmx.obj
+.\GalaxyLib___Win32_Release\sbs.obj
+.\GalaxyLib___Win32_Release\x86.obj
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPC.tmp"
+<h3>Output Window</h3>
+Compiling...
+Galaxy.c
+Glx-669.c
+glx-ae.c
+Glx-ai.c
+Glx-am.c
+Glx-as.c
+Glx-au.c
+Glx-dls.c
+Glx-dmus.c
+Glx-far.c
+Glx-ima.c
+Glx-mid.c
+Glx-mod.c
+Glx-mpa.c
+Glx-mtm.c
+Glx-ptm.c
+Glx-s3m.c
+Glx-sf2.c
+Glx-smp.c
+Glx-st3.c
+Glx-stm.c
+Glx-ult.c
+Glx-voc.c
+Glx-wav.c
+Glx-xm.c
+HUFFDEC.C
+C:\duke4\GalaxyLib\HUFFDEC.C(56) : warning C4047: '=' : 'unsigned short *' differs in levels of indirection from 'int '
+Loaders.c
+Creating library...
+<h3>
+--------------------Configuration: xcore - Win32 Release--------------------
+</h3>
+
+
+Microsoft (R) Program Maintenance Utility   Version 6.00.8168.0
+Copyright (C) Microsoft Corp 1988-1998. All rights reserved.
+
+-------XCORE.DLL BUILD STARTING (RETAIL)--------
+----- Starting File Generation
+----- Ending File Generation
+Installing XCORE.DLL BUILD...
+Copied file "C:\duke4\xcore\obj\xcore.lib" to "C:\duke4\xcore\xcore.lib".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\system\xcore.dll".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\cannibaleditor\xcore.dll".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\meshed\xcore.dll".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\meshed3".
+Copied file "C:\duke4\xcore\obj\xcore.bsc" to "C:\duke4\xcore\xcore.bsc".
+Installing XCORE_WINAPP.LIB...
+Copied file "C:\duke4\xcore\obj\xcore_winapp.lib" to "C:\duke4\xcore\xcore_winapp.lib".
+Installing XCORE_CONSOLE.LIB...
+Copied file "C:\duke4\xcore\obj\xcore_console.lib" to "C:\duke4\xcore\xcore_console.lib".
+-------XCORE.DLL BUILD COMPLETE (RETAIL)--------
+<h3>
+--------------------Configuration: Cannibal - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPE.bat" with contents
+[
+@echo off
+ml /Fo.\Release\msg.obj /c /coff /Cp /Cx .\msg.asm
+]
+Creating command line "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPE.bat"
+Creating command line "rc.exe /l 0x409 /fo"Release/MacEdit.res" /i "Res" /d "NDEBUG" "C:\duke4\Cannibal\Res\MacEdit.rc"" 
+Performing Custom Build Step on .\msg.asm
+Microsoft (R) Macro Assembler Version 6.13.7299
+Copyright (C) Microsoft Corp 1981-1997.  All rights reserved.
+
+ Assembling: .\msg.asm
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPF.tmp" with contents
+[
+/nologo /MD /W3 /GX /Zi /O2 /Ob2 /I "../core/inc" /I "../xcore" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "KRN_EXPORTS" /D "KRN_DLL" /U "XCORE_PURE" /Fp"Release/Cannibal.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\duke4\Cannibal\CorMain.cpp"
+"C:\duke4\Cannibal\Kernel.cpp"
+"C:\duke4\Cannibal\StrMain.cpp"
+"C:\duke4\Cannibal\LogMain.cpp"
+"C:\duke4\Cannibal\TimeMain.cpp"
+"C:\duke4\Cannibal\MemMain.cpp"
+"C:\duke4\Cannibal\FileBox.cpp"
+"C:\duke4\Cannibal\FileMain.cpp"
+"C:\duke4\Cannibal\LexMain.cpp"
+"C:\duke4\Cannibal\PrsMain.cpp"
+"C:\duke4\Cannibal\MsgMain.cpp"
+"C:\duke4\Cannibal\ObjMain.cpp"
+"C:\duke4\Cannibal\InMain.cpp"
+"C:\duke4\Cannibal\InWin.cpp"
+"C:\duke4\Cannibal\CpjFrm.cpp"
+"C:\duke4\Cannibal\CpjGeo.cpp"
+"C:\duke4\Cannibal\CpjLod.cpp"
+"C:\duke4\Cannibal\CpjMac.cpp"
+"C:\duke4\Cannibal\CpjMain.cpp"
+"C:\duke4\Cannibal\CpjProj.cpp"
+"C:\duke4\Cannibal\CpjSeq.cpp"
+"C:\duke4\Cannibal\CpjSkl.cpp"
+"C:\duke4\Cannibal\CpjSrf.cpp"
+"C:\duke4\Cannibal\MacEdit.cpp"
+"C:\duke4\Cannibal\PlgMain.cpp"
+"C:\duke4\Cannibal\IpcMain.cpp"
+"C:\duke4\Cannibal\WinCtrl.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSPF.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP10.tmp" with contents
+[
+/nologo /MD /W3 /GX /Zi /O2 /Ob2 /I "../core/inc" /I "../xcore" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "KRN_EXPORTS" /D "KRN_DLL" /U "XCORE_PURE" /FAs /Fa"Release/" /Fp"Release/Cannibal.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\duke4\Cannibal\MacMain.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP10.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP11.tmp" with contents
+[
+../xcore/xcore.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib /nologo /dll /incremental:no /pdb:"Release/Cannibal.pdb" /map:"Release/Cannibal.map" /debug /debugtype:both /machine:I386 /out:"..\System\Cannibal.dll" /implib:"Release/Cannibal.lib" 
+.\Release\CorMain.obj
+.\Release\Kernel.obj
+.\Release\StrMain.obj
+.\Release\LogMain.obj
+.\Release\TimeMain.obj
+.\Release\MemMain.obj
+.\Release\FileBox.obj
+.\Release\FileMain.obj
+.\Release\LexMain.obj
+.\Release\PrsMain.obj
+.\Release\MsgMain.obj
+.\Release\ObjMain.obj
+.\Release\InMain.obj
+.\Release\InWin.obj
+.\Release\CpjFrm.obj
+.\Release\CpjGeo.obj
+.\Release\CpjLod.obj
+.\Release\CpjMac.obj
+.\Release\CpjMain.obj
+.\Release\CpjProj.obj
+.\Release\CpjSeq.obj
+.\Release\CpjSkl.obj
+.\Release\CpjSrf.obj
+.\Release\MacEdit.obj
+.\Release\MacMain.obj
+.\Release\PlgMain.obj
+.\Release\IpcMain.obj
+.\Release\WinCtrl.obj
+.\Release\MacEdit.res
+.\Release\msg.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP11.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+CorMain.cpp
+Kernel.cpp
+StrMain.cpp
+LogMain.cpp
+TimeMain.cpp
+MemMain.cpp
+FileBox.cpp
+FileMain.cpp
+LexMain.cpp
+PrsMain.cpp
+MsgMain.cpp
+ObjMain.cpp
+InMain.cpp
+InWin.cpp
+CpjFrm.cpp
+CpjGeo.cpp
+CpjLod.cpp
+CpjMac.cpp
+CpjMain.cpp
+CpjProj.cpp
+CpjSeq.cpp
+CpjSkl.cpp
+CpjSrf.cpp
+MacEdit.cpp
+PlgMain.cpp
+IpcMain.cpp
+WinCtrl.cpp
+Compiling...
+MacMain.cpp
+Linking...
+   Creating library Release/Cannibal.lib and object Release/Cannibal.exp
+<h3>
+--------------------Configuration: Engine - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/EngineRes.res" /i "res" /d "NDEBUG" "C:\duke4\Engine\Src\res\EngineRes.rc"" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP17.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Render\Inc" /I "..\..\WinDrv\Inc" /I "..\..\Window\Inc" /I "..\..\IpDrv\Inc" /I "..\..\IpDrv\Src" /D CORE_API=__declspec(dllexport) /D ENGINE_API=__declspec(dllexport) /D WINDOW_API=__declspec(dllexport) /D WINDRV_API=__declspec(dllexport) /D IPDRV_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /D _WIN32_IE=0x0200 /Fr"Release/" /Fp"Release/Engine.pch" /Yu"..\..\Engine\Src\EnginePrivate.h" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Core\Src\DnExec.cpp"
+"C:\duke4\Core\Src\UExporter.cpp"
+"C:\duke4\Core\Src\UFactory.cpp"
+"C:\duke4\Core\Src\UnAnsi.cpp"
+"C:\duke4\Core\Src\UnBits.cpp"
+"C:\duke4\Core\Src\UnCache.cpp"
+"C:\duke4\Core\Src\UnClass.cpp"
+"C:\duke4\Core\Src\UnCoreNet.cpp"
+"C:\duke4\Core\Src\UnCorSc.cpp"
+"C:\duke4\Core\Src\UnLinker.cpp"
+"C:\duke4\Core\Src\UnMath.cpp"
+"C:\duke4\Core\Src\UnMem.cpp"
+"C:\duke4\Core\Src\UnMisc.cpp"
+"C:\duke4\Core\Src\UnName.cpp"
+"C:\duke4\Core\Src\UnObj.cpp"
+"C:\duke4\Core\Src\UnProp.cpp"
+"C:\duke4\Core\Src\UnVcWin32.cpp"
+"C:\duke4\Render\Src\Render.cpp"
+"C:\duke4\Render\Src\UnLight.cpp"
+"C:\duke4\Render\Src\UnRandom.cpp"
+"C:\duke4\Engine\Src\UnScrTex.cpp"
+"C:\duke4\Render\Src\UnSoftLn.cpp"
+"C:\duke4\Render\Src\UnSpan.cpp"
+"C:\duke4\Render\Src\UnSprite.cpp"
+"C:\duke4\Render\Src\UnTest.cpp"
+"C:\duke4\Window\Src\Window.cpp"
+"C:\duke4\WinDrv\Src\WinClient.cpp"
+"C:\duke4\WinDrv\Src\WinDrv.cpp"
+"C:\duke4\WinDrv\Src\WinViewport.cpp"
+"C:\duke4\IpDrv\Src\InternetLink.cpp"
+"C:\duke4\IpDrv\Src\TcpLink.cpp"
+"C:\duke4\IpDrv\Src\TcpNetDriver.cpp"
+"C:\duke4\IpDrv\Src\UdpLink.cpp"
+"C:\duke4\IpDrv\Src\UMasterServerCommandlet.cpp"
+"C:\duke4\IpDrv\Src\UnSocket.cpp"
+"C:\duke4\IpDrv\Src\UUpdateServerCommandlet.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP17.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP18.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Render\Inc" /I "..\..\WinDrv\Inc" /I "..\..\Window\Inc" /I "..\..\IpDrv\Inc" /I "..\..\IpDrv\Src" /D CORE_API=__declspec(dllexport) /D ENGINE_API=__declspec(dllexport) /D WINDOW_API=__declspec(dllexport) /D WINDRV_API=__declspec(dllexport) /D IPDRV_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /D _WIN32_IE=0x0200 /Fr"Release/" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Core\Src\mail.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP18.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP19.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Render\Inc" /I "..\..\WinDrv\Inc" /I "..\..\Window\Inc" /I "..\..\IpDrv\Inc" /I "..\..\IpDrv\Src" /D CORE_API=__declspec(dllexport) /D ENGINE_API=__declspec(dllexport) /D WINDOW_API=__declspec(dllexport) /D WINDRV_API=__declspec(dllexport) /D IPDRV_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /D _WIN32_IE=0x0200 /Fr"Release/" /Fp"Release/Engine.pch" /Yu"EnginePrivate.h" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Engine\Src\ABeamSystem.cpp"
+"C:\duke4\Engine\Src\ABreakableGlass.cpp"
+"C:\duke4\Engine\Src\ADukeNet.cpp"
+"C:\duke4\Engine\Src\AFocalPoint.cpp"
+"C:\duke4\Engine\Src\ASoftParticleSystem.cpp"
+"C:\duke4\Engine\Src\BoneWarp.cpp"
+"C:\duke4\Engine\Src\DnCinematic.cpp"
+"C:\duke4\Engine\Src\DnMesh.cpp"
+"C:\duke4\Engine\Src\dnParentalLock.cpp"
+"C:\duke4\Engine\Src\dnPlayerProfile.cpp"
+"C:\duke4\Engine\Src\dnSaveLoad.cpp"
+"C:\duke4\Engine\Src\dnScreenshot.cpp"
+"C:\duke4\Engine\Src\DnTextureCanvas.cpp"
+"C:\duke4\Engine\Src\palette.cpp"
+"C:\duke4\Engine\Src\Rope.cpp"
+"C:\duke4\Engine\Src\ULodMesh.cpp"
+"C:\duke4\Engine\Src\UnActCol.cpp"
+"C:\duke4\Engine\Src\UnActor.cpp"
+"C:\duke4\Engine\Src\UnAudio.cpp"
+"C:\duke4\Engine\Src\UnCamera.cpp"
+"C:\duke4\Engine\Src\UnCamMgr.cpp"
+"C:\duke4\Engine\Src\UnCanvas.cpp"
+"C:\duke4\Engine\Src\UnCon.cpp"
+"C:\duke4\Engine\Src\UnDynBsp.cpp"
+"C:\duke4\Engine\Src\UnEngine.cpp"
+"C:\duke4\Engine\Src\UnFont.cpp"
+"C:\duke4\Engine\Src\UnFPoly.cpp"
+"C:\duke4\Engine\Src\UnGame.cpp"
+"C:\duke4\Engine\Src\UnIn.cpp"
+"C:\duke4\Engine\Src\UnLevAct.cpp"
+"C:\duke4\Engine\Src\UnLevel.cpp"
+"C:\duke4\Engine\Src\UnLevTic.cpp"
+"C:\duke4\Engine\Src\UnMain.cpp"
+"C:\duke4\Engine\Src\UnMesh.cpp"
+"C:\duke4\Render\Src\UnMeshRn.cpp"
+"C:\duke4\Engine\Src\UnModel.cpp"
+"C:\duke4\Engine\Src\UnMover.cpp"
+"C:\duke4\Engine\Src\UnObjEngine.cpp"
+"C:\duke4\Engine\Src\UnParams.cpp"
+"C:\duke4\Engine\Src\UnPath.cpp"
+"C:\duke4\Engine\Src\UnPawn.cpp"
+"C:\duke4\Engine\Src\UnPhysic.cpp"
+"C:\duke4\Engine\Src\UnPlayer.cpp"
+"C:\duke4\Engine\Src\UnPrim.cpp"
+"C:\duke4\Engine\Src\UnReach.cpp"
+"C:\duke4\Engine\Src\UnRenderIterator.cpp"
+"C:\duke4\Engine\Src\UnRoute.cpp"
+"C:\duke4\Engine\Src\UnScript.cpp"
+"C:\duke4\Engine\Src\UnTex.cpp"
+"C:\duke4\Engine\Src\UnTrace.cpp"
+"C:\duke4\Engine\Src\UnURL.cpp"
+"C:\duke4\Engine\Src\flic.cpp"
+"C:\duke4\Engine\Src\UnBunch.cpp"
+"C:\duke4\Engine\Src\UnChan.cpp"
+"C:\duke4\Engine\Src\UnConn.cpp"
+"C:\duke4\Engine\Src\UnDemoPenLev.cpp"
+"C:\duke4\Engine\Src\UnDemoRec.cpp"
+"C:\duke4\Engine\Src\UnNetDrv.cpp"
+"C:\duke4\Engine\Src\UnPenLev.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP19.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP1A.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W3 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Render\Inc" /I "..\..\WinDrv\Inc" /I "..\..\Window\Inc" /I "..\..\IpDrv\Inc" /I "..\..\IpDrv\Src" /D CORE_API=__declspec(dllexport) /D ENGINE_API=__declspec(dllexport) /D WINDOW_API=__declspec(dllexport) /D WINDRV_API=__declspec(dllexport) /D IPDRV_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /D _WIN32_IE=0x0200 /Fr"Release/" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Engine\Src\dnclient.c"
+"C:\duke4\Engine\Src\network.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP1A.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP1B.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Render\Inc" /I "..\..\WinDrv\Inc" /I "..\..\Window\Inc" /I "..\..\IpDrv\Inc" /I "..\..\IpDrv\Src" /D CORE_API=__declspec(dllexport) /D ENGINE_API=__declspec(dllexport) /D WINDOW_API=__declspec(dllexport) /D WINDRV_API=__declspec(dllexport) /D IPDRV_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /D _WIN32_IE=0x0200 /FAs /Fa"Release/" /Fr"Release/" /Fp"Release/Engine.pch" /Yu"..\..\Engine\Src\EnginePrivate.h" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Render\Src\UnRender.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP1B.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP1C.tmp" with contents
+[
+/nologo /G6 /Zp4 /MD /W4 /WX /vd0 /GX /Zi /O2 /Ob2 /I "..\..\xcore" /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\..\Render\Inc" /I "..\..\WinDrv\Inc" /I "..\..\Window\Inc" /I "..\..\IpDrv\Inc" /I "..\..\IpDrv\Src" /D CORE_API=__declspec(dllexport) /D ENGINE_API=__declspec(dllexport) /D WINDOW_API=__declspec(dllexport) /D WINDRV_API=__declspec(dllexport) /D IPDRV_API=__declspec(dllexport) /D "_WINDOWS" /D "NDEBUG" /D "UNICODE" /D "_UNICODE" /D "WIN32" /D _WIN32_IE=0x0200 /Fr"Release/" /Fp"Release/Engine.pch" /Yc"EnginePrivate.h" /Fo"Release/" /Fd"Release/" /FD /Zm256 /c 
+"C:\duke4\Engine\Src\Engine.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP1C.tmp" 
+Creating temporary file "C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP1D.tmp" with contents
+[
+..\..\xcore\xcore.lib ..\lib\spchwrap.lib comdlg32.lib comctl32.lib dinput8.lib dxguid.lib gdi32.lib user32.lib kernel32.lib winmm.lib shell32.lib ole32.lib advapi32.lib ..\Lib\s3tc.lib /nologo /base:"0x10300000" /subsystem:windows /dll /incremental:no /pdb:"..\..\system\engine.pdb" /debug /machine:I386 /nodefaultlib:"LIBC" /out:"..\..\System\Engine.dll" /implib:"..\Lib/Engine.lib" 
+.\Release\DnExec.obj
+.\Release\mail.obj
+.\Release\UExporter.obj
+.\Release\UFactory.obj
+.\Release\UnAnsi.obj
+.\Release\UnBits.obj
+.\Release\UnCache.obj
+.\Release\UnClass.obj
+.\Release\UnCoreNet.obj
+.\Release\UnCorSc.obj
+.\Release\UnLinker.obj
+.\Release\UnMath.obj
+.\Release\UnMem.obj
+.\Release\UnMisc.obj
+.\Release\UnName.obj
+.\Release\UnObj.obj
+.\Release\UnProp.obj
+.\Release\UnVcWin32.obj
+.\Release\ABeamSystem.obj
+.\Release\ABreakableGlass.obj
+.\Release\ADukeNet.obj
+.\Release\AFocalPoint.obj
+.\Release\ASoftParticleSystem.obj
+.\Release\BoneWarp.obj
+.\Release\DnCinematic.obj
+.\Release\dnclient.obj
+.\Release\DnMesh.obj
+.\Release\dnParentalLock.obj
+.\Release\dnPlayerProfile.obj
+.\Release\dnSaveLoad.obj
+.\Release\dnScreenshot.obj
+.\Release\DnTextureCanvas.obj
+.\Release\Engine.obj
+.\Release\network.obj
+.\Release\palette.obj
+.\Release\Render.obj
+.\Release\Rope.obj
+.\Release\ULodMesh.obj
+.\Release\UnActCol.obj
+.\Release\UnActor.obj
+.\Release\UnAudio.obj
+.\Release\UnCamera.obj
+.\Release\UnCamMgr.obj
+.\Release\UnCanvas.obj
+.\Release\UnCon.obj
+.\Release\UnDynBsp.obj
+.\Release\UnEngine.obj
+.\Release\UnFont.obj
+.\Release\UnFPoly.obj
+.\Release\UnGame.obj
+.\Release\UnIn.obj
+.\Release\UnLevAct.obj
+.\Release\UnLevel.obj
+.\Release\UnLevTic.obj
+.\Release\UnLight.obj
+.\Release\UnMain.obj
+.\Release\UnMesh.obj
+.\Release\UnMeshRn.obj
+.\Release\UnModel.obj
+.\Release\UnMover.obj
+.\Release\UnObjEngine.obj
+.\Release\UnParams.obj
+.\Release\UnPath.obj
+.\Release\UnPawn.obj
+.\Release\UnPhysic.obj
+.\Release\UnPlayer.obj
+.\Release\UnPrim.obj
+.\Release\UnRandom.obj
+.\Release\UnReach.obj
+.\Release\UnRender.obj
+.\Release\UnRenderIterator.obj
+.\Release\UnRoute.obj
+.\Release\UnScript.obj
+.\Release\UnScrTex.obj
+.\Release\UnSoftLn.obj
+.\Release\UnSpan.obj
+.\Release\UnSprite.obj
+.\Release\UnTest.obj
+.\Release\UnTex.obj
+.\Release\UnTrace.obj
+.\Release\UnURL.obj
+.\Release\flic.obj
+.\Release\UnBunch.obj
+.\Release\UnChan.obj
+.\Release\UnConn.obj
+.\Release\UnDemoPenLev.obj
+.\Release\UnDemoRec.obj
+.\Release\UnNetDrv.obj
+.\Release\UnPenLev.obj
+.\Release\Window.obj
+.\Release\WinClient.obj
+.\Release\WinDrv.obj
+.\Release\WinViewport.obj
+.\Release\InternetLink.obj
+.\Release\TcpLink.obj
+.\Release\TcpNetDriver.obj
+.\Release\UdpLink.obj
+.\Release\UMasterServerCommandlet.obj
+.\Release\UnSocket.obj
+.\Release\UUpdateServerCommandlet.obj
+.\Release\EngineRes.res
+..\Lib\binkw32.lib
+..\Lib\smackw32.lib
+..\Lib\Spchwrap.lib
+..\Lib\s3tc.lib
+\duke4\GalaxyLib\GalaxyLib___Win32_Release\GalaxyLib.lib
+\duke4\Cannibal\Release\Cannibal.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\Shaffner\LOCALS~1\Temp\RSP1D.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+Engine.cpp
+Compiling...
+DnExec.cpp
+UExporter.cpp
+UFactory.cpp
+UnAnsi.cpp
+UnBits.cpp
+UnCache.cpp
+UnClass.cpp
+UnCoreNet.cpp
+UnCorSc.cpp
+UnLinker.cpp
+UnMath.cpp
+UnMem.cpp
+UnMisc.cpp
+UnName.cpp
+UnObj.cpp
+UnProp.cpp
+UnVcWin32.cpp
+Render.cpp
+UnLight.cpp
+UnRandom.cpp
+Generating Code...
+Compiling...
+UnScrTex.cpp
+UnSoftLn.cpp
+UnSpan.cpp
+UnSprite.cpp
+UnTest.cpp
+Window.cpp
+WinClient.cpp
+WinDrv.cpp
+WinViewport.cpp
+InternetLink.cpp
+TcpLink.cpp
+TcpNetDriver.cpp
+UdpLink.cpp
+UMasterServerCommandlet.cpp
+UnSocket.cpp
+UUpdateServerCommandlet.cpp
+Generating Code...
+Compiling...
+mail.cpp
+Compiling...
+ABeamSystem.cpp
+ABreakableGlass.cpp
+ADukeNet.cpp
+AFocalPoint.cpp
+ASoftParticleSystem.cpp
+BoneWarp.cpp
+DnCinematic.cpp
+DnMesh.cpp
+dnParentalLock.cpp
+dnPlayerProfile.cpp
+dnSaveLoad.cpp
+dnScreenshot.cpp
+DnTextureCanvas.cpp
+palette.cpp
+Rope.cpp
+ULodMesh.cpp
+UnActCol.cpp
+UnActor.cpp
+UnAudio.cpp
+UnCamera.cpp
+Generating Code...
+Compiling...
+UnCamMgr.cpp
+UnCanvas.cpp
+UnCon.cpp
+UnDynBsp.cpp
+UnEngine.cpp
+UnFont.cpp
+UnFPoly.cpp
+UnGame.cpp
+UnIn.cpp
+UnLevAct.cpp
+UnLevel.cpp
+UnLevTic.cpp
+UnMain.cpp
+UnMesh.cpp
+UnMeshRn.cpp
+UnModel.cpp
+UnMover.cpp
+UnObjEngine.cpp
+UnParams.cpp
+UnPath.cpp
+Generating Code...
+cl.exe terminated at user request.
+
+</pre>
+</body>
+</html>

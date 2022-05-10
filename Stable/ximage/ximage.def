@@ -1,0 +1,14 @@
+LIBRARY ximage
+
+;Description 'Image manipulation library'
+
+EXETYPE WINDOWS
+
+HEAPSIZE 256000
+
+VERSION 0.001
+
+EXPORTS
+	XLoadTGADevice
+	XLoadBMPDevice
+	DllMain

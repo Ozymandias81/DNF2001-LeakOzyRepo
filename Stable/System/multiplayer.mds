@@ -1,0 +1,261 @@
+[Public]
+// Face is based on parent Mesh
+// Torso is based on the Mesh and Face
+// Arms are based on the Mesh, Face, and Torso
+// Legs are based on the Mesh, Face, and Torso
+// Icon is based on the Mesh and Face
+
+Object=(Name=dnGame.dnMalePlayer,Class=BaseCharacterClass,Parent=dnGame.DukePlayer,Description="Male Player")
+Object=(Name=dnGame.dnFemalePlayer,Class=BaseCharacterClass,Parent=dnGame.DukePlayer,Description="Female Player")
+
+// Sounds ( are based on Class )
+Object=(Name=dngame.MalePlayerSounds,   Class=VoicePack, Description="Duke Voice",  Parent="dnGame.dnMalePlayer" )
+Object=(Name=dngame.FemalePlayerSounds, Class=VoicePack, Description="Female Voice",Parent="dnGame.dnFemalePlayer" )
+
+// Generic Icons
+Object=(Name=p_portraiticons.p_nukesymbol1,Class=Texture,Description="Generic Icon",Category=DefaultIcon, Parent="ANYTHING" )
+
+// Blue and Grey EDF
+
+// Meshes
+Object=(Name=c_characters.edf1,Class=DukeMesh,Description="EDF Urban Soldier 1",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf2,Class=DukeMesh,Description="EDF Urban Soldier 2",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf3,Class=DukeMesh,Description="EDF Urban Soldier 3",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf4,Class=DukeMesh,Description="EDF Urban Soldier 4",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf5,Class=DukeMesh,Description="EDF Urban Soldier 5",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf6,Class=DukeMesh,Description="EDF Urban Soldier 6",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+
+// Groups
+Group=(Name="EDFMeshes",     Members="c_characters.edf1 c_characters.edf2 c_characters.edf3 c_characters.edf4 c_characters.edf5 c_characters.edf6",Description="All the regular EDF Soldiers")
+Group=(Name="EDFFaces",	     Members="m_characters.edfsldrface1rc m_characters.edfsldrface2rc m_characters.edfsldrface3rc m_characters.edfsldrface4rc m_characters.edfsldrface5rc")
+Group=(Name="EDFMeshesSS",   Members="c_characters.edf1 c_characters.edf4")
+Group=(Name="EDFMeshesLS",   Members="c_characters.edf2 c_characters.edf3 c_characters.edf5 c_characters.edf6")
+Group=(Name="EDFFaces_Cauc", Members="m_characters.edfsldrface1rc m_characters.edfsldrface2rc m_characters.edfsldrface3rc")
+Group=(Name="EDFFaces_Black",Members="m_characters.edfsldrface4rc m_characters.edfsldrface5rc")
+Group=(Name="EDFTorso1",     Members="m_characters.edf1bodyrc")
+Group=(Name="EDFTorso2",     Members="m_characters.edf2bodyrc")
+
+// Faces
+Object=(Name=m_characters.edfsldrface1rc,Class=Texture,Description="John",      Category=Face,Parent="EDFMeshes")
+Object=(Name=m_characters.edfsldrface2rc,Class=Texture,Description="Paul",      Category=Face,Parent="EDFMeshes")
+Object=(Name=m_characters.edfsldrface3rc,Class=Texture,Description="George",    Category=Face,Parent="EDFMeshes")
+Object=(Name=m_characters.edfsldrface4rc,Class=Texture,Description="Ringo",     Category=Face,Parent="EDFMeshes")
+Object=(Name=m_characters.edfsldrface5rc,Class=Texture,Description="Malcolm",   Category=Face,Parent="EDFMeshes")
+
+// Icons 
+Object=(Name=p_portraiticons.p_edfgrunt1,Class=Texture,Description="John Icon",     Category=FaceIcon, Parent="m_characters.edfsldrface1rc")
+Object=(Name=p_portraiticons.p_edfgrunt1,Class=Texture,Description="Paul Icon",     Category=FaceIcon, Parent="m_characters.edfsldrface2rc")
+Object=(Name=p_portraiticons.p_edfgrunt1,Class=Texture,Description="George Icon",   Category=FaceIcon, Parent="m_characters.edfsldrface3rc")
+Object=(Name=p_portraiticons.p_edfgrunt1,Class=Texture,Description="Ringo Icon",    Category=FaceIcon, Parent="m_characters.edfsldrface4rc")
+Object=(Name=p_portraiticons.p_edfgrunt1,Class=Texture,Description="Malcolm Icon",  Category=FaceIcon, Parent="m_characters.edfsldrface5rc")
+
+// Torsos
+Object=(Name=m_characters.edf1bodyrc, Class=Texture,Description="Blue EDF Torso 1", Category=Torso,Parent="EDFMeshes EDFFaces")
+Object=(Name=m_characters.edf2bodyrc, Class=Texture,Description="Blue EDF Torso 2", Category=Torso,Parent="EDFMeshes EDFFaces")
+
+// Arms
+// Short sleeve caucasian
+Object=(Name=m_characters.edf1partsrc,Class=Texture,Description="Grey Short Sleeve",Category=Arms, Parent="EDFMeshesSS EDFFaces_Cauc EDFTorso1")
+Object=(Name=m_characters.edf2partsrc,Class=Texture,Description="Blue Short Sleeve",Category=Arms, Parent="EDFMeshesSS EDFFaces_Cauc EDFTorso2")
+// Short sleeve black
+Object=(Name=m_characters.edf8partsrc,Class=Texture,Description="Grey Short Sleeve",Category=Arms, Parent="EDFMeshesSS EDFFaces_Black EDFTorso1")
+Object=(Name=m_characters.edf9partsrc,Class=Texture,Description="Grey Short Sleeve",Category=Arms, Parent="EDFMeshesSS EDFFaces_Black EDFTorso2")
+// Long sleeve
+Object=(Name=m_characters.edf5partsrc,Class=Texture,Description="Grey Long Sleeve",Category=Arms, Parent="EDFMeshesLS EDFFaces EDFTorso1")
+Object=(Name=m_characters.edf6partsrc,Class=Texture,Description="Blue Long Sleeve",Category=Arms, Parent="EDFMeshesLS EDFFaces EDFTorso2")
+
+// Pants
+Object=(Name=m_characters.edf1pantsrc,Class=Texture,Description="Grey Cammo Pants",Category=Legs, Parent="EDFMeshes EDFFaces")
+Object=(Name=m_characters.edf2pantsrc,Class=Texture,Description="Blue Pants",      Category=Legs, Parent="EDFMeshes EDFFaces")
+
+// Desert EDF
+
+// Meshes
+Object=(Name=c_characters.edf1desert,Class=DukeMesh,Description="EDF Desert Soldier 1",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf2desert,Class=DukeMesh,Description="EDF Desert Soldier 2",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf3desert,Class=DukeMesh,Description="EDF Desert Soldier 3",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf4desert,Class=DukeMesh,Description="EDF Desert Soldier 4",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf5desert,Class=DukeMesh,Description="EDF Desert Soldier 5",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+Object=(Name=c_characters.edf6desert,Class=DukeMesh,Description="EDF Desert Soldier 6",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\0.9\mouthcorner\0.7\Lip_L\0.5\Lip_U\0.7")
+
+Group=(Name="EDFMeshes_Desert",     Members="c_characters.edf1desert c_characters.edf2desert c_characters.edf3desert c_characters.edf4desert c_characters.edf5desert c_characters.edf6desert")
+Group=(Name="EDFFaces_Desert",      Members="m_characters.edfsldrface1drc m_characters.edfsldrface2drc m_characters.edfsldrface3drc m_characters.edfsldrface4drc m_characters.edfsldrface5drc")
+Group=(Name="EDFMeshesSS_Desert",   Members="c_characters.edf1desert c_characters.edf4desert")
+Group=(Name="EDFMeshesLS_Desert",   Members="c_characters.edf2desert c_characters.edf3desert c_characters.edf5desert c_characters.edf6desert")
+Group=(Name="EDFFaces_Cauc_Desert", Members="m_characters.edfsldrface1drc m_characters.edfsldrface2drc m_characters.edfsldrface3drc")
+Group=(Name="EDFFaces_Black_Desert",Members="m_characters.edfsldrface4drc m_characters.edfsldrface5drc")
+Group=(Name="EDFTorso3_Desert",     Members="m_characters.edf3bodyrc")
+
+// Faces
+Object=(Name=m_characters.edfsldrface1drc,Class=Texture,Description="John",      Category=Face,Parent="EDFMeshes_Desert")
+Object=(Name=m_characters.edfsldrface2drc,Class=Texture,Description="Paul",      Category=Face,Parent="EDFMeshes_Desert")
+Object=(Name=m_characters.edfsldrface3drc,Class=Texture,Description="George",    Category=Face,Parent="EDFMeshes_Desert")
+Object=(Name=m_characters.edfsldrface4drc,Class=Texture,Description="Ringo",     Category=Face,Parent="EDFMeshes_Desert")
+Object=(Name=m_characters.edfsldrface5drc,Class=Texture,Description="Malcolm J", Category=Face,Parent="EDFMeshes_Desert")
+
+// Torsos
+Object=(Name=m_characters.edf3bodyrc, Class=Texture,Description="Desert EDF Torso",Category=Torso,Parent="EDFMeshes_Desert EDFFaces_Desert")
+
+// Arms
+// Short sleeve caucasian
+Object=(Name=m_characters.edf3partsrc,Class=Texture,Description="Dsrt Short Sleeve",Category=Arms, Parent="EDFMeshesSS_Desert EDFTorso3_Desert EDFFaces_Cauc_Desert")
+// Short sleeve black
+Object=(Name=m_characters.edf10partsrc,Class=Texture,Description="Dsrt Short Sleeve",Category=Arms, Parent="EDFMeshesSS_Desert EDFTorso3_Desert EDFFaces_Black_Desert")
+// Long sleeve
+Object=(Name=m_characters.edf7partsrc,Class=Texture,Description="Dsrt Long Sleeve",Category=Arms, Parent="EDFMeshesLS_Desert EDFTorso3_Desert EDFFaces_Desert")
+
+// Pants
+Object=(Name=m_characters.edf3pantsrc,Class=Texture,Description="Desert Cammo Pants",Category=Legs, Parent="EDFMeshes_Desert EDFFaces_Desert")
+
+/ Civvys
+Object=(Name=c_characters.NPC_M_BellyA,Class=DukeMesh,Description="Civ Belly",Parent="dnGame.dnMalePlayer",ExtraData="\jaw\1.05\mouthcorner\0.07\Lip_L\0.5\Lip_U\0.75")
+Object=(Name=c_characters.NPC_M_FatA,  Class=DukeMesh,Description="Civ Fat",  Parent="dnGame.dnMalePlayer",ExtraData="\jaw\1.05\mouthcorner\0.07\Lip_L\0.5\Lip_U\0.75")
+Object=(Name=c_characters.NPC_M_OldA,  Class=DukeMesh,Description="Civ Old",  Parent="dnGame.dnMalePlayer",ExtraData="\jaw\1.05\mouthcorner\0.07\Lip_L\0.5\Lip_U\0.75")
+Object=(Name=c_characters.NPC_M_ThinA, Class=DukeMesh,Description="Civ Thin", Parent="dnGame.dnMalePlayer",ExtraData="\jaw\1.05\mouthcorner\0.07\Lip_L\0.5\Lip_U\0.75")
+ 	
+Group=(Name="AllCivMeshes",Members="c_characters.NPC_M_BellyA c_characters.NPC_M_FatA c_characters.NPC_M_OldA c_characters.NPC_M_ThinA")
+Group=(Name="AllCivFaces", Members="m_characters.malehead1arc m_characters.malehead2arc m_characters.malehead3arc m_characters.malehead4arc")
+Group=(Name="AllCivTorsos",Members="m_characters.maleshirt1arc m_characters.maleshirt2arc m_characters.maleshirt3arc m_characters.maleshirt4arc")
+
+// Faces
+Object=(Name=m_characters.malehead1arc,Class=Texture,Description="Male Face 1",Category=Face,Parent="AllCivMeshes")
+Object=(Name=m_characters.malehead2arc,Class=Texture,Description="Male Face 2",Category=Face,Parent="AllCivMeshes")
+Object=(Name=m_characters.malehead3arc,Class=Texture,Description="Male Face 3",Category=Face,Parent="AllCivMeshes")
+Object=(Name=m_characters.malehead4arc,Class=Texture,Description="Male Face 4",Category=Face,Parent="AllCivMeshes")
+
+// Torso
+Object=(Name=m_characters.maleshirt1arc,Class=Texture,Description="Male Torso 1",Category=Torso,Parent="AllCivMeshes AllCivFaces",)
+Object=(Name=m_characters.maleshirt2arc,Class=Texture,Description="Male Torso 2",Category=Torso,Parent="AllCivMeshes AllCivFaces")
+Object=(Name=m_characters.maleshirt3arc,Class=Texture,Description="Male Torso 3",Category=Torso,Parent="AllCivMeshes AllCivFaces")
+Object=(Name=m_characters.maleshirt4arc,Class=Texture,Description="Male Torso 4",Category=Torso,Parent="AllCivMeshes AllCivFaces")
+
+// Arms
+Object=(Name=m_characters.maleparts1arc,Class=Texture,Description="Male Arms 1",Category=Arms,Parent="AllCivMeshes AllCivFaces AllCivTorsos")
+Object=(Name=m_characters.maleparts2arc,Class=Texture,Description="Male Arms 2",Category=Arms,Parent="AllCivMeshes AllCivFaces AllCivTorsos")
+Object=(Name=m_characters.maleparts3arc,Class=Texture,Description="Male Arms 3",Category=Arms,Parent="AllCivMeshes AllCivFaces AllCivTorsos")
+Object=(Name=m_characters.maleparts4arc,Class=Texture,Description="Male Arms 4",Category=Arms,Parent="AllCivMeshes AllCivFaces AllCivTorsos")
+
+// Legs
+Object=(Name=m_characters.maleshorts1arc,Class=Texture,Description="Male Legs 1",Category=Legs,Parent="AllCivMeshes AllCivFaces AllCivTorsos")
+Object=(Name=m_characters.maleshorts2arc,Class=Texture,Description="Male Legs 2",Category=Legs,Parent="AllCivMeshes AllCivFaces AllCivTorsos")
+Object=(Name=m_characters.maleshorts3arc,Class=Texture,Description="Male Legs 3",Category=Legs,Parent="AllCivMeshes AllCivFaces AllCivTorsos")
+Object=(Name=m_characters.maleshorts4arc,Class=Texture,Description="Male Legs 4",Category=Legs,Parent="AllCivMeshes AllCivFaces AllCivTorsos")
+
+// Icons
+Object=(Name=p_portraiticons.p_npc_oldman1,Class=Texture,Description="Old Man Icon",Category=FaceIcon,Parent="m_characters.malehead3arc")
+
+/ Piggys
+Object=(Name=c_characters.PigCop, Class=DukeMesh,Description="Pig Cop",Parent="dnGame.dnMalePlayer")
+Object=(Name=c_characters.PigCopHelment, Class=DukeMesh,Description="Pig Cop Helmet",  Parent="dnGame.dnMalePlayer")
+ 	
+Group=(Name="AllPigMeshes",Members="c_characters.PigCop c_characters.PigCopHelment")
+Group=(Name="AllPigFaces",Members="m_characters.pigcopheadrc")
+Group=(Name="AllPigTorsos",Members="m_characters.pigcopbodyrc m_characters.pigbodyurbanrc m_characters.pigbodyswatrc m_characters.pigbodydesertrc")
+Group=(Name="PigNormal",Members="m_characters.pigcopbodyrc")
+Group=(Name="PigUrban",Members="m_characters.pigbodyurbanrc")
+Group=(Name="PigSwat",Members="m_characters.pigbodyswatrc")
+Group=(Name="PigDesert",Members="m_characters.pigbodydesertrc")
+
+// Faces
+Object=(Name=m_characters.pigcopheadrc,Class=Texture,Description="Squeal!",Category=Face,Parent="AllPigMeshes")
+
+// Icons
+Object=(Name=p_portraiticons.p_pigcop1,Class=Texture,Description="Pig Cop",Category=MeshIcon, Parent="c_characters.PigCop")
+Object=(Name=p_portraiticons.p_pigcop2,Class=Texture,Description="Pig Cop Helmet",Category=MeshIcon, Parent="c_characters.PigCopHelment")
+
+// Torso
+Object=(Name=m_characters.pigcopbodyrc,Class=Texture,Description="Pig Cop",Category=Torso,Parent="AllPigMeshes AllPigFaces")
+Object=(Name=m_characters.pigbodyurbanrc,Class=Texture,Description="Pig Urban",Category=Torso,Parent="AllPigMeshes AllPigFaces")
+Object=(Name=m_characters.pigbodyswatrc,Class=Texture,Description="Pig Swat",Category=Torso,Parent="AllPigMeshes AllPigFaces")
+Object=(Name=m_characters.pigbodydesertrc,Class=Texture,Description="Pig Desert",Category=Torso,Parent="AllPigMeshes AllPigFaces")
+
+// Arms
+Object=(Name=m_characters.pigcoppartsrc,Class=Texture,Description="Pig Cop Parts",Category=Arms,Parent="AllPigMeshes AllPigFaces PigNormal")
+Object=(Name=m_characters.pigpartsurbanrc,Class=Texture,Description="Pig Urban Parts",Category=Arms,Parent="AllPigMeshes AllPigFaces PigUrban")
+Object=(Name=m_characters.pigpartswatrc,Class=Texture,Description="Pig Swat Parts",Category=Arms,Parent="AllPigMeshes AllPigFaces PigSwat")
+Object=(Name=m_characters.pigpartsdesertrc,Class=Texture,Description="Pig Desert Parts",Category=Arms,Parent="AllPigMeshes AllPigFaces PigDesert")
+
+// Legs
+Object=(Name=m_characters.pigcoppantsrc,Class=Texture,Description="Pig Pants Cop",Category=Legs,Parent="AllPigMeshes AllPigFaces PigNormal")
+Object=(Name=m_characters.pigpantsurbanrc,Class=Texture,Description="Pig Pants Urban",Category=Legs,Parent="AllPigMeshes AllPigFaces PigUrban")
+Object=(Name=m_characters.pigpantswatrc,Class=Texture,Description="Pig Pants Swat",Category=Legs,Parent="AllPigMeshes AllPigFaces PigSwat")
+Object=(Name=m_characters.pigpantsdesertrc,Class=Texture,Description="Pig Pants Desert",Category=Legs,Parent="AllPigMeshes AllPigFaces PigDesert")
+
+/--------------------------
+/ EDF 209
+Object=(Name=c_characters.EDF_Heavyweps,Class=DukeMesh,Description="EDF 209",Parent="dnGame.dnMalePlayer")
+// Icon
+Object=(Name=p_portraiticons.p_edfheavyweps1,Class=Texture,Description="EDF 209 Icon",Category=MeshIcon,Parent="c_characters.EDF_Heavyweps")
+
+/--------------------------
+/ Pyro
+Object=(Name=c_characters.EDF_Pyro, Class=DukeMesh,Description="EDF Pyro",Parent="dnGame.dnMalePlayer")
+// Icon
+Object=(Name=p_portraiticons.p_edfheavweps1,Class=Texture,Description="Pyro Icon",Category=MeshIcon,Parent="c_characters.EDF_Pyro")
+
+
+/--------------------------
+/ Freezer
+// Mesh
+Object=(Name=c_characters.EDF_Freezer, Class=DukeMesh,Description="EDF Freezer",Parent="dnGame.dnMalePlayer")
+// Icon
+Object=(Name=p_portraiticons.p_edffreezer1,Class=Texture,Description="EDF Freezer Icon",Category=MeshIcon,Parent="c_characters.EDF_Freezer")
+
+
+/--------------------------
+/ Sapper Raymond
+Object=(Name=c_characters.EDF_Sapper, Class=DukeMesh,Description="Raymond",Parent="dnGame.dnMalePlayer")
+// Icons
+Object=(Name=p_portraiticons.p_edfsapper1,Class=Texture,Description="Raymond Icon",Category=MeshIcon, Parent="c_characters.EDF_Sapper")
+
+/--------------------------
+/ SapperA
+Object=(Name=c_characters.EDF_Sappergengogles, Class=DukeMesh,Description="Sapper A",Parent="dnGame.dnMalePlayer")
+
+/--------------------------
+/ SapperB
+Object=(Name=c_characters.EDF_Sappernogoggles, Class=DukeMesh,Description="Sapper B",Parent="dnGame.dnMalePlayer")
+
+/--------------------------
+/ Rodriguez
+Object=(Name=c_characters.EDF_Sniper, Class=DukeMesh,Description="Rodriguez",Parent="dnGame.dnFemalePlayer")
+// Icons
+Object=(Name=p_portraiticons.p_edfsniper1,Class=Texture,Description="Rodriguez Icon",  Category=MeshIcon, Parent="c_characters.EDF_Sniper")
+
+/--------------------------
+/ General Graves
+Object=(Name=c_characters.General_Graves, Class=DukeMesh,Description="General Graves",Parent="dnGame.dnMalePlayer")
+// Icons
+Object=(Name=p_portraiticons.p_thegeneral1,Class=Texture,Description="Graves Icon",  Category=MeshIcon, Parent="c_characters.General_Graves")
+
+/--------------------------
+/ Gus
+Object=(Name=c_characters.Gus, Class=DukeMesh,Description="Gus",Parent="dnGame.dnMalePlayer")
+// Icons
+Object=(Name=p_portraiticons.p_gus1,Class=Texture,Description="Gus Icon",  Category=MeshIcon, Parent="c_characters.Gus")
+
+/--------------------------
+/ Carl
+Object=(Name=c_characters.NPC_Mechanic1, Class=DukeMesh,Description="Carl",Parent="dnGame.dnMalePlayer")
+
+/--------------------------
+/ Pete
+Object=(Name=c_characters.NPC_Mechanic2, Class=DukeMesh,Description="Pete",Parent="dnGame.dnMalePlayer")
+
+Group=(Name="PeteMesh",Members="c_characters.NPC_Mechanic2")
+Group=(Name="PeteNFace",Members="m_characters.malehead3arc")
+Group=(Name="PeteSFace",Members="m_characters.maleheadsnah3drc")
+
+// Faces
+Object=(Name=m_characters.malehead3arc,Class=Texture,Description="Pete",Category=Face,Parent="PeteMesh")
+Object=(Name=m_characters.maleheadsnah3drc,Class=Texture,Description="Pete Snatched",Category=Face,Parent="PeteMesh")
+
+/--------------------------
+/ Tim the Dam Guide
+Object=(Name=c_characters.Dam_Guide, Class=DukeMesh,Description="Tim",Parent="dnGame.dnMalePlayer")
+// Icons
+Object=(Name=p_portraiticons.p_damguide1,Class=Texture,Description="Tim Icon",  Category=MeshIcon, Parent="c_characters.Dam_Guide")
+
+/--------------------------
+/ LizTrooper
+Object=(Name=c_characters.alien_Liztrooper, Class=DukeMesh,Description="Liztrooper",Parent="dnGame.dnMalePlayer")

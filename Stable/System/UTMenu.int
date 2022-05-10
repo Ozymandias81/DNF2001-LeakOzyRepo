@@ -1,0 +1,10 @@
+[Public]
+Object=(Name=UTMenu.UTConsole,Class=Class,MetaClass=Engine.Console)
+
+[UTConsole]
+ClassCaption=Unreal Tournament Console
+
+[OnlineServices]
+MPlayer=Free Internet Play on mplayer.com,Select this option to play on the Internet using the mplayer.com online service.,CMDQUIT,mplayer
+Heat=Free Internet Play on HEAT,Select this option to play on the Internet using the HEAT online service.,CMDQUIT,heat
+WON=Free Internet Play on WON,Select this option to play on the Internet using the WON online service.,URL,http://www.won.net/channels/action/ut/

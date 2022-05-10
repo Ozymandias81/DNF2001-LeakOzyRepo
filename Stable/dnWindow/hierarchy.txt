@@ -1,0 +1,44 @@
+//
+// I'm creating this little hierarchy as I go
+//	JP
+//
+
+Console (extends Object)		- Created inside of UGameEngine::Init() (class is actually DukeConsole, obtained from .ini)
+	WindowConsole				- Implements KeyEvent, calls Root.WindowEvent, Creates the UWindowRootWindow (named in DukeConsole)
+		DukeConsole				- Created inside of UGameEngine::Init(), names the RootWindow (created in WindowConsole)
+
+UWindowBase (extends Object)
+	
+	UWindowLookAndFeel
+	
+	UWindowList	
+		UDukeSaveLoadList
+
+	UWindowWindow				- Propogates WindowEvents, and KeyDown msg's, etc.  Implements CreateWindow
+		UDukeStatusBar			- Created in UDukeRootWindow
+		UWindowRootWindow
+			UDukeRootWindow		- Created in WindowConsole (named in DukeConsole), Creates the UDukeDesktopWindow, and UDukeStatusBar
+
+		UWindowDialogControl	- Register(UWindowDialogClientWindow), self Notify calls Registered windows Notify
+			UWindowEditControl	- Creates a UWindowEditBox, sets UWindowEditBox.NotifyOwner to self
+			UWindowEditBox		- Calls NotifyOwner.Notify (NotifyOwner is a UWindowDialogControl)
+			UWindowListControl
+				UDukeDesktopWindowBase
+					UDukeDesktopWindow
+
+		UWindowClientWindow
+			UWindowDialogClientWindow	- Implements CreateControl
+				UDukeDialogClientWindow
+					UDukeSaveGameWindowCW
+					UDukeLoadGameWindowCW
+
+		UWindowGrid
+			UDukeSaveLoadGrid
+
+		UWindowFramedWindow
+			UWindowMessageBox
+			UWindowConsoleWindow
+			UDukeFakeExplorerWindow
+				UDukeSaveGameWindow
+				UDukeLoadGameWindow
+

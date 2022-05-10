@@ -1,0 +1,564 @@
+; ƒ- Internal revision no. 5.00b -ƒƒƒƒ Last revision at 18:13 on  7-07-1998 -ƒƒ
+;
+;                The 32 bit x86 Assembly definition headerfile
+;
+;               €€€ﬂﬂ€€€ €€€ﬂ€€€ €€€    €€€ﬂ€€€ €€€  €€€ €€€ €€€
+;               €€€  ﬂﬂﬂ €€€ €€€ €€€    €€€ €€€  ﬂ€€€€ﬂ  €€€ €€€
+;               €€€ ‹‹‹‹ €€€‹€€€ €€€    €€€‹€€€    €€     ﬂ€€€ﬂ
+;               €€€  €€€ €€€ €€€ €€€    €€€ €€€  ‹€€€€‹    €€€
+;               €€€‹‹€€€ €€€ €€€ €€€‹‹‹ €€€ €€€ €€€  €€€   €€€
+;
+;                               MUSIC SYSTEM 
+;               This document contains confidential information
+;                    Copyright (c) 1993-98 Carlo Vogelsang
+;
+; ⁄ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒø
+; ≥€≤± COPYRIGHT NOTICE ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±≤€≥
+; √ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒ¥
+; ≥ This headerfile, GALAXY.AH is Copyright (c) 1993-98  by  Carlo Vogelsang. ≥
+; ≥ You may not copy, distribute,  duplicate or clone this file  in any form, ≥
+; ≥ modified or non-modified. It belongs to the author.  By copying this file ≥
+; ≥ you are violating laws and will be  punished. I will knock your brains in ≥
+; ≥ myself or you will be sued to death..                                     ≥
+; ≥                                                                     Carlo ≥
+; ¿ƒ( How the fuck did you get this file anyway? )ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒŸ
+;
+; Define constants used for soundcard type and base
+
+GLX_AUTODETECT 	        equ		0
+
+GLX_GRAVISULTRASOUND    equ		1
+GLX_SOUNDBLASTERAWE32   equ		2
+GLX_ADLIBGOLD 	        equ		3
+GLX_PROAUDIOSPECTRUM    equ		4
+GLX_SOUNDBLASTER16		equ		5
+GLX_SOUNDBLASTERPRO     equ		6
+GLX_SOUNDBLASTER		equ		7
+GLX_WINDOWSSOUNDSYSTEM  equ		8
+GLX_ADLIB				equ		9
+GLX_PCSPEAKER	        equ		10
+GLX_COVOXDAC	        equ		11
+
+GLX_DIRECTSOUND         equ     12
+GLX_WAVEDRIVER          equ     13
+
+GLX_NOSOUND             equ     14
+
+; Define constants used for channel control
+
+GLX_OFF					equ		0
+GLX_ON					equ		1
+GLX_TOGGLE 				equ		2
+GLX_STATUS              equ     3
+
+; Define constants used for music control
+
+GLX_VOLSET				equ		0
+GLX_VOLFADE				equ		1
+GLX_VOLFADE2			equ		2
+
+GLX_SETPOSITION         equ		1
+GLX_SETLOOPMODE         equ     2
+GLX_PREV                equ    -3
+GLX_CURR   				equ    -2
+GLX_NEXT                equ    -1
+GLX_NOLOOP              equ     0
+GLX_LOOP                equ     1
+
+; Define constants used for sample control 
+
+GLX_MINSMPPANNING		equ		0
+GLX_MIDSMPPANNING		equ		16384
+GLX_MAXSMPPANNING		equ		32767
+GLX_SURSMPPANNING       equ		32768
+
+GLX_MINSMPVOLUME		equ		0
+GLX_MAXSMPVOLUME	    equ		32767
+
+GLX_DEFSMPOFFSET		equ		0
+GLX_DEFSMPSPEED		    equ	   -1
+GLX_DEFSMPVOLUME        equ	   -1
+GLX_DEFSMPPANNING       equ	   -1
+
+; Define constants used for instrument control 
+
+GLX_MININSPANNING	    equ		0
+GLX_MIDINSPANNING		equ		64
+GLX_MAXINSPANNING		equ		127
+
+GLX_MININSVELOCITY		equ		0
+GLX_MAXINSVELOCITY	    equ		127  
+
+GLX_DEFINSPITCH			equ		0
+GLX_DEFINSVELOCITY	    equ	   -1
+GLX_DEFINSPANNING	    equ    -1
+GLX_DEFINSMODULATION    equ    -1
+
+; Define constants used for sample and instrument control
+
+GLX_AUTO                equ     0
+GLX_NORMAL				equ     0
+GLX_LOCKED				equ     1
+
+; Define constants used for output mode control
+
+GLX_MONO 	   			equ     0
+GLX_STEREO              equ     1
+
+GLX_8BIT  				equ     0
+GLX_16BIT    	        equ     2
+
+GLX_SHOLD               equ     0
+GLX_COSINE              equ     4
+
+GLX_2DAUDIO				equ	    0
+GLX_3DAUDIO			    equ		8
+
+; Define maximum number of channels
+
+GLX_TOTALBANKS          equ     2
+GLX_TOTALCHANNELS       equ     64
+GLX_TOTALINSTR          equ     128
+
+; Define constants used for error messages
+
+GLX_NULL                equ     0
+GLXERR_NOERROR          equ     0
+GLXERR_MUSICLOADED      equ     1
+GLXERR_MUSICPLAYING     equ     2
+GLXERR_NOMUSICLOADED    equ     3
+GLXERR_NOMUSICPLAYING   equ     4
+GLXERR_OUTPUTACTIVE     equ     5
+GLXERR_OUTPUTNOTACTIVE  equ     6
+GLXERR_OUTOFCHANNELS    equ     7
+GLXERR_OUTOFINSTRUMENTS equ     8
+GLXERR_OUTOFMEMORY      equ     9
+GLXERR_OUTOFPATTERNMEM  equ     10
+GLXERR_OUTOFSAMPLEMEM   equ     11
+GLXERR_DEVICEBUSY       equ     12
+GLXERR_DEVICENOWRITE    equ     13
+GLXERR_UNSUPPORTEDDEVICE equ    14
+GLXERR_UNSUPPORTEDFORMAT equ    15
+GLXERR_DAMAGEDFILE		equ		16
+GLXERR_BADPARAMETER     equ     17
+
+; Define structures used internally
+
+glxArti			STRUC
+VibType         db      ?                               ; Vibrato waveform
+VibDelay        dw      ?                               ; Vibrato start delay
+VibDepth        dw      ?                               ; Vibrato depth (1/256)
+VibSpeed        dw      ?                               ; Vibrato speed (1/64)
+TremType        db      ?                               ; Tremolo waveform
+TremDelay       dw      ?                               ; Tremolo start delay
+TremDepth       dw      ?                               ; Tremolo depth (1/32768)
+TremSpeed       dw      ?                               ; Tremolo speed (1/64)
+VolFlag       	db		?								; Volume flag
+VolReserved		db		?								; Volume reserved
+VolSize			db		?								; Volume points
+VolSustain		db		?								; Volume sustain
+VolLS       	db		?								; Volume loop start
+VolLE     		db		?								; Volume loop end
+Volume   		db		40		dup (?)					; Volume envelope
+VolFadeOut		dw		?								; Volume fade out
+PitFlag       	db		?								; Pitch flag
+PitReserved		db		?								; Pitch reserved
+PitSize			db		?								; Pitch points
+PitSustain		db		?								; Pitch sustain
+PitLS       	db		?								; Pitch loop start
+PitLE     		db		?								; Pitch loop end
+Pitch    		db		40		dup (?)					; Pitch envelope
+PitFadeOut		dw		?								; Pitch fade out
+PanFlag       	db		?								; Panning flag
+PanReserved		db		?								; Panning reserved
+PanSize			db		?								; Panning points
+PanSustain		db		?								; Panning sustain
+PanLS       	db		?								; Panning loop start
+PanLE     		db		?								; Panning loop end
+Panning  		db		40		dup (?)					; Panning envelope
+PanFadeOut		dw		?								; Panning fade out
+glxArti			ENDS									; Articulation structure
+
+glxBuffer		STRUC
+Size1			dd		?  								; Buffer total size
+Linear			dd		?  								; Buffer linear address
+				dw		?								; as 48 bit far-pointer
+Handle			dw		?								; Buffer handle/ID
+Physical		dd		?  								; Buffer phys. address
+Play            dd      ?                               ; Data read pointer
+                dw      ?                               ; as 48 bit far-pointer
+Write   		dd		?								; Data write pointer
+                dw      ?                               ; as 48 bit far-pointer
+Part			db		?  								; Active buffer part
+                db      ?,?,?                           ; Reserved (alignment)
+glxBuffer		ENDS									; Buffer structure
+
+glxChunk		STRUC
+FourCC			dd		?								; FourCC value
+Size1			dd		?								; Actual data size
+glxChunk		ENDS									; Chunk structure
+
+glxForm			STRUC
+FourCC			dd		?								; FourCC value
+Size1			dd		?								; Actual data size
+Type1			dd		?								; Type value
+glxForm			ENDS									; Form structure
+
+glxSoundCard    STRUC
+Type1			db		?								; See defines above
+Output			db		?								; Output type needed
+Base			dw		?								; Base address
+DMA             db		?								; DMA Channel
+IRQ        		db		?								; IRQ Number
+Revision		dw		?								; Revision of card
+RAM				dd		?								; Bytes of on-board ram
+glxSoundCard	ENDS									; Soundcard structure
+
+glxSample       STRUC
+FourCC			dd      ?                               ; FourCC value
+Size1           dd      ?                               ; Size of rest of structure
+Message			db		32		dup (?)					; Name of sample
+Panning			dw		?								; Panning position
+Volume			dw		?								; Volume level
+Type1			dw		?								; Looping/sample type
+Reserved		dw		?								; Reserved for future use
+Length1			dd		?								; Size in samples
+LoopStart		dd		?								; Loop starting point
+LoopEnd   		dd		?								; Loop ending point
+C4Speed			dd		?								; Just like a piano
+Articulation	dd      ?                               ; Articulation data
+Data            dd      ?                               ; Actual sample data
+glxSample		ENDS									; Sample structure
+
+glxInstrument   STRUC
+FourCC			dd      ?                               ; FourCC value
+Size1           dd      ?                               ; Size of rest of structure
+Bank            db      ?                               ; Bank number
+Program         db      ?                               ; Program number
+Message			db		32		dup (?)					; Name of instrument
+Split        	db		128     dup (?)                 ; All keys, split points
+Articulation	dd		?								; Articulation data
+Samples			dw		?								; Samples in instrument
+glxInstrument   ENDS									; Instrument structure
+
+glxChannel      STRUC
+FourCC			dd      ?                               ; FourCC value
+Size1           dd      ?                               ; Size of rest of structure
+StartTime		dd		?								; 0=Ins/-1=Stream/-2=Eff
+NoteNo			db		?								; Note number (&128=Off)
+InstNo			db		?								; Instrument number
+SmpNo	        db		?								; Sample number
+Active          db      ?                               ; 0=Stopped/1=Running
+Enabled         db      ?                               ; 0=Disabled/1=Enabled
+NewNote         db      ?                               ; 1=TRUE (Key on issued)
+Volume   		dw		?								; 0=Silent..32767=Max
+Panning         dw      ?                               ; 0=Left..32767=Right
+BasePanning	    dw		?								; 0=Left..32767=Right
+Velocity        dw      ?                               ; 0=Silent..32767=Max
+Reserved		dw		?								; Reserved for future use
+Reverb			dw		?								; Reverb send 0..127
+Chorus			dw		?								; Chorus send 0..127
+InsArt          dd      ?                               ; Pointer to articulation data
+InsVol			dw		?								; Volume envelope value
+InsVolStep		dw		?								; Volume envelope step
+InsVolTime		dw		?								; Volume envelope time
+InsVolFade      dw      ?                               ; Volume envelope fade-out
+InsVolPoint		db		?								; Volume envelope point
+InsPitPoint		db		?								; Pitch envelope point
+InsPitFade      dw      ?                               ; Pitch envelope fade-out
+InsPitTime		dw		?								; Pitch envelope time
+InsPitStep		dw		?								; Pitch envelope step
+InsPit			dw		?								; Pitch envelope value
+InsPan			dw		?								; Panning envelope value
+InsPanStep		dw		?								; Panning envelope step
+InsPanTime		dw		?								; Panning envelope time
+InsPanFade      dw      ?                               ; Panning envelope fade-out
+InsPanPoint		db		?								; Panning envelope point
+InsReserved		db		?,?,?							; Alignment stuff
+SmpHdr          dd      ?                               ; Pointer to sample hdr
+SmpPtr	        dd		?								; Linear address int.
+SmpFrac	        dw		?								; Linear address frac.
+SmpType	        dw		?								; Looping/sample type
+SmpStart		dd		?								; Linear address start
+SmpLoopStart	dd		?								; Linear address lpstart
+SmpLoopEnd      dd      ?                               ; Linear address lpend
+SmpEnd	        dd		?								; Linear address end
+SmpC4Speed		dd		?                               ; Just like a piano
+SmpPitch        dd      ?                               ; C4Speed relative
+SmpVol          dw      ?                               ; Current sample volume
+SmpBaseVol      dw      ?                               ; Current base volume
+SmpPeriod		dw		?								; Period value
+SmpBasePeriod	dw		?								; Period base value
+VibDepth        dw      ?                               ; Vibrato depth
+VibSpeed        dw      ?                               ; Vibrato speed
+VibIndex        dw      ?                               ; Vibrato time index
+VibWaveType     db      ?                               ; Vibrato waveform
+TremWaveType    db      ?                               ; Tremolo waveform
+TremIndex       dw      ?                               ; Tremolo time index
+TremSpeed       dw      ?                               ; Tremolo speed
+TremDepth       dw      ?                               ; Tremolo depth
+PortaDest       dw      ?                               ; Portamento dest.
+PortaSpeed      dw      ?                               ; Portamento speed
+BenderValue     dw      ?                               ; Pitch bend value
+Vibrato         db      ?                               ; Vibrato settings
+Tremolo         db      ?                               ; Tremolo settings
+Portamento      db      ?                               ; Portamento settings
+SampleOffset    db      ?                               ; Sample offset
+Command			db		?								; Command number
+CommandValue 	db		?								; Command data value
+Custom1			dd		?								; Custom data
+Custom2			dd		?								; Custom data
+Custom3			dd		?								; Custom data
+Mutex			dd		?								; Mutex
+Link			dd		?								; Linked channels (layering)
+glxChannel      ENDS									; Channel structure
+
+glxEffect		STRUC
+FourCC			dd		?
+Time			dd		?
+Volume			dd		?
+Delay1			dd		?
+Delay2			dd		?
+Delay3			dd		?
+Delay4			dd		?
+Delay5			dd		?
+Delay6			dd		?
+Delay1Gain		dw		?
+Delay2Gain		dw		?
+Delay3Gain		dw		?
+Delay4Gain		dw		?
+Delay5Gain		dw		?
+Delay6Gain		dw		?
+LPFOut			dw		?,?
+LPF				dw		?,?
+Buffer			dw		32768   dup (?)					
+glxEffect		ENDS
+
+glxK3DReverb	STRUC
+fourcc			dd		  ?
+time			dd		  ?
+td0				dd		  ?				;td (negative)
+td1				dd		  ?	
+td2				dd		  ?	
+td3				dd		  ?	
+td4				dd		  ?	
+td5 			dd		  ?	
+apf0gain0		dd		  ?				;-g
+apf1gain0		dd		  ?
+apf2gain0		dd		  ?
+apf3gain0		dd		  ?
+apf4gain0		dd		  ?
+apf5gain0		dd		  ?
+apf0gain1		dd		  ?				;g
+apf1gain1		dd		  ?
+apf2gain1		dd		  ?
+apf3gain1		dd		  ?
+apf4gain1		dd		  ?
+apf5gain1		dd		  ?				
+apf0gain2		dd		  ?				;1-g^2
+apf1gain2		dd		  ?
+apf2gain2		dd		  ?
+apf3gain2		dd		  ?
+apf4gain2		dd		  ?
+apf5gain2		dd		  ?
+apf0lpfa		dd		  ?
+apf1lpfa		dd		  ?
+apf2lpfa		dd		  ?
+apf3lpfa		dd		  ?
+apf4lpfa		dd		  ?
+apf5lpfa		dd		  ?
+apf0lpfb		dd		  ?
+apf1lpfb		dd		  ?
+apf2lpfb		dd		  ?
+apf3lpfb		dd		  ?
+apf4lpfb		dd		  ?
+apf5lpfb		dd		  ?
+apf0lpfout		dd		  ?
+apf1lpfout		dd		  ?
+apf2lpfout		dd		  ?
+apf3lpfout		dd		  ?
+apf4lpfout		dd		  ?
+apf5lpfout		dd		  ?
+leftout			dd		  ?
+rightout		dd		  ?
+wetleft			dd		  ?
+wetright		dd		  ?
+dryleft			dd		  ?
+dryright		dd		  ?
+buf01			dq		  16384    dup (?)				; Interleaved Allpass buffers	
+buf23			dq		  16384+ 8 dup (?)				; misalign each next set to
+buf45			dq		  16384+16 dup (?)				; next 64 byte cache line !!
+glxK3DReverb	ENDS
+
+glxK3DChorus	STRUC
+fourcc			dd		  ?
+time			dd		  ?
+delay			dd		  ?
+depth			dd		  ?								; in samples (negative)
+speed			dd		  ?								; LFO speed
+phase0			dd		  ?								; 1/65536th of second
+phase1			dd		  ?	
+feedbackleft	dd		  ?
+feedbackright	dd		  ?
+leftout			dd		  ?
+rightout		dd		  ?
+wetleft			dd		  ?
+wetright		dd		  ?
+dryleft			dd		  ?
+dryright		dd		  ?
+buf01			dq		  16384	   dup (?)				
+wave			dd		  1024	   dup (?)
+glxK3DChorus	ENDS
+
+glxMMXReverb	STRUC
+fourcc			dd		  ?
+time			dd		  ?
+td0				dd		  ?								;td samples (negative)
+td1				dd		  ?	
+td2				dd		  ?	
+td3				dd		  ?	
+td4				dd		  ?	
+td5 			dd		  ?	
+apf0gain2		dw		  ?								;1-g^2
+apf0gain0		dw		  ?								; -g
+apf1gain2		dw		  ?
+apf1gain0		dw		  ?
+apf2gain2		dw		  ?
+apf2gain0		dw		  ?
+apf3gain2		dw		  ?
+apf3gain0		dw		  ?
+apf4gain2		dw		  ?
+apf4gain0		dw		  ?
+apf5gain2		dw		  ?
+apf5gain0		dw		  ?
+apf0gain1		dw		  ?								;  g
+apf1gain1		dw		  ?
+apf2gain1		dw		  ?
+apf3gain1		dw		  ?
+apf4gain1		dw		  ?
+apf5gain1		dw		  ?				
+reserved		dw		  ?,?
+apf0lpfa		dw		  ?
+apf0lpfb		dw		  ?
+apf1lpfa		dw		  ?
+apf1lpfb		dw		  ?
+apf2lpfa		dw		  ?
+apf2lpfb		dw		  ?
+apf3lpfa		dw		  ?
+apf3lpfb		dw		  ?
+apf4lpfa		dw		  ?
+apf4lpfb		dw		  ?
+apf5lpfa		dw		  ?
+apf5lpfb		dw		  ?
+apf0lpfout		dw		  ?
+apf1lpfout		dw		  ?
+apf2lpfout		dw		  ?
+apf3lpfout		dw		  ?
+apf4lpfout		dw		  ?
+apf5lpfout		dw		  ?
+leftout			dw		  ?
+rightout		dw		  ?
+dryleft			dw		  ?
+wetleft			dw		  ?
+dryright		dw		  ?
+wetright		dw		  ?
+buf01			dd		  16384	   dup (?)				; Interleaved Allpass buffers
+buf23			dd		  16384+16 dup (?)				; misalign each next set to
+buf45			dd		  16384+32 dup (?)				; next 64 byte cache line !!
+glxMMXReverb	ENDS
+
+glxMMXChorus	STRUC
+fourcc			dd		  ?
+time			dd		  ?
+delay			dd		  ?
+depth			dd		  ?								; in samples (negative)
+speed			dd		  ?								; LFO speed
+phase0			dd		  ?								; 1/65536th of second
+phase1			dd		  ?	
+feedbackleft	dw		  ?
+feedbackright	dw		  ?
+leftout			dw		  ?
+rightout		dw		  ?
+dryleft			dw		  ?
+wetleft			dw		  ?
+dryright		dw		  ?
+wetright		dw		  ?
+buf01			dd		  16384	   dup (?)				; Variable length delay line
+wave			dd		  1024	   dup (?)				; Chorus waveform
+glxMMXChorus	ENDS
+
+glxKNIChorus	STRUC
+fourcc			dd		  ?
+time			dd		  ?
+delay			dd		  ?
+depth			dd		  ?								; in samples (negative)
+speed			dd		  ?								; LFO speed
+phase0			dd		  ?								; 1/65536th of second
+phase1			dd		  ?	
+feedbackleft	dd		  ?
+feedbackright	dd		  ?
+leftout			dd		  ?
+rightout		dd		  ?
+wetleft			dd		  ?
+wetright		dd		  ?
+dryleft			dd		  ?
+dryright		dd		  ?
+buf01			dq		  16384	   dup (?)				
+wave			dd		  1024	   dup (?)
+glxKNIChorus	ENDS
+
+glxKNIReverb	STRUC
+fourcc			dd		  ?
+time			dd		  ?
+td0				dd		  ?				;td (negative)
+td1				dd		  ?	
+td2				dd		  ?	
+td3				dd		  ?	
+td4				dd		  ?	
+td5 			dd		  ?	
+apf0gain0		dd		  ?				;-g
+apf1gain0		dd		  ?
+apf2gain0		dd		  ?
+apf3gain0		dd		  ?
+apf4gain0		dd		  ?
+apf5gain0		dd		  ?
+apf0gain1		dd		  ?				;g
+apf1gain1		dd		  ?
+apf2gain1		dd		  ?
+apf3gain1		dd		  ?
+apf4gain1		dd		  ?
+apf5gain1		dd		  ?				
+apf0gain2		dd		  ?				;1-g^2
+apf1gain2		dd		  ?
+apf2gain2		dd		  ?
+apf3gain2		dd		  ?
+apf4gain2		dd		  ?
+apf5gain2		dd		  ?
+apf0lpfa		dd		  ?
+apf1lpfa		dd		  ?
+apf2lpfa		dd		  ?
+apf3lpfa		dd		  ?
+apf4lpfa		dd		  ?
+apf5lpfa		dd		  ?
+apf0lpfb		dd		  ?
+apf1lpfb		dd		  ?
+apf2lpfb		dd		  ?
+apf3lpfb		dd		  ?
+apf4lpfb		dd		  ?
+apf5lpfb		dd		  ?
+apf0lpfout		dd		  ?
+apf1lpfout		dd		  ?
+apf2lpfout		dd		  ?
+apf3lpfout		dd		  ?
+apf4lpfout		dd		  ?
+apf5lpfout		dd		  ?
+leftout			dd		  ?
+rightout		dd		  ?
+wetleft			dd		  ?
+wetright		dd		  ?
+dryleft			dd		  ?
+dryright		dd		  ?
+buf01			dq		  16384    dup (?)				; Interleaved Allpass buffers	
+buf23			dq		  16384+ 8 dup (?)				; misalign each next set to
+buf45			dq		  16384+16 dup (?)				; next 64 byte cache line !!
+glxKNIReverb	ENDS

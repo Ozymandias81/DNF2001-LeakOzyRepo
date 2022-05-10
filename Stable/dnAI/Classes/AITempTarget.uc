@@ -1,0 +1,2 @@
+class AITempTarget extends Info;
+

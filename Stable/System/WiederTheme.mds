@@ -1,0 +1,56 @@
+[Public]
+// Multipurpose Data Specification
+//
+// How to add backgrounds.
+//
+// Copy one of the lines under "Backgrounds" into your own .mds file.  It's probably a good idea to name the .mds file
+// the same name as your custom art package (if you have one).  Make sure your .mds file has a [Public]
+// identifier at the top like this one.
+//
+// Each background line has a set of parameters that specify how DNF will setup and use the background.
+// The "Name" parameter is the internal name of your background, it's used by the system.
+// The "Class" and "Parent" parameters must be "Background."
+// The "Description" parameter is the name that is displayed to users inside the game.
+// Finally "ExtraData" contains the flags that describe your background.
+// Flags:
+//	flag_smack		- Optional. Use this if your background texture is a smackertexture.
+//	flag_layout=WxH	- Required. The first value is the number of tiles across, the second is the number of tiles down.
+//	flag_texture=name	- Required.	You must have W*H of these flags, each one specifying a texture.
+// The background will be rendered in columns, starting at the top left tile and moving down.
+//
+// How to add themes.
+//
+// First, copy the "menutheme1.dtx" to a custom dtx name.  Replace the art inside with your custom art.
+//
+// Copy one of the lines under "Themes" into your .mds file.  You can mix Themes and Backgrounds in the same .mds.
+// The "Name" parameter contains the texture package name that your theme art is located in.
+// The "Class" and "Parent" parameters must be "Theme."
+// The "Description" parameter is the name that is displayed to users inside the game.
+// The "ExtraData" parameter contains the flags that describe your theme.
+// Flags:
+//	flag_colorizable		- Optional.	If true, the theme art pieces will be drawn with the user's current HUD color.
+//	flag_background=name 	- Required.	Specifies the background that this theme will use.
+// The theme will be drawn using the art in your texture package.
+
+// Themes
+//Object=(Name="hud_effects",Class="Theme",Parent="Theme",Description="Cool Devices",ExtraData="flag_background=Blue Noise")
+//Object=(Name="menutheme1",Class="Theme",Parent="Theme",Description="Simple Theme",ExtraData="flag_colorizable,flag_background=Black Void")
+
+// Backgrounds
+Object=(Name="Keith's Hat",Class="Background",Parent="Background",Description="Keith's Hat",ExtraData="flag_layout=3x2,flag_texture=engine.whitetexture,flag_texture=engine.whitetexture,flag_texture=keiththeme.keith2,flag_texture=keiththeme.keith1,flag_texture=engine.whitetexture,flag_texture=engine.whitetexture")
+Object=(Name="AlQuest",Class="Background",Parent="Background",Description="AlQuest",ExtraData="flag_layout=1x1,flag_texture=eqtheme.eqbackground")
+Object=(Name="White Void",Class="Background",Parent="Background",Description="White Void",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_whitevoid)
+Object=(Name="Teen Mirror 1",Class="Background",Parent="Background",Description="Teen Mirror 1",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_euroteen_1")
+Object=(Name="Teen Mirror 2",Class="Background",Parent="Background",Description="Teen Mirror 2",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_euroteen_3")
+Object=(Name="Teen Nudity",Class="Background",Parent="Background",Description="Teen Nudity",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_euroteen_4")
+Object=(Name="Teen White Fur",Class="Background",Parent="Background",Description="Teen White Fur",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_euroteen_2")
+Object=(Name="Teen Ass 1",Class="Background",Parent="Background",Description="Teen Ass 1",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_teenass_1")
+Object=(Name="Teen Ass 2",Class="Background",Parent="Background",Description="Teen Ass 2",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_teenass_2")
+Object=(Name="Teen Panties",Class="Background",Parent="Background",Description="Teen Panties",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_teenpussy_1")
+Object=(Name="Teen Purple Silk",Class="Background",Parent="Background",Description="Teen Purple Silk",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_genericteen_1")
+Object=(Name="Teen Bathtime",Class="Background",Parent="Background",Description="Teen Bathtime",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_genericteen_2")
+Object=(Name="Britney: USA",Class="Background",Parent="Background",Description="Britney: USA",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_britneyspears_1")
+Object=(Name="Britney: Blue",Class="Background",Parent="Background",Description="Britney: Blue",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_britneyspears_3")
+Object=(Name="Britney: Boob",Class="Background",Parent="Background",Description="Britney: Boob",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_britneyspears_4")
+Object=(Name="Drew: All Wet",Class="Background",Parent="Background",Description="Drew: All Wet",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_drewbarrymore_1")
+Object=(Name="Natalie: Classy",Class="Background",Parent="Background",Description="Natalie: Classy",ExtraData="flag_layout=1x1,flag_texture=wiedertheme.ctw_natalieportman_2")
