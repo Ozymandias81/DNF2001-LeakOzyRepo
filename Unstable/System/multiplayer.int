@@ -1,0 +1,16 @@
+[Public]
+Object=(Name=dnGame.dnDeathmatchGame,Class=Class,MetaClass=Engine.GameInfo)
+Object=(Name=dnGame.dnTeamGame,Class=Class,MetaClass=Engine.GameInfo)
+
+Object=(Name=dnGame.LowGrav,Class=Class,MetaClass=Engine.Mutator,Description="Low Gravity,Low Gravity.")
+Object=(Name=dnGame.Jetpacks,Class=Class,MetaClass=Engine.Mutator,Description="Jetpacks,Give all players a Jetpack.")
+Object=(Name=dnGame.HeatVisionMutator,Class=Class,MetaClass=Engine.Mutator,Description="Heat Vision Upgrade,Give all players Heat Vision Upgrade.")
+Object=(Name=dnGame.NightVisionMutator,Class=Class,MetaClass=Engine.Mutator,Description="Night Vision Upgrade,Give all players Night Vision Upgrade.")
+Object=(Name=dnGame.ZoomModeMutator,Class=Class,MetaClass=Engine.Mutator,Description="Zoom Mode Upgrade,Give all players Zoom Mode Upgrade.")
+Object=(Name=dnGame.EMPMutator,Class=Class,MetaClass=Engine.Mutator,Description="EMP Upgrade,Give all players an EMP Upgrade.")
+Object=(Name=dnGame.BigHead,Class=Class,MetaClass=Engine.Mutator,Description="Big Head,Give all players enormous heads.")
+Object=(Name=dnGame.BiggerHead,Class=Class,MetaClass=Engine.Mutator,Description="Bigger Head,Give all players really enormous heads.")
+
+
+
+

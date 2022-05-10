@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#000000">
+<table width="100%%" border="0" align="left">
+  <tr>
+    <td align="center" rowspan="2"><font color="#FFffFF" size="6"><nobr>Unreal Tournament - Remote Server Admin</nobr></font></td>
+    <td align="center" width="175" bgcolor="%CurrentBG%"><a href="%CurrentURI%" target="_top"><b>Current</b></a></td>
+  </tr>
+  <tr>
+    <td align="center" width="175" bgcolor="%DefaultsBG%"><a href="%DefaultsURI%" target="_top"><b>Defaults</b></a></td>
+  </tr>
+</table>
+</body>
+</html>

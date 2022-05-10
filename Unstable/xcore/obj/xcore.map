@@ -1,0 +1,686 @@
+ xcore
+
+ Timestamp is 3bd73382 (Wed Oct 24 16:32:50 2001)
+
+ Preferred load address is 21000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00007038H .text                   CODE
+ 0001:00007040 00000364H .text$x                 CODE
+ 0002:00000000 000000ccH .idata$5                DATA
+ 0002:000000d0 000002a4H .rdata                  DATA
+ 0002:00000378 00000044H .rdata$r                DATA
+ 0002:000003bc 0000040cH .xdata$x                DATA
+ 0002:000007c8 0000003cH .idata$2                DATA
+ 0002:00000804 00000014H .idata$3                DATA
+ 0002:00000818 000000ccH .idata$4                DATA
+ 0002:000008e4 0000031eH .idata$6                DATA
+ 0002:00000c10 00003d0eH .edata                  DATA
+ 0003:00000000 00000004H .CRT$XCA                DATA
+ 0003:00000004 00000004H .CRT$XCL                DATA
+ 0003:00000008 00000010H .CRT$XCU                DATA
+ 0003:00000018 00000004H .CRT$XCZ                DATA
+ 0003:0000001c 00000004H .CRT$XIA                DATA
+ 0003:00000020 00000004H .CRT$XIZ                DATA
+ 0003:00000030 00000858H .data                   DATA
+ 0003:00000888 00005164H .bss                    DATA
+
+  Address         Publics by Value              Rva+Base     Lib:Object
+
+ 0001:00000000       @xlist_new_node@8          21001000 f   list.obj
+ 0001:00000050       @xlist_free_nodes@4        21001050 f   list.obj
+ 0001:00000080       @xtree_new_node@8          21001080 f   list.obj
+ 0001:000000d0       @xtree_free_nodes@4        210010d0 f   list.obj
+ 0001:00000100       ??0?$XChain@VCSysObj@@@@QAE@K@Z 21001100 f i list.obj
+ 0001:00000130       ?get_next@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@PAV2@@Z 21001130 f i list.obj
+ 0001:00000140       ?get_prev@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@PAV2@@Z 21001140 f i list.obj
+ 0001:00000150       ??CCPathRef@@QAEPAVCPathObj@@XZ 21001150 f i list.obj
+ 0001:00000150       ??CCPathRef@@QBEPBVCPathObj@@XZ 21001150 f i list.obj
+ 0001:00000150       ??Bautochar@@QAEPADXZ      21001150 f i list.obj
+ 0001:00000150       ??Cautochar@@QBEPBDXZ      21001150 f i list.obj
+ 0001:00000150       ?get_ptr@autochar@@QAEPAXXZ 21001150 f i list.obj
+ 0001:00000150       ??CStrGrow@@QBEPBDXZ       21001150 f i list.obj
+ 0001:00000150       ??CStrGrow@@QAEPADXZ       21001150 f i list.obj
+ 0001:00000150       ??Cautochar@@QAEPADXZ      21001150 f i list.obj
+ 0001:00000150       ?get_head@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@XZ 21001150 f i list.obj
+ 0001:00000150       ??BStrGrow@@QAEPADXZ       21001150 f i list.obj
+ 0001:00000150       ??Bautochar@@QBEPBDXZ      21001150 f i list.obj
+ 0001:00000150       ??BStrGrow@@QBEPBDXZ       21001150 f i list.obj
+ 0001:00000150       ?get_str@CPrintf@@QAEPBDXZ 21001150 f i list.obj
+ 0001:00000160       ??BCStrCat@@QBEPADXZ       21001160 f i list.obj
+ 0001:00000160       ??BCStrLow@@QBEPBDXZ       21001160 f i list.obj
+ 0001:00000160       ??BCStrLow@@QBEPADXZ       21001160 f i list.obj
+ 0001:00000160       ??BCStr@@QBEPBDXZ          21001160 f i list.obj
+ 0001:00000160       ?get_tail@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@XZ 21001160 f i list.obj
+ 0001:00000160       ??BCStr@@QBEPADXZ          21001160 f i list.obj
+ 0001:00000160       ?get_cur@CPrintf@@QAEPADXZ 21001160 f i list.obj
+ 0001:00000160       ??BCStrCat@@QBEPBDXZ       21001160 f i list.obj
+ 0001:00000170       ?lose_list@?$XChain@VCSysObj@@@@QAEXXZ 21001170 f i list.obj
+ 0001:00000190       ??1?$XChain@VCSysObj@@@@QAE@XZ 21001190 f i list.obj
+ 0001:00000190       ?free_list@?$XChain@VCSysObj@@@@QAEXXZ 21001190 f i list.obj
+ 0001:000001e0       ?add_head@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@PAV2@@Z 210011e0 f i list.obj
+ 0001:00000210       ?add_tail@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@PAV2@@Z 21001210 f i list.obj
+ 0001:00000240       ?remove_head@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@XZ 21001240 f i list.obj
+ 0001:00000260       ?remove_tail@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@XZ 21001260 f i list.obj
+ 0001:00000280       ?remove@?$XChain@VCSysObj@@@@QAEPAVCSysObj@@PAV2@@Z 21001280 f i list.obj
+ 0001:000002c0       ??_EXBufferReadInt@@UAEPAXI@Z 210012c0 f i list.obj
+ 0001:00000310       ??_EXBufferWriteInt@@UAEPAXI@Z 21001310 f i list.obj
+ 0001:00000360       ??1XBufferReadInt@@UAE@XZ  21001360 f i list.obj
+ 0001:00000360       ??1XStreamRdDirect@@UAE@XZ 21001360 f i list.obj
+ 0001:00000370       ??_EXStreamRdDirect@@UAEPAXI@Z 21001370 f i list.obj
+ 0001:000003c0       ??1XBufferWriteInt@@UAE@XZ 210013c0 f i list.obj
+ 0001:000003c0       ??1XStreamWrDirect@@UAE@XZ 210013c0 f i list.obj
+ 0001:000003d0       ??_EXStreamWrDirect@@UAEPAXI@Z 210013d0 f i list.obj
+ 0001:00000420       ??1XMemRdBuffer@@UAE@XZ    21001420 f i list.obj
+ 0001:00000440       ??_EXMemRdBuffer@@UAEPAXI@Z 21001440 f i list.obj
+ 0001:00000490       ?conv_flags@XFile@@AAEKPBD@Z 21001490 f   file.obj
+ 0001:00000550       ??0XFile@@QAE@XZ           21001550 f   file.obj
+ 0001:000005d0       ??0XFile@@QAE@PBD0@Z       210015d0 f   file.obj
+ 0001:000006e0       ?open@XFile@@QAEKPBD0@Z    210016e0 f   file.obj
+ 0001:000007b0       ?close@XFile@@UAEKXZ       210017b0 f   file.obj
+ 0001:000007f0       ?seek@XFile@@QAEKJK@Z      210017f0 f   file.obj
+ 0001:00000840       ?pos_rd@XFile@@UAEXKK@Z    21001840 f   file.obj
+ 0001:00000870       ?pos_wr@XFile@@UAEXKK@Z    21001870 f   file.obj
+ 0001:000008a0       ??0CStdOut@@QAE@XZ         210018a0 f   file.obj
+ 0001:00000910       ?close@CStdOut@@UAEKXZ     21001910 f   file.obj
+ 0001:00000930       @fclean_path@8             21001930 f   file.obj
+ 0001:00000a40       ??1CSysObj@@QAE@XZ         21001a40 f i file.obj
+ 0001:00000a60       ?seek@XStreamWrDirect@@UAEKJ@Z 21001a60 f i file.obj
+ 0001:00000a60       ?seek@XStreamRdDirect@@UAEKJ@Z 21001a60 f i file.obj
+ 0001:00000a70       ?flush@XStreamWrDirect@@UAEKXZ 21001a70 f i file.obj
+ 0001:00000a70       ?seek_int@CBaseStream@@MAEJXZ 21001a70 f i file.obj
+ 0001:00000a80       ??0XStreamState@@QAE@XZ    21001a80 f i file.obj
+ 0001:00000aa0       ??1CBaseStream@@QAE@XZ     21001aa0 f i file.obj
+ 0001:00000aa0       ??1CStdOut@@QAE@XZ         21001aa0 f i file.obj
+ 0001:00000ad0       ?ioctl_write@CBaseStream@@UAEKKK@Z 21001ad0 f i file.obj
+ 0001:00000ad0       ?ioctl_read@CBaseStream@@UAEKKK@Z 21001ad0 f i file.obj
+ 0001:00000ae0       ?put@CBaseStream@@UAEKD@Z  21001ae0 f i file.obj
+ 0001:00000af0       ?pos_wr@CBaseStream@@UAEXKK@Z 21001af0 f i file.obj
+ 0001:00000af0       ?pos_rd@CBaseStream@@UAEXKK@Z 21001af0 f i file.obj
+ 0001:00000b00       ?base_init@XFile@@EAEXXZ   21001b00 f i file.obj
+ 0001:00000b20       ?init@restore_path@@QAEXXZ 21001b20 f   find.obj
+ 0001:00000b50       ??1restore_path@@QAE@XZ    21001b50 f   find.obj
+ 0001:00000b70       ??1XFindFile@@QAE@XZ       21001b70 f   find.obj
+ 0001:00000c20       ?set_current_dir@XFindFile@@IAEPBDPBDK@Z 21001c20 f   find.obj
+ 0001:00000cb0       ?set_parent_dir@XFindFile@@IAEPBDPBDK@Z 21001cb0 f   find.obj
+ 0001:00000d60       ?set_state@XFindFile@@IAEXK@Z 21001d60 f   find.obj
+ 0001:00000dd0       ?build_paths@XFindFile@@IAEXPBD0@Z 21001dd0 f   find.obj
+ 0001:00000ea0       ?search@XFindFile@@QAEKPBD0K@Z 21001ea0 f   find.obj
+ 0001:00001210       ?next@XFindFile@@QAEPAVXFindInfo@@AAK@Z 21002210 f   find.obj
+ 0001:00001250       ?do_search@XFindFile@@IAEKXZ 21002250 f   find.obj
+ 0001:000014f0       ?find_dir@XFindFile@@IAEKPBD@Z 210024f0 f   find.obj
+ 0001:00001510       ?find_path@XFindFile@@IAEKPBD@Z 21002510 f   find.obj
+ 0001:00001600       ?match_in_wild@XFindFile@@IAEKPBD0JJPAPAD@Z 21002600 f   find.obj
+ 0001:000016d0       ?fstrrexp_eq@XFindFile@@IAEKPBD0PAPAD@Z 210026d0 f   find.obj
+ 0001:000017f0       ?match_request@XFindFile@@IAEKXZ 210027f0 f   find.obj
+ 0001:00001830       ?set_path@XFindInfo@@IAEXPBDPAU_WIN32_FIND_DATAA@@@Z 21002830 f   find.obj
+ 0001:00001890       ?set@XFindInfo@@IAEXPBDPAU_WIN32_FIND_DATAA@@@Z 21002890 f   find.obj
+ 0001:00001910       ??0XFindLevel@@QAE@PBD00@Z 21002910 f   find.obj
+ 0001:000019a0       ?init@XFindLevel@@QAEKPAU_WIN32_FIND_DATAA@@@Z 210029a0 f   find.obj
+ 0001:000019d0       ?next@XFindLevel@@QAEKPAU_WIN32_FIND_DATAA@@@Z 210029d0 f   find.obj
+ 0001:000019f0       ??1FindHandle@@QAE@XZ      210029f0 f i find.obj
+ 0001:00001a00       ??0MemGrow@@QAE@K@Z        21002a00 f i find.obj
+ 0001:00001a20       ??1StrGrow@@QAE@XZ         21002a20 f i find.obj
+ 0001:00001a20       ??1MemGrow@@QAE@XZ         21002a20 f i find.obj
+ 0001:00001a30       ?reset@StrGrow@@QAEXXZ     21002a30 f i find.obj
+ 0001:00001a50       ??0StrGrow@@QAE@KK@Z       21002a50 f i find.obj
+ 0001:00001a90       @_xalloc@4                 21002a90     malloc.obj
+ 0001:00001b40       @_xrealloc@8               21002b40     malloc.obj
+ 0001:00001b70       @_xfree@4                  21002b70     malloc.obj
+ 0001:00001b96       __sleep                    21002b96     malloc.obj
+ 0001:00001bc0       ??2CVirtualBase@@SAPAXIKK@Z 21002bc0 f   winalloc.obj
+ 0001:00001c30       ??3CVirtualBase@@CAXPAX@Z  21002c30 f   winalloc.obj
+ 0001:00001c40       ??3CVirtualBase@@SAXPAXKK@Z 21002c40 f   winalloc.obj
+ 0001:00001c50       ??0CVirtualBlock@@QAE@XZ   21002c50 f   winalloc.obj
+ 0001:00001c60       ??2CVirtualBlock@@SAPAXIK@Z 21002c60 f   winalloc.obj
+ 0001:00001cb0       ??0CVirtualBase@@QAE@XZ    21002cb0 f   winalloc.obj
+ 0001:00001cc0       ??0CMemManage@@QAE@XZ      21002cc0 f   winalloc.obj
+ 0001:00001cd0       ?init@CMemManage@@QAEKXZ   21002cd0 f   winalloc.obj
+ 0001:00001ce0       ?close@CMemManage@@QAEKXZ  21002ce0 f   winalloc.obj
+ 0001:00001cf0       ?private_alloc@CMemManage@@QAEPAXK@Z 21002cf0 f   winalloc.obj
+ 0001:00001d30       ?commit_block@CMemManage@@AAEXPAVCommitBlock@@K@Z 21002d30 f   winalloc.obj
+ 0001:00001d70       ?commit_more@CMemManage@@AAEXK@Z 21002d70 f   winalloc.obj
+ 0001:00001da0       ?alloc_8@CMemManage@@CIPAXPAV1@@Z 21002da0 f   winalloc.obj
+ 0001:00001db0       ?alloc_16@CMemManage@@CIPAXPAV1@@Z 21002db0 f   winalloc.obj
+ 0001:00001dc0       ?alloc_32@CMemManage@@CIPAXPAV1@@Z 21002dc0 f   winalloc.obj
+ 0001:00001dd0       ?alloc_64@CMemManage@@CIPAXPAV1@@Z 21002dd0 f   winalloc.obj
+ 0001:00001de0       ?alloc_96@CMemManage@@CIPAXPAV1@@Z 21002de0 f   winalloc.obj
+ 0001:00001df0       ?alloc_128@CMemManage@@CIPAXPAV1@@Z 21002df0 f   winalloc.obj
+ 0001:00001e00       ?alloc_192@CMemManage@@CIPAXPAV1@@Z 21002e00 f   winalloc.obj
+ 0001:00001e10       ?alloc_256@CMemManage@@CIPAXPAV1@@Z 21002e10 f   winalloc.obj
+ 0001:00001e20       ?alloc_large@CMemManage@@QAEPAXK@Z 21002e20 f   winalloc.obj
+ 0001:00001e30       ?alloc_huge@CMemManage@@QAEPAXK@Z 21002e30 f   winalloc.obj
+ 0001:00001e40       ?free@CMemManage@@AAEXPAX@Z 21002e40 f   winalloc.obj
+ 0001:00001e50       ?_mem_init@@YAXXZ          21002e50 f   winalloc.obj
+ 0001:00001e60       ?_mem_close@@YAXXZ         21002e60 f   winalloc.obj
+ 0001:00001e70       _DllMain@12                21002e70 f   dll.obj
+ 0001:00001ef0       ?attach_process@XDll@@UAEKPAX@Z 21002ef0 f   dll.obj
+ 0001:00001f00       ?detach_process@XDll@@UAEKPAX@Z 21002f00 f   dll.obj
+ 0001:00001f10       ?attach_thread@XDll@@QAEKPAX@Z 21002f10 f   dll.obj
+ 0001:00001f20       ?detach_thread@XDll@@QAEKPAX@Z 21002f20 f   dll.obj
+ 0001:00001f30       @xxx_throw@4               21002f30 f   error.obj
+ 0001:00001f60       @xxx_throw_level@8         21002f60 f   error.obj
+ 0001:00001f90       @xxx_bitch@4               21002f90 f   error.obj
+ 0001:00001fc0       @xxx_fatal@4               21002fc0 f   error.obj
+ 0001:00001ff0       @xxx_message@8             21002ff0 f   error.obj
+ 0001:00002020       _xxx_printf_noglobal       21003020 f   error.obj
+ 0001:00002070       ?assert@CError@@UAEXPBDK@Z 21003070 f   error.obj
+ 0001:00002080       ?throw_msg@CError@@UAEXKPBD@Z 21003080 f   error.obj
+ 0001:00002090       ?message@CError@@UAEXKPBD@Z 21003090 f   error.obj
+ 0001:000020a0       ?ConMessage@@YAXPBD@Z      210030a0 f   error.obj
+ 0001:00002100       ??0XCoreDll@@QAE@XZ        21003100 f   global.obj
+ 0001:00002130       ??1XCoreDll@@QAE@XZ        21003130 f   global.obj
+ 0001:00002150       ?detach_process@XCoreDll@@UAEKPAX@Z 21003150 f   global.obj
+ 0001:00002170       ?attach_thread@XCoreDll@@QAEKPAX@Z 21003170 f   global.obj
+ 0001:00002190       ?detach_thread@XCoreDll@@QAEKPAX@Z 21003190 f   global.obj
+ 0001:000021b0       ??0XGlobal@@QAE@XZ         210031b0 f   global.obj
+ 0001:000022d0       ??1XGlobal@@QAE@XZ         210032d0 f   global.obj
+ 0001:00002480       ?close@XGlobal@@UAEXXZ     21003480 f   global.obj
+ 0001:00002520       ?_free_raw@XGlobal@@IAEXXZ 21003520 f   global.obj
+ 0001:00002590       ?reg_global_handle_rawptr@XGlobal@@QAEXPAPAX@Z 21003590 f   global.obj
+ 0001:000025f0       ?reg_global_object@XGlobal@@QAEXPAVCSysObj@@@Z 210035f0 f   global.obj
+ 0001:00002630       ?unreg_global_object@XGlobal@@QAEXPAVCSysObj@@@Z 21003630 f   global.obj
+ 0001:00002690       ?_handle_unclean@XGlobal@@IAEXXZ 21003690 f   global.obj
+ 0001:00002700       ?_fatal_exit@XGlobal@@QAEXXZ 21003700 f   global.obj
+ 0001:00002710       ??0ErrMem@@QAE@XZ          21003710 f   global.obj
+ 0001:00002740       ??1ErrMem@@QAE@XZ          21003740 f   global.obj
+ 0001:00002750       ?get@ErrMem@@QAEPADK@Z     21003750 f   global.obj
+ 0001:000027c0       ?get_more@ErrMem@@QAEPADPADK@Z 210037c0 f   global.obj
+ 0001:00002830       ?add_thread@ErrMem@@QAEXXZ 21003830 f   global.obj
+ 0001:00002850       ?remove_thread@ErrMem@@QAEXXZ 21003850 f   global.obj
+ 0001:00002880       ?message@XGlobal@@QAEXKPBD@Z 21003880 f   global.obj
+ 0001:00002890       ?attach_thread@XGlobal@@QAEXPAX@Z 21003890 f   global.obj
+ 0001:000028a0       ?detach_thread@XGlobal@@QAEXPAX@Z 210038a0 f   global.obj
+ 0001:000028b0       ?throw_msg@XGlobal@@QAEXKPBD@Z 210038b0 f   global.obj
+ 0001:000028e0       ?caught@XGlobal@@QAEXXZ    210038e0 f   global.obj
+ 0001:000028f0       ?fatal@XGlobal@@QAEXXZ     210038f0 f   global.obj
+ 0001:00002910       ?set_error@XGlobal@@QAEXPAVCError@@@Z 21003910 f   global.obj
+ 0001:00002920       ?printf@XGlobal@@QAAXKPBDZZ 21003920 f i global.obj
+ 0001:000029c0       ??1XStatManager@@QAE@XZ    210039c0 f i global.obj
+ 0001:00002a20       ??1?$XList@PAX@@QAE@XZ     21003a20 f i global.obj
+ 0001:00002a50       ?fstrcpy_lim@CPrintf@@IAEKPBD@Z 21003a50 f   printf.obj
+ 0001:00002af0       ?fstrncpy_lim@CPrintf@@IAEKPBDK@Z 21003af0 f   printf.obj
+ 0001:00002bb0       ?num@CPrintf@@QAEKK@Z      21003bb0 f   printf.obj
+ 0001:00002be0       ?num@CPrintf@@QAEKJ@Z      21003be0 f   printf.obj
+ 0001:00002c10       ?chr@CPrintf@@QAEKD@Z      21003c10 f   printf.obj
+ 0001:00002c60       ?hex@CPrintf@@QAEKK@Z      21003c60 f   printf.obj
+ 0001:00002c90       ?hex64@CPrintf@@QAEK_K@Z   21003c90 f   printf.obj
+ 0001:00002cd0       ?add_path@CPrintf@@QAEKPBD@Z 21003cd0 f   printf.obj
+ 0001:00002d40       ??0CPrintfT@@QAE@PAVCMallocBlock@@K@Z 21003d40 f   printf.obj
+ 0001:00002d80       ?free_mem@CPrintfT@@SAXPAX@Z 21003d80 f   printf.obj
+ 0001:00002da0       ??0PrintfManage@@QAE@XZ    21003da0 f   printf.obj
+ 0001:00002e10       ?flush_all@PrintfManage@@QAEXXZ 21003e10 f   printf.obj
+ 0001:00002e70       ?alloc@PrintfManage@@IAEPAVCPrintfT@@KK@Z 21003e70 f   printf.obj
+ 0001:00002f40       ?get_printf@@YAPAVCPrintfT@@K@Z 21003f40 f   printf.obj
+ 0001:00003040       ?release_printf@@YAXPAVCPrintfT@@@Z 21004040 f   printf.obj
+ 0001:000030e0       ?_flush_printf_mem@@YAXXZ  210040e0 f   printf.obj
+ 0001:000030f0       ??1PrintfManage@@QAE@XZ    210040f0 f i printf.obj
+ 0001:00003180       ??1?$XList@VCPrintfT@@@@QAE@XZ 21004180 f i printf.obj
+ 0001:000031b0       ??1?$XChain@VCPrintfT@@@@QAE@XZ 210041b0 f i printf.obj
+ 0001:000031f0       ??3CPrintfT@@SAXPAX0@Z     210041f0 f i printf.obj
+ 0001:00003200       ?base_init@CBaseStream@@MAEXXZ 21004200 f   stream.obj
+ 0001:00003220       ?set_rd_interface@CBaseStream@@IAEXPAVXBufferReadInt@@@Z 21004220 f   stream.obj
+ 0001:00003250       ?set_wr_interface@CBaseStream@@IAEXPAVXBufferWriteInt@@@Z 21004250 f   stream.obj
+ 0001:00003290       ?write@CBaseStream@@UAEKPBXKAAK@Z 21004290 f   stream.obj
+ 0001:000032b0       ?read@CBaseStream@@UAEKPAXKAAK@Z 210042b0 f   stream.obj
+ 0001:000032d0       ?read@XStreamRdDirect@@UAEKPAXKAAK1@Z 210042d0 f   stream.obj
+ 0001:00003310       ?write@XStreamWrDirect@@UAEKPBXKAAK1@Z 21004310 f   stream.obj
+ 0001:00003350       ?read@XMemRdBuffer@@UAEKPAXKAAK1@Z 21004350 f   stream.obj
+ 0001:00003420       ?seek@XMemRdBuffer@@UAEKJ@Z 21004420 f   stream.obj
+ 0001:00003440       ??6CBaseStream@@UAEAAV0@PBD@Z 21004440 f   stream.obj
+ 0001:00003480       ??6CBaseStream@@UAEAAV0@K@Z 21004480 f   stream.obj
+ 0001:000034c0       ??6CBaseStream@@UAEAAV0@D@Z 210044c0 f   stream.obj
+ 0001:000034f0       ?write@CBaseStream@@UAEKPBXK@Z 210044f0 f   stream.obj
+ 0001:00003530       ?read@CBaseStream@@UAEKPAXK@Z 21004530 f   stream.obj
+ 0001:00003570       ?flush@CBaseStream@@UAEKXZ 21004570 f   stream.obj
+ 0001:00003580       @fitoa@8                   21004580 f   string.obj
+ 0001:000035d0       @futoa@8                   210045d0 f   string.obj
+ 0001:00003610       @fscan_f@12                21004610 f   string.obj
+ 0001:00003650       @fscan_nf@12               21004650 f   string.obj
+ 0001:00003690       ??0CStr@@QAE@PBDK@Z        21004690 f   string.obj
+ 0001:000036d0       ??0CStr@@QAE@PBD@Z         210046d0 f   string.obj
+ 0001:00003710       ??0CStrLow@@QAE@PBDK@Z     21004710 f   string.obj
+ 0001:00003740       ??0CStrLow@@QAE@PBD@Z      21004740 f   string.obj
+ 0001:00003780       ??0CStrCat@@QAE@PBD0@Z     21004780 f   string.obj
+ 0001:000037f0       @fstreq@8                  210047f0 f   string.obj
+ 0001:00003840       @fstrexp_eq@8              21004840 f   string.obj
+ 0001:00003890       @fstrneq@12                21004890 f   string.obj
+ 0001:000038c0       @fstrchr@8                 210048c0 f   string.obj
+ 0001:000038e0       @fstrcpy@8                 210048e0 f   string.obj
+ 0001:00003900       @fstrncpy@12               21004900 f   string.obj
+ 0001:00003940       @fstrcpy_tolower@8         21004940 f   string.obj
+ 0001:00003980       @fstrncpy_tolower@12       21004980 f   string.obj
+ 0001:000039d0       @fstrnrchr@12              210049d0 f   string.obj
+ 0001:00003a00       @fstrprchr@12              21004a00 f   string.obj
+ 0001:00003a30       @hex32@8                   21004a30 f   string.obj
+ 0001:00003a80       _hex64                     21004a80 f   string.obj
+ 0001:00003ae0       ??0CStrObj@@QAE@PBD@Z      21004ae0 f   string.obj
+ 0001:00003b30       ??0CStrRef@@QAE@PBD@Z      21004b30 f   string.obj
+ 0001:00003b80       ??4CStrRef@@QAEAAV0@PBD@Z  21004b80 f   string.obj
+ 0001:00003c00       ?file_exist@CPathObj@@QAEKXZ 21004c00 f   string.obj
+ 0001:00003d80       ?set_extension@CPathObj@@IAEXXZ 21004d80 f   string.obj
+ 0001:00003db0       ?set_name@CPathObj@@IAEXXZ 21004db0 f   string.obj
+ 0001:00003de0       ?get_extension@CPathObj@@QAEPBDXZ 21004de0 f   string.obj
+ 0001:00003e00       ?get_filename@CPathObj@@QAEPBDXZ 21004e00 f   string.obj
+ 0001:00003e20       ?init_name_path@CPathObj@@QAEXPBD0@Z 21004e20 f   string.obj
+ 0001:00003f10       ?init_abs_path@CPathObj@@QAEXPBD@Z 21004f10 f   string.obj
+ 0001:00003f60       ?init_name@CPathObj@@QAEXPBD@Z 21004f60 f   string.obj
+ 0001:00003fa0       ?init@CPathRef@@QAEPBDPBD0@Z 21004fa0 f   string.obj
+ 0001:00004030       ??0CPathRef@@QAE@PBD@Z     21005030 f   string.obj
+ 0001:00004090       ?set_absolute@CPathRef@@QAEXPBD@Z 21005090 f   string.obj
+ 0001:00004100       ?is_ext@CPathObj@@QAEKPBD@Z 21005100 f   string.obj
+ 0001:00004120       ?is_room@CPathObj@@IAEKK@Z 21005120 f   string.obj
+ 0001:00004140       ?set_extension@CPathObj@@IAEXPBD@Z 21005140 f   string.obj
+ 0001:000041c0       ?set_extension@CPathRef@@QAEXPBD@Z 210051c0 f   string.obj
+ 0001:00004270       ?init_new_ext@CPathObj@@QAEKPAV1@PBD@Z 21005270 f   string.obj
+ 0001:00004330       ??1CPathObj@@QAE@XZ        21005330 f   string.obj
+ 0001:00004360       ?copy@StrGrow@@QAEXPBD@Z   21005360 f   string.obj
+ 0001:000043f0       ?copy@StrGrow@@QAEKPBDK@Z  210053f0 f   string.obj
+ 0001:00004430       ?path_append@StrGrow@@QAEXPBD@Z 21005430 f   string.obj
+ 0001:000044f0       ?printf@StrGrow@@QAAKPBDZZ 210054f0 f   string.obj
+ 0001:00004560       ?num@StrGrow@@QAEKK@Z      21005560 f   string.obj
+ 0001:000045c0       ?num@StrGrow@@QAEKJ@Z      210055c0 f   string.obj
+ 0001:00004620       ?chr@StrGrow@@QAEKD@Z      21005620 f   string.obj
+ 0001:00004680       @fset_extension@8          21005680 f   string.obj
+ 0001:000046f0       @fget_extension@4          210056f0 f   string.obj
+ 0001:00004730       @fget_filename@4           21005730 f   string.obj
+ 0001:00004760       @fpath_append@8            21005760 f   string.obj
+ 0001:000047c0       ??1TmpPrintf@@QAE@XZ       210057c0 f i string.obj
+ 0001:000047d0       ??1XFile@@QAE@XZ           210057d0 f i string.obj
+ 0001:00004880       @fstrlen@4                 21005880     stuff.obj
+ 0001:00004890       @_bsf@4                    21005890     stuff.obj
+ 0001:000048c0       _xxx_printf                210058c0     stuff.obj
+ 0001:000048e0       _begin_tick                210058e0     stuff.obj
+ 0001:000048f0       _end_tick                  210058f0     stuff.obj
+ 0001:00004910       ??0XMutex@@QAE@KKPBD@Z     21005910 f   win.obj
+ 0001:00004990       ?init@XMutex@@QAEKKKPBD@Z  21005990 f   win.obj
+ 0001:00004a50       ?lock@XMutex@@QAEKK@Z      21005a50 f   win.obj
+ 0001:00004ab0       ?unlock@XMutex@@QAEKXZ     21005ab0 f   win.obj
+ 0001:00004ae0       ?destroy@XMutex@@EAEKXZ    21005ae0 f   win.obj
+ 0001:00004b00       ??0XEvent@@QAE@KKKPBD@Z    21005b00 f   win.obj
+ 0001:00004b80       ?init@XEvent@@QAEKKKKPBD@Z 21005b80 f   win.obj
+ 0001:00004c30       ?destroy@XEvent@@EAEKXZ    21005c30 f   win.obj
+ 0001:00004c50       ??0CMemMap@@QAE@KPBDK@Z    21005c50 f   win.obj
+ 0001:00004cd0       ??0CMemMap@@QAE@PBD@Z      21005cd0 f   win.obj
+ 0001:00004d50       ?init@CMemMap@@QAEKKPBDK@Z 21005d50 f   win.obj
+ 0001:00004e10       ?destroy@CMemMap@@EAEKXZ   21005e10 f   win.obj
+ 0001:00004e60       ?set_window@WinMsgDef@@UAEXPAUHWND__@@@Z 21005e60 f   win.obj
+ 0001:00004e70       ?no_window@WinMsgDef@@UAEXXZ 21005e70 f   win.obj
+ 0001:00004e80       ?assert@WinMsgDef@@UAEXPBDK@Z 21005e80 f   win.obj
+ 0001:00004f10       ?message@WinMsgDef@@UAEXKPBD@Z 21005f10 f   win.obj
+ 0001:00004f40       ?throw_msg@WinMsgDef@@UAEXKPBD@Z 21005f40 f   win.obj
+ 0001:00004f70       ?WinMessage@@YAXPAUHWND__@@PBD@Z 21005f70 f   win.obj
+ 0001:00004f90       ??0XMemRdBuffer@@QAE@PAVCBaseStream@@K@Z 21005f90 f   winfile.obj
+ 0001:00004fc0       ?read_direct@XBufferReadInt@@MAEKPAXKAAK@Z 21005fc0 f   winfile.obj
+ 0001:00005010       ?write_direct@XBufferWriteInt@@MAEKPBXKAAK@Z 21006010 f   winfile.obj
+ 0001:00005060       ?std_close@XFile@@AAEKXZ   21006060 f   winfile.obj
+ 0001:00005080       ?destroy@XFile@@EAEKXZ     21006080 f   winfile.obj
+ 0001:000050a0       ?std_open@XFile@@AAEKXZ    210060a0 f   winfile.obj
+ 0001:00005150       ?std_seek@XFile@@AAEKJK@Z  21006150 f   winfile.obj
+ 0001:000051b0       ?load_in_memory@XFile@@QAEKK@Z 210061b0 f   winfile.obj
+ 0001:00005250       ?open@CStdOut@@QAEKXZ      21006250 f   winfile.obj
+ 0001:000052a0       @file_exist@4              210062a0 f   winfile.obj
+ 0001:000052c0       ?_mem_debug_init@@YAXXZ    210062c0 f   winmem.obj
+ 0001:00005320       ?_mem_debug_close@@YAXXZ   21006320 f   winmem.obj
+ 0001:000053b0       ??0MallocInfo@@QAE@PAXK@Z  210063b0 f   winmem.obj
+ 0001:000053e0       ??1MallocInfo@@QAE@XZ      210063e0 f   winmem.obj
+ 0001:00005420       ??2MallocBlock@@SAPAXI@Z   21006420 f   winmem.obj
+ 0001:00005430       ??3MallocBlock@@SAXPAX@Z   21006430 f   winmem.obj
+ 0001:00005440       ?init@MemDebug@@QAEXXZ     21006440 f   winmem.obj
+ 0001:00005460       ?alloc_block@MemDebug@@AAEXXZ 21006460 f   winmem.obj
+ 0001:000054e0       ?close@MemDebug@@QAEXXZ    210064e0 f   winmem.obj
+ 0001:00005530       ?alloc@MemDebug@@QAEPAXK@Z 21006530 f   winmem.obj
+ 0001:000055d0       ?free@MemDebug@@QAEXPAX@Z  210065d0 f   winmem.obj
+ 0001:00005640       ?find_ptr@MemDebug@@AAEPAVMallocInfo@@PAX@Z 21006640 f   winmem.obj
+ 0001:00005660       ??2MallocInfo@@SAPAXIPAVMemDebug@@@Z 21006660 f   winmem.obj
+ 0001:00005670       ??3MallocInfo@@SAXPAXPAVMemDebug@@@Z 21006670 f   winmem.obj
+ 0001:00005680       ?alloc_info@MemDebug@@QAEPAVMallocInfo@@XZ 21006680 f   winmem.obj
+ 0001:000056d0       ?free_info@MemDebug@@QAEXPAVMallocInfo@@@Z 210066d0 f   winmem.obj
+ 0001:00005730       ?leak@MemDebug@@QAEKXZ     21006730 f   winmem.obj
+ 0001:00005750       __test_leak                21006750 f   winmem.obj
+ 0001:00005760       ?alloc@CTrackList@@QAEXPADK@Z 21006760 f   winmem.obj
+ 0001:000057c0       ?free@CTrackList@@QAEXPAD@Z 210067c0 f   winmem.obj
+ 0001:00005850       __xheap_check              21006850 f   winmem.obj
+ 0001:00005900       @xmalloc@4                 21006900 f   winmem.obj
+ 0001:00005950       @xrealloc@8                21006950 f   winmem.obj
+ 0001:00005960       @xmalloc_tmp@4             21006960 f   winmem.obj
+ 0001:00005970       @xfree@4                   21006970 f   winmem.obj
+ 0001:00005990       @xmalloc2@4                21006990 f   winmem.obj
+ 0001:000059a0       @xfree2@4                  210069a0 f   winmem.obj
+ 0001:000059b0       @xmalloc3@4                210069b0 f   winmem.obj
+ 0001:000059c0       @xfree3@4                  210069c0 f   winmem.obj
+ 0001:000059d0       @xmalloc4@4                210069d0 f   winmem.obj
+ 0001:000059e0       @xfree4@4                  210069e0 f   winmem.obj
+ 0001:000059f0       ??1CMallocBlock@@QAE@XZ    210069f0 f   winmem.obj
+ 0001:00005a10       ?get_next@CMallocBlock@@QAEPAXXZ 21006a10 f   winmem.obj
+ 0001:00005a40       ??2CMallocBlock@@SAPAXIKPBKK@Z 21006a40 f   winmem.obj
+ 0001:00005b10       ??0MemDebug@@QAE@XZ        21006b10 f i winmem.obj
+ 0001:00005b40       ??0RingBuffer@@QAE@PBXK@Z  21006b40 f   xmisc.obj
+ 0001:00005b60       ?adjust_read@RingBuffer@@QAEXK@Z 21006b60 f   xmisc.obj
+ 0001:00005b90       ?get_room@RingBuffer@@QAEKXZ 21006b90 f   xmisc.obj
+ 0001:00005bb0       ?get_total_room@RingBuffer@@QAEKXZ 21006bb0 f   xmisc.obj
+ 0001:00005be0       ?wrap@RingBuffer@@QAEXXZ   21006be0 f   xmisc.obj
+ 0001:00005bf0       ?write@RingBuffer@@QAEKPBXK@Z 21006bf0 f   xmisc.obj
+ 0001:00005c60       ?realloc@MemGrow@@QAEXK@Z  21006c60 f   xmisc.obj
+ 0001:00005cb0       ??0autochar@@QAE@PAD@Z     21006cb0 f i stdcore.obj
+ 0001:00005cb0       ??4autochar@@QAEAAV0@PAD@Z 21006cb0 f i stdcore.obj
+ 0001:00005cc0       ?release@autochar@@QAEPBDXZ 21006cc0 f i stdcore.obj
+ 0001:00005cd0       ?list_base@CMallocBlock@@AAEPAKXZ 21006cd0 f i stdcore.obj
+ 0001:00005ce0       ??3CStdOut@@SAXPAX@Z       21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3XMemRdBuffer@@SAXPAX@Z  21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3XStatistic@@SAXPAX@Z    21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3XFile@@SAXPAX@Z         21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3XStat@@SAXPAX@Z         21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3RingBuffer@@SAXPAX@Z    21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3MemGrow@@SAXPAX@Z       21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3CMallocBlock@@SAXPAXKPBKK@Z 21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3XStatManager@@SAXPAX@Z  21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3CMallocBlock@@SAXPAX@Z  21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3CStrObj@@SAXPAX@Z       21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3@YAXPAX@Z               21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3XStreamRdDirect@@SAXPAX@Z 21006ce0 f i stdcore.obj
+ 0001:00005ce0       ??3XStreamWrDirect@@SAXPAX@Z 21006ce0 f i stdcore.obj
+ 0001:00005cf0       ??0CMallocBlock@@QAE@XZ    21006cf0 f i stdcore.obj
+ 0001:00005d00       ??4XRef@@QAEAAV0@ABV0@@Z   21006d00 f i stdcore.obj
+ 0001:00005d00       ??4CMallocBlock@@QAEAAV0@ABV0@@Z 21006d00 f i stdcore.obj
+ 0001:00005d00       ??4autochar@@QAEAAV0@ABV0@@Z 21006d00 f i stdcore.obj
+ 0001:00005d10       ??0MemGrow@@QAE@XZ         21006d10 f i stdcore.obj
+ 0001:00005d20       ?init@MemGrow@@QAEXK@Z     21006d20 f i stdcore.obj
+ 0001:00005d40       ?close@MemGrow@@QAEXXZ     21006d40 f i stdcore.obj
+ 0001:00005d40       ??1autochar@@QAE@XZ        21006d40 f i stdcore.obj
+ 0001:00005d60       ??2CStrObj@@SAPAXI@Z       21006d60 f i stdcore.obj
+ 0001:00005d60       ??2CStdOut@@SAPAXI@Z       21006d60 f i stdcore.obj
+ 0001:00005d60       ??2MemGrow@@SAPAXI@Z       21006d60 f i stdcore.obj
+ 0001:00005d60       ??2RingBuffer@@SAPAXI@Z    21006d60 f i stdcore.obj
+ 0001:00005d60       ??2XStat@@SAPAXI@Z         21006d60 f i stdcore.obj
+ 0001:00005d60       ??2XStatManager@@SAPAXI@Z  21006d60 f i stdcore.obj
+ 0001:00005d60       ??2XStreamRdDirect@@SAPAXI@Z 21006d60 f i stdcore.obj
+ 0001:00005d60       ??2XStreamWrDirect@@SAPAXI@Z 21006d60 f i stdcore.obj
+ 0001:00005d60       ??2XStatistic@@SAPAXI@Z    21006d60 f i stdcore.obj
+ 0001:00005d60       ??2XMemRdBuffer@@SAPAXI@Z  21006d60 f i stdcore.obj
+ 0001:00005d60       ??2XFile@@SAPAXI@Z         21006d60 f i stdcore.obj
+ 0001:00005d70       ??0CSysObj@@QAE@ABV0@@Z    21006d70 f i stdcore.obj
+ 0001:00005d90       ??4CSysObj@@QAEAAV0@ABV0@@Z 21006d90 f i stdcore.obj
+ 0001:00005db0       ??0XStatistic@@QAE@XZ      21006db0 f i stdcore.obj
+ 0001:00005dd0       ?add_count@XStatistic@@QAEXXZ 21006dd0 f i stdcore.obj
+ 0001:00005de0       ?add_tick@XStatistic@@QAEX_K@Z 21006de0 f i stdcore.obj
+ 0001:00005e00       ?add_alloc@XStatistic@@QAEXXZ 21006e00 f i stdcore.obj
+ 0001:00005e10       ?add_alloc2@XStatistic@@QAEXXZ 21006e10 f i stdcore.obj
+ 0001:00005e20       ?add_alloc3@XStatistic@@QAEXXZ 21006e20 f i stdcore.obj
+ 0001:00005e30       ??4XStatistic@@QAEAAV0@ABV0@@Z 21006e30 f i stdcore.obj
+ 0001:00005e50       ??0XStatManager@@QAE@XZ    21006e50 f i stdcore.obj
+ 0001:00005e90       ?get_id@XStatManager@@QAEKXZ 21006e90 f i stdcore.obj
+ 0001:00005ea0       ?push@XStatManager@@QAEXPAVXStatistic@@@Z 21006ea0 f i stdcore.obj
+ 0001:00005ef0       ?pop@XStatManager@@QAEXPAVXStatistic@@@Z 21006ef0 f i stdcore.obj
+ 0001:00005f30       ?add_alloc@XStatManager@@QAEXXZ 21006f30 f i stdcore.obj
+ 0001:00005f50       ?add_alloc2@XStatManager@@QAEXXZ 21006f50 f i stdcore.obj
+ 0001:00005f70       ?add_alloc3@XStatManager@@QAEXXZ 21006f70 f i stdcore.obj
+ 0001:00005f90       ?close@XStatManager@@QAEXXZ 21006f90 f i stdcore.obj
+ 0001:00006000       ??4XStatManager@@QAEAAV0@ABV0@@Z 21007000 f i stdcore.obj
+ 0001:00006000       ??4CPathObj@@QAEAAV0@ABV0@@Z 21007000 f i stdcore.obj
+ 0001:00006020       ??4RingBuffer@@QAEAAV0@ABV0@@Z 21007020 f i stdcore.obj
+ 0001:00006020       ??4XStat@@QAEAAV0@ABV0@@Z  21007020 f i stdcore.obj
+ 0001:00006040       ?bitch@CError@@QAEXPBD@Z   21007040 f i stdcore.obj
+ 0001:00006050       ?fatal@CError@@QAEXPBD@Z   21007050 f i stdcore.obj
+ 0001:00006060       ?throw_msg@CError@@QAEXPBD@Z 21007060 f i stdcore.obj
+ 0001:00006070       ??0CError@@QAE@XZ          21007070 f i stdcore.obj
+ 0001:00006080       ??0CError@@QAE@ABV0@@Z     21007080 f i stdcore.obj
+ 0001:00006090       ??4CError@@QAEAAV0@ABV0@@Z 21007090 f i stdcore.obj
+ 0001:00006090       ??4XDll@@QAEAAV0@ABV0@@Z   21007090 f i stdcore.obj
+ 0001:000060a0       ??0WinMsgDef@@QAE@XZ       210070a0 f i stdcore.obj
+ 0001:000060b0       ??0WinMsgDef@@QAE@ABV0@@Z  210070b0 f i stdcore.obj
+ 0001:000060d0       ??4XFindLevel@@QAEAAV0@ABV0@@Z 210070d0 f i stdcore.obj
+ 0001:000060d0       ??4?$XChain@VCSysObj@@@@QAEAAV0@ABV0@@Z 210070d0 f i stdcore.obj
+ 0001:000060d0       ??4CStrObj@@QAEAAV0@ABV0@@Z 210070d0 f i stdcore.obj
+ 0001:000060d0       ??4XStreamState@@QAEAAV0@ABV0@@Z 210070d0 f i stdcore.obj
+ 0001:000060f0       ??4ErrMem@@QAEAAV0@ABV0@@Z 210070f0 f i stdcore.obj
+ 0001:00006110       ?bitch@XGlobal@@QAEXPBD@Z  21007110 f i stdcore.obj
+ 0001:00006130       ?throw_msg@XGlobal@@QAEXPBD@Z 21007130 f i stdcore.obj
+ 0001:00006150       ?assert@XGlobal@@QAEXPBDK@Z 21007150 f i stdcore.obj
+ 0001:00006160       ??0XGlobal@@QAE@ABV0@@Z    21007160 f i stdcore.obj
+ 0001:00006210       ??4XGlobal@@QAEAAV0@ABV0@@Z 21007210 f i stdcore.obj
+ 0001:000062b0       ??0XDll@@QAE@XZ            210072b0 f i stdcore.obj
+ 0001:000062c0       ??0XDll@@QAE@ABV0@@Z       210072c0 f i stdcore.obj
+ 0001:000062d0       ??0XApp@@QAE@XZ            210072d0 f i stdcore.obj
+ 0001:000062e0       ??1XApp@@QAE@XZ            210072e0 f i stdcore.obj
+ 0001:000062f0       ??4XApp@@QAEAAV0@ABV0@@Z   210072f0 f i stdcore.obj
+ 0001:00006300       ??0XStat@@QAE@PAVXStatistic@@@Z 21007300 f i stdcore.obj
+ 0001:00006370       ??1XStat@@QAE@XZ           21007370 f i stdcore.obj
+ 0001:000063e0       ??0CSysObj@@QAE@XZ         210073e0 f i stdcore.obj
+ 0001:00006400       ??4CStrLow@@QAEAAV0@ABV0@@Z 21007400 f i stdcore.obj
+ 0001:00006400       ??4MemGrow@@QAEAAV0@ABV0@@Z 21007400 f i stdcore.obj
+ 0001:00006400       ??4CStr@@QAEAAV0@ABV0@@Z   21007400 f i stdcore.obj
+ 0001:00006400       ??4CStrCat@@QAEAAV0@ABV0@@Z 21007400 f i stdcore.obj
+ 0001:00006420       ??1CStrObj@@QAE@XZ         21007420 f i stdcore.obj
+ 0001:00006440       ??CCStrRef@@QBEPBDXZ       21007440 f i stdcore.obj
+ 0001:00006440       ??BCStrRef@@QAEPADXZ       21007440 f i stdcore.obj
+ 0001:00006440       ??BCStrRef@@QBEPBDXZ       21007440 f i stdcore.obj
+ 0001:00006440       ??CCStrRef@@QAEPADXZ       21007440 f i stdcore.obj
+ 0001:00006450       ??4CStrRef@@QAEAAV0@ABV0@@Z 21007450 f i stdcore.obj
+ 0001:000064a0       ??1CStrRef@@QAE@XZ         210074a0 f i stdcore.obj
+ 0001:000064e0       ??0CPathObj@@QAE@XZ        210074e0 f i stdcore.obj
+ 0001:000064f0       ??0XRef@@QAE@XZ            210074f0 f i stdcore.obj
+ 0001:000064f0       ??0autochar@@QAE@XZ        210074f0 f i stdcore.obj
+ 0001:000064f0       ??0CPathRef@@QAE@XZ        210074f0 f i stdcore.obj
+ 0001:000064f0       ??0CStrRef@@QAE@XZ         210074f0 f i stdcore.obj
+ 0001:00006500       ??0CStrRef@@QAE@ABV0@@Z    21007500 f i stdcore.obj
+ 0001:00006500       ??0CPathRef@@QAE@ABV0@@Z   21007500 f i stdcore.obj
+ 0001:00006520       ??4CPathRef@@QAEAAV0@ABV0@@Z 21007520 f i stdcore.obj
+ 0001:00006570       ??1CPathRef@@QAE@XZ        21007570 f i stdcore.obj
+ 0001:000065b0       ??0?$XChain@VCSysObj@@@@QAE@XZ 210075b0 f i stdcore.obj
+ 0001:000065b0       ??0CPrintf@@QAE@XZ         210075b0 f i stdcore.obj
+ 0001:000065b0       ??0?$XChain@VCPrintfT@@@@QAE@XZ 210075b0 f i stdcore.obj
+ 0001:000065c0       ??0CPrintf@@QAE@PADK@Z     210075c0 f i stdcore.obj
+ 0001:000065f0       ??0CPrintf@@QAE@PADKK@Z    210075f0 f i stdcore.obj
+ 0001:00006620       ?init@CPrintf@@QAEXPADK@Z  21007620 f i stdcore.obj
+ 0001:00006650       ?reset@CPrintf@@QAEXXZ     21007650 f i stdcore.obj
+ 0001:00006670       ??6CPrintf@@QAEAAV0@PBD@Z  21007670 f i stdcore.obj
+ 0001:00006690       ??6CPrintf@@QAEAAV0@K@Z    21007690 f i stdcore.obj
+ 0001:000066b0       ??6CPrintf@@QAEAAV0@J@Z    210076b0 f i stdcore.obj
+ 0001:000066d0       ??6CPrintf@@QAEAAV0@D@Z    210076d0 f i stdcore.obj
+ 0001:000066f0       ?str@CPrintf@@QAEKPBD@Z    210076f0 f i stdcore.obj
+ 0001:00006700       ?strn@CPrintf@@QAEKPBDK@Z  21007700 f i stdcore.obj
+ 0001:00006710       ?overflow@CPrintf@@QAEKXZ  21007710 f i stdcore.obj
+ 0001:00006720       ?get_len@CPrintf@@QAEKXZ   21007720 f i stdcore.obj
+ 0001:00006730       ?get_last@CPrintf@@QAEPADXZ 21007730 f i stdcore.obj
+ 0001:00006740       ?set_cur@CPrintf@@QAEPADPBD@Z 21007740 f i stdcore.obj
+ 0001:00006760       ?set_cur@CPrintf@@QAEPADK@Z 21007760 f i stdcore.obj
+ 0001:00006780       ??4StrGrow@@QAEAAV0@ABV0@@Z 21007780 f i stdcore.obj
+ 0001:00006780       ??4CPrintf@@QAEAAV0@ABV0@@Z 21007780 f i stdcore.obj
+ 0001:000067a0       ?realloc@StrGrow@@IAEXKK@Z 210077a0 f i stdcore.obj
+ 0001:000067e0       ??4StrGrow@@QAEAAV0@PBD@Z  210077e0 f i stdcore.obj
+ 0001:00006810       ??6StrGrow@@QAEAAV0@PBD@Z  21007810 f i stdcore.obj
+ 0001:00006830       ??6StrGrow@@QAEAAV0@K@Z    21007830 f i stdcore.obj
+ 0001:00006850       ??6StrGrow@@QAEAAV0@J@Z    21007850 f i stdcore.obj
+ 0001:00006870       ??6StrGrow@@QAEAAV0@D@Z    21007870 f i stdcore.obj
+ 0001:00006890       ??_FStrGrow@@QAEXXZ        21007890 f i stdcore.obj
+ 0001:000068a0       ??0XBufferReadInt@@QAE@PAVCBaseStream@@@Z 210078a0 f i stdcore.obj
+ 0001:000068c0       ??0XBufferReadInt@@QAE@ABV0@@Z 210078c0 f i stdcore.obj
+ 0001:000068e0       ??0XBufferWriteInt@@QAE@PAVCBaseStream@@@Z 210078e0 f i stdcore.obj
+ 0001:00006900       ??0XBufferWriteInt@@QAE@ABV0@@Z 21007900 f i stdcore.obj
+ 0001:00006920       ??0XStreamRdDirect@@QAE@PAVCBaseStream@@@Z 21007920 f i stdcore.obj
+ 0001:00006940       ??0XStreamRdDirect@@QAE@ABV0@@Z 21007940 f i stdcore.obj
+ 0001:00006960       ??0XStreamWrDirect@@QAE@PAVCBaseStream@@@Z 21007960 f i stdcore.obj
+ 0001:00006980       ??0XStreamWrDirect@@QAE@ABV0@@Z 21007980 f i stdcore.obj
+ 0001:000069a0       ??4XBufferReadInt@@QAEAAV0@ABV0@@Z 210079a0 f i stdcore.obj
+ 0001:000069a0       ??4XBufferWriteInt@@QAEAAV0@ABV0@@Z 210079a0 f i stdcore.obj
+ 0001:000069a0       ??4WinMsgDef@@QAEAAV0@ABV0@@Z 210079a0 f i stdcore.obj
+ 0001:000069a0       ??4XStreamWrDirect@@QAEAAV0@ABV0@@Z 210079a0 f i stdcore.obj
+ 0001:000069a0       ??4XStreamRdDirect@@QAEAAV0@ABV0@@Z 210079a0 f i stdcore.obj
+ 0001:000069b0       ??0XMemRdBuffer@@QAE@ABV0@@Z 210079b0 f i stdcore.obj
+ 0001:000069f0       ??4XMemRdBuffer@@QAEAAV0@ABV0@@Z 210079f0 f i stdcore.obj
+ 0001:00006a20       ?is_open@CBaseStream@@IAEKXZ 21007a20 f i stdcore.obj
+ 0001:00006a30       ?set_open@CBaseStream@@IAEXXZ 21007a30 f i stdcore.obj
+ 0001:00006a40       ?get_pos@CBaseStream@@QAEKXZ 21007a40 f i stdcore.obj
+ 0001:00006a50       ?get_handle@CBaseStream@@QAEPAXXZ 21007a50 f i stdcore.obj
+ 0001:00006a60       ??0CBaseStream@@QAE@XZ     21007a60 f i stdcore.obj
+ 0001:00006a80       ??0CBaseStream@@QAE@ABV0@@Z 21007a80 f i stdcore.obj
+ 0001:00006ac0       ??4CBaseStream@@QAEAAV0@ABV0@@Z 21007ac0 f i stdcore.obj
+ 0001:00006ac0       ??4CStdOut@@QAEAAV0@ABV0@@Z 21007ac0 f i stdcore.obj
+ 0001:00006b00       ??0CStdOut@@QAE@ABV0@@Z    21007b00 f i stdcore.obj
+ 0001:00006b40       ?seek_int@XFile@@AAEKJ@Z   21007b40 f i stdcore.obj
+ 0001:00006b50       ??0XFile@@QAE@ABV0@@Z      21007b50 f i stdcore.obj
+ 0001:00006bc0       ??4XFile@@QAEAAV0@ABV0@@Z  21007bc0 f i stdcore.obj
+ 0001:00006c10       ?has_handle@XFindLevel@@QAEKXZ 21007c10 f i stdcore.obj
+ 0001:00006c20       ?get_path@XFindLevel@@QAEPBDXZ 21007c20 f i stdcore.obj
+ 0001:00006c20       ?get_path@CPathObj@@QAEPBDXZ 21007c20 f i stdcore.obj
+ 0001:00006c20       ?get_pos_at@CBaseStream@@QAEKXZ 21007c20 f i stdcore.obj
+ 0001:00006c30       ??1XFindLevel@@QAE@XZ      21007c30 f i stdcore.obj
+ 0001:00006c60       ??0XFindFile@@QAE@XZ       21007c60 f i stdcore.obj
+ 0001:00006ca0       ??4XFindFile@@QAEAAV0@ABV0@@Z 21007ca0 f i stdcore.obj
+ 0001:00006cc0       __purecall                 21007cc0 f   msvcrt:MSVCRT.dll
+ 0001:00006cc6       ??_M@YGXPAXIHP6EX0@Z@Z     21007cc6 f   msvcrt:ehvecdtr.obj
+ 0001:00006d46       ?__ArrayUnwind@@YGXPAXIHP6EX0@Z@Z 21007d46 f   msvcrt:ehvecdtr.obj
+ 0001:00006dba       ___CxxFrameHandler         21007dba f   msvcrt:MSVCRT.dll
+ 0001:00006dc0       __chkstk                   21007dc0 f   msvcrt:chkstk.obj
+ 0001:00006dc0       __alloca_probe             21007dc0 f   msvcrt:chkstk.obj
+ 0001:00006df0       __CxxThrowException@8      21007df0 f   msvcrt:MSVCRT.dll
+ 0001:00006df6       __onexit                   21007df6 f   msvcrt:atonexit.obj
+ 0001:00006e22       _atexit                    21007e22 f   msvcrt:atonexit.obj
+ 0001:00006e34       ??_L@YGXPAXIHP6EX0@Z1@Z    21007e34 f   msvcrt:ehvecctr.obj
+ 0001:00006eb6       ??_Gtype_info@@UAEPAXI@Z   21007eb6 f i msvcrt:ti_inst.obj
+ 0001:00006eb6       ??_Etype_info@@UAEPAXI@Z   21007eb6 f i msvcrt:ti_inst.obj
+ 0001:00006ed2       __CRT_INIT@12              21007ed2 f   msvcrt:crtdll.obj
+ 0001:00006f7d       __DllMainCRTStartup@12     21007f7d f   msvcrt:crtdll.obj
+ 0001:0000701a       __except_handler3          2100801a f   msvcrt:MSVCRT.dll
+ 0001:00007020       ?terminate@@YAXXZ          21008020 f   msvcrt:MSVCRT.dll
+ 0001:00007026       ___dllonexit               21008026 f   msvcrt:MSVCRT.dll
+ 0001:0000702c       ??1type_info@@UAE@XZ       2100802c f   msvcrt:MSVCRT.dll
+ 0001:00007032       __initterm                 21008032 f   msvcrt:MSVCRT.dll
+ 0002:00000000       __imp__ReadFile@20         21009000     kernel32:KERNEL32.dll
+ 0002:00000004       __imp__WriteFile@20        21009004     kernel32:KERNEL32.dll
+ 0002:00000008       __imp__CreateMutexA@12     21009008     kernel32:KERNEL32.dll
+ 0002:0000000c       __imp__GetCurrentDirectoryA@8 2100900c     kernel32:KERNEL32.dll
+ 0002:00000010       __imp__SetCurrentDirectoryA@4 21009010     kernel32:KERNEL32.dll
+ 0002:00000014       __imp__GetFullPathNameA@16 21009014     kernel32:KERNEL32.dll
+ 0002:00000018       __imp__GetLogicalDrives@0  21009018     kernel32:KERNEL32.dll
+ 0002:0000001c       __imp__FindClose@4         2100901c     kernel32:KERNEL32.dll
+ 0002:00000020       __imp__FindFirstFileA@8    21009020     kernel32:KERNEL32.dll
+ 0002:00000024       __imp__FindNextFileA@8     21009024     kernel32:KERNEL32.dll
+ 0002:00000028       __imp__VirtualAlloc@16     21009028     kernel32:KERNEL32.dll
+ 0002:0000002c       __imp__TlsSetValue@8       2100902c     kernel32:KERNEL32.dll
+ 0002:00000030       __imp__TlsAlloc@0          21009030     kernel32:KERNEL32.dll
+ 0002:00000034       __imp__TlsFree@4           21009034     kernel32:KERNEL32.dll
+ 0002:00000038       __imp__TlsGetValue@4       21009038     kernel32:KERNEL32.dll
+ 0002:0000003c       __imp__OpenMutexA@12       2100903c     kernel32:KERNEL32.dll
+ 0002:00000040       __imp__GetLastError@0      21009040     kernel32:KERNEL32.dll
+ 0002:00000044       __imp__WaitForSingleObject@8 21009044     kernel32:KERNEL32.dll
+ 0002:00000048       __imp__ReleaseMutex@4      21009048     kernel32:KERNEL32.dll
+ 0002:0000004c       __imp__CloseHandle@4       2100904c     kernel32:KERNEL32.dll
+ 0002:00000050       __imp__OpenEventA@12       21009050     kernel32:KERNEL32.dll
+ 0002:00000054       __imp__CreateEventA@16     21009054     kernel32:KERNEL32.dll
+ 0002:00000058       __imp__OpenFileMappingA@12 21009058     kernel32:KERNEL32.dll
+ 0002:0000005c       __imp__CreateFileMappingA@24 2100905c     kernel32:KERNEL32.dll
+ 0002:00000060       __imp__GetStdHandle@4      21009060     kernel32:KERNEL32.dll
+ 0002:00000064       __imp__CreateFileA@28      21009064     kernel32:KERNEL32.dll
+ 0002:00000068       __imp__SetFilePointer@16   21009068     kernel32:KERNEL32.dll
+ 0002:0000006c       __imp__GetFileSize@8       2100906c     kernel32:KERNEL32.dll
+ 0002:00000070       __imp__GetFileAttributesA@4 21009070     kernel32:KERNEL32.dll
+ 0002:00000074       \177KERNEL32_NULL_THUNK_DATA 21009074     kernel32:KERNEL32.dll
+ 0002:00000078       __imp___initterm           21009078     msvcrt:MSVCRT.dll
+ 0002:0000007c       __imp___adjust_fdiv        2100907c     msvcrt:MSVCRT.dll
+ 0002:00000080       __imp___purecall           21009080     msvcrt:MSVCRT.dll
+ 0002:00000084       __imp____CxxFrameHandler   21009084     msvcrt:MSVCRT.dll
+ 0002:00000088       __imp__exit                21009088     msvcrt:MSVCRT.dll
+ 0002:0000008c       __imp___vsnprintf          2100908c     msvcrt:MSVCRT.dll
+ 0002:00000090       __imp___CxxThrowException@8 21009090     msvcrt:MSVCRT.dll
+ 0002:00000094       __imp__printf              21009094     msvcrt:MSVCRT.dll
+ 0002:00000098       __imp__malloc              21009098     msvcrt:MSVCRT.dll
+ 0002:0000009c       __imp__free                2100909c     msvcrt:MSVCRT.dll
+ 0002:000000a0       __imp___heapwalk           210090a0     msvcrt:MSVCRT.dll
+ 0002:000000a4       __imp___heapchk            210090a4     msvcrt:MSVCRT.dll
+ 0002:000000a8       __imp___except_handler3    210090a8     msvcrt:MSVCRT.dll
+ 0002:000000ac       __imp_?terminate@@YAXXZ    210090ac     msvcrt:MSVCRT.dll
+ 0002:000000b0       __imp____dllonexit         210090b0     msvcrt:MSVCRT.dll
+ 0002:000000b4       __imp___onexit             210090b4     msvcrt:MSVCRT.dll
+ 0002:000000b8       __imp_??1type_info@@UAE@XZ 210090b8     msvcrt:MSVCRT.dll
+ 0002:000000bc       \177MSVCRT_NULL_THUNK_DATA 210090bc     msvcrt:MSVCRT.dll
+ 0002:000000c0       __imp__GetForegroundWindow@0 210090c0     user32:USER32.dll
+ 0002:000000c4       __imp__MessageBoxExA@20    210090c4     user32:USER32.dll
+ 0002:000000c8       \177USER32_NULL_THUNK_DATA 210090c8     user32:USER32.dll
+ 0002:000000d0       ??_7CSysObj@@6B@           210090d0     list.obj
+ 0002:000000d4       ??_7XBufferReadInt@@6B@    210090d4     list.obj
+ 0002:000000e4       ??_7XBufferWriteInt@@6B@   210090e4     list.obj
+ 0002:000000f8       ??_7XMemRdBuffer@@6B@      210090f8     list.obj
+ 0002:00000108       ??_7XFile@@6BCBaseStream@@@ 21009108     file.obj
+ 0002:00000148       ??_7XFile@@6BCSysObj@@@    21009148     file.obj
+ 0002:00000150       ??_7CBaseStream@@6B@       21009150     file.obj
+ 0002:00000190       ??_7XStreamWrDirect@@6B@   21009190     file.obj
+ 0002:000001a4       ??_7XStreamRdDirect@@6B@   210091a4     file.obj
+ 0002:000001b8       ??_7CStdOut@@6B@           210091b8     file.obj
+ 0002:000001f8       ??_7XCoreDll@@6BXGlobal@@@ 210091f8     global.obj
+ 0002:000001fc       ??_7XCoreDll@@6BXDll@@@    210091fc     global.obj
+ 0002:00000204       ??_7XDll@@6B@              21009204     global.obj
+ 0002:0000020c       ??_7XGlobal@@6B@           2100920c     global.obj
+ 0002:00000210       ??_7XMutex@@6B@            21009210     win.obj
+ 0002:00000214       ??_7XEvent@@6B@            21009214     win.obj
+ 0002:00000218       ??_7CMemMap@@6B@           21009218     win.obj
+ 0002:0000021c       ??_7WinMsgDef@@6B@         2100921c     win.obj
+ 0002:00000230       ?_app_char_flags@@3QBEB    21009230     flagdata.obj
+ 0002:00000330       ??_7CError@@6B@            21009330     stdcore.obj
+ 0002:00000370       ??_7type_info@@6B@         21009370     msvcrt:ti_inst.obj
+ 0002:00000378       ??_R1A@?0A@A@type_info@@8  21009378     msvcrt:ti_inst.obj
+ 0002:00000390       ??_R2type_info@@8          21009390     msvcrt:ti_inst.obj
+ 0002:00000398       ??_R3type_info@@8          21009398     msvcrt:ti_inst.obj
+ 0002:000003a8       ??_R4type_info@@6B@        210093a8     msvcrt:ti_inst.obj
+ 0002:00000794       __CT??_R0K@84              21009794     win.obj
+ 0002:000007b0       __CTA1K                    210097b0     win.obj
+ 0002:000007b8       __TI1K                     210097b8     win.obj
+ 0002:000007c8       __IMPORT_DESCRIPTOR_USER32 210097c8     user32:USER32.dll
+ 0002:000007dc       __IMPORT_DESCRIPTOR_KERNEL32 210097dc     kernel32:KERNEL32.dll
+ 0002:000007f0       __IMPORT_DESCRIPTOR_MSVCRT 210097f0     msvcrt:MSVCRT.dll
+ 0002:00000804       __NULL_IMPORT_DESCRIPTOR   21009804     user32:USER32.dll
+ 0003:00000000       ___xc_a                    2100e000     msvcrt:cinitexe.obj
+ 0003:00000018       ___xc_z                    2100e018     msvcrt:cinitexe.obj
+ 0003:0000001c       ___xi_a                    2100e01c     msvcrt:cinitexe.obj
+ 0003:00000020       ___xi_z                    2100e020     msvcrt:cinitexe.obj
+ 0003:000002b8       ??_C@_0CF@MJGC@XGlobal?3?3printf?3?5Out?5of?5error?5me@ 2100e2b8     global.obj
+ 0003:00000600       ??_R0K@8                   2100e600     win.obj
+ 0003:00000668       ?_deb_free@@3KA            2100e668     winmem.obj
+ 0003:0000085c       ??_C@_07KPPF@wheezer?$AA@  2100e85c     winmem.obj
+ 0003:00000864       ??_C@_08GPFK@whooznat?$AA@ 2100e864     winmem.obj
+ 0003:00000870       ??_R0?AVtype_info@@@8      2100e870     msvcrt:ti_inst.obj
+ 0003:00000888       ?_mem_manage@@3VCMemManage@@A 2100e888     winalloc.obj
+ 0003:000008d0       __err_printf_string        2100e8d0     global.obj
+ 0003:000018d0       ?xcore_dll@@3VXCoreDll@@A  2100f8d0     global.obj
+ 0003:00003944       ?_xcore_dll@@3PAVXDll@@A   21011944     global.obj
+ 0003:00003948       ?_xapp@@3PAVXApp@@A        21011948     global.obj
+ 0003:0000394c       ?_global@@3PAVXGlobal@@A   2101194c     global.obj
+ 0003:00003950       __gmalloc                  21011950     global.obj
+ 0003:00003954       __mem_lock                 21011954     global.obj
+ 0003:00003958       ?_printf_manage@@3VPrintfManage@@A 21011958     printf.obj
+ 0003:000039ac       ?_win_error@@3VWinMsgDef@@A 210119ac     win.obj
+ 0003:000039b8       ?track_list@@3VCTrackList@@A 210119b8     winmem.obj
+ 0003:000059c0       ?mem_debug@@3PAVMemDebug@@A 210139c0     winmem.obj
+ 0003:000059c4       ?mem_debug2@@3PAVMemDebug@@A 210139c4     winmem.obj
+ 0003:000059c8       ?mem_debug3@@3PAVMemDebug@@A 210139c8     winmem.obj
+ 0003:000059cc       ?mem_debug4@@3PAVMemDebug@@A 210139cc     winmem.obj
+ 0003:000059d0       ?dev_val@@3KC              210139d0     winmem.obj
+ 0003:000059d4       ?_active_count@@3KA        210139d4     winmem.obj
+ 0003:000059dc       __adjust_fdiv              210139dc     <common>
+ 0003:000059e0       __pRawDllMain              210139e0     <common>
+ 0003:000059e4       ___onexitend               210139e4     <common>
+ 0003:000059e8       ___onexitbegin             210139e8     <common>
+
+ entry point at        0001:00006f7d
+
+ Static symbols
+
+ 0001:00005830       _$E2                       21006830 f   winmem.obj
+ 0001:00005840       _$E1                       21006840 f   winmem.obj
+ 0001:00004e30       _$E2                       21005e30 f   win.obj
+ 0001:00004e40       _$E1                       21005e40 f   win.obj
+ 0001:00002d00       _$E4                       21003d00 f   printf.obj
+ 0001:00002d10       _$E1                       21003d10 f   printf.obj
+ 0001:00002d20       _$E3                       21003d20 f   printf.obj
+ 0001:00002d30       _$E2                       21003d30 f   printf.obj
+ 0001:000020c0       _$E4                       210030c0 f   global.obj
+ 0001:000020d0       _$E1                       210030d0 f   global.obj
+ 0001:000020e0       _$E3                       210030e0 f   global.obj
+ 0001:000020f0       _$E2                       210030f0 f   global.obj
+ 0001:00001ba0       _$E2                       21002ba0 f   winalloc.obj
+ 0001:00001bb0       _$E1                       21002bb0 f   winalloc.obj
+ 0001:00006da4       ?ArrayUnwindFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z 21007da4 f   msvcrt:ehvecdtr.obj
+
+ 1616 bytes saved through ICF
+

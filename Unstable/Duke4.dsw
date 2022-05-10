@@ -1,0 +1,602 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "BuildRelease"=.\BuildRelease\BuildRelease.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/BuildRelease", UROAAAAA
+    .\buildrelease
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name D3DDrv
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name DukeEd
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Editor
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Engine
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Fire
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Galaxy
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GalaxyLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Launch
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name SoftDrv
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UCC
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UWeb
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UWindow
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Cannibal
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Imp3DS
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ImpBP2
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ImpGMA
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ImpLWO
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ImpMDX
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CannibalEditor
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CblMacEd
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Cannibal"=.\Cannibal\Cannibal.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/Cannibal", QDPAAAAA
+    .\cannibal
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name xcore
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "CannibalEditor"=.\CannibalEditor\CannibalEditor.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/CannibalEditor", KJPAAAAA
+    .\cannibaleditor
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name xcore
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "CblMacEd"=.\CblMacEd\CblMacEd.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/CblMacEd", NDPAAAAA
+    .\cblmaced
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Cannibal
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "D3DDrv"=.\D3DDrv\Src\D3DDrv.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/D3DDrv", CEJAAAAA
+    .\d3ddrv
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Engine
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "DukeEd"=.\DukeEd\DukeEd.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/DukeEd", SSNAAAAA
+    .\dukeed
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Editor
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Engine
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Editor"=.\Editor\Src\Editor.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/Editor", LEJAAAAA
+    .\editor
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Engine"=.\Engine\Src\Engine.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/Engine", KGJAAAAA
+    .\engine
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GalaxyLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Cannibal
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Fire"=.\Fire\Src\Fire.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/Fire", KOJAAAAA
+    .\fire
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Engine
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Galaxy"=.\Galaxy\Src\Galaxy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/Galaxy", ZOJAAAAA
+    .\galaxy
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Engine
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GalaxyLib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GalaxyLib"=.\GalaxyLib\GalaxyLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GalaxyLib", CPNAAAAA
+    .\galaxylib
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GlideDrv"=.\GlideDrv\Src\GlideDrv.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Imp3DS"=.\Imp3DS\Imp3DS.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/Imp3DS", HIPAAAAA
+    .\imp3ds
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Cannibal
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ImpBP2"=.\ImpBP2\ImpBP2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/ImpBP2", KIPAAAAA
+    .\impbp2
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Cannibal
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ImpGMA"=.\ImpGMA\ImpGMA.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/ImpGMA", ZIPAAAAA
+    .\impgma
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Cannibal
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ImpLWO"=.\ImpLWO\ImpLWO.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/ImpLWO", CJPAAAAA
+    .\implwo
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Cannibal
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ImpMDX"=.\ImpMDX\ImpMDX.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/ImpMDX", FJPAAAAA
+    .\impmdx
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Cannibal
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "IpServer"=.\IpServer\IpServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/IpServer", OPJAAAAA
+    .\ipserver
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Launch"=.\Launch\Src\Launch.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/Launch", RQJAAAAA
+    .\launch
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Engine
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "SoftDrv"=.\SoftDrv\Src\SoftDrv.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/SoftDrv", MUJAAAAA
+    .\softdrv
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "UBrowser"=.\UBrowser\Src\UBrowser.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/UBrowser/Src", ZUJAAAAA
+    .\ubrowser\src
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "UCC"=.\UCC\Src\UCC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/UCC/Src", KXJAAAAA
+    .\ucc\src
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "UWeb"=.\UWeb\Src\UWeb.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/UWeb/Src", NDLAAAAA
+    .\uweb
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "UWindow"=.\UWindow\Src\UWindow.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/UWindow/Src", CELAAAAA
+    .\uwindow
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "dnAI"=.\dnai\dnAI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/dnAI", XXMAAAAA
+    .\dnai
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "dnGame"=.\dnGame\dnGame.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/dnGame", TRLAAAAA
+    .\dngame
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "dnWindow"=.\dnWindow\dnWindow.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/dnWindow", IDMAAAAA
+    .\dnwindow
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "vidglide"=.\CannibalEditor\vidglide\vidglide.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Duke4_UT400/CannibalEditor/vidglide", CLPAAAAA
+    .\cannibaleditor\vidglide
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name xcore
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ximage
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "xcore"=.\xcore\xcore.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ximage"=.\ximage\ximage.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

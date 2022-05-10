@@ -1,0 +1,809 @@
+DMXs referenced by code: (Nick needs to fix)
+c_dnWeapon
+c_characters
+c_fx
+
+Deleted DMXs:
+al_models.dmx
+alienship1.dmx
+alientest.dmx
+alsmonsterfarmxxx.dmx
+andyship.dmx
+bc_meshtest.dmx
+c_pigtest
+cabletest
+keith
+matttemp
+minecar
+nick
+ropepkg
+snakpkg
+snatchtestpkg
+swattestasspkg
+tm01
+oldc_generic
+
+Altered DMXs:
+c_characters
+c_dnWeapon
+c_fx
+c_vehicles
+c_zone5_area51
+
+default.cpj
+characters\Accessories\BB_CapA.cpj
+characters\alien_grey\alien_grey.cpj
+characters\alien_snatcher\alien_snatcher.cpj
+DELETED characters\bombshell\bombshell.cpj
+characters\Dam_Guide\Dam_Guide.cpj
+DELETED characters\dolmacT\domacfaceT.cpj
+characters\EDF1\edfpackA.cpj
+DELETED characters\EDF1\edf2.cpj
+characters\EDF1\EDF1.cpj
+characters\EDF1\edfshield.cpj
+DELETED characters\EDF1\EDF_FrameTest.cpj
+characters\EDF1\edfcigs.cpj
+characters\EDF1\edfpackB.cpj
+characters\Edf_dog\Edf_dog.cpj
+characters\Edf_freezer\Edf_freezer.cpj
+characters\Edf_heavyweps\edf_heavyweapons.cpj
+characters\Edf_sapper\Edf_sapper.cpj
+DELETED characters\Edf_sniper\edf_sniperM.cpj
+characters\Edf_sniper\edf_sniperf.cpj
+characters\Edf_sniper\glasses_sniper.cpj
+characters\General\generalhat.cpj
+DELETED characters\General\general.cpj
+characters\General\generalcigar.cpj
+characters\General_Graves\General_Graves.cpj
+characters\gila\gilaM.cpj
+characters\Gus\gus.cpj
+characters\Gus\gushat.cpj
+characters\Gus\gusglasses.cpj
+DELETED characters\highgus\hiprospector.cpj
+characters\jetskidude\jetskidude.cpj
+characters\liztrooper\liz_trooperfin4.cpj
+DELETED characters\MACK\yoyo2.cpj
+characters\NPC_Male_shorts1\NPC_Male_shorts1.cpj
+characters\pigcop\pigcop.cpj
+DELETED characters\pigcopfin4\pigcop_new.cpj
+DELETED characters\pigcopfin4\pigcopfin4.cpj
+characters\sandworm\sandworm.cpj
+DELETED characters\Snatcher_Legs\Snatcher_legs.cpj
+characters\SportBikeRider\SportikeRider.cpj
+characters\Stripper_Jenny\Stripper_Jenny.cpj
+DELETED characters\Stripper1\strippertest.cpj
+characters\tentacle_mouth\tentaclemouth.cpj
+c_FX\firegen1RC\firegen1RC.cpj
+c_FX\fire_jet\fire_jet.cpj
+generic\Air_Duct\Air_Vent_Hose2.cpj
+generic\Air_Duct\Air_Vent_Hose3.cpj
+generic\Air_Duct\Air_Vent_Hose1.cpj
+generic\ashtray1\ASHTRAY1.cpj
+generic\Balloon\Balloon.cpj
+DELETE generic\baricade2\baricade2.cpj
+generic\baricade1\baricade1.cpj
+generic\barrel\barrel.cpj
+generic\barrel2\barrel2.cpj
+generic\BasketBall\BB.cpj
+DELETE generic\BathRStuff\Cologne1.cpj
+DELETE generic\BathRStuff\Shampoo1.cpj
+DELETE generic\BathRStuff\Sink1.cpj
+DELETE generic\BathRStuff\Soapdish1.cpj
+DELETE generic\BathRStuff\Toothbrush1.cpj
+generic\bedplant1\bedplant1.cpj
+DELETE generic\bedplant2\bedplant2.cpj
+generic\books1\book1A.cpj
+DELETE generic\books1\book1B.cpj
+DELETE generic\books1\book1C.cpj
+DELETE generic\books1\book1D.cpj
+DELETE generic\books1\book2A.cpj
+generic\books1\book2B.cpj
+generic\booy\Buoy.cpj
+DELETE generic\bottle1\bottle1.cpj
+generic\bottle2\bottle2.cpj
+generic\bottle3\bottle3.cpj
+DELETE generic\bottle4\bottle4.cpj
+generic\bug_swarm\bug_swarm.cpj
+generic\bug_swarm\bug_swarm2.cpj
+generic\burntbug\burntbug.cpj
+generic\cables\cable6.cpj
+generic\cables\cable8.cpj
+generic\cables\cable12.cpj
+generic\cables\cable16.cpj
+generic\cables\cable24.cpj
+generic\cables\cable4.cpj
+DELETE generic\can1\can1.cpj
+DELETE generic\Cardboard_Box\Cardboard_Box.cpj
+generic\Cash_Register\Cash_Register.cpj
+DELETE generic\ceilingfan\ceilfanbase.cpj
+DELETE generic\ceilingfan\ceilfanblade.cpj
+generic\CementBags\Cement_Bag1.cpj
+DELETE generic\CementMixer\Cement_Mixer1.cpj
+DELETE generic\CementMixer\CementWheel.cpj
+generic\chandalierRC\chandalier1RC.cpj
+generic\Chandelier2\Chandelier2.cpj
+generic\cielingsprinkler1\ceilingsprinkler.cpj
+generic\CigarBox\cigarbox.cpj
+generic\CigarBox\cigar.cpj
+generic\clipboard1\clipboard1.cpj
+generic\clock\wallclock.cpj
+DELETE generic\clock\longhand.cpj
+DELETE generic\clock\shorthand.cpj
+DELETE generic\clock\minhand.cpj
+generic\coffeemaker\coffeemaker.cpj
+generic\coffeemug1\coffeemug1.cpj
+DELETE generic\coins\dollarcoinRC.cpj
+DELETEKEEP generic\CopCar\Car_Caprice1.cpj
+DELETEKEEP generic\CopCar\Policecar_lights.cpj
+DELETEKEEP generic\CopCar\CapriceWheel1.cpj
+generic\CouchLobby\couch1sah.cpj
+generic\crane\cranebase.cpj
+generic\crane\cranemagnet.cpj
+generic\crane\craneball.cpj
+generic\crosspoly3\crosspoly3.cpj
+generic\crosspoly2\crosspoly2.cpj
+generic\desklamp2\desklamp2.cpj
+DELETE generic\Desk_fan\Fan1.cpj
+DELETE generic\Desk_fan\Fan_Base.cpj
+DELETE generic\Desk_fan\Fan_Blades.cpj
+generic\Desk_Toy\Desktoy.cpj
+generic\Digital_Clock\Digital_Clock2.cpj
+DELETE generic\door\doorgeneric1.cpj
+DELETE generic\door\doorgenglass1.cpj
+generic\Door_handleB1\Door_handleB1.cpj
+generic\Door_handleB2\Door_handleB2.cpj
+generic\Door_handleC\Door_handleC.cpj
+generic\Door_handleD\Door_handleD.cpj
+generic\Door_handleA1\Door_handleA1.cpj
+generic\Door_knobA\Door_knobA.cpj
+generic\DOOR_KNOBS\door_knob_round.cpj
+generic\Door_pushbar\Door_pushbar.cpj
+generic\electbeam2\electbeam2.cpj
+generic\electbeam4\electbeam3.cpj
+generic\electbeam1\electbeam1.cpj
+generic\electricpole2\streetlight2.cpj
+generic\electricpole2\pole2.cpj
+DELETE generic\electricpole\streetlight.cpj
+generic\electricpole\pole.cpj
+generic\electricpole\transformer.cpj
+generic\emergencylights\emergencylight1.cpj
+generic\extinguisher1\extinguisher1.cpj
+DELETE generic\eznet1\eznet1.cpj
+generic\faucet2\metalsink1.cpj
+DELETE generic\Faucet_sm\faucet_sm.cpj
+DELETE generic\Fireplace_Dustpan\Fireplace_Dustpan.cpj
+DELETE generic\Fireplace_log\Fireplace_Log.cpj
+DELETE generic\Fireplace_Poker\Fireplace_Poker.cpj
+DELETE generic\Fireplace_Rack\Fireplace_Rack.cpj
+DELETE generic\Fireplace_Broom\Fireplace_Broom.cpj
+generic\fire_pole\fire_pole.cpj
+generic\Gas_can\Gas_Can.cpj
+generic\generatorlight\generator.cpj
+generic\generatorlight\generatorlight.cpj
+generic\glass128x64\glass128x64.cpj
+generic\glassTV\glassTV.cpj
+DELETE generic\Grass\Grass1.cpj
+generic\hadjicab\hadjicab.cpj
+generic\Hammer\Hammer.cpj
+generic\hanginglight\hanginglight.cpj
+generic\HighTension\HighTension.cpj
+generic\holoscreen2\holoscreen2.cpj
+generic\hydrant\hydrant4.cpj
+DELETE generic\Jackhammer\Jackhammer1.cpj
+generic\keypad1\keypad1.cpj
+generic\keypad3\keypad3.cpj
+generic\KitchenStuff\kittable1.cpj
+generic\KitchenStuff\kitchair1.cpj
+generic\ladder\ladder.cpj
+generic\Lamp_Skinny\Lamp_skinny.cpj
+generic\LavaLamp1\Lamp.cpj
+generic\lightbeam2\lightbeam2.cpj
+generic\lightbeam\lightbeam1.cpj
+generic\lightblind1RC\lightblind1RC.cpj
+generic\lights\hangbulb\hangbulb.cpj
+generic\lightswitch1\lightswitch1RC.cpj
+generic\Light_Florecent\Light_Florecent2.cpj
+generic\Light_Halogen\Light_Halogen.cpj
+generic\light_tablelamp\light_tablelamp1.cpj
+generic\limo\LimoWheel1.cpj
+generic\limo\Car_limo1.cpj
+DELETE generic\metalfaucet\metalfaucet1.cpj
+DELETE generic\metalhandlehot\metalhandlehot1.cpj
+DELETE generic\Mop\mop.cpj
+generic\Mop_bucket\mopbucket.cpj
+generic\newspaper\newspaper1.cpj
+generic\newspaper1\newspaper1.cpj
+generic\oceanshimer\oceanshimer.cpj
+generic\OfficeChair1\chair1.cpj
+generic\outdoorlights\outdoorlamp2.cpj
+generic\outdoorlights\porchlight.cpj
+generic\padlock\padlock.cpj
+generic\PaintCan\PaintCan2.cpj
+generic\Pallet\Pallet.cpj
+DELETE generic\Paper_Bag\Paper_Bag.cpj
+DELETE generic\parkingmeter2\parkingmeter2.cpj
+DELETE generic\parking_meter\pmeter.cpj
+generic\parking_meter\pmeterknob.cpj
+generic\pay_phone\pay_phone.cpj
+DELETE generic\Phone\Phone.cpj
+generic\pipes\pipe1A.cpj
+generic\pipes\pipe1Ahollow.cpj
+generic\pipes\pipe1B.cpj
+generic\pipes\pipe1Bhollow.cpj
+generic\pipes\pipe1C.cpj
+generic\pipes\pipe1Chollow.cpj
+generic\pipes\pipe1D.cpj
+generic\pipes\pipe1Dhollow.cpj
+generic\plant1\plant1RC.cpj
+generic\Plant2\Plant2.cpj
+generic\Plants\Plant3.cpj
+generic\Plants\Plant4.cpj
+generic\Plants\Plant5.cpj
+generic\Plants\PLANT5_A.cpj
+generic\Plants\LEAVES_flat.cpj
+generic\plants2\Plant_Potted3.cpj
+generic\plants2\Plant_Potted2.cpj
+generic\plants2\Plant_Potted1.cpj
+generic\plants2\Foilage1.cpj
+generic\pongball\pongball.cpj
+generic\pongpaddle\pongpaddle.cpj
+generic\powermeter1\powermeter1.cpj
+generic\puzzlescreen\puzzlescreen.cpj
+generic\Radar_Dish1\Radar_Dish_Small.cpj
+generic\Rake\Rake.cpj
+generic\rig1\rig1.cpj
+generic\roller_cart\roller_cart_M.cpj
+generic\Ropes\rope6.cpj
+generic\Ropes\rope4.cpj
+generic\Ropes\rope2.cpj
+DELETE generic\Sawhorses\Sawhorses1.cpj
+DELETE generic\scaffold2\scaffold2.cpj
+DELETE generic\scaffold3\scaffold3.cpj
+DELETE generic\scaffold1\scaffold1.cpj
+generic\securitycamera1\secrcam1B.cpj
+generic\securitycamera1\secrcam1A.cpj
+DELETE generic\Security_Cam1\SecurityCam1.cpj
+DELETE generic\Security_Cam_Base\cambase.cpj
+DELETE generic\Shark_Tooth\Shark_Tooth.cpj
+DELETE generic\Shovel\Shovel1.cpj
+generic\sink1\Sink1.cpj
+generic\siren\redsirenRC.cpj
+generic\smokealarm\smokealarm.cpj
+generic\Soda_pop\Soda_pop.cpj
+generic\sofastuff\sofa.cpj
+generic\sofastuff\pillow.cpj
+generic\sofastuff\lazboy.cpj
+generic\spotlight2\spotlight2.cpj
+generic\spotlight1\spotlight1.cpj
+DELETE generic\spotlight1\tripod1.cpj
+generic\stool1\stool1.cpj
+generic\stoplight\stoplight.cpj
+generic\switch_power1\switch_power1.cpj
+generic\tablelight\tablelight.cpj
+generic\tires\Tire1.cpj
+generic\Tire_Dock\Tire_Dock.cpj
+generic\toilet\toilet.cpj
+generic\toilet\seat.cpj
+generic\toilet\handle.cpj
+generic\toolbox\toolbox.cpj
+DELETE generic\Toyz\Big_Wheel.cpj
+DELETE generic\Toyz\Tonka_Truck.cpj
+generic\Traffic_Cones\Traffic_Cone1.cpj
+DELETE generic\Traffic_Cones\Traffic_Cone2.cpj
+generic\trashcan2\trashcan2.cpj
+DELETE generic\Tubes\Tubes1.cpj
+DELETE generic\Tubes\Tubes2.cpj
+generic\Tuna\Tuna_cut.cpj
+generic\Tuna\Tuna.cpj
+generic\tv1\tv1.cpj
+generic\TV_flatscreen\TV_flatscreen.cpj
+generic\Tydbot\Bkwheel.cpj
+generic\Tydbot\TydBOTref.cpj
+generic\Tydbot\Gun.cpj
+generic\Tydbot\FRwheel.cpj
+generic\umbrella-table\table.cpj
+generic\umbrella-table\umbrella.cpj
+generic\urinal\urinal.cpj
+generic\vcrtape\vcrtape.cpj
+generic\vine\vines.cpj
+DELETE generic\wallsconces\wallsconce1.cpj
+DELETE generic\wallsconces\wallsconce2.cpj
+generic\wallsconces\wallsconce3.cpj
+generic\wallsconces\wallsconce4.cpj
+generic\wallsconces\wallsconce5.cpj
+generic\watercooler\watercooler.cpj
+generic\Waterfountain\Water_Fountain.cpj
+generic\Water_heater\water_heater.cpj
+DELETE generic\Weight_Room_Stuff\weights1.cpj
+DELETE generic\Weight_Room_Stuff\weights2.cpj
+DELETE generic\Weight_Room_Stuff\weights3.cpj
+generic\wetfloorsign\wetfloorsign1.cpj
+generic\wheelbarrel\wheelbarrel.cpj
+generic\Wires\livewire.cpj
+hands\hawg\hawg.cpj
+hands\keithcontrols\keithcontrols.cpj
+hands\levers\levers.cpj
+DELETED snak\snak.cpj
+DELETED swattest\SWAT.cpj
+test\20sphere\25sphere.cpj
+DELETED test\charlie_sphere\sphere.cpj
+test\dishtest\dishtest.cpj
+DELETED test\dolomtest\dolomtest1.cpj
+DELETED test\dolomtest2\dolomtest2.cpj
+DELETED test\glassbreak\glassbreak.cpj
+DELETED test\holoplat\holoplat.cpj
+DELETED test\holotest2\holotest1.cpj
+DELETED test\holotest2\holobrian3.cpj
+DELETED test\holotest2\holotest2BC.cpj
+DELETED test\holotest2\holotest5BC.cpj
+DELETED test\holotest2\holotestS2.cpj
+DELETED test\holotest2\holotestS3.cpj
+DELETED test\multiscreen\multiscreen.cpj
+DELETED test\muzflash2\muzflash2.cpj
+DELETED test\muzflash\muzflash.cpj
+test\nickrope\nickrope.cpj
+test\paddlewheeltest\paddlewheelbroken.cpj
+test\paddlewheeltest\paddlewheel.cpj
+DELETE test\palmtest\palmtest.cpj
+DELETED test\pistoltest\pistoltest2.cpj
+DELETED test\pistoltest\pistoltest1.cpj
+DELETED test\snatcher\snatch.cpj
+test\stretchcable\cable.cpj
+test\tramtest\tramtest.cpj
+DELETED test\wavetest\wavetest1.cpj
+vehicles\AirDefTank\AirDefTank.cpj
+vehicles\AlienShip\AlienShip.cpj
+vehicles\AlienShip\AlienShipWepon.cpj
+vehicles\B2_bomber\b2.cpj
+vehicles\cycle_hawg1\hawg1.cpj
+vehicles\drone_jet_pcs\drone_pcs_base.cpj
+vehicles\drone_jet_pcs\drone_pcs_lrotor.cpj
+vehicles\drone_jet_pcs\drone_pcs_lodge.cpj
+vehicles\drone_jet_pcs\drone_pcs_rrotor.cpj
+vehicles\drone_jet_pcs\drone_pcs_rwing.cpj
+vehicles\drone_jet_pcs\drone_pcs_wingwhole.cpj
+vehicles\drone_jet\drone.cpj
+vehicles\edfcar1\edfcar1.cpj
+vehicles\edfdropship\edfdropship.cpj
+vehicles\edfhind\edfhind.cpj
+vehicles\F235_jet\f235.cpj
+vehicles\generic_cars\car.cpj
+vehicles\generic_cars\semi1.cpj
+vehicles\generic_cars\rig.cpj
+vehicles\generic_cars\car5.cpj
+vehicles\generic_cars\limo.cpj
+vehicles\generic_cars\jeep.cpj
+vehicles\generic_cars\nomad.cpj
+vehicles\generic_cars\5thcar.cpj
+vehicles\generic_cars\car3.cpj
+vehicles\generic_cars\car4.cpj
+vehicles\generic_cars\sportcar.cpj
+vehicles\generic_cars\pinto.cpj
+vehicles\generic_cars\alscar.cpj
+vehicles\generic_cars\truck.cpj
+DELETED vehicles\Gunship\gunshipflight.cpj
+vehicles\helicopter2\helicopter2.cpj
+DELETED vehicles\helicopter1\helicopter1.cpj
+vehicles\jetski\jetski.cpj
+vehicles\MeadBoat\MeadBoat.cpj
+DELETED vehicles\MissileLauncher\MissileLauncher.cpj
+DELETED vehicles\ProtonShip\ProtonShip.cpj
+vehicles\semi2\SemiBase1sah.cpj
+vehicles\semi2\Semi2sah.cpj
+vehicles\sportbike\sportbike.cpj
+vehicles\traincars\TrainBoxCar2.cpj
+vehicles\traincars\TrainBoxCar3.cpj
+vehicles\traincars\TrainBoxCar1.cpj
+vehicles\tram\tram.cpj
+weapons\a_crystal\a_crystal.cpj
+weapons\a_m16clip\A_m16clip.cpj
+weapons\a_m16G\A_m16G.cpj
+weapons\a_pistolclip\A_pistolclip.cpj
+weapons\a_rocketpackA\a_rocketpackA.cpj
+weapons\a_rocketpackB\a_rocketpackB.cpj
+weapons\Bomb\Bomb.cpj
+weapons\chainsaw\chainsaw.cpj
+weapons\deserteagleclip\deserteagleclip.cpj
+weapons\m16\m16.cpj
+weapons\m16grenade\m16grenade.cpj
+weapons\m16shell\m16shell.cpj
+DELETED weapons\m16_flash\m16_flash.cpj
+weapons\mightyfoot\mightyfoot.cpj
+weapons\MISSILE_AIR\MISSILE_AIR.cpj
+weapons\missile_jetski\missle.cpj
+weapons\nukecan\nukecan.cpj
+weapons\parachute_bomb\parachute_bomb.cpj
+weapons\pistol\pistol.cpj
+DELETED weapons\pistolframe\pistol_frame.cpj
+DELETED weapons\pistol_flash\pistol_flash.cpj
+weapons\p_tripmine\p_tripmine.cpj
+weapons\RPG\RPG.cpj
+weapons\rpg_rocket\rpg_rocket.cpj
+weapons\rpg_rocketNUKE\rpg_rocketNUKE.cpj
+weapons\shotgun\shotgun.cpj
+weapons\shotgunbox_open\shotgunbox_open.cpj
+weapons\shotgunbox_closed\shotgunbox_closed.cpj
+weapons\shotgunshell\shotgunshell.cpj
+weapons\Shrinkray2\Shrinkray2.cpj
+DELETED weapons\shrinkray\shrinkray.cpj
+weapons\TripMine_BAK\TripMine.cpj
+weapons\TripMine\TripMine.cpj
+weapons\water_mine\water_mine.cpj
+weapons\w_chainsaw\w_chainsaw.cpj
+weapons\w_m16\w_m16.cpj
+DELETED weapons\w_m16_flash\w_m16_flash.cpj
+DELETED weapons\w_pistol_flash\w_pistol_flash.cpj
+weapons\w_pistol\W_pistol.cpj
+weapons\w_rpg\w_rpg.cpj
+DELETED weapons\w_shotgun_flash\w_shotgun_flash.cpj
+weapons\w_shotgun\w_shotgun.cpj
+weapons\w_shrinkray\w_shrinkray.cpj
+weapons\w_tripmine\w_tripmine.cpj
+DELETE zone1_vegas\Archway\Archway.cpj
+zone1_vegas\Ashtray\Ashtray.cpj
+zone1_vegas\Ashtray\Cigarette1.cpj
+DELETE zone1_vegas\Ashtray\Cigarette2.cpj
+zone1_vegas\beachball\beachball.cpj
+DELETE zone1_vegas\beachball\watersplash1.cpj
+DELETEKEEP zone1_vegas\billiards_ball\billiards_cue.cpj
+DELETEKEEP zone1_vegas\billiards_ball\billiards_rack.cpj
+zone1_vegas\billiards_ball\poolchalk.cpj
+zone1_vegas\billiards_ball\billiards_ball.cpj
+zone1_vegas\billiards_ball\PBall.cpj
+zone1_vegas\Blowfish\Blowfish.cpj
+zone1_vegas\brothelbathroom\handdryer.cpj
+zone1_vegas\brothelbathroom\soapdispenser.cpj
+DELETEKEEP zone1_vegas\brothelbathroom\talltrashcan1.cpj
+zone1_vegas\buffet\ladel_paul.cpj
+zone1_vegas\buffet\jello_paul.cpj
+zone1_vegas\buffet\ham_paul.cpj
+DELETE zone1_vegas\buffet\tongs_paul.cpj
+zone1_vegas\buffet\tray_paul.cpj
+zone1_vegas\buffet\turkey_paul.cpj
+zone1_vegas\bugzapper\bugzapper.cpj
+DELETE zone1_vegas\Buton_elv1\Buton_elv1.cpj
+DELETEKEEP zone1_vegas\cabbot\cabbot.cpj
+zone1_vegas\camera\camera.cpj
+DELETEKEEP zone1_vegas\caselock\caselock_pr.cpj
+zone1_vegas\CEeye\CEeye.cpj
+zone1_vegas\crawlermount\crawlermount.cpj
+zone1_vegas\Curtains\Curtain_Still.cpj
+zone1_vegas\Curtains\Curtain_Blow.cpj
+zone1_vegas\dcavecomstat2\dcavecomstat2.cpj
+DELETEKEEP zone1_vegas\dcavecomstat\dcavecomstat.cpj
+DELETEKEEP zone1_vegas\disco_ball\Disco_Ball1.cpj
+zone1_vegas\dogdish\dogdish.cpj
+DELETE zone1_vegas\dukecasextRC\dukecasextRC.cpj
+DELETEKEEP zone1_vegas\DukesCloset\Bandolier.cpj
+zone1_vegas\DukesCloset\Boot1.cpj
+DELETE zone1_vegas\DukesCloset\Coat_Rack.cpj
+zone1_vegas\DukesCloset\Hat.cpj
+zone1_vegas\DukesCloset\Sunglass_Rack.cpj
+DELETE zone1_vegas\elev_buton2\elev_buton2.cpj
+DELETE zone1_vegas\elev_buton3\elev_buton3.cpj
+DELETE zone1_vegas\elev_buton1\elev_buton1.cpj
+zone1_vegas\Fish\Fish2.cpj
+zone1_vegas\Fish\Fish1.cpj
+DELETE zone1_vegas\fishhead\fishheadmount.cpj
+zone1_vegas\Flag_pirate\pirFlag2.cpj
+DELETE zone1_vegas\foodpans\foodpan1.cpj
+DELETE zone1_vegas\foodpans\foodpan2.cpj
+DELETE zone1_vegas\foodpans\foodpan9.cpj
+zone1_vegas\gamblingcup\gamblingcup.cpj
+zone1_vegas\GfClock\Gf_clock.cpj
+DELETE zone1_vegas\girllamp1\girllamp1RC.cpj
+DELETE zone1_vegas\glasses\halfyard.cpj
+DELETE zone1_vegas\glasses\hurricane.cpj
+zone1_vegas\glasses\lager.cpj
+zone1_vegas\glasses\margarita.cpj
+DELETE zone1_vegas\glasses\snifter.cpj
+zone1_vegas\glasses\beermug2.cpj
+DELETE zone1_vegas\glasses\hurricanefull.cpj
+zone1_vegas\glasses\lagerfull.cpj
+zone1_vegas\glasses\magaritafull.cpj
+DELETE zone1_vegas\glasses\snifterfull.cpj
+zone1_vegas\Great_White\Great_White1.cpj
+zone1_vegas\griffon1\griffon1.cpj
+zone1_vegas\hotel_chair\hotel_chair.cpj
+zone1_vegas\hotel_rack\hotel_rack.cpj
+zone1_vegas\hotel_tables\hotel_table1.cpj
+zone1_vegas\hotel_tables\hotel_table2.cpj
+zone1_vegas\hotel_tables\hotel_table3.cpj
+zone1_vegas\hotel_tables\lamp02sah.cpj
+zone1_vegas\hugeshock\small.cpj
+zone1_vegas\hugeshock\Large.cpj
+zone1_vegas\hugeshock\mount.cpj
+zone1_vegas\humameter\humameter.cpj
+zone1_vegas\icebucket\icebucket.cpj
+zone1_vegas\ladykillerhotel\guestbook.cpj
+zone1_vegas\ladykillerhotel\deskbell.cpj
+zone1_vegas\ladykillerhotel\courtesyphone.cpj
+zone1_vegas\ladykillerhotel\laserprinter.cpj
+zone1_vegas\ladykillerhotel\deskpenset.cpj
+DELETE zone1_vegas\LKsignbase1\LKsignbase1.cpj
+DELETE zone1_vegas\magiciansstage\ClearAcrylicCoffin\coffin.cpj
+DELETE zone1_vegas\magiciansstage\ClearAcrylicCoffin\pillow.cpj
+zone1_vegas\magiciansstage\Random\birdcage.cpj
+DELETE zone1_vegas\magiciansstage\Random\lumber1.cpj
+DELETE zone1_vegas\magiciansstage\Random\lumber2.cpj
+DELETE zone1_vegas\magiciansstage\Random\lumber3.cpj
+DELETE zone1_vegas\magiciansstage\Random\magictable.cpj
+DELETE zone1_vegas\magiciansstage\Random\plywood.cpj
+zone1_vegas\magiciansstage\Random\sandbag.cpj
+zone1_vegas\magiciansstage\Random\tophat.cpj
+zone1_vegas\magiciansstage\Random\wand.cpj
+DELETE zone1_vegas\magiciansstage\SawInHalfBox\HeadSection.cpj
+DELETE zone1_vegas\magiciansstage\SawInHalfBox\FeetSection.cpj
+DELETE zone1_vegas\magiciansstage\SawInHalfBox\MiddleSection.cpj
+DELETE zone1_vegas\magiciansstage\SawInHalfBox\PushBlade.cpj
+DELETE zone1_vegas\magiciansstage\SawInHalfBox\SawBoxTable.cpj
+DELETE zone1_vegas\magiciansstage\SwordSwallowerStuff\stand.cpj
+DELETE zone1_vegas\magiciansstage\SwordSwallowerStuff\sword1.cpj
+DELETE zone1_vegas\magiciansstage\SwordSwallowerStuff\sword2.cpj
+DELETE zone1_vegas\magiciansstage\SwordSwallowerStuff\sword3.cpj
+DELETE zone1_vegas\magiciansstage\SwordSwallowerStuff\sword4.cpj
+DELETE zone1_vegas\magiciansstage\ThrowingKnifeStuff\axe1.cpj
+DELETE zone1_vegas\magiciansstage\ThrowingKnifeStuff\axe2.cpj
+DELETE zone1_vegas\magiciansstage\ThrowingKnifeStuff\base.cpj
+DELETE zone1_vegas\magiciansstage\ThrowingKnifeStuff\knife1.cpj
+zone1_vegas\magiciansstage\ThrowingKnifeStuff\rotatingharness.cpj
+zone1_vegas\makeup\container.cpj
+zone1_vegas\makeup\makeupbottle.cpj
+DELETE zone1_vegas\makeup\lipstickclosed.cpj
+zone1_vegas\makeup\hairspray.cpj
+zone1_vegas\makeup\lipstickopen.cpj
+zone1_vegas\Mermaid_Statue\Mermaid1.cpj
+zone1_vegas\MoneyCountingRoom\addingmachine.cpj
+zone1_vegas\MoneyCountingRoom\goldstack.cpj
+DELETE zone1_vegas\MoneyCountingRoom\moneyblock.cpj
+zone1_vegas\MoneyCountingRoom\goldbrick.cpj
+DELETE zone1_vegas\MoneyCountingRoom\moneybundle.cpj
+DELETE zone1_vegas\MoneyCountingRoom\strongbox.cpj
+zone1_vegas\Nanner\NANNER.cpj
+zone1_vegas\palmtree\palm2.cpj
+zone1_vegas\palmtree\palmleaf.cpj
+DELETE zone1_vegas\palmtree\palmtrunk.cpj
+zone1_vegas\palmtree\palmtest.cpj
+zone1_vegas\phouselamp1\phouselamp1.cpj
+DELETE zone1_vegas\pigmount\pigmount.cpj
+zone1_vegas\pimpmobile\pimpmobile33.cpj
+zone1_vegas\pinball\bumper.cpj
+zone1_vegas\pinball\plunger.cpj
+zone1_vegas\pinball\target.cpj
+DELETE zone1_vegas\pirateship1\pirateship1.cpj
+zone1_vegas\PirateShip\anchor\anchor.cpj
+zone1_vegas\PirateShip\cannon\cannonbarrel.cpj
+zone1_vegas\PirateShip\cannon\cannon.cpj
+DELETE zone1_vegas\PirateShip\cannonballstack\cannonballstack.cpj
+zone1_vegas\PirateShip\cannonball\cannonball.cpj
+zone1_vegas\PirateShip\climbnet\climbnet.cpj
+zone1_vegas\PirateShip\hull\hull.cpj
+zone1_vegas\PirateShip\masHfront\masHfront.cpj
+zone1_vegas\PirateShip\masthold\masthold.cpj
+DELETE zone1_vegas\PirateShip\ramrod\ramrod.cpj
+zone1_vegas\PirateShip\sail\sail.cpj
+zone1_vegas\pokrchips\pokrchipblk6.cpj
+DELETE zone1_vegas\pokrchips\pokrchipblu6.cpj
+DELETE zone1_vegas\pokrchips\pokrchipred6.cpj
+DELETE zone1_vegas\pokrchips\pokrchipyelo6.cpj
+zone1_vegas\pokrchips\pokrsinchipblk.cpj
+DELETE zone1_vegas\pokrchips\pokrsinchipblu.cpj
+DELETE zone1_vegas\pokrchips\pokrsinchipyelo.cpj
+DELETE zone1_vegas\pokrchips\pokrsinchipred.cpj
+zone1_vegas\PoolChairs\chair1.cpj
+zone1_vegas\PoolChairs\chair2.cpj
+zone1_vegas\PoolWaterFall\PoolWaterFall.cpj
+zone1_vegas\Pool_Toys\Pool_Toy1.cpj
+DELETE zone1_vegas\robotender\Robo_Tender1.cpj
+DELETE zone1_vegas\robotender\Robo_Dealer.cpj
+DELETE zone1_vegas\roundbed\bed.cpj
+zone1_vegas\S\slsignon.cpj
+zone1_vegas\S\slsignoff.cpj
+DELETE zone1_vegas\seaweed\seaweed.cpj
+DELETE zone1_vegas\seaweed2\seaweed2.cpj
+zone1_vegas\shower_head\shower_head.cpj
+zone1_vegas\shower_head\shower_knob.cpj
+DELETE zone1_vegas\shower_soap\shower_soap.cpj
+zone1_vegas\SlickWilly_lights\floorlamp\floorlamp.cpj
+zone1_vegas\SlickWilly_lights\hanginglamp\hanglamp.cpj
+zone1_vegas\SlickWilly_lights\walllamp\walllamp10.cpj
+DELETE zone1_vegas\slotarm\slotarm.cpj
+DELETE zone1_vegas\slotlight\slottoplight.cpj
+zone1_vegas\slotstool\slotstool2.cpj
+zone1_vegas\slotstool\slotstool.cpj
+DELETE zone1_vegas\slotwheel\slotwheel.cpj
+zone1_vegas\stand1RC\stand1RC.cpj
+zone1_vegas\stratoball1\stratoball1.cpj
+zone1_vegas\stratoflag1\stratoflag1.cpj
+zone1_vegas\StuffedBoss\StuffedBoss.cpj
+zone1_vegas\taxicab1\taxicab1.cpj
+zone1_vegas\TBall\TBall.cpj
+zone1_vegas\tennis_shooter\tennis_shooter.cpj
+zone1_vegas\teslathief\teslathief.cpj
+zone1_vegas\TheatrePole\theatrepole.cpj
+DELETE zone1_vegas\ToiletHead\Toilethead_bAnim.cpj
+DELETE zone1_vegas\ToiletHead\Toilethead_headTOP.cpj
+DELETE zone1_vegas\tracklight1\tracklight_bracket1.cpj
+DELETE zone1_vegas\tracklight1\tracklight_housing1.cpj
+zone1_vegas\trexmount\t-rexmount.cpj
+zone1_vegas\turnST\Arm.cpj
+zone1_vegas\turnST\Base.cpj
+zone1_vegas\turtle\turtle.cpj
+zone1_vegas\Valet_Sign\VSign.cpj
+zone1_vegas\Wheel\RWheel.cpj
+DELETE zone1_vegas\Wheel\rball.cpj
+zone1_vegas\Wheel\RWheelBase.cpj
+zone2_dam\AB_cable\bl_cable.cpj
+DELETE zone2_dam\BoatBench\BoatBench.cpj
+zone2_dam\columns\column224sah.cpj
+zone2_dam\columns\column256sah.cpj
+zone2_dam\columns\column288sah.cpj
+zone2_dam\columns\column352sah.cpj
+zone2_dam\columns\column416sah.cpj
+zone2_dam\Dam_Copcar\Dam_copcar.cpj
+zone2_dam\dam_crane\cranewheel.cpj
+zone2_dam\dam_crane\crane_higher.cpj
+zone2_dam\dam_crane\cranehook.cpj
+zone2_dam\dam_crane\crane_lower.cpj
+zone2_dam\Dam_light1sah\Dam_Lite1sah.cpj
+zone2_dam\divider1_dam\divider1_dam.cpj
+zone2_dam\electcoil\electcoil.cpj
+zone2_dam\generator_dam\generator_explo.cpj
+zone2_dam\generator_dam\generator_dam.cpj
+zone2_dam\Hardhat\hardhat.cpj
+zone2_dam\holoprojector\holopowercell.cpj
+zone2_dam\holoprojector\holoprojector.cpj
+zone2_dam\Lamp_visitor\Lamp_Visitor.cpj
+zone2_dam\light1_dam\light1_dam.cpj
+zone2_dam\lightpole_dam\lightpole_dam.cpj
+zone2_dam\Signs\Damsign1sah.cpj
+zone2_dam\Slides\Slides1sah.cpj
+zone2_dam\sphere_dam\sphere_dam.cpj
+zone2_dam\statue1_dam\statue1_dam.cpj
+zone2_dam\tower1_dam\tower1_dam.cpj
+zone3_canyon\barrel_wood1\barrel_wood1.cpj
+zone3_canyon\bat\batflock1.cpj
+zone3_canyon\bat\bat.cpj
+zone3_canyon\butterflies\butterfly.cpj
+DELETE1 zone3_canyon\Cacti\cactus1.cpj
+zone3_canyon\Cacti\cactus6.cpj
+DELETE1 zone3_canyon\Cacti\tumbleweed.cpj
+DELETE1 zone3_canyon\Cacti\saguaro.cpj
+DELETE1 zone3_canyon\Cacti\pricklypear2.cpj
+DELETE1 zone3_canyon\Cacti\pricklypear3.cpj
+DELETE1 zone3_canyon\Cacti\cactus5.cpj
+DELETE1 zone3_canyon\Cacti\cactus4.cpj
+DELETE1 zone3_canyon\Cacti\cactus3.cpj
+zone3_canyon\Cacti\cactus2.cpj
+DELETE1 zone3_canyon\Cacti\cactus.cpj
+DELETE1 zone3_canyon\Cacti\pricklypear1.cpj
+DELETE1 zone3_canyon\Cacti\pricklypear4.cpj
+zone3_canyon\cowskull\cowskull.cpj
+DELETE1 zone3_canyon\coyote\coyote_snatcher.cpj
+zone3_canyon\coyote\coyote.cpj
+zone3_canyon\gilamonster\gila.cpj
+zone3_canyon\Lantern\lantern.cpj
+zone3_canyon\Lantern2\lantern2.cpj
+zone3_canyon\Lantern3\lantern3.cpj
+zone3_canyon\minecart\minecart.cpj
+zone3_canyon\mule\mule.cpj
+zone3_canyon\pickaxe\pickaxe.cpj
+zone3_canyon\rocks_canyon\boulder1.cpj
+zone3_canyon\rocks_canyon\boulder2.cpj
+zone3_canyon\rocks_canyon\rock_square1.cpj
+zone3_canyon\scorpion_red\scorpion_red.cpj
+zone3_canyon\snake_rattler\snake_rattle.cpj
+zone3_canyon\solarpanel1\solarpanel1.cpj
+zone3_canyon\trackswitch\trackswitch.cpj
+zone3_canyon\trailmarker1\trailmarker1.cpj
+zone3_canyon\trainwheel\trainwheel.cpj
+zone3_canyon\vulture\vulture.cpj
+zone3_canyon\vulturegib\vulturegib.cpj
+DELETE1 zone3_canyon\wagonwhl1-4\wagonwhl2.cpj
+zone3_canyon\wagonwhl1-4\wagonwhl1.cpj
+DELETE1 zone3_canyon\wagonwhl1-4\wagonwhl4.cpj
+zone3_canyon\wagonwhl1-4\wagonwhl3.cpj
+zone4_afb\afbAntenna\Ant01.cpj
+zone4_afb\afbAntenna\Ant02.cpj
+DELETE1 zone4_afb\afbAntenna\Ant03.cpj
+DELETE1KEEP zone4_afb\Base_Vehicles\ArmyTruck2.cpj
+zone4_afb\Base_Vehicles\B2.cpj
+zone4_afb\Base_Vehicles\F117.cpj
+DELETE1KEEP zone4_afb\Base_Vehicles\C5000.cpj
+DELETE1 zone4_afb\Base_Vehicles\HoverBike.cpj
+DELETE1 zone4_afb\Base_Vehicles\Johnny_Truck1.cpj
+DELETE1 zone4_afb\Base_Vehicles\F22.cpj
+zone4_afb\D3d_C9\D3d_C9.cpj
+zone4_afb\DishAntenna\BigDish1.cpj
+zone4_afb\DishAntenna\BigDishMotor.cpj
+zone4_afb\DishAntenna\BigDishMotor2.cpj
+DELETE1 zone4_afb\playground\monkeebar_pr.cpj
+DELETE1 zone4_afb\playground\slide_pr.cpj
+DELETE1 zone4_afb\playground\swingset_pr.cpj
+DELETE1 zone4_afb\playground\tire_paul.cpj
+DELETE1 zone4_afb\ShootingRange\earprotection.cpj
+zone4_afb\SiloRocket\SiloRocket.cpj
+DELETE1 zone4_afb\wheel_crank\wheel_crank.cpj
+zone5_area51\AGITATOR\agitator.cpj
+DELETE1KEEP zone5_area51\Anal_Droid\Anal_Droid.cpj
+zone5_area51\area51tram\area51tram.cpj
+DELETE1 zone5_area51\bighand\bighand.cpj
+zone5_area51\centrifuge\centrifuge.cpj
+DELETE1KEEP zone5_area51\Clone_Arm\Clone_Arm.cpj
+zone5_area51\Computer\Capacitor2sah.cpj
+zone5_area51\Computer\PC_coil1sah.cpj
+zone5_area51\Computer\Capacitor1sah.cpj
+zone5_area51\Computer\PC_chip_m1sah.cpj
+zone5_area51\Computer\PC_chipsocket1.cpj
+zone5_area51\Computer\Jumper1sah.cpj
+zone5_area51\Computer\LED1sah.cpj
+zone5_area51\Computer\PC_cord1sah.cpj
+zone5_area51\Computer\PC_plug1sah.cpj
+zone5_area51\Computer\PC_screw1sah.cpj
+zone5_area51\Computer\PC_speaker1.cpj
+zone5_area51\Computer\PC_wire1sah.cpj
+zone5_area51\Computer\PS_wires1sah.cpj
+zone5_area51\Computer\PS_wires2sah.cpj
+zone5_area51\Computer\PS_wires3sah.cpj
+DELETE1 zone5_area51\Computer\T_laser1sah.cpj
+zone5_area51\Computer\T_laser2sah.cpj
+zone5_area51\Corn1\Corn_Stock.cpj
+DELETE1 zone5_area51\cryo_tube\cryo_tube.cpj
+DELETE1 zone5_area51\Dome\Dome.cpj
+zone5_area51\Exam_Chair\Exam_Chair.cpj
+DELETE1 zone5_area51\Exam_Chair\Exam_Chair2.cpj
+DELETE1 zone5_area51\Exam_Chair\Exam_Chair_Person.cpj
+zone5_area51\faucet_Lab\faucet_lab.cpj
+DELETE1 zone5_area51\hummer1\Hummer1.cpj
+zone5_area51\KEYBOARD\KEYBOARD_m.cpj
+DELETE1 zone5_area51\LabEquipment2\damagedcentrifuge.cpj
+DELETE1 zone5_area51\LabEquipment2\damagedanalyzer.cpj
+zone5_area51\LabEquipment2\analyzer.cpj
+DELETE1 zone5_area51\LabEquipment2\damagedagitator.cpj
+DELETE1 zone5_area51\LabEquipment2\damagedcontroller.cpj
+DELETE1 zone5_area51\LabEquipment2\damagedlaser.cpj
+DELETE1 zone5_area51\LabEquipment2\damagedmicroscope.cpj
+DELETE1 zone5_area51\LabEquipment2\damagedscannister.cpj
+DELETE1 zone5_area51\LabEquipment2\scannister.cpj
+zone5_area51\LabEquipment2\cialiticlight1.cpj
+zone5_area51\LabEquipment2\cialiticlight2.cpj
+zone5_area51\labinstruments\beaker.cpj
+zone5_area51\labinstruments\controller.cpj
+zone5_area51\labinstruments\laserscanner.cpj
+zone5_area51\labinstruments\microscope.cpj
+zone5_area51\labinstruments\flask.cpj
+zone5_area51\labinstruments\petridish.cpj
+zone5_area51\labinstruments\testtube.cpj
+DELETE1 zone5_area51\lab_screen\labscrn_base.cpj
+DELETE1 zone5_area51\lab_screen\labscrn_2ndarm.cpj
+DELETE1 zone5_area51\lab_screen\labscrn_mainarm.cpj
+zone5_area51\lab_screen\labscrn_screen.cpj
+zone5_area51\light_tripod\Light_tripod.cpj
+zone5_area51\monitor\monitor_M.cpj
+zone5_area51\M_door\M_door.cpj
+zone5_area51\m_screen1\M_screen1.cpj
+zone5_area51\m_screen1\M_screen4.cpj
+zone5_area51\m_screen1\M_screen5.cpj
+zone5_area51\PetTaxi\pettaxi.cpj
+zone5_area51\Radar_Dish_Big\dish_Big1.cpj
+zone5_area51\Railing2\Railing_End.cpj
+zone5_area51\Railing2\Railing_Tile.cpj
+zone5_area51\Railing2\Railing_Corner45.cpj
+zone5_area51\Railing2\Railing_Corner90.cpj
+zone5_area51\Railing2\Railing_Tile2.cpj
+zone5_area51\railingM\railhub_M1sah.cpj
+zone5_area51\railingM\raillong_M1sah.cpj
+zone5_area51\railingM\railshort_M1sah.cpj
+zone5_area51\Railing_Damaged\Railing_Damage1.cpj
+zone5_area51\Railing_Damaged\Railing_Damage2.cpj
+zone5_area51\RobotArm\robotarm.cpj
+DELETE1 zone5_area51\SpaceShip\Space_Ship1.cpj
+DELETE1 zone5_area51\starz\starz.cpj
+DELETE1 zone5_area51\sunlight\sunlight.cpj
+DELETE1 zone5_area51\s_container\s_container.cpj
+zone5_area51\techfan1\techfan1.cpj
+zone5_area51\techlite\techlite_blue.cpj
+zone5_area51\techlite\techlite_yelw.cpj
+zone5_area51\techlite\techlite_red.cpj
+zone5_area51\TOWER\TOWER_m.cpj
+zone5_area51\trashcan_a51\trashcan_a51.cpj

@@ -1,0 +1,3 @@
+[public]
+; TLW: Have to use MetaClass=UWindow.UWindowLookAndFeel, so it shows up in the GUISkins listings
+Object=(Name=dnWindow.UDukeLookAndFeel,Class=Class,MetaClass=UWindow.UWindowLookAndFeel,Description=DukeOS)

@@ -1,0 +1,29 @@
+SCC = This is a Source Code Control file
+
+[BASIC.MAK]
+SCC_Aux_Path = "o:\duke4\ssafe"
+SCC_Project_Name = "$/Duke4_UT400/bin", TUPAAAAA
+
+[DLL.MAK]
+SCC_Aux_Path = "o:\duke4\ssafe"
+SCC_Project_Name = "$/Duke4_UT400/bin", TUPAAAAA
+
+[TOOLS.MAK]
+SCC_Aux_Path = "o:\duke4\ssafe"
+SCC_Project_Name = "$/Duke4_UT400/bin", TUPAAAAA
+
+[VALIDATE.MAK]
+SCC_Aux_Path = "o:\duke4\ssafe"
+SCC_Project_Name = "$/Duke4_UT400/bin", TUPAAAAA
+
+[console.mak]
+SCC_Aux_Path = "o:\duke4\ssafe"
+SCC_Project_Name = "$/Duke4_UT400/bin", TUPAAAAA
+
+[env.mak]
+SCC_Aux_Path = "o:\duke4\ssafe"
+SCC_Project_Name = "$/Duke4_UT400/bin", TUPAAAAA
+
+[winlib.mak]
+SCC_Aux_Path = "o:\duke4\ssafe"
+SCC_Project_Name = "$/Duke4_UT400/bin", TUPAAAAA

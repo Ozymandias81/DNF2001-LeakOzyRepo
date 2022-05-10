@@ -1,0 +1,31 @@
+class dnShowerWater extends SoftParticleSystem;
+
+defaultproperties
+{
+     Enabled=False
+     SpawnNumber=8
+     MaximumParticles=250
+     Lifetime=2.000000
+     LifetimeVariance=0.500000
+     RelativeSpawn=True
+     InitialVelocity=(X=70.000000,Z=-90.000000)
+     InitialAcceleration=(X=50.000000)
+     MaxVelocityVariance=(X=40.000000,Y=40.000000)
+     RealtimeVelocityVariance=(X=10.000000,Y=10.000000)
+     BounceElasticity=0.300000
+     Bounce=True
+     ParticlesCollideWithWorld=True
+     UseLines=True
+     LineStartColor=(R=130,G=131,B=132)
+     LineEndColor=(R=181,G=183,B=183)
+     LineStartWidth=0.250000
+     LineEndWidth=0.250000
+     Textures(0)=Texture't_generic.Rain.genrain6RC'
+     DrawScaleVariance=0.100000
+     StartDrawScale=4.000000
+     EndDrawScale=0.200000
+     UpdateWhenNotVisible=True
+     CollisionRadius=3.000000
+     CollisionHeight=3.000000
+     Style=STY_Translucent
+}

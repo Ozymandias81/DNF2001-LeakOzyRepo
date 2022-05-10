@@ -1,0 +1,95 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "vid_test"=..\vid_test\vid_test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name vidd3d
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ximage
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name xcore_winapp
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "vidd3d"=.\vidd3d.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name xcore
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ximage
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "xcore"=..\..\xcore\xcore.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "xcore_winapp"=..\..\xcore\xcore_winapp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name xcore
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ximage"=..\..\ximage\ximage.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

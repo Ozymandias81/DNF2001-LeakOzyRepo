@@ -1,0 +1,40 @@
+//=============================================================================
+// dnFireworks3_multi_flash. (AHB3d)
+//=============================================================================
+class dnFireworks3_multi_flash expands dnFireworks3_multi;
+
+defaultproperties
+{
+     Enabled=False
+     BSPOcclude=False
+     AdditionalSpawn(0)=(SpawnClass=None)
+     AdditionalSpawn(1)=(SpawnClass=None)
+     AdditionalSpawn(2)=(SpawnClass=None)
+     AdditionalSpawn(3)=(SpawnClass=None)
+     SpawnNumber=2
+     SpawnPeriod=0.000000
+     MaximumParticles=100
+     Lifetime=0.050000
+     LifetimeVariance=0.050000
+     RelativeSpawn=True
+     UseZoneGravity=False
+     UseZoneVelocity=False
+     Textures(0)=Texture't_generic.lensflares.bluelensflare1B'
+     Textures(1)=Texture't_generic.lensflares.flare1sah'
+     Textures(2)=Texture't_generic.lensflares.flare2sah'
+     Textures(3)=Texture't_generic.lensflares.flare3sah'
+     DrawScaleVariance=1.000000
+     EndDrawScale=0.500000
+     AlphaEnd=0.000000
+     RotationVariance=32.000000
+     TriggerOnSpawn=True
+     TriggerType=SPT_Pulse
+     PulseSeconds=0.350000
+     PulseMagnitude=0.010000
+     LifeSpan=3.000000
+     Style=STY_Translucent
+     bUnlit=True
+     VisibilityRadius=16000.000000
+     VisibilityHeight=16000.000000
+     CollisionRadius=16.000000
+}

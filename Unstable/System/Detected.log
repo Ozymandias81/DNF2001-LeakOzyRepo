@@ -1,0 +1,43 @@
+Log: Log file open, 05/10/22 23:29:55
+Init: Name subsystem initialized
+Init: Detected: Microsoft Windows NT 6.1 (Build: 7601)
+Init: Version: 400
+Init: Compiled: Aug 21 2001 18:27:31
+Init: Command line: testrendev=D3DDrv.D3DRenderDevice log=Detected.log
+Init: Base directory: D:\Games\DF2001\August 21\System\
+Init: Character set: Unicode
+Init: Profile: DukeTemp
+Log: Bound to Engine.dll
+Init: Object subsystem initialized.
+Init: Computer: VIRJPC
+Init: User: virj
+Init: Memory total: Phys=4194303K Pagef=4194303K Virt=2097024K
+Init: Working set: 32000 / 159000
+Init: CPU Speed=3515.922521 MHz
+Init: CPU Page size=4096, Processors=6
+Init: CPU Detected: Unknown processor (AuthenticAMD)
+Init: CPU Features: CMov FPU RDTSC PAE MMX KNI
+Log: Detecting D3DDrv.D3DRenderDevice
+Log: Bound to D3DDrv.dll
+Init: Direct3D adapters detected:
+Log: Adaptor Detected: nvd3dum.dll/NVIDIA GeForce GT 1030
+Init: DukeForever Direct3D support initializing.
+Log: SetRes(NewX=0,NewY=0,NewColorBytes=0,Fullscreen0) (this:02f10000);
+Init: Successfully tested Direct3D presence (D3D_OK)
+Log: Successfully detected D3DDrv.D3DRenderDevice
+Exit: Preparing to exit.
+Log: Purging garbage - DispatchDestroy
+Log: Unbound to Engine.dll
+Log: Unbound to D3DDrv.dll
+Log: Purging garbage - DeleteGarbage
+Log: Purging garbage - DeleteNames
+Log: Garbage: objects: 256->0; refs: 0
+Exit: Object subsystem successfully closed.
+Log: Terminating main loop
+Exit: Exiting.
+Uninitialized: Name subsystem shut down
+Uninitialized: Memory Allocation Status
+Uninitialized: Curr Memory  0.009M /  0.871M
+Uninitialized: Peak Memory  0.827M /  2.961M
+Uninitialized: Allocs          30 Current /   6175 Total
+Uninitialized: Log file closed, 05/10/22 23:29:55

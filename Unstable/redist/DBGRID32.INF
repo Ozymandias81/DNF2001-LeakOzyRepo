@@ -1,0 +1,26 @@
+; INF file for DBGRID32.ocx
+
+[DefaultInstall]
+CopyFiles=install.files
+RegisterOCXs=RegisterFiles
+
+[DestinationDirs]
+install.files=11
+
+[install.files]
+DBGRID32.OCX=DBGRID32.OCX
+
+[RegisterFiles]
+%11%\DBGRID32.OCX
+
+[DBGRID32.OCX]
+file-win32-x86=thiscab
+RegisterServer=Yes
+FileVersion=5,1,81,4
+
+[version]
+signature="$CHICAGO$"
+AdvancedINF=2.0
+
+[SourceDisksNames]
+1="default",,1

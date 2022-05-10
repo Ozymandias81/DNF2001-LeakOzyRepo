@@ -1,0 +1,4708 @@
+/*=============================================================================
+	Direct3D8.cpp: Unreal Direct3D8 support.
+	Copyright 1997-1999 Epic Games, Inc. All Rights Reserved.
+
+	Revision history:
+		* Created by independent contractor who wishes to remanin anonymous.
+		* Taken over by Tim Sweeney.
+		* Completed vertex buffer and GeForce support, hit detection. - Erik 
+		* Fog on gouraud polygons enabled if hardware has single-pass specular capability.
+=============================================================================*/
+
+// Includes.
+#pragma warning(disable : 4291)
+#pragma warning(disable : 4201)
+#pragma warning(disable : 4701)
+#pragma warning(disable : 4800)
+
+// Unreal includes.
+#include "Engine.h"
+#include "UnRender.h"
+
+#define D3D_OVERLOADS 1
+
+// Package implementation.
+IMPLEMENT_PACKAGE(D3DDrv);
+  
+// BR: somewhere along the line one of these is getting defined to be 'float'
+#undef f31
+#undef f32
+#undef f33
+#undef f34
+
+#include "d3dx8.h"
+#pragma comment(lib,"d3d8.lib")
+#pragma comment(lib,"D3dx8.lib")
+#pragma hdrstop
+EXECVAR(INT,    BatchSize,	24); 
+EXECVAR(INT,    FogForce,	0);
+EXECVAR(float,	FogStart,	50);
+EXECVAR(float,	FogEnd,		100);
+EXECVAR(float,	FogR,		0);
+EXECVAR(float,	FogG,		0);
+EXECVAR(float,	FogB,		0);
+EXECVAR(INT, RenderParticles, true);
+EXECVAR(INT, RenderMeshes,    true);
+EXECVAR(INT, RenderSurfaces,  true);
+EXECVAR(INT, RenderLines,     true);
+EXECVAR(INT, RenderTiles,	  true);
+
+EXECVAR_HELP(float, NearZ, 200.0, "Detail texture Z range.");
+EXECFUNC(GetNearZ)
+{
+	GDnExec->Printf(TEXT("%f"), NearZ);
+}
+
+// Vendor IDs
+enum
+{
+	UNRD3D_VENDOR_NVIDIA	= 4318,
+	UNRD3D_VENDOR_3DFX		= 4634,
+	UNRD3D_VENDOR_MATROX	= 4139,
+	UNRD3D_VENDOR_ATI		= 4098,
+	UNRD3D_VENDOR_INTEL		= 32902,
+};
+
+// Vendor Device IDs
+enum
+{
+	UNRD3D_VENDORDEV_NVIDIA_TNT			= 32,
+	UNRD3D_VENDORDEV_NVIDIA_TNT2		= 40,
+	UNRD3D_VENDORDEV_NVIDIA_TNT2ULTRA	= 41,
+	UNRD3D_VENDORDEV_NVIDIA_GEFORCE256	= 256,
+	UNRD3D_VENDORDEV_3DFX_VOODOO1		= 1,
+	UNRD3D_VENDORDEV_3DFX_VOODOO2		= 2,
+	UNRD3D_VENDORDEV_3DFX_VOODOOBANSHEE	= 3,
+	UNRD3D_VENDORDEV_3DFX_VOODOO3		= 5,
+	UNRD3D_VENDORDEV_MATROX_G200		= 1313,
+	UNRD3D_VENDORDEV_MATROX_G400		= 1317,
+	UNRD3D_VENDORDEV_ATI_RAGEPRO		= 18242,
+	UNRD3D_VENDORDEV_ATI_RAGE128		= 21062,
+	UNRD3D_VENDORDEV_INTEL_I740			= 30720,
+};
+
+
+static const FLOAT NEAR_CLIP	 =1.f;
+static const FLOAT FAR_CLIP		 =65535.f; 
+static const FLOAT NEAR_CLIP_HACK=NEAR_CLIP*1.01f; // vogel: workaround for precision issues
+// Globals.
+DWORD AlphaPalette[256]; 
+HRESULT h; 
+DWORD Timing;
+UBOOL GWire=0;
+
+#define DOHITTEST 1
+#define HIT_SIZE 8
+#define IGNOREPIX 0xfe0d
+static DWORD HitPixels[HIT_SIZE][HIT_SIZE];
+
+#define WORLDSURFACE_VERTEXBUFFER_SIZE  2048   // UT levels reach a maximum of about 380; can get well over 512 for complex surfaces.
+#define ACTORPOLY_VERTEXBUFFER_SIZE     16384  // Reaches 7 at most (clipped triangles) - used for tiles, lines and points also.
+											   // NJS: Increased to 4096 in the desperate hope that we might be able to fit an entire mesh in one.
+#define LINE_VERTEXBUFFER_SIZE	        64      // Only draws 1 line at a time, so 2 verts is all we need
+#define PARTICLE_VERTEXBUFFER_SIZE	    16384  // NJS: Expand when ready.
+#define LoadLibraryX(a) TCHAR_CALL_OS(LoadLibraryW(a),LoadLibraryA(TCHAR_TO_ANSI(a)))
+#define SAFETRY(cmd) {try{cmd;}catch(...){debugf(TEXT("Exception in ") TEXT(#cmd));}}
+#define DECLARE_INITED(typ,var) typ var; appMemzero(&var,sizeof(var)); var.dwSize=sizeof(var);
+
+inline DWORD FtoDW( FLOAT f ) { return *((DWORD*)&f); }
+// NVidia: there's a bug in DX8: D3DPOOL_MANAGED keeps VBs in system memory under MIXED mode (?) -> use D3DPOOL_DEFAULT ??
+
+FString D3DError( HRESULT h )
+{
+	#define D3DERR(x) case x: return TEXT(#x);
+	switch( h )
+	{
+		D3DERR(D3D_OK)
+		D3DERR(D3DERR_INVALIDCALL)
+		D3DERR(D3DERR_NOTAVAILABLE)
+		D3DERR(D3DERR_OUTOFVIDEOMEMORY)
+
+		default: return FString::Printf(TEXT("%08X"),(INT)h);
+	}
+	#undef D3DERR
+}
+
+/*-----------------------------------------------------------------------------
+	Skin Vertex Shader
+-----------------------------------------------------------------------------*/
+
+#define VSREG_BONEBASE     (18)
+#define VSREG_LIGHTBASE    (10)
+#define VSREG_AMBIENTRGB    (9)
+#define VSREG_VIEWPROJ      (0)
+#define VSREG_FIXEDCONST0   (4)
+#define VSREG_FIXEDCONST1   (5)
+#define VSREG_FIXEDCONST2   (6)
+
+
+/*-----------------------------------------------------------------------------
+	Vertex definitions.
+-----------------------------------------------------------------------------*/
+#define UNTRANSFORMED_FVF	(D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_DIFFUSE | D3DFVF_TEX2)
+
+struct FD3DScreenVertex
+{
+	enum {FVF=D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX2};
+#ifndef _XBOX
+	enum {USAGE=D3DUSAGE_WRITEONLY | D3DUSAGE_DONOTCLIP};
+#else
+	enum {USAGE=D3DUSAGE_WRITEONLY};
+#endif
+	FPlane		Position;
+	FColor		Color;
+	FLOAT		U[2];
+	FLOAT		U2[2];
+};
+
+struct FD3DTLVertex
+{
+	enum {FVF=D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_SPECULAR | D3DFVF_TEX1};
+#ifndef _XBOX
+	enum {USAGE=D3DUSAGE_WRITEONLY | D3DUSAGE_DONOTCLIP};
+#else
+	enum {USAGE=D3DUSAGE_WRITEONLY};
+#endif
+	FPlane		Position;
+	FColor		Diffuse, 
+				Specular;
+	FLOAT		U[2];
+#ifdef _XBOX
+	~FD3DTLVertex(){}
+#endif
+};
+
+struct FD3DTileVertex
+{
+	enum {FVF=D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1};
+#ifndef _XBOX
+	enum {USAGE=D3DUSAGE_WRITEONLY | D3DUSAGE_DONOTCLIP};
+#else
+	enum {USAGE=D3DUSAGE_WRITEONLY};
+#endif
+	FPlane		Position;
+	FLOAT		U[2];
+};
+
+struct FD3DVertex
+{
+	enum {FVF=D3DFVF_XYZ  | D3DFVF_DIFFUSE};
+#ifndef _XBOX
+	enum {USAGE=D3DUSAGE_WRITEONLY | D3DUSAGE_DONOTCLIP};
+#else
+	enum {USAGE=D3DUSAGE_WRITEONLY};
+#endif
+	FVector		Position;
+	FColor		Diffuse;
+};
+
+typedef struct FD3DParticle
+{
+	enum { FVF=D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX1 | D3DFVF_TEXCOORDSIZE2(0) };
+    FVector Position;
+    DWORD   Diffuse;
+	D3DXVECTOR2 TextureVector;
+} PARTICLE_VERTEX;
+
+
+class FD3DVertexBuffer
+{
+public:
+
+	IDirect3DDevice8*		Device;
+
+	IDirect3DVertexBuffer8*	VertexBuffer8;
+	DWORD					FVF;
+	INT						Stride,
+							Length,
+							First,
+							Rover;
+
+	// Constructor.
+	FD3DVertexBuffer(INT InLength,INT InStride,DWORD InFVF)
+	{
+		// Setup member variables.
+		Length = InLength;
+		Stride = InStride;
+		FVF = InFVF;
+		Rover = 0;
+
+		VertexBuffer8 = NULL;
+	}
+
+	// Init - Initialize the vertex buffer.
+	void Init(IDirect3DDevice8*	InDevice, int additional=0)
+	{
+		Device = InDevice;
+		if(!VertexBuffer8)
+		{
+			// Create the vertex buffer.
+			HRESULT	Result = Device->CreateVertexBuffer(Length * Stride,D3DUSAGE_WRITEONLY /*| D3DUSAGE_DYNAMIC*/ | additional,FVF,
+							D3DPOOL_MANAGED/* D3DPOOL_DEFAULT*/,&VertexBuffer8);
+
+			if(Result != D3D_OK)
+				appErrorf(TEXT("CreateVertexBuffer failed: %s"),*D3DError(Result));
+		}
+	}
+
+	// Exit - Releases the vertex buffer.
+	void Exit()
+	{
+		if(VertexBuffer8)
+		{
+			VertexBuffer8->Release();
+			VertexBuffer8 = NULL;
+		}
+	}
+
+	// Lock - Locks a range of vertices for writing.
+	void* Lock(INT Num)
+	{
+		void*	VertexData;
+		HRESULT	Result;
+
+		// Lock the vertex buffer.
+
+		if(Rover + Num < Length)
+		{
+			Result = VertexBuffer8->Lock(Rover * Stride,Num * Stride,(BYTE**) &VertexData,D3DLOCK_NOOVERWRITE);
+			First = Rover;
+		}
+		else
+		{
+#ifndef _XBOX
+			Result = VertexBuffer8->Lock(0,Num * Stride,(BYTE**) &VertexData,D3DLOCK_DISCARD);
+#else
+			Result = VertexBuffer8->Lock(0,Num * Stride,(BYTE**) &VertexData,0);
+#endif
+			Rover = 0;
+			First = 0;
+		}
+
+		Rover += Num;
+
+		if(Result!=D3D_OK) appErrorf(TEXT("Lock failed: %s"),*D3DError(Result));
+		return VertexData;
+	}
+
+	// Unlock - Unlocks the locked vertices.
+	INT Unlock()
+	{
+		HRESULT	Result = VertexBuffer8->Unlock();
+
+		if(Result != D3D_OK)
+			appErrorf(TEXT("Unlock failed: %s"),*D3DError(Result));
+
+		return First;
+	}
+
+	// Set - Makes this vertex buffer the current vertex buffer.
+	void Set()
+	{
+		// Set stream source 0 and the vertex shader.
+#ifndef _XBOX
+		Device->SetRenderState( D3DRS_SOFTWAREVERTEXPROCESSING, 0 );
+#endif
+		Device->SetVertexShader(FVF);
+		Device->SetStreamSource(0,VertexBuffer8,Stride);
+	}
+};
+/*-----------------------------------------------------------------------------
+	UD3DRenderDevice definition.
+-----------------------------------------------------------------------------*/
+//
+// Direct3D rendering device.
+//
+class DLL_EXPORT UD3DRenderDevice : public URenderDevice
+{
+    DECLARE_CLASS(UD3DRenderDevice,URenderDevice,CLASS_Config)
+
+	// Defines.
+	#define PYR(n)         ((n)*((n+1))/2)
+	#define MAX_TMU        8
+	struct FTexInfo;
+	struct FPixFormat;
+
+	// Texture information classes.
+	struct FPixFormat
+	{
+		// Pixel format info.
+		UBOOL				Supported;		// Whether this pixel format is supported for textures with the current device.
+		D3DFORMAT			Direct3DFormat;	// The corresponding Direct3D pixel format.
+		FPixFormat*			Next;			// Next in linked list of all compatible pixel formats.
+		const TCHAR*		Desc;			// Stat: Human readable name for stats.
+		INT					BitsPerPixel;	// Total bits per pixel.
+
+		// Multi-frame stats.
+		INT					Binned;			// Stat: How many textures of this format are available in bins.
+		INT					BinnedRAM;		// Stat: How much RAM is used by total textures of this format in the cache.
+		INT					ActiveRAMPeak;	// Stat: The highest active ram has ever been:
+		// Per-frame stats.
+		INT					Active;			// Stat: How many textures of this format are active.
+		INT					ActiveRAM;		// Stat: How much RAM is used by active textures of this format per frame.
+		INT					Sets;			// Stat: Number of SetTexture was called this frame on textures of this format.
+		INT					Uploads;		// Stat: Number of texture Blts this frame.
+		INT					UploadCycles;	// Stat: Cycles spent Blting.
+
+		void Init()
+		{
+			Supported = 0;
+			Next = NULL;
+			BitsPerPixel = Binned = BinnedRAM = 0;
+			ActiveRAMPeak=0;
+		}
+
+		void InitStats()
+		{
+			/*if(ActiveRAM>ActiveRAMPeak)*/ ActiveRAMPeak=ActiveRAM;
+			Sets = Uploads = UploadCycles = Active = ActiveRAM = 0;
+		}
+	};
+	struct FTexFiller
+	{
+		FPixFormat* PixelFormat;
+		FTexFiller( FPixFormat* InPixelFormat )
+		: PixelFormat( InPixelFormat )
+		{}
+		virtual void BeginUpload( UD3DRenderDevice* Device, FTexInfo* Tex, const FTextureInfo& Info, DWORD PolyFlags ) {}
+		virtual void UploadMipmap( UD3DRenderDevice* Device, FTexInfo* Tex, FRainbowPtr Dest, INT Stride, const FTextureInfo& Info, INT MipIndex, DWORD PolyFlags ) {}
+	};
+	struct FTexInfo
+	{
+		IDirect3DTexture8*	Texture8;
+		IDirect3DCubeTexture8*	CubeTexture8;
+		DWORD				SizeBytes;
+
+		QWORD				CacheId;
+		UBOOL				Masking;
+		INT					FirstMip;
+		FLOAT				UScale,
+							VScale;
+		FColor				MaxColor;
+		UBOOL				UseMips;
+
+		INT					PaletteNum;
+
+		FTexFiller*			Filler;
+		INT					FrameCounter;
+
+		FTexInfo*			HashNext;
+		FTexInfo*			NextTexture;
+	};
+	struct FTexFillerDXT1 : public FTexFiller
+	{
+		FTexFillerDXT1( UD3DRenderDevice* InOuter ) : FTexFiller(&InOuter->FormatDXT1) {}
+		void UploadMipmap( UD3DRenderDevice* Device, FTexInfo* ti, FRainbowPtr Dest, INT Stride, const FTextureInfo& Info, INT MipIndex, DWORD PolyFlags )
+		{
+			guard(FTexFillerDXT1::UploadMipmap);
+			INT USize = Max(Info.Mips[MipIndex]->USize, 4);
+			INT VSize = Max(Info.Mips[MipIndex]->VSize, 4);
+			appMemcpy( Dest.PtrVOID, Info.Mips[MipIndex]->DataPtr, (USize * VSize)/2 );
+			unguard;
+		}
+	};
+	struct FTexFillerP8_P8 : public FTexFiller
+	{
+		FTexFillerP8_P8( UD3DRenderDevice* InOuter )
+		: FTexFiller(&InOuter->FormatP8)
+		{}
+		void UploadMipmap( UD3DRenderDevice* Device, FTexInfo* Tex, FRainbowPtr Dest, INT Stride, const FTextureInfo& Info, INT MipIndex )
+		{
+			FRainbowPtr Src  = Info.Mips[MipIndex]->DataPtr;
+			for( INT j=Info.Mips[MipIndex]->VSize-1; j>=0; j-- )
+			{
+				for( INT k=Info.Mips[MipIndex]->USize-1; k>=0; k-- )
+					*Dest.PtrBYTE++ = *Src.PtrBYTE++;
+				Dest.PtrBYTE += Stride - Info.Mips[MipIndex]->USize;
+			}
+		}
+	};
+	struct FTexFiller8888_RGBA8 : public FTexFiller
+	{
+		FTexFiller8888_RGBA8( UD3DRenderDevice* InOuter ) : FTexFiller(&InOuter->Format8888) {}
+		void UploadMipmap( UD3DRenderDevice* Device, FTexInfo* ti, FRainbowPtr Dest, INT Stride, const FTextureInfo& Info, INT MipIndex, DWORD PolyFlags )
+		{
+#ifndef _XBOX
+			INT  USize      = Info.Mips[MipIndex]->USize;
+			INT  VSize      = Info.Mips[MipIndex]->VSize;
+			FRainbowPtr Src = Info.Mips[MipIndex]->DataPtr;
+			for( INT j=VSize-1; j>=0; j--,Dest.PtrDWORD += Stride-USize*sizeof(DWORD) )
+				for( INT k=USize-1; k>=0; k--,Dest.PtrDWORD++ )
+				{
+					*Dest.PtrDWORD = *Src.PtrDWORD++;
+					//*Dest.PtrDWORD|=0xFF000000; 
+				}
+#else
+			XGSwizzleRect(Info.Mips[MipIndex]->DataPtr,Stride,NULL,Dest.PtrVOID,Info.Mips[MipIndex]->USize,Info.Mips[MipIndex]->VSize,NULL,4);
+#endif
+		}
+	};
+	struct FTexFiller8888_RGBA7 : public FTexFiller
+	{
+		FTexFiller8888_RGBA7( UD3DRenderDevice* InOuter ) : FTexFiller(&InOuter->Format8888) {}
+		void UploadMipmap( UD3DRenderDevice* Device, FTexInfo* ti, FRainbowPtr Dest, INT Stride, const FTextureInfo& Info, INT MipIndex, DWORD PolyFlags )
+		{
+
+#ifdef _XBOX
+			DWORD*		TempBuffer = new DWORD[Info.Mips[MipIndex]->USize * Info.Mips[MipIndex]->VSize];
+			FRainbowPtr	RealDest = Dest;
+
+			Dest.PtrDWORD = TempBuffer;
+			Stride = Info.Mips[MipIndex]->USize * 4;
+#endif
+
+			FRainbowPtr Src  = Info.Mips[MipIndex]->DataPtr;
+			for( INT v=0; v<Info.VClamp; v++,Dest.PtrBYTE+=Stride-Info.UClamp*sizeof(DWORD),Src.PtrDWORD+=Info.USize-Info.UClamp )
+				for( INT u=0; u<Info.UClamp; u++,Src.PtrDWORD++,Dest.PtrDWORD++ )
+					*Dest.PtrDWORD = *Src.PtrDWORD*2;
+
+#ifdef _XBOX
+			XGSwizzleRect(TempBuffer,0,NULL,RealDest.PtrVOID,Info.Mips[MipIndex]->USize,Info.Mips[MipIndex]->VSize,NULL,4);
+
+			delete TempBuffer;
+#endif
+		}
+	};
+	struct FTexFiller8888_P8 : public FTexFiller
+	{
+		FTexFiller8888_P8( UD3DRenderDevice* InOuter ) : FTexFiller(&InOuter->Format8888) {}
+		void UploadMipmap( UD3DRenderDevice* Device, FTexInfo* ti, FRainbowPtr Dest, INT Stride, const FTextureInfo& Info, INT MipIndex, DWORD PolyFlags )
+		{
+			INT		USize      = Info.Mips[MipIndex]->USize;
+			INT		VSize      = Info.Mips[MipIndex]->VSize;
+
+#ifdef _XBOX
+			DWORD*	TempBuffer = new DWORD[USize * VSize];
+
+			FRainbowPtr	RealDest = Dest;
+
+			Dest.PtrDWORD = TempBuffer;
+			Stride = USize * 4;
+#endif
+
+			FRainbowPtr Src = Info.Mips[MipIndex]->DataPtr;
+			for( INT j=VSize-1; j>=0; j--,Dest.PtrBYTE+=Stride-USize*sizeof(DWORD) )
+				for( INT k=USize-1; k>=0; k--,Dest.PtrDWORD++ )
+					*Dest.PtrDWORD = AlphaPalette[*Src.PtrBYTE++];
+
+#ifdef _XBOX
+			XGSwizzleRect(TempBuffer,0,NULL,RealDest.PtrVOID,USize,VSize,NULL,4);
+
+			delete TempBuffer;
+#endif
+
+		}
+		void BeginUpload( UD3DRenderDevice* Device, FTexInfo* ti, const FTextureInfo& Info, DWORD PolyFlags )
+		{
+			for( INT i=0; i<NUM_PAL_COLORS; i++ )
+				AlphaPalette[i] = D3DCOLOR_RGBA(Info.Palette[i].R,Info.Palette[i].G,Info.Palette[i].B,Info.Palette[i].A);
+			if( PolyFlags & PF_Masked )
+				AlphaPalette[0] = 0;
+		}
+	};
+	struct FTexFiller1555_RGBA7 : public FTexFiller
+	{
+		FTexFiller1555_RGBA7( UD3DRenderDevice* InOuter ) : FTexFiller(&InOuter->Format1555) {}
+		void UploadMipmap( UD3DRenderDevice* Device, FTexInfo* ti, FRainbowPtr Dest, INT Stride, const FTextureInfo& Info, INT MipIndex, DWORD PolyFlags )
+		{
+			_WORD*      RPtr     = Device->RScale + PYR(Info.MaxColor->R/2);
+			_WORD*      GPtr     = Device->GScale + PYR(Info.MaxColor->G/2);
+			_WORD*      BPtr     = Device->BScale + PYR(Info.MaxColor->B/2);
+			FRainbowPtr Src      = Info.Mips[MipIndex]->DataPtr;
+			for( INT v=0; v<Info.VClamp; v++,Dest.PtrBYTE+=Stride-Info.UClamp*2,Src .PtrDWORD+=Info.USize-Info.UClamp )
+				for( INT u=0; u<Info.UClamp; u++,Src.PtrDWORD++ )
+					*Dest.PtrWORD++ = BPtr[Src.PtrBYTE[0]] + GPtr[Src.PtrBYTE[1]] + RPtr[Src.PtrBYTE[2]];
+		}
+	};
+	struct FTexFiller1555_P8 : public FTexFiller
+	{
+		FTexFiller1555_P8( UD3DRenderDevice* InOuter ) : FTexFiller(&InOuter->Format1555) {}
+		void UploadMipmap( UD3DRenderDevice* Device, FTexInfo* ti, FRainbowPtr Dest, INT Stride, const FTextureInfo& Info, INT MipIndex, DWORD PolyFlags )
+		{
+			INT  USize      = Info.Mips[MipIndex]->USize;
+			INT  VSize      = Info.Mips[MipIndex]->VSize;
+			FRainbowPtr Src = Info.Mips[MipIndex]->DataPtr;
+
+			#if 0//1 NJS: Need to further profile the following code:
+				unsigned short *dst=Dest.PtrWORD;	
+				unsigned char *src=Src.PtrBYTE;
+
+				int DestAdd=(Stride-Info.Mips[MipIndex]->USize*2)/2;
+				for( INT j=VSize-1; j>=0; j--,dst+=DestAdd )
+					for( INT k=USize-1; k>=0; k-- )
+						*dst++ = AlphaPalette[*src++];
+
+				Dest.PtrWORD=dst;
+				Src.PtrBYTE=src;
+			#else
+				for( INT j=VSize-1; j>=0; j--,Dest.PtrBYTE+=Stride-Info.Mips[MipIndex]->USize*2 )
+					for( INT k=USize-1; k>=0; k-- )
+						*Dest.PtrWORD++ = AlphaPalette[*Src.PtrBYTE++];
+			#endif
+		}
+		void BuildAlphaPalette( FColor* Pal, DWORD FracA, DWORD MaskA, DWORD FracR, DWORD MaskR, DWORD FracG, DWORD MaskG, DWORD FracB, DWORD MaskB )
+		{
+			DWORD* Dest = AlphaPalette;
+			for( FColor *End=Pal+NUM_PAL_COLORS; Pal<End; Pal++ )
+			{
+				
+				*Dest++
+				=  (((Min(MaskA,FracA*Pal->A))&MaskA)
+				|	((Min(MaskR,FracR*Pal->R))&MaskR)
+				|   ((Min(MaskG,FracG*Pal->G))&MaskG)
+				|	((Min(MaskB,FracB*Pal->B))&MaskB))>>16;
+				
+				/*
+				DWORD ColorToUse=((Pal->R+Pal->G+Pal->B)/3.f);
+				*Dest++
+				=  (((Min(MaskA,FracA*Pal->A))&MaskA)
+				|	((Min(MaskR,FracR*ColorToUse))&MaskR)
+				|   ((Min(MaskG,FracG*ColorToUse))&MaskG)
+				|	((Min(MaskB,FracB*ColorToUse))&MaskB))>>16;
+				*/
+			}
+		}
+		void BeginUpload( UD3DRenderDevice* Device, FTexInfo* ti, const FTextureInfo& Info, DWORD PolyFlags )
+		{			
+			if( PolyFlags & PF_Modulated )// Prevent brightness adjustment when modulating 
+			{
+				FColor* Pal = Info.Palette;
+				DWORD* Dest = AlphaPalette;
+				for( FColor *End=Pal+NUM_PAL_COLORS; Pal<End; Pal++ )
+				{
+					*Dest++
+					=  ( (Min<INT>(0x80000000,(Pal->A* 0x01000000) &0x80000000))
+					|	 (Min<INT>(0x7C000000,(Pal->R*(0x007fffff))&0x7C000000))
+					|    (Min<INT>(0x03E00000,(Pal->G*(0x0003ffff))&0x03E00000))
+					|	 (Min<INT>(0x001F0000,(Pal->B*(0x00001fff))&0x001F0000)) )>>16;
+				}
+			} else
+			BuildAlphaPalette
+			(
+				Info.Palette,
+				0x1000000, 0x80000000,
+				/*appRound(*/0x07fffffff/Max<INT>(ti->MaxColor.R,1)/*)*/, 0x7C000000,
+				/*appRound(*/0x003ffffff/Max<INT>(ti->MaxColor.G,1)/*)*/, 0x03E00000,
+				/*appRound(*/0x0001fffff/Max<INT>(ti->MaxColor.B,1)/*)*/, 0x001F0000
+				// Adjustment of 1.4* for 16-bit rendering modes to make 
+				// brightness scaling of world textures comparable to that of 3dfx.
+				// NJS: removed the 1.4 scaling
+			);
+			if( PolyFlags & PF_Masked )
+				AlphaPalette[0] = 0;
+		}
+	};
+	struct FD3DStats
+	{
+		INT	  SurfTime, PolyTime, TileTime, ParticleTime, BeamTime, QueueTime, D3DPolyTime, D3DVertexRender, D3DVertexSetup, D3DVertexLock;
+		DWORD Surfs, Polys, MaskedPolys, Tiles, GouraudPolys, Particles, ParticleTextureChanges, Beams, SuccessorMisses, QueueCount;
+		DWORD TexUploads;			
+		INT   VBLocks;
+	};
+
+	/*
+	struct FCachedResource
+	{
+		URenderResource*	SourceResource;
+
+		IUnknown*			CachedData;
+		int					CachedRevision;
+	};
+*/
+	// Cached resources(vertex buffers, index buffers, etc).
+	//TArray<FCachedResource>	CachedResources;
+
+	// Cached texture hash. !! Unify with vertex buffer/index buffer caching.
+	FTexInfo*				CachedTextures;
+	FTexInfo*				TextureHash[4096];
+	FTexInfo				NoTexture;
+
+	// Round robin vertex buffers used to contain world surfaces and mesh triangles.
+	FD3DVertexBuffer		WorldVertices,
+							ActorVertices,
+							LineVertices,
+							ParticleVertices;
+
+	// Cached D3D state.
+	FMatrix					TextureTransform[2];
+
+	// Saved viewport info.
+    INT						ViewportX;
+    INT						ViewportY;
+    HWND					ViewporthWnd;
+    DWORD					ViewportColorBits;
+    UBOOL					ViewportFullscreen;
+
+	// Pixel formats from D3D.
+    FPixFormat				FormatDXT1;
+    FPixFormat				FormatP8;
+    FPixFormat				Format8888;
+    FPixFormat				Format1555;
+	FPixFormat*				FirstPixelFormat;
+
+	// Fillers.
+	FTexFillerDXT1			FillerDXT1;
+	FTexFiller8888_RGBA8	Filler8888_RGBA8;
+	FTexFiller8888_RGBA7	Filler8888_RGBA7;
+	FTexFiller8888_P8		Filler8888_P8;
+	FTexFiller1555_RGBA7	Filler1555_RGBA7;
+	FTexFiller1555_P8		Filler1555_P8;
+	FTexFillerP8_P8			FillerP8_P8;
+
+	// From D3D.
+	UBOOL					MultisampleSupport[D3DMULTISAMPLE_16_SAMPLES+1];
+    D3DCAPS8				DeviceCaps8;
+	D3DADAPTER_IDENTIFIER8	DeviceIdentifier;
+	_WORD					wProduct, wVersion, wSubVersion, wBuild;
+	TArray<D3DDISPLAYMODE>	DisplayModes;
+	TArray<D3DADAPTER_IDENTIFIER8>	Adapters;
+	D3DFORMAT				BackBufferFormat;
+
+	// Direct3D init sequence objects and variables.
+    IDirect3D8*				Direct3D8;
+    IDirect3DDevice8*		Direct3DDevice8;
+
+	// Direct3D-specific render options.
+    BITFIELD				UseMipmapping;
+    BITFIELD				UseTrilinear;
+    //BITFIELD				UseMultitexture;
+    //BITFIELD				UseGammaCorrection;
+	BITFIELD				Use3dfx;
+	BITFIELD				UseD3DSoftwareRenderer;
+	BITFIELD				UseTripleBuffering;
+	BITFIELD				UseVSync;
+	BITFIELD				UseVertexSpecular;
+	BITFIELD				UseAlphaPalettes;
+	BITFIELD				UsePrecache;
+	BITFIELD				Use2ndTierTextureCache;
+	BITFIELD				Use32BitTextures;
+	INT						MaxResWidth, MaxResHeight;
+	INT						dwVendorId, dwDeviceId;
+	INT						MultisampleLevel;
+	
+	// Info used while rendering a frame.
+	D3DVIEWPORT8			ViewportInfo;
+	D3DXMATRIX				WorldMatrix;
+	D3DXMATRIX				ViewMatrix;
+	D3DXMATRIX				InvViewMatrix;
+    D3DXMATRIX				ProjectionMatrix;
+	FVector					ViewOrigin;
+	D3DXMATRIX				ViewMatrix4x3;
+	D3DXMATRIX				ProjViewMatrix;
+
+	UBOOL					ReverseNormals;
+    FPlane					FlashScale;
+    FPlane					FlashFog;
+    DWORD					LockFlags;
+	DWORD					CurrentPolyFlags;
+	DWORD					CurrentPolyFlagsEx;
+    FD3DStats				Stats;
+	FTexInfo*				Stages[MAX_TMU];
+	FD3DTLVertex			Verts[512];
+    _WORD					RScale[PYR(128)];
+    _WORD					GScale[PYR(128)];
+    _WORD					BScale[PYR(128)];
+	UBOOL					Wireframe;
+	INT						FrameCounter;
+	INT						PreloadMemory;
+	INT						TotalMemory;
+	INT						PrecacheCycle;
+
+	// Hit detection
+	TArray<BYTE>	HitStack;
+	BYTE*			HitData;
+	INT*			HitSize;
+	INT				HitCount;
+
+	UBOOL			DistanceFogEnabled;
+	UBOOL			UseDistanceFog;
+
+	FLOAT			DistanceFogBegin;
+	FLOAT			DistanceFogEnd;
+	FColor			DistanceFogColor;
+	// Vertex shaders.
+#ifndef _XBOX
+	LPD3DXBUFFER BCompiledSkinShader;
+#else
+	LPXGBUFFER BCompiledSkinShader;
+#endif
+	DWORD        SkinShaderHandle;
+	UBOOL        UseHardwareVS; // Hardware vertex shaders enabled ? 	
+	UBOOL        UseHardwareTL; // Hardware transform and lighting enabled ? 	
+
+	// Current state.
+	INT						BestAdapter;
+	UViewport*				LockedViewport;
+	UBOOL					CurrentFullscreen;
+	INT						CurrentColorBytes;
+	INT						FullScreenWidth;
+	INT						FullScreenHeight;
+	UBOOL					ForceReset;
+	INT						PaletteIndex;
+	float				    ZBias; 
+
+	// Vertex shader
+#ifndef _XBOX
+	LPD3DXBUFFER			EnvMapVertexShaderBin;
+	LPD3DXBUFFER			BumpMapVertexShaderBin;
+#else
+	LPXGBUFFER				EnvMapVertexShaderBin;
+	LPXGBUFFER				BumpMapVertexShaderBin;
+#endif
+	DWORD					EnvMapVertexShader;
+	DWORD					BumpMapVertexShader;
+	DWORD					FixedFunctionVertexShader;
+	DWORD					FixedFunctionSingleShader;
+	DWORD					FixedFunctionDualShader;
+
+	//
+	// GetFormatBPP
+	// Returns the number of bits/pixel used by a specified format.
+	// If you add support for another format, you must add a case for it here.
+	//
+	int GetFormatBPP(D3DFORMAT Format)
+	{
+		switch(Format)
+		{
+			case D3DFMT_A8R8G8B8:
+			case D3DFMT_X8R8G8B8:
+			case D3DFMT_D24S8:
+			case D3DFMT_D32:		
+				return 32;
+
+			case D3DFMT_A1R5G5B5:
+			case D3DFMT_R5G6B5:	
+			case D3DFMT_X1R5G5B5:
+			case D3DFMT_D16:
+				return 16;
+
+			case D3DFMT_P8:
+				return 8;
+		
+			case D3DFMT_DXT1:
+				return 4;
+		
+			default:
+				return 0;
+
+
+		}
+	}
+
+    // UObject interface.
+    void StaticConstructor()
+	{
+		//new(GetClass(),TEXT("UseMipmapping"),       RF_Public)UBoolProperty ( CPP_PROPERTY(UseMipmapping       ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("UseTrilinear"),        RF_Public)UBoolProperty ( CPP_PROPERTY(UseTrilinear        ), TEXT("Options"), CPF_Config );
+		//new(GetClass(),TEXT("UseMultitexture"),     RF_Public)UBoolProperty ( CPP_PROPERTY(UseMultitexture      ), TEXT("Options"), CPF_Config );
+		//new(GetClass(),TEXT("UsePalettes"),         RF_Public)UBoolProperty ( CPP_PROPERTY(UsePalettes         ), TEXT("Options"), CPF_Config );
+		//new(GetClass(),TEXT("UseGammaCorrection"),  RF_Public)UBoolProperty ( CPP_PROPERTY(UseGammaCorrection    ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("Use3dfx"),             RF_Public)UBoolProperty ( CPP_PROPERTY(Use3dfx               ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("UseTripleBuffering"),  RF_Public)UBoolProperty ( CPP_PROPERTY(UseTripleBuffering    ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("UseVSync"),            RF_Public)UBoolProperty ( CPP_PROPERTY(UseVSync              ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("UsePrecache"),         RF_Public)UBoolProperty ( CPP_PROPERTY(UsePrecache           ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("dwVendorId"),          RF_Public)UIntProperty  ( CPP_PROPERTY(dwVendorId            ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("dwDeviceId"),          RF_Public)UIntProperty  ( CPP_PROPERTY(dwDeviceId            ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("MultisampleLevel"),	    RF_Public)UIntProperty  ( CPP_PROPERTY(MultisampleLevel      ), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("Use2ndTierTextureCache"),	RF_Public)UBoolProperty  ( CPP_PROPERTY(Use2ndTierTextureCache), TEXT("Options"), CPF_Config );
+		new(GetClass(),TEXT("Use32BitTextures"),	    RF_Public)UBoolProperty  ( CPP_PROPERTY(Use32BitTextures), TEXT("Options"), CPF_Config );
+		UseMipmapping=1;
+		//UseTrilinear=0;
+		DetailTextures=1;
+		SpanBased				= 0;
+		SupportsFogMaps			= 1;
+		MaxResWidth				= MAXINT;
+		MaxResHeight			= MAXINT;
+		Use32BitTextures=TRUE;
+	}
+
+    // URenderDevice interface.
+	UD3DRenderDevice()
+	:	Filler1555_RGBA7(this)
+	,	Filler8888_RGBA7(this)
+	,	Filler8888_RGBA8(this)
+	,	FillerDXT1		(this)
+	,	Filler1555_P8	(this)
+	,	Filler8888_P8	(this)
+	,   FillerP8_P8		(this)
+	,	WorldVertices	(WORLDSURFACE_VERTEXBUFFER_SIZE,sizeof(FD3DScreenVertex),FD3DScreenVertex::FVF)
+	,	ActorVertices	(ACTORPOLY_VERTEXBUFFER_SIZE,sizeof(FD3DTLVertex),FD3DTLVertex::FVF)
+	,	LineVertices	(LINE_VERTEXBUFFER_SIZE,sizeof(FD3DVertex),FD3DVertex::FVF)
+	,   ParticleVertices(PARTICLE_VERTEXBUFFER_SIZE,sizeof(FD3DParticle),FD3DParticle::FVF)
+	{
+	}
+
+	// NJS: Funky unreal destructors... mutter mutter mutter...
+	UBOOL ConditionalDestroy()
+	{
+		QueueParticleShutdown();
+
+		return Super::ConditionalDestroy();
+	}
+
+
+	UBOOL __fastcall Init( UViewport* InViewport, INT NewX, INT NewY, INT NewColorBytes, UBOOL Fullscreen )
+	{
+		Viewport = InViewport;
+
+		// Flags.
+		SupportsLazyTextures	= 0;//1;
+		PrefersDeferredLoad		= 0;//UsePrecache;
+		DistanceFogEnabled		= FALSE;
+		UseDistanceFog			= FALSE;
+		// Init pyramic-compressed scaling tables.
+		for( INT A=0; A<128; A++ )
+		{
+			for( INT B=0; B<=A; B++ )
+			{
+				INT M=Max(A,1);
+				RScale[PYR(A)+B] = (Min((B*0x08000)/M,0x7C00) & 0xf800);
+				GScale[PYR(A)+B] = (Min((B*0x00400)/M,0x03e0) & 0x07e0);
+				BScale[PYR(A)+B] = (Min((B*0x00020)/M,0x001f) & 0x001f);
+			}
+		}
+
+		return SetRes( NewX, NewY, NewColorBytes, Fullscreen );
+	}
+	void __fastcall Exit()
+	{
+		UnSetRes(NULL,0);  
+
+		if( Viewport ) Flush(1);
+		else
+		{
+			WorldVertices.Exit();
+			ActorVertices.Exit();
+			LineVertices.Exit();
+			ParticleVertices.Exit();
+			RestoreGamma();
+
+			if( Direct3D8 )
+			{
+				SAFETRY(Direct3D8->Release());
+				Direct3D8 = NULL;
+			}
+
+			if( Direct3DDevice8 )
+			{
+				SAFETRY(Direct3DDevice8->Release());
+				Direct3DDevice8 = NULL;
+			}
+		}
+	}
+	void ShutdownAfterError()
+	{
+		debugf(NAME_Exit, TEXT("UD3DRenderDevice::ShutdownAfterError"));
+		UnSetRes(NULL,0);
+		if( Direct3D8 )
+		{
+			SAFETRY(Direct3D8->Release());
+			Direct3D8 = NULL;
+		}
+
+		if( Direct3DDevice8 )
+		{
+			SAFETRY(Direct3DDevice8->Release());
+			Direct3DDevice8 = NULL;
+		}
+
+	}
+
+	void UpdateGamma( UViewport* Viewport )
+	{
+		FLOAT Gamma		 = Viewport->GetOuterUClient()->Gamma;
+		FLOAT Brightness = Viewport->GetOuterUClient()->Brightness;
+		FLOAT Contrast   = Viewport->GetOuterUClient()->Contrast;
+
+		if( Direct3DDevice8 && ViewportFullscreen && (DeviceCaps8.Caps2 & D3DCAPS2_FULLSCREENGAMMA) )
+		{
+			D3DGAMMARAMP Ramp;
+			for( INT x=0; x<256; x++ )
+				Ramp.red[x] = Ramp.green[x] = Ramp.blue[x] = Clamp<INT>( appRound( (Contrast+0.5f)*appPow(x/255.f,1.0f/Gamma)*65535.f + (Brightness-0.5f)*32768.f - Contrast*32768.f + 16384.f ), 0, 65535 );
+			Direct3DDevice8->SetGammaRamp(D3DSGR_CALIBRATE, &Ramp);
+		}
+	}
+
+	void RestoreGamma()
+	{
+		if( Direct3DDevice8 && (DeviceCaps8.Caps2 & D3DCAPS2_FULLSCREENGAMMA) )
+		{
+			guard(RestoreGamma);
+			D3DGAMMARAMP Ramp;
+			for( INT x=0; x<256; x++ )
+				Ramp.red[x] = Ramp.green[x] = Ramp.blue[x] = x << 8;
+			Direct3DDevice8->SetGammaRamp(D3DSGR_CALIBRATE, &Ramp);		
+			unguard;
+		}
+	}
+	
+	void __fastcall Flush( UBOOL AllowPrecache )
+	{
+		if( Direct3DDevice8 )
+		{
+
+			for( DWORD i=0; i<DeviceCaps8.MaxSimultaneousTextures; i++ )
+			{
+				Stages[i] = &NoTexture;
+				Direct3DDevice8->SetTexture( i, NULL );
+			}
+
+			while(CachedTextures)
+			{
+				FTexInfo*	TexInfo = CachedTextures;
+
+				CachedTextures = TexInfo->NextTexture;
+
+				TexInfo->Filler->PixelFormat->ActiveRAM=0; 
+				TexInfo->Filler->PixelFormat->BinnedRAM=0; 
+				TexInfo->Filler->PixelFormat->Active=0; 
+				TexInfo->Filler->PixelFormat->Binned=0; 
+				if(TexInfo->Texture8)
+				{
+					HRESULT Result;
+					if(FAILED(Result=TexInfo->Texture8->Release()))
+						debugf(_T("Texture->Release failed:%s"),*D3DError(Result));
+
+					TexInfo->Texture8=NULL;
+				}
+				if(TexInfo->CubeTexture8)
+					TexInfo->CubeTexture8->Release();
+
+				delete TexInfo;
+			};
+
+			PaletteIndex = 0;
+
+			for( i=0; i<ARRAY_COUNT(TextureHash); i++ )
+				TextureHash[i]=NULL;
+
+
+			if( ViewportFullscreen && DeviceCaps8.Caps2 & D3DCAPS2_FULLSCREENGAMMA)
+			{
+				FLOAT Gamma = Viewport->GetOuterUClient()->Gamma;
+				FLOAT Brightness = Viewport->GetOuterUClient()->Brightness;
+				FLOAT Contrast = Viewport->GetOuterUClient()->Contrast;
+
+				D3DGAMMARAMP Ramp;
+				for( INT x=0; x<256; x++ )
+					Ramp.red[x] = Ramp.green[x] = Ramp.blue[x] = Clamp<INT>( appRound( (Contrast+0.5f)*appPow(x/255.f,1.0f/Gamma)*65535.f + (Brightness-0.5f)*32768.f - Contrast*32768.f + 16384.f ), 0, 65535 );
+				Direct3DDevice8->SetGammaRamp(D3DSGR_CALIBRATE, &Ramp);
+				
+			}
+
+			Direct3DDevice8->SetStreamSource(0,NULL,0);
+			Direct3DDevice8->SetIndices(NULL,0);
+		}
+
+		if( AllowPrecache )
+			PrecacheOnFlip = UsePrecache;
+		PreloadMemory = 0;
+	}
+	void __fastcall PreRender( FSceneNode* Frame )
+	{
+		Wireframe = Frame->Viewport->IsWire() && !Frame->Viewport->IsTopView();
+		ReverseNormals = Frame->Mirror < 0;
+
+		// Setup view matrix.
+		appMemzero( &ViewMatrix, sizeof(ViewMatrix));
+		ViewMatrix._11 = Frame->Coords.XAxis.X;
+		ViewMatrix._12 = -Frame->Coords.YAxis.X;
+		ViewMatrix._13 = Frame->Coords.ZAxis.X;
+		ViewMatrix._21 = Frame->Coords.XAxis.Y;
+		ViewMatrix._22 = -Frame->Coords.YAxis.Y;
+		ViewMatrix._23 = Frame->Coords.ZAxis.Y;
+		ViewMatrix._31 = Frame->Coords.XAxis.Z;
+		ViewMatrix._32 = -Frame->Coords.YAxis.Z;
+		ViewMatrix._33 = Frame->Coords.ZAxis.Z;
+		ViewMatrix._41 = Frame->Coords.XAxis | -Frame->Coords.Origin;
+		ViewMatrix._42 = Frame->Coords.YAxis | Frame->Coords.Origin;
+		ViewMatrix._43 = Frame->Coords.ZAxis | -Frame->Coords.Origin;
+		ViewMatrix._44 = 1;
+
+		// Setup inverse view matrix.
+		D3DXMatrixInverse( &InvViewMatrix, NULL, &ViewMatrix );
+		
+		Direct3DDevice8->SetTransform( D3DTS_VIEW, &ViewMatrix );
+		ViewOrigin = Frame->Coords.Origin;
+
+		// ONLY X-movement seems correct...
+		// _Not_ just transpose of the Viewmatrix above ???
+		// Alternative arrangement for vertex shader.
+		// just output Y and Z reversed works!!!
+		FCoords View = Frame->Coords;
+		ViewMatrix4x3._11 =  View.XAxis.X;
+		ViewMatrix4x3._12 =  View.XAxis.Y;
+		ViewMatrix4x3._13 =  View.XAxis.Z;
+		ViewMatrix4x3._14 = -View.XAxis | View.Origin;
+		ViewMatrix4x3._21 = -View.YAxis.X;
+		ViewMatrix4x3._22 = -View.YAxis.Y;
+		ViewMatrix4x3._23 = -View.YAxis.Z;
+		ViewMatrix4x3._24 =  View.YAxis | View.Origin;
+		ViewMatrix4x3._31 = -View.ZAxis.X;
+		ViewMatrix4x3._32 = -View.ZAxis.Y;
+		ViewMatrix4x3._33 = -View.ZAxis.Z;
+		ViewMatrix4x3._34 =  View.ZAxis | View.Origin;
+		ViewMatrix4x3._41 = 0.0f;
+		ViewMatrix4x3._42 = 0.0f;
+		ViewMatrix4x3._43 = 0.0f;
+		ViewMatrix4x3._44 = 1.0f;
+
+		if(Frame->Viewport->IsOrtho())
+		{
+			FLOAT	Width = Frame->Zoom * Frame->FX2,
+					Height = Frame->Zoom * Frame->FY2;
+
+			appMemzero( &ProjectionMatrix, sizeof(ProjectionMatrix));
+			ProjectionMatrix._11 = 1.0f / Width;
+			ProjectionMatrix._22 = 1.0f / Height;
+			ProjectionMatrix._44 = 1.0f;
+		}
+		else
+		{
+			// Setup projection matrix.
+			appMemzero( &ProjectionMatrix, sizeof(ProjectionMatrix));
+			FLOAT wNear=NEAR_CLIP, wFar=FAR_CLIP;
+			FLOAT FOV = Frame->Viewport->Actor->FovAngle * PI/360.0f;
+			ProjectionMatrix._11 = 1/appTan( FOV );
+			ProjectionMatrix._22 = Frame->FX / appTan( FOV ) / Frame->FY;
+			ProjectionMatrix._33 = wFar / (wFar - wNear);
+			ProjectionMatrix._34 = 1.f;
+			ProjectionMatrix._43 = -ProjectionMatrix._33 * wNear;
+			ProjectionMatrix._44 = 0.f;
+
+			// Hacked part-negative matrix for skeletal -> FIX at skeletal shader(viewmatrix?) level instead!
+			D3DXMATRIX NegativeMatrix;
+			appMemzero( &NegativeMatrix, sizeof(NegativeMatrix) );
+			NegativeMatrix._11 = 1/appTan( FOV );
+			NegativeMatrix._22 = Frame->FX / appTan( FOV ) / Frame->FY;
+			NegativeMatrix._33 =- wFar / (wFar - wNear);
+			NegativeMatrix._34 =- 1.f;
+			NegativeMatrix._43 =- -NegativeMatrix._33 * wNear;
+			NegativeMatrix._44 =- 0.f;
+			D3DXMatrixMultiply(&ProjViewMatrix, &NegativeMatrix, &ViewMatrix4x3);
+		}
+
+		Direct3DDevice8->SetTransform( D3DTS_PROJECTION, &ProjectionMatrix );
+
+		// disable hardware lighting mode
+		Direct3DDevice8->SetRenderState( D3DRS_LIGHTING, 0 ); 
+
+		// set backface culling mode
+		// Direct3DDevice7->SetRenderState( D3DRS_CULLMODE, D3DCULL_CCW  ); 
+	}
+	void __fastcall Lock( FColor FogColor, float FogDensity, BYTE FogDistance, FPlane InFlashScale, FPlane InFlashFog, FPlane ScreenClear, DWORD InLockFlags, BYTE* InHitData, INT* InHitSize )
+	{
+		INT FailCount=0;
+		Timing = 0;
+		FrameCounter++;
+
+
+		if(FogForce)
+		{
+			DistanceFogBegin=FogStart;
+			DistanceFogEnd=FogEnd;
+			DistanceFogColor.R=FogR;
+			DistanceFogColor.G=FogG;
+			DistanceFogColor.B=FogB;
+		} else
+		{
+			DistanceFogColor=FogColor;
+			DistanceFogBegin=FogDistance;
+			FLOAT FogDensitySquared=FogDensity*FogDensity;
+			if(!FogDensitySquared) FogDensitySquared=0.001f;
+			if(FogDensity<DistanceFogBegin) DistanceFogEnd=DistanceFogBegin+700.f;
+			else DistanceFogEnd=FogDensity;
+		}
+
+
+		if(LockFlags&LOCKR_LightDiminish||FogForce)
+			SetDistanceFog(UseDistanceFog=true);
+		else 
+		{
+			SetDistanceFog(false);
+			UseDistanceFog=false;
+		}
+		// Remember parameters.
+		LockFlags  = InLockFlags;
+		FlashScale = InFlashScale;
+		FlashFog   = InFlashFog;
+
+		// Hit detection.
+		HitCount   = 0;
+		HitData    = InHitData;
+		HitSize    = InHitSize;
+
+		// Check cooperative level.
+		HRESULT hr=NULL, hr2=NULL;
+		hr=Direct3DDevice8->TestCooperativeLevel();
+		if( hr!=D3D_OK )
+		{
+			debugf(TEXT("TestCooperativeLevel failed (%s)"),*D3DError(hr));
+			Failed:
+			// D3DERR_DEVICELOST is returned if the device was lost, but exclusive mode isn't available again yet.
+			// D3DERR_DEVICENOTRESET is returned if the device was lost, but can be reset.
+
+			// Wait to regain exclusive access to the device.
+
+			do hr2 = Direct3DDevice8->TestCooperativeLevel();
+			while( hr2==D3DERR_DEVICELOST );
+
+			if(hr2 == D3DERR_DEVICENOTRESET)
+			{
+				debugf(TEXT("Resetting mode (%s)"),*D3DError(hr2));
+				if( !SetRes(ViewportX, ViewportY, ViewportColorBits*8, ViewportFullscreen) )
+					appErrorf(TEXT("Failed resetting mode"));
+			}
+
+		}
+
+		// Clear the Z-buffer.
+		Direct3DDevice8->Clear( 0, NULL, D3DCLEAR_ZBUFFER | ((LockFlags & LOCKR_ClearScreen) ? D3DCLEAR_TARGET : 0), (D3DCOLOR)FColor(ScreenClear).TrueColor(), 1.f, 0 );
+
+		// Init stats.
+		appMemzero( &Stats, sizeof(Stats) );
+		for( FPixFormat* Fmt=FirstPixelFormat; Fmt; Fmt=Fmt->Next )
+			Fmt->InitStats();
+
+		// Begin scene.
+		if( FAILED(h=Direct3DDevice8->BeginScene()) )
+		{
+			if( ++FailCount==1 )
+				goto Failed;
+			appErrorf(TEXT("BeginScene failed (%s)"),*D3DError(h));
+		}
+	}
+	void __fastcall PrecacheTexture( FTextureInfo& Info, DWORD PolyFlags )
+	{
+		SetTexture( 0, Info, PolyFlags, 1 );
+		PrecacheCycle = 1;
+	}
+	void __fastcall Unlock( BOOL Blit )
+	{
+
+		Direct3DDevice8->EndScene();
+
+		if( PrecacheCycle )
+		{
+			PrecacheCycle = 0;
+			debugf(TEXT("D3D Driver: Preloaded %iK/%iK"),PreloadMemory/1024,TotalMemory/1024);
+		}
+		if( Blit )
+			Direct3DDevice8->Present(NULL,NULL,NULL,NULL);
+
+		// Hit detection.
+		check(HitStack.Num()==0);
+		if( HitSize )
+			*HitSize = HitCount;
+	}
+#if 0
+	void DebugLine(FSceneNode* Frame,FVector V1,FVector V2,FPlane Color)
+	{
+		Draw3DLine(Frame,Color,0,V1.TransformPointBy(Frame->Uncoords),V2.TransformPointBy(Frame->Uncoords));
+	}
+#endif
+	void __fastcall DrawComplexSurface( FSceneNode* Frame, FSurfaceInfo& Surface, FSurfaceFacet& Facet )
+	{
+		if(!RenderSurfaces) return;
+		clock(Stats.SurfTime);
+		Stats.Surfs++;
+		PreRender(Frame);
+
+#if 0
+		/*
+			Andrew's texture coordinate system debugging code.
+			Displays the texture coordinate system for the surface, projected onto the surface's plane.
+			Also displays the lightmap sample grid.
+			Left in here for the curious.  Should probably be removed once the curious is curious no more.
+		*/
+		if(Surface.PolyFlags & PF_Selected)
+		{
+			FCoords	WorldToTexture = FTexCoordsProjectToPlane(Facet.MapCoords,FPlane(Facet.Polys[0].Pts[0]->Point,Facet.MapCoords.ZAxis));
+
+			DebugLine(Frame,WorldToTexture.Origin,WorldToTexture.Origin + WorldToTexture.XAxis / WorldToTexture.XAxis.SizeSquared() * Surface.Texture->UClamp,FPlane(1,0,0,0));
+			DebugLine(Frame,WorldToTexture.Origin,WorldToTexture.Origin + WorldToTexture.YAxis / WorldToTexture.YAxis.SizeSquared() * Surface.Texture->VClamp,FPlane(1,0,0,0));
+
+			if(Surface.LightMap)
+			{
+				FCoords	WorldToLightMap;
+
+				WorldToLightMap.Origin = WorldToTexture.Origin +
+					(WorldToTexture.XAxis / WorldToTexture.XAxis.SizeSquared()) * Surface.LightMap->Pan.X +
+					(WorldToTexture.YAxis / WorldToTexture.YAxis.SizeSquared()) * Surface.LightMap->Pan.Y;
+
+				WorldToLightMap.XAxis = WorldToTexture.XAxis / Surface.LightMap->UScale;
+				WorldToLightMap.YAxis = WorldToTexture.YAxis / Surface.LightMap->VScale;
+
+				for(INT X = 0;X < Surface.LightMap->UClamp;X++)
+				{
+					for(INT Y = 0;Y < Surface.LightMap->VClamp;Y++)
+					{
+						FLOAT	XF = ((FLOAT) X) / ((FLOAT) (Surface.LightMap->UClamp - 1)),
+								YF = ((FLOAT) Y) / ((FLOAT) (Surface.LightMap->VClamp - 1));
+
+						DebugLine(Frame,WorldToLightMap.Origin + WorldToLightMap.XAxis / WorldToLightMap.XAxis.SizeSquared() * Surface.LightMap->UClamp * XF,
+										WorldToLightMap.Origin + WorldToLightMap.XAxis / WorldToLightMap.XAxis.SizeSquared() * Surface.LightMap->UClamp * XF + WorldToLightMap.YAxis / WorldToLightMap.YAxis.SizeSquared() * Surface.LightMap->VClamp,
+										FPlane(0,1,0,0));
+
+						DebugLine(Frame,WorldToLightMap.Origin + WorldToLightMap.YAxis / WorldToLightMap.YAxis.SizeSquared() * Surface.LightMap->VClamp * YF,
+										WorldToLightMap.Origin + WorldToLightMap.YAxis / WorldToLightMap.YAxis.SizeSquared() * Surface.LightMap->VClamp * YF + WorldToLightMap.XAxis / WorldToLightMap.XAxis.SizeSquared() * Surface.LightMap->UClamp,
+										FPlane(0,1,0,0));
+					}
+				}
+			}
+		}
+#endif
+		UBOOL bHeatVision = Frame->Viewport->Actor->CameraStyle == PCS_HeatVision; // CDH
+		UBOOL bNightVision = Frame->Viewport->Actor->CameraStyle == PCS_NightVision; // CDH
+
+		// Mutually exclusive effects.
+		if((Surface.DetailTexture && Surface.FogMap) || (!DetailTextures))
+			Surface.DetailTexture = NULL;
+
+		INT VertexCount=0;
+		for( FSavedPoly* Poly=Facet.Polys; Poly; Poly = Poly->Next )
+			VertexCount += Poly->NumPts;
+		UBOOL IsSelected = GIsEditor && ( Surface.PolyFlags & PF_Selected )!= 0;
+		DWORD SurfPolyFlags = ( Surface.PolyFlags & ~PF_Selected ) | PF_TwoSided;
+
+		SetDistanceFog(!(SurfPolyFlags&PF_Unlit));
+		SetZBias(0);
+
+		INT StoreVertInfo = (IsSelected) + (Surface.LightMap!=NULL) + (Surface.MacroTexture!=NULL) + (Surface.DetailTexture!=NULL) + (Surface.FogMap!=NULL);		
+
+		WorldVertices.Set();
+
+		FColor myFinalColor( 255, 255, 255, 0 );
+		if (bHeatVision)
+		{
+			myFinalColor.R = 7.5f;
+			myFinalColor.G = 0.f;
+			myFinalColor.B = 38.f;
+		} else if (bNightVision) 
+		{
+			myFinalColor.R = 0.f;
+			myFinalColor.G = 128.f;
+			myFinalColor.B = 0.f;
+		}
+
+		// Render texture and lightmap. 
+		if( /*UseMultitexture &&*/ Surface.LightMap!=NULL && Surface.MacroTexture==NULL )
+		{
+			StoreVertInfo--;
+			// Use multitexturing when rendering base + lightmap.			
+			if( SurfPolyFlags & PF_FlatShaded )
+			{
+				SetTextureNULL( 0 );
+				SetTextureNULL( 1 );
+				SetBlending(0);
+				//Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, FALSE ); NJS: TEST
+			}
+			else
+			{
+				SetTexture( 0, *Surface.Texture, SurfPolyFlags, 0 );
+				SetTexture( 1, *Surface.LightMap, 0, 0 );
+				// PF_Memorize to signify multitexturing.
+				//if(SurfPolyFlags&PF_Masked) SurfPolyFlags|=PF_Modulated; // NJS: Hack to show masked stuff
+				SetBlending( SurfPolyFlags|PF_Memorized );
+			}
+
+			// Set up all poly vertices.
+			FD3DScreenVertex* V=(FD3DScreenVertex*) WorldVertices.Lock(VertexCount);
+			D3DCOLOR clr;
+
+			if( Surface.PolyFlags & PF_FlatShaded )
+				clr = FColor( Surface.FlatColor).TrueColor() | 0xff000000;
+			else
+				clr = FColor(Stages[0]->MaxColor.Plane() * Stages[1]->MaxColor.Plane()).TrueColor() | 0xff000000;
+
+			INT n=0;
+			for( FSavedPoly* Poly=Facet.Polys; Poly; Poly=Poly->Next )
+			{
+				for( INT i=0; i<Poly->NumPts; i++, n++, V++ )
+				{
+					GET_COLOR_DWORD(V->Color)   = clr;
+					FLOAT X = V->Position.X    = Poly->Pts[i]->ScreenX + Frame->XB - 0.5f;
+					FLOAT Y = V->Position.Y    = Poly->Pts[i]->ScreenY + Frame->YB - 0.5f;
+					FLOAT R = V->Position.W   = Poly->Pts[i]->RZ * Frame->RProj.Z;
+					FLOAT Z = V->Position.Z    = ProjectionMatrix._33 + ProjectionMatrix._43 * R;					
+					FVector TexPlane = (*(FVector*)Poly->Pts[i] - Facet.MapCoords.Origin);
+					FLOAT u  = Facet.MapCoords.XAxis | TexPlane;
+					FLOAT v  = Facet.MapCoords.YAxis | TexPlane;
+					V->U [0] = (u - Surface.Texture->Pan.X                                   ) * Stages[0]->UScale;
+					V->U [1] = (v - Surface.Texture->Pan.Y                                   ) * Stages[0]->VScale;
+					V->U2[0] = (u - Surface.LightMap->Pan.X + 0.5f * Surface.LightMap->UScale) * Stages[1]->UScale;
+					V->U2[1] = (v - Surface.LightMap->Pan.Y + 0.5f * Surface.LightMap->VScale) * Stages[1]->VScale;
+
+					if( StoreVertInfo ) 
+					{
+						Verts[n].Position.X = X;    
+						Verts[n].Position.Y = Y;
+						Verts[n].Position.Z = Z;
+						Verts[n].Position.W = R;
+						Verts[n].U[0]= u;
+						Verts[n].U[1]= v;
+					}					
+				}
+			}
+
+			// Draw base texture + lightmap.
+			INT First = WorldVertices.Unlock();
+
+			for( Poly=Facet.Polys; Poly; Poly=Poly->Next)
+			{
+				Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, Poly->NumPts - 2 );
+				First += Poly->NumPts;
+				Stats.Polys++;
+			}
+			// Handle depth buffering the appropriate areas of masked textures.
+			if( SurfPolyFlags & PF_Masked )
+				Direct3DDevice8->SetRenderState( D3DRS_ZFUNC, D3DCMP_EQUAL );
+		}
+		else
+		{
+			// Set up all poly vertices.
+			if( SurfPolyFlags & PF_FlatShaded )
+			{
+				SetTextureNULL(0);
+				SetBlending(0);
+				// Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, FALSE ); NJS: TEST
+			}
+			else
+			{
+				SetTexture( 0, *Surface.Texture, SurfPolyFlags, 0 );
+				SetBlending( SurfPolyFlags&~PF_Memorized );
+			}
+
+			// Count things to draw to plan when to do the final color-scaling pass.
+			INT ModulateThings = (Surface.Texture!=NULL) + (Surface.LightMap!=NULL) + (Surface.MacroTexture!=NULL);
+			FPlane FinalColor(1,1,1,1);			
+			FD3DScreenVertex* V=(FD3DScreenVertex*) WorldVertices.Lock(VertexCount);
+			D3DCOLOR Clr;
+			if( SurfPolyFlags & PF_FlatShaded )
+				Clr = FColor( Surface.FlatColor).TrueColor() | 0xff000000;
+			else
+				Clr = UpdateModulation( ModulateThings, FinalColor, Stages[0]->MaxColor.Plane() );
+			INT n=0;
+			for( FSavedPoly* Poly=Facet.Polys; Poly; Poly=Poly->Next )
+			{
+				// Set up vertices.
+				for( INT i=0; i<Poly->NumPts; i++, n++, V++ )
+				{
+					GET_COLOR_DWORD(V->Color) = Clr;
+					FLOAT X = V->Position.X  = Poly->Pts[i]->ScreenX + Frame->XB - 0.5f;
+					FLOAT Y = V->Position.Y  = Poly->Pts[i]->ScreenY + Frame->YB - 0.5f;
+					FLOAT R = V->Position.W = Poly->Pts[i]->RZ * Frame->RProj.Z;
+					FLOAT Z = V->Position.Z  = ProjectionMatrix._33 + ProjectionMatrix._43 * R;
+					FVector TexPlane = (*(FVector*)Poly->Pts[i] - Facet.MapCoords.Origin);
+					FLOAT u  = Facet.MapCoords.XAxis | TexPlane;
+					FLOAT v  = Facet.MapCoords.YAxis | TexPlane;
+					V->U[0] = (u - Surface.Texture->Pan.X) * Stages[0]->UScale;
+					V->U[1] = (v - Surface.Texture->Pan.Y) * Stages[0]->VScale;
+
+					if( StoreVertInfo )
+					{
+						Verts[n].Position.X = X;    
+						Verts[n].Position.Y = Y;
+						Verts[n].Position.Z = Z;
+						Verts[n].Position.W = R;
+						Verts[n].U[0]= u;
+						Verts[n].U[1]= v;
+					}
+				}
+			}
+
+			// Draw bare base texture.
+			INT First = WorldVertices.Unlock();
+
+			for( Poly=Facet.Polys; Poly; n+=Poly->NumPts,Poly=Poly->Next)
+			{
+				Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, Poly->NumPts - 2 );
+				First += Poly->NumPts;
+				Stats.Polys++;
+			}
+			
+			SetDistanceFog(false);
+			// Handle depth buffering the appropriate areas of masked textures.
+			if( SurfPolyFlags & PF_Masked )
+				Direct3DDevice8->SetRenderState( D3DRS_ZFUNC, D3DCMP_EQUAL );
+
+			// Macrotexture.
+			if( Surface.MacroTexture )
+			{
+				// Set the macrotexture.
+				SetBlending( PF_Modulated );
+				SetTexture( 0, *Surface.MacroTexture, 0, 0 );
+				D3DCOLOR Clr = UpdateModulation( ModulateThings, FinalColor, Stages[0]->MaxColor.Plane() );
+				FD3DScreenVertex* V=(FD3DScreenVertex*) WorldVertices.Lock(VertexCount);
+				INT n=0;
+				for( Poly=Facet.Polys; Poly; Poly=Poly->Next )
+				{
+					for( INT i=0; i<Poly->NumPts; i++,n++,V++ )
+					{
+						V->Color = Clr;
+						V->Position.X  = Verts[n].Position.X;    
+						V->Position.Y  = Verts[n].Position.Y;
+						V->Position.W = Verts[n].Position.W;
+						V->Position.Z  = Verts[n].Position.Z;
+						V->U[0] = (Verts[n].U[0] - Surface.MacroTexture->Pan.X) * Stages[0]->UScale;
+						V->U[1] = (Verts[n].U[1] - Surface.MacroTexture->Pan.Y) * Stages[0]->VScale;
+					}
+				}
+
+				// Draw.
+				INT First = WorldVertices.Unlock();
+
+				for( Poly=Facet.Polys; Poly; n+=Poly->NumPts,Poly=Poly->Next)
+				{
+					Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN,  First, Poly->NumPts - 2 );
+					First += Poly->NumPts;
+					Stats.Polys++;
+				}
+			}
+
+			// Non-multitextured light map.
+			if( Surface.LightMap )
+			{
+				// Set the light map.
+				SetBlending( PF_Modulated );
+				SetTexture( 0, *Surface.LightMap, 0, 0 );
+				D3DCOLOR Clr = UpdateModulation( ModulateThings, FinalColor, Stages[0]->MaxColor.Plane() );
+				FD3DScreenVertex* V=(FD3DScreenVertex*) WorldVertices.Lock(VertexCount);
+				INT n=0;
+				for( Poly=Facet.Polys; Poly; Poly=Poly->Next )
+				{
+					for( INT i=0; i<Poly->NumPts; i++,n++,V++ )
+					{
+						V->Color = Clr;
+						V->Position.X  = Verts[n].Position.X;    
+						V->Position.Y  = Verts[n].Position.Y;
+						V->Position.W = Verts[n].Position.W;
+						V->Position.Z  = Verts[n].Position.Z;
+						V->U[0] = (Verts[n].U[0] - Surface.LightMap->Pan.X + 0.5f * Surface.LightMap->UScale) * Stages[0]->UScale;
+						V->U[1] = (Verts[n].U[1] - Surface.LightMap->Pan.Y + 0.5f * Surface.LightMap->VScale) * Stages[0]->VScale;
+					}
+				}
+
+				// Draw.
+				INT First = WorldVertices.Unlock();
+
+				for( Poly=Facet.Polys; Poly; n+=Poly->NumPts,Poly=Poly->Next)
+				{
+					Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, Poly->NumPts - 2 );
+					First += Poly->NumPts;
+					Stats.Polys++;
+				}
+			}
+		}
+
+		SetDistanceFog(false);
+
+		// Draw detail texture overlaid.
+		if(Surface.DetailTexture&&!(SurfPolyFlags & PF_FlatShaded)) 
+		{			
+			INT DetailMax = 1; // 3 Limit set to 3 for performance reasons.  NJS: Set to 1 for sanity reasons
+
+			FLOAT DetailScale=1.0f; 
+			FLOAT LocalNearZ=NearZ; //380.0f;
+			if( !GIsEditor )
+				*Surface.DetailTexture->MaxColor = FColor(255,255,255,255);
+			
+			INT AreDetailing = 0;			
+			while( DetailMax-- > 0 )			
+			{				
+				FLOAT InvZ = (1.f/LocalNearZ);
+				FLOAT SZ = ProjectionMatrix._33 + ProjectionMatrix._43 * InvZ;
+
+				INT n=0;
+				for( FSavedPoly* Poly=Facet.Polys; Poly; Poly=Poly->Next )
+				{
+					UBOOL IsNear[32], CountNear = 0;				
+					// Any textures close enough that they need detail texturing ?
+					for( INT i=0; i<Poly->NumPts; i++ )
+					{
+						IsNear[i] = Poly->Pts[i]->Point.Z < LocalNearZ;
+						CountNear += IsNear[i];
+					}										
+					if( CountNear )
+					{
+						INT NumNear = 0;
+						FD3DScreenVertex* V=(FD3DScreenVertex*) WorldVertices.Lock(32);  // Safe upper limit for (clipped) facet's triangles * 3						
+						// Prepare state, minimize changes.
+						if( AreDetailing==0 ) 
+						{
+							SetBlending( PF_Modulated );
+							Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_BLENDDIFFUSEALPHA );
+							SetZBias(15.f);
+							//Direct3DDevice8->SetRenderState( D3DRS_ZBIAS, 15 );				
+							SetTexture( 0, *Surface.DetailTexture, 0, 0 );
+							AreDetailing = 1;
+						}
+						// j = one before i; m is one before n;  n is the index into serialized predigested vertex MasterU/V
+						for( INT i=0, j=Poly->NumPts-1, m=n+Poly->NumPts-1; i<Poly->NumPts; j=i++, m=n++ )
+						{	
+							// Extra vertex if needed to create a new boundary of visible detailing.
+							if( IsNear[i] ^ IsNear[j] )
+							{
+								// near-point-to-detailboundary distance divided by full edge Z distance.
+								// slip Z, X and Y up to that point.
+								FLOAT G    = (Poly->Pts[i]->Point.Z - LocalNearZ) / (Poly->Pts[i]->Point.Z - Poly->Pts[j]->Point.Z);
+								FLOAT F    = 1.f - G;
+								V->Position.W   = InvZ;
+								V->Position.Z    = SZ;
+								V->Position.X    = (F * Poly->Pts[i]->ScreenX * Poly->Pts[i]->Point.Z + G * Poly->Pts[j]->ScreenX * Poly->Pts[j]->Point.Z) * InvZ + Frame->XB - 0.5f;
+								V->Position.Y    = (F * Poly->Pts[i]->ScreenY * Poly->Pts[i]->Point.Z + G * Poly->Pts[j]->ScreenY * Poly->Pts[j]->Point.Z) * InvZ + Frame->YB - 0.5f;
+								V->U[0] = (F * Verts[n].U[0] + G * Verts[m].U[0] - Surface.DetailTexture->Pan.X) * Stages[0]->UScale * DetailScale;
+								V->U[1] = (F * Verts[n].U[1] + G * Verts[m].U[1] - Surface.DetailTexture->Pan.Y) * Stages[0]->VScale * DetailScale;
+								V->Color = D3DCOLOR_RGBA(0x7F, 0x7F, 0x7F, 0);
+								V++;
+								NumNear++;
+							}
+							if( IsNear[i] )
+							{
+								V->Position.W   = Verts[n].Position.W;
+								V->Position.Z    = Verts[n].Position.Z;
+								V->Position.X    = Verts[n].Position.X;
+								V->Position.Y    = Verts[n].Position.Y;
+								V->U[0] = (Verts[n].U[0] - Surface.DetailTexture->Pan.X) * Stages[0]->UScale * DetailScale;
+								V->U[1] = (Verts[n].U[1] - Surface.DetailTexture->Pan.Y) * Stages[0]->VScale * DetailScale;
+								DWORD A               = Min<DWORD>( appRound(100.f * (LocalNearZ / Poly->Pts[i]->Point.Z - 1.f)), 255 );
+								V->Color = D3DCOLOR_RGBA( 0x7F, 0x7F, 0x7F, A );
+								V++;
+								NumNear++;
+							}							
+						}
+						n -= Poly->NumPts;
+						
+						INT First = WorldVertices.Unlock();
+
+						Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, NumNear - 2 );
+						Stats.Polys++;
+					}							
+					n += Poly->NumPts;
+				}
+				DetailScale *= 4.223f;
+				LocalNearZ /= 4.223f;
+			}		
+			if( AreDetailing )
+			{
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
+				SetZBias(0); //Direct3DDevice8->SetRenderState( D3DRS_ZBIAS, 0 );
+				AreDetailing = 0;
+			}
+
+		}
+		else if( Surface.FogMap )
+		{
+			SetBlending( PF_Highlighted );
+			SetTexture( 0, *Surface.FogMap, 0, 0 );
+			D3DCOLOR Clr = Stages[0]->MaxColor.TrueColor() | 0xff000000;
+			if( !Format8888.Supported ) // Texture has no alpha.
+				Clr&=~0xff000000;
+
+			FD3DScreenVertex* V=(FD3DScreenVertex*) WorldVertices.Lock(VertexCount);
+			INT n = 0;
+			for( FSavedPoly* Poly=Facet.Polys; Poly; Poly=Poly->Next )
+			{
+				for( INT i=0; i<Poly->NumPts; i++, n++, V++ )
+				{
+					GET_COLOR_DWORD(V->Color) = Clr;
+					V->Position.X  = Verts[n].Position.X;    
+					V->Position.Y  = Verts[n].Position.Y;
+					V->Position.W = Verts[n].Position.W;
+					V->Position.Z  = Verts[n].Position.Z;
+					V->U[0] = (Verts[n].U[0] - Surface.FogMap->Pan.X + 0.5f * Surface.FogMap->UScale) * Stages[0]->UScale;
+					V->U[1] = (Verts[n].U[1] - Surface.FogMap->Pan.Y + 0.5f * Surface.FogMap->VScale) * Stages[0]->VScale;
+				}
+			}
+			// Draw 
+			INT First = WorldVertices.Unlock();
+
+			for( Poly=Facet.Polys; Poly; n+=Poly->NumPts,Poly=Poly->Next)
+			{
+				Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, Poly->NumPts - 2 );
+				First += Poly->NumPts;
+				Stats.Polys++;
+			}		
+		}
+
+		//	Draw selection markings on a surface: specular overlay.
+		if( IsSelected )
+		{
+			SetBlending(PF_Translucent);
+			SetTextureNULL( 0 );
+			SetTextureNULL( 1 );
+
+			INT n=0;
+			for( FSavedPoly* Poly=Facet.Polys; Poly; Poly=Poly->Next )
+			{
+				// draw per facet...
+				FD3DTLVertex* V=(FD3DTLVertex*) ActorVertices.Lock(Poly->NumPts);
+				for( INT i=0; i<Poly->NumPts; i++, n++, V++ )
+				{
+					V->Position.X = Verts[n].Position.X;
+					V->Position.Y = Verts[n].Position.Y;
+					V->Position.Z = Verts[n].Position.Z;
+					V->Position.W = Verts[n].Position.W;
+
+					V->Specular   = D3DCOLOR_RGBA( 255,255,255,255);
+					V->Diffuse    = D3DCOLOR_RGBA( 10,5,60,255);		 // Arbitrary marker color.
+				}
+
+				INT	First = ActorVertices.Unlock();
+
+				ActorVertices.Set();
+
+				Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, Poly->NumPts - 2 );
+				Stats.Polys++;
+			}
+		}
+
+		// Finish mask handling.
+		if( SurfPolyFlags & PF_Masked )
+			Direct3DDevice8->SetRenderState( D3DRS_ZFUNC, D3DCMP_LESSEQUAL );
+
+		unclock(Stats.SurfTime);
+	}
+
+	struct QueuedPolygon
+	{
+		DWORD PolyFlags,
+			  PolyFlagsEx;
+		FTextureInfo *Texture;
+		UTexture *Tex;
+		FTransTexture v[3];
+	};
+
+	TArray<QueuedPolygon> QueuedPolygons;
+
+	bool __fastcall QueuePolygonDoes()  { return true; }
+	bool __fastcall QueuePolygonBegin(FSceneNode* Frame)
+	{
+		CurrentFrame=Frame;
+		return true;
+	}
+
+	void __fastcall QueuePolygonEnd()
+	{
+		int QueuedPolygonCount=QueuedPolygons.Num();
+
+		if(!QueuedPolygonCount) return;
+		clock(Stats.PolyTime);
+		Stats.QueueCount++;
+		Stats.Polys+=QueuedPolygonCount;
+
+		PreRender(CurrentFrame);
+
+		FLOAT ZBiasHack=((GUglyHackFlags&1)&&ViewportColorBits==16 )? 0.25f : 1.0f;
+
+		int VertexCount=QueuedPolygonCount*3;
+		verify(VertexCount<=ACTORPOLY_VERTEXBUFFER_SIZE);
+		clock(Stats.D3DVertexLock);
+
+		FD3DTLVertex *Vertex = (FD3DTLVertex*)ActorVertices.Lock(VertexCount);
+		Stats.VBLocks++;
+		unclock(Stats.D3DVertexLock);
+
+		clock(Stats.D3DVertexSetup);
+		for(int i=0;i<QueuedPolygonCount;i++)
+		{
+			QueuedPolygon &p=QueuedPolygons(i);				
+			SetTexture(0,*p.Texture, p.PolyFlags, false,p.PolyFlagsEx );	// NJS: Fixme! No need for texture set to be here other than to compute scaling factors
+
+			UBOOL DoFog=((p.PolyFlags&(PF_RenderFog|PF_Translucent|PF_Modulated))==PF_RenderFog);		
+
+			for( INT Index = 0; Index < 3; Index++ )
+			{	
+				FD3DTLVertex V;
+				FLOAT	RHW = ZBiasHack * p.v[Index].RZ * CurrentFrame->RProj.Z;
+
+				V.Position.X = p.v[Index].ScreenX + CurrentFrame->XB - 0.5f;
+				V.Position.Y = p.v[Index].ScreenY + CurrentFrame->YB - 0.5f;
+				V.Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43 * RHW;
+				V.Position.W = RHW;
+
+				V.U[0] = p.v[Index].U * Stages[0]->UScale;
+				V.U[1] = p.v[Index].V * Stages[0]->VScale;
+
+				if ( p.PolyFlags & PF_Modulated )
+				{
+					V.Diffuse  = 0xffffffff;
+					V.Specular = 0;
+				}
+				else if ( DoFog )
+				{
+					FLOAT W=1.f-p.v[Index].Fog.W;
+
+					V.Diffuse=FColor((p.v[Index].Light.Z*Stages[0]->MaxColor.B*W),	
+							         (p.v[Index].Light.Y*Stages[0]->MaxColor.G*W),
+									 (p.v[Index].Light.X*Stages[0]->MaxColor.R*W),
+									 255);
+					//V.Specular=0;  // NJS: Added for test purposes.
+				}
+				else
+				{
+					V.Diffuse=FColor((p.v[Index].Light.Z*Stages[0]->MaxColor.B), 
+									 (p.v[Index].Light.Y*Stages[0]->MaxColor.G), 
+									 (p.v[Index].Light.X*Stages[0]->MaxColor.R), 
+									 255);
+					//V.Diffuse=FColor(255,255,255,255);
+					//V.Specular = 0;
+				}
+				*Vertex=V;
+				Vertex++;
+
+			}
+		}
+		unclock(Stats.D3DVertexSetup);
+
+		SetTextureNULL( 0 );
+
+		clock(Stats.D3DVertexRender);
+		INT	First = ActorVertices.Unlock();
+		ActorVertices.Set();
+		
+		bool MeshUVClamp=false;
+		bool CurrentDoFog=false;
+		SetZBias(0);
+		for(i=0;i<QueuedPolygonCount;)
+		{
+			QueuedPolygon &p=QueuedPolygons(i);
+			// Set the polygon texture.
+
+			SetTexture(0,*p.Texture, p.PolyFlags, false, p.PolyFlagsEx );	
+			SetBlending(p.PolyFlags,p.PolyFlagsEx);
+
+			SetDistanceFog(!(p.PolyFlags&PF_Unlit));
+
+			// Set the correct fog mode:
+			UBOOL DoFog=((p.PolyFlags&(PF_RenderFog|PF_Translucent|PF_Modulated))==PF_RenderFog);		
+
+			if(DoFog&&(!CurrentDoFog))
+			{
+				CurrentDoFog=true;
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLORARG1, D3DTA_SPECULAR );			
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP,   D3DTOP_ADD );
+			} else if((!DoFog)&&CurrentDoFog)
+			{
+				CurrentDoFog=false;
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP,   D3DTOP_DISABLE );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLORARG1, D3DTA_TEXTURE );
+			}
+			
+			// Set the correct clamping mode:
+			if(p.PolyFlags & PF_MeshUVClamp && !MeshUVClamp) 
+			{
+				MeshUVClamp=true;
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSU, D3DTADDRESS_CLAMP );
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSV, D3DTADDRESS_CLAMP );
+			} else if(!(p.PolyFlags&PF_MeshUVClamp) && MeshUVClamp)
+			{
+				MeshUVClamp=false;
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSU, D3DTADDRESS_WRAP );
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSV, D3DTADDRESS_WRAP );
+			}
+
+
+			// See how many of my sucessor polys share my attributes, and draw them as well:
+			for(int j=i+1;j<QueuedPolygonCount;j++)
+			{
+				if(p.PolyFlags!=QueuedPolygons(j).PolyFlags) break;
+				if(p.Texture!=QueuedPolygons(j).Texture) break;
+				if(p.PolyFlagsEx!=QueuedPolygons(j).PolyFlagsEx) break;
+			}
+			//if(j>i+BatchSize) j=i+BatchSize;
+
+			int count=j-i;
+			if(count>BatchSize) count=BatchSize;
+			
+			//debugf(_T("*** run:%i"),count);
+			//for(int q=0;q<count;q++)
+			//{
+			//	Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLELIST, First+((i+q)*3), 1 );
+
+//			}
+			Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLELIST, First+(i*3), count );
+			i+=count;
+		}
+
+		if(MeshUVClamp==true) 
+		{
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSU, D3DTADDRESS_WRAP );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSV, D3DTADDRESS_WRAP );
+		}
+
+		if(CurrentDoFog==false)
+		{
+			Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP, D3DTOP_DISABLE );
+			Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLORARG1, D3DTA_TEXTURE );
+		}
+
+		//QueuedPolygonCount=0;
+		QueuedPolygons.Clear();
+
+		// Terminate polygon clipping:
+		//SetClipping(FALSE);
+		unclock(Stats.D3DVertexRender);
+
+		unclock(Stats.PolyTime);
+
+	}
+	
+	void __fastcall QueuePolygon( FTextureInfo* Info, FTransTexture** Pts, INT NumPts, DWORD PolyFlags, DWORD ExFlags, FSpanBuffer *Span ) 
+	{
+		if(!RenderMeshes) return;
+		clock(Stats.QueueTime);
+		clock(Stats.PolyTime);
+
+		if(PolyFlags&PF_Masked) Stats.MaskedPolys++;
+
+		QueuedPolygon &p=QueuedPolygons(QueuedPolygons.Add());
+		p.PolyFlags=PolyFlags&(~PF_Memorized);
+		p.PolyFlagsEx=ExFlags|PFX_Clip;
+		p.Texture=Info;
+
+		memcpy(&p.v[0],Pts[0],sizeof(FTransTexture));
+		memcpy(&p.v[1],Pts[1],sizeof(FTransTexture));
+		memcpy(&p.v[2],Pts[2],sizeof(FTransTexture));
+		
+		unclock(Stats.PolyTime);
+		unclock(Stats.QueueTime);
+	}
+
+	// NJS: FIXME: Still needed for to keep world decals working correctly:
+	void __fastcall DrawGouraudPolygon( FSceneNode* Frame, FTextureInfo& Info, FTransTexture** Pts, INT NumPts, DWORD PolyFlags, FSpanBuffer* Span )
+	{
+		Frame=CurrentFrame;
+		//PreRender(Frame);
+		if(!RenderMeshes) return;
+		clock(Stats.PolyTime);
+
+		Stats.Polys++;
+		if(PolyFlags&PF_Masked) Stats.MaskedPolys++;
+
+		UBOOL DoFog=((PolyFlags&(PF_RenderFog|PF_Translucent|PF_Modulated))==PF_RenderFog);		
+
+		// Set up vertices.
+		PolyFlags&=(~PF_Memorized)/*&(~PF_Selected)*/;
+
+		// Set the polygon texture.
+		//PolyFlags&=PF_Unlit;  // NJS: Hack
+		//SetTextureNULL(1);
+		//SetBlending(0);
+		
+		SetBlending( PolyFlags, PFX_Clip );		
+		SetTexture(0,Info,PolyFlags,0, PFX_Clip);
+		SetZBias(0);
+
+		if(PolyFlags&PF_Unlit) SetDistanceFog(false);
+		else				   SetDistanceFog(true);
+
+		// Kludge for 16-bit zbuffer limitations - compress weapon in 1/z space.
+		// "Have HUD draw the player's weapon on top (and any other overlays which should happen before screen flashes)"
+		FLOAT ZBiasHack = ( (GUglyHackFlags&1) && ViewportColorBits==16 )? 0.25f : 1.0f;
+
+		FTransTexture**	SourceVertex;
+		FD3DTLVertex*	Vertex = (FD3DTLVertex*) ActorVertices.Lock(NumPts);
+
+		SourceVertex = Pts;
+
+		for( INT Index = 0; Index < NumPts; Index++ )
+		{	
+			FLOAT	RHW = ZBiasHack * (*SourceVertex)->RZ * Frame->RProj.Z;
+
+			Vertex->Position.X = (*SourceVertex)->ScreenX + Frame->XB - 0.5f;
+			Vertex->Position.Y = (*SourceVertex)->ScreenY + Frame->YB - 0.5f;
+			Vertex->Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43 * RHW;
+			Vertex->Position.W = RHW;
+
+			Vertex->U[0] = (*SourceVertex)->U * Stages[0]->UScale;
+			Vertex->U[1] = (*SourceVertex)->V * Stages[0]->VScale;
+
+			Vertex->Specular=0;
+			if ( PolyFlags & PF_Modulated )
+			{
+				Vertex->Diffuse  = 0xffffffff;
+				Vertex->Specular = 0;
+			}
+			else if ( DoFog )
+			{
+				FLOAT W = 1.f - (*SourceVertex)->Fog.W;
+
+				Vertex->Diffuse  = FColor( appRound((*SourceVertex)->Light.Z*Stages[0]->MaxColor.B*W),	
+										   appRound((*SourceVertex)->Light.Y*Stages[0]->MaxColor.G*W),
+					                       appRound((*SourceVertex)->Light.X*Stages[0]->MaxColor.R*W),
+										   255 );				
+			}
+			else
+			{
+				Vertex->Diffuse	 = FColor( appRound((*SourceVertex)->Light.Z*Stages[0]->MaxColor.B), 
+										   appRound((*SourceVertex)->Light.Y*Stages[0]->MaxColor.G), 
+										   appRound((*SourceVertex)->Light.X*Stages[0]->MaxColor.R), 
+										   255 );
+				Vertex->Specular = 0;
+			}
+
+			Vertex++;
+			SourceVertex++;
+		}
+
+		INT	First = ActorVertices.Unlock();
+
+
+		ActorVertices.Set();
+
+		if(PolyFlags & PF_MeshUVClamp) 
+		{
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSU,   D3DTADDRESS_CLAMP );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSV,   D3DTADDRESS_CLAMP );
+		}
+		if ( DoFog )
+		{
+			Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLORARG1, D3DTA_SPECULAR );			
+			Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP, D3DTOP_ADD );
+
+			Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, NumPts - 2 );
+
+			Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP, D3DTOP_DISABLE );
+			Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLORARG1, D3DTA_TEXTURE );
+		}
+		else
+			Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, NumPts - 2 );
+
+
+		if(PolyFlags & PF_MeshUVClamp) 
+		{
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSU,   D3DTADDRESS_WRAP );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSV,   D3DTADDRESS_WRAP );
+		}
+
+		unclock(Stats.PolyTime);
+	}
+
+	__forceinline void RotateAboutOrigin2D(float originX, float originY, float &x, float &y, float theta)
+	{
+		float xTick, yTick;
+		x-=originX; y-=originY;
+		xTick = ((GMath.CosFloat(theta)*x) - (GMath.SinFloat(theta)*y)); 
+		yTick = ((GMath.SinFloat(theta)*x) + (GMath.CosFloat(theta)*y));
+		x=xTick+originX; y=yTick+originY;
+	}
+
+	// Glide specific functions.
+	void __fastcall SetTextureClampMode( INT Mode )
+	{
+		if ( Mode == 1 )
+		{
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSU, D3DTADDRESS_CLAMP );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSV, D3DTADDRESS_CLAMP );
+		} else
+		{		
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSU, D3DTADDRESS_WRAP );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSV, D3DTADDRESS_WRAP );
+		}
+	}
+
+
+	void __fastcall DrawTile(FSceneNode* Frame, 
+							 FTextureInfo& Info, 
+							 FLOAT X, FLOAT Y, 
+							 FLOAT XL, FLOAT YL, 
+							 FLOAT U, FLOAT V, 
+							 FLOAT UL, FLOAT VL, 
+							 class FSpanBuffer* Span, 
+							 FLOAT Z, 
+							 FPlane InColor, FPlane Fog, 
+							 DWORD PolyFlags, 
+							 UBOOL bilinear, 
+							 FLOAT alpha,
+							 FLOAT rot,
+							 FLOAT rotationOffsetX,
+							 FLOAT rotationOffsetY,
+							 UBOOL MirrorHoriz,
+							 UBOOL MirrorVert,
+							 DWORD PolyFlagsEx
+	)
+	{
+		if(!RenderTiles) return;
+		clock(Stats.TileTime);
+		Stats.Tiles++;
+		SetDistanceFog(false);
+		
+		//debugf(_T("*** (d3d) Draw Tile: %s"),Info.Texture->GetFullName());
+
+		PolyFlags &= (~PF_Memorized) /*& (~PF_Selected)*/;
+
+		if(!(Frame->Viewport->IsOrtho())) PolyFlags&=~PF_Selected;
+
+		if( Info.Palette && Info.Palette[128].A!=255 && !(PolyFlags&PF_Translucent) )
+			PolyFlags |= PF_Highlighted;
+
+		if(!bilinear)  PolyFlags|=PF_NoSmooth; // NJS: Disable bilinear by default		
+		if(alpha!=1.f) PolyFlags|=PF_Translucent;
+
+		PolyFlags|=PF_TwoSided;
+		PolyFlagsEx|=PFX_Clip;
+		SetBlending( PolyFlags, PolyFlagsEx );
+		SetTexture( 0, Info, PolyFlags, 0, PolyFlagsEx );
+		SetZBias(0);
+
+		if ( Z == 1.f ) Z = NEAR_CLIP_HACK;
+
+		X += Frame->XB/* - 1.f*/;
+		Y += Frame->YB/* - 1.f*/;
+
+		FColor			Color = (PolyFlags & PF_Modulated  && !(PolyFlags&PF_Selected)) ? FColor(255,255,255,255) : FColor(Stages[0]->MaxColor.Plane() * InColor);
+		//Color = FColor(Stages[0]->MaxColor.Plane() * InColor);   // NJS: TEST
+
+		FLOAT			RZ = 1.f/Z,
+						SZ = ProjectionMatrix._33 + ProjectionMatrix._43 * RZ;
+		FD3DTLVertex*	Vertices = (FD3DTLVertex*) ActorVertices.Lock(4);
+
+		DWORD dwDiffuse;
+		if(alpha!=1.f)
+		{
+			DWORD R=Stages[0]->MaxColor.R*alpha*InColor.X,
+				  G=Stages[0]->MaxColor.G*alpha*InColor.Y,
+				  B=Stages[0]->MaxColor.B*alpha*InColor.Z,
+				  A=Stages[0]->MaxColor.A*alpha/**InColor.X*/;
+			
+			if(R>Stages[0]->MaxColor.R) R=Stages[0]->MaxColor.R;
+			if(G>Stages[0]->MaxColor.G) G=Stages[0]->MaxColor.G;
+			if(B>Stages[0]->MaxColor.B) B=Stages[0]->MaxColor.B;
+			if(A>Stages[0]->MaxColor.A) A=Stages[0]->MaxColor.A;
+
+			dwDiffuse=D3DCOLOR_RGBA(R,G,B,A);
+		} else
+		{
+			dwDiffuse=Color.TrueColor()|0xFF000000;
+		}
+
+		Vertices[0].Diffuse    = dwDiffuse;
+		Vertices[0].Position.Z = SZ;
+		Vertices[0].Position.W = RZ;
+		Vertices[1].Diffuse		= dwDiffuse;
+		Vertices[1].Position.Z = SZ;
+		Vertices[1].Position.W = RZ;
+		Vertices[2].Diffuse		= dwDiffuse;
+		Vertices[2].Position.Z = SZ;
+		Vertices[2].Position.W = RZ;
+		Vertices[3].Diffuse		= dwDiffuse;
+		Vertices[3].Position.Z = SZ;
+		Vertices[3].Position.W = RZ;
+
+		if (MirrorHoriz && !MirrorVert)
+		{
+			Vertices[0].Position.X=X;    Vertices[0].Position.Y=Y;    Vertices[0].U[0]=U+UL; Vertices[0].U[1]=V;
+			Vertices[1].Position.X=X;    Vertices[1].Position.Y=Y+YL; Vertices[1].U[0]=U+UL; Vertices[1].U[1]=V+VL;
+			Vertices[2].Position.X=X+XL; Vertices[2].Position.Y=Y+YL; Vertices[2].U[0]=U;    Vertices[2].U[1]=V+VL;
+			Vertices[3].Position.X=X+XL; Vertices[3].Position.Y=Y;    Vertices[3].U[0]=U; 	 Vertices[3].U[1]=V;
+
+		} else if (MirrorVert && !MirrorHoriz) 
+		{
+			Vertices[0].Position.X=X;    Vertices[0].Position.Y=Y;    Vertices[0].U[0]=U;		Vertices[0].U[1]=V+VL;
+			Vertices[1].Position.X=X;    Vertices[1].Position.Y=Y+YL; Vertices[1].U[0]=U;	    Vertices[1].U[1]=V;
+			Vertices[2].Position.X=X+XL; Vertices[2].Position.Y=Y+YL; Vertices[2].U[0]=U+UL;    Vertices[2].U[1]=V;
+			Vertices[3].Position.X=X+XL; Vertices[3].Position.Y=Y;    Vertices[3].U[0]=U+UL; 	Vertices[3].U[1]=V+VL;
+
+		} else if (MirrorHoriz && MirrorVert) 
+		{
+			Vertices[0].Position.X=X;    Vertices[0].Position.Y=Y;    Vertices[0].U[0]=U+UL;	Vertices[0].U[1]=V+VL;
+			Vertices[1].Position.X=X;    Vertices[1].Position.Y=Y+YL; Vertices[1].U[0]=U+UL;    Vertices[1].U[1]=V;
+			Vertices[2].Position.X=X+XL; Vertices[2].Position.Y=Y+YL; Vertices[2].U[0]=U   ;    Vertices[2].U[1]=V;
+			Vertices[3].Position.X=X+XL; Vertices[3].Position.Y=Y;    Vertices[3].U[0]=U   ; 	Vertices[3].U[1]=V+VL;
+
+		} else 
+		{
+			Vertices[0].Position.X=X;    Vertices[0].Position.Y=Y;    Vertices[0].U[0]=U;		Vertices[0].U[1]=V   ;
+			Vertices[1].Position.X=X;    Vertices[1].Position.Y=Y+YL; Vertices[1].U[0]=U;	    Vertices[1].U[1]=V+VL;
+			Vertices[2].Position.X=X+XL; Vertices[2].Position.Y=Y+YL; Vertices[2].U[0]=U+UL;    Vertices[2].U[1]=V+VL;
+			Vertices[3].Position.X=X+XL; Vertices[3].Position.Y=Y;    Vertices[3].U[0]=U+UL; 	Vertices[3].U[1]=V   ;
+		}
+
+		Vertices[0].U[0]*=Stages[0]->UScale;
+		Vertices[0].U[1]*=Stages[0]->VScale;
+		Vertices[1].U[0]*=Stages[0]->UScale;
+		Vertices[1].U[1]*=Stages[0]->VScale;
+		Vertices[2].U[0]*=Stages[0]->UScale;
+		Vertices[2].U[1]*=Stages[0]->VScale;
+		Vertices[3].U[0]*=Stages[0]->UScale;
+		Vertices[3].U[1]*=Stages[0]->VScale;
+
+		// NJS: Do I have rotation?
+		if(rot)	
+		{
+			float originX=(Vertices[0].Position.X+XL/2.f)+rotationOffsetX, originY=(Vertices[0].Position.Y+YL/2.f)+rotationOffsetY;
+
+			for(int index=0;index<4;index++)
+			{	
+				float x=Vertices[index].Position.X,
+					  y=Vertices[index].Position.Y;
+
+				RotateAboutOrigin2D(originX,originY,x,y,rot);
+				Vertices[index].Position.X=x;
+				Vertices[index].Position.Y=y;
+			}
+		}
+
+		INT	First=ActorVertices.Unlock();
+		ActorVertices.Set();
+
+		Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLEFAN, First, 2 );
+		unclock(Stats.TileTime);
+	}
+
+	static inline DWORD __fastcall GetPolyFlags( FSceneNode* Frame, AActor* Owner )
+	{
+		DWORD PolyFlags=0;
+
+		if     (Owner->Style==STY_Masked     ) PolyFlags|=PF_Masked;
+		else if(Owner->Style==STY_Translucent) PolyFlags|=PF_Translucent;
+		else if(Owner->Style==STY_Modulated  ) PolyFlags|=PF_Modulated;
+
+		if( Owner->bNoSmooth     ) PolyFlags|=PF_NoSmooth;
+		if( Owner->bSelected     ) PolyFlags|=PF_Selected;
+		if( Owner->bMeshEnviroMap) PolyFlags|=PF_Environment;
+		if(!Owner->bMeshCurvy    ) PolyFlags|=PF_Flat;
+		if( Owner->bUnlit || Owner->Region.ZoneNumber==0 || Frame->Viewport->Actor->RendMap!=REN_DynLight || Frame->Viewport->GetOuterUClient()->NoLighting ) PolyFlags |= PF_Unlit;
+
+		return PolyFlags;
+	}
+	
+	void __fastcall RecursiveSubdivideLine(UCanvas *c, UTexture *t, FColor BeamColor, FColor BeamEndColor, FLOAT BeamStartWidth, FLOAT BeamEndWidth, DWORD PolyFlags, FLOAT MaxAmplitude, FVector LineStart, FVector LineEnd, FVector RangeStart, FVector RangeEnd, INT depth)
+	{
+		// Have I traversed to the lowest point?
+		if(!depth)
+		{
+			// Draw the segment:
+			dnDraw3DLine(c->Frame,t,PolyFlags,RangeStart,RangeEnd,BeamStartWidth,BeamEndWidth,BeamColor,BeamColor,true);
+			return;
+		} 
+
+		FVector Direction=RangeEnd-RangeStart;
+		FVector Midpoint=RangeStart+(Direction/2); 
+		
+		// Move the midpoint around randomly on the plane that the direction is the normal of.
+		Direction=LineEnd-LineStart;
+		Direction.Normalize();
+
+		FVector Axis1, Axis2;
+		Direction.FindBestAxisVectors( Axis1, Axis2 );
+		Axis1.Normalize();
+		Axis2.Normalize();
+
+		Midpoint+=Axis1*(((MaxAmplitude*2)*appFrand())-MaxAmplitude);
+		Midpoint+=Axis2*(((MaxAmplitude*2)*appFrand())-MaxAmplitude);
+
+		FColor ColorMidpoint=BeamColor;
+		ColorMidpoint.R+=(BeamEndColor.R-BeamColor.R)/2;
+		ColorMidpoint.G+=(BeamEndColor.G-BeamColor.G)/2;
+		ColorMidpoint.B+=(BeamEndColor.B-BeamColor.B)/2;
+		ColorMidpoint.A+=(BeamEndColor.A-BeamColor.A)/2;
+ 
+		// Delegate the rendering of the 2 line segments: 
+		RecursiveSubdivideLine(c,t,BeamColor,ColorMidpoint,BeamStartWidth, BeamEndWidth,PolyFlags,MaxAmplitude/2,LineStart,LineEnd,RangeStart,Midpoint,depth-1);
+		RecursiveSubdivideLine(c,t,ColorMidpoint,BeamEndColor,BeamStartWidth, BeamEndWidth,PolyFlags,MaxAmplitude/2,LineStart,LineEnd,Midpoint,RangeEnd,depth-1);
+	}
+
+	void __fastcall SineWave(UCanvas *c, UTexture *t, FColor BeamColor, FColor BeamEndColor, FLOAT BeamStartWidth, FLOAT BeamEndWidth, DWORD PolyFlags, FLOAT MaxAmplitude, FLOAT MaxFrequency, FLOAT Noise, FLOAT TimeSeconds, FVector LineStart, FVector LineEnd, FVector RangeStart, FVector RangeEnd, INT depth,FLOAT TimeScale)
+	{
+		int LineSegments=((int)appPow(2,depth))+1;
+		FVector CurrentPosition=LineStart;
+		FVector PreviousPosition=CurrentPosition;
+		FVector Distance=LineEnd-LineStart;
+		FVector Direction=Distance;
+		Direction.Normalize();
+		FLOAT Length=Distance.Size();
+		FLOAT StepLength=Length/LineSegments;
+
+		FVector Axis1, Axis2;
+		Direction.FindBestAxisVectors( Axis1, Axis2 );
+		Axis1.Normalize();
+		Axis2.Normalize();
+
+		FColor PreviousColor=BeamColor,
+			   CurrentColor=BeamColor;
+
+		FLOAT RFactor=(((FLOAT)(BeamEndColor.R-BeamColor.R))/(FLOAT)LineSegments);
+		FLOAT GFactor=(((FLOAT)(BeamEndColor.G-BeamColor.G))/(FLOAT)LineSegments);
+		FLOAT BFactor=(((FLOAT)(BeamEndColor.B-BeamColor.B))/(FLOAT)LineSegments);
+		FLOAT AFactor=(((FLOAT)(BeamEndColor.A-BeamColor.A))/(FLOAT)LineSegments);
+
+		for(int i=0;i<LineSegments;i++)
+		{
+			FLOAT LengthToHere=(i*StepLength);
+			CurrentPosition=LineStart+(LengthToHere*Direction);
+			
+			CurrentPosition+=(Axis1*(appSin(TimeSeconds*13*TimeScale+LengthToHere*MaxFrequency+appFrand()*Noise-(Noise/2))*MaxAmplitude));
+			CurrentPosition+=(Axis2*(appCos(TimeSeconds*13*TimeScale+LengthToHere*MaxFrequency+appFrand()*Noise-(Noise/2))*MaxAmplitude));
+
+			// Compute current color:
+			CurrentColor=BeamColor;
+			CurrentColor.R+=(int)(RFactor*i);
+			CurrentColor.G+=(int)(GFactor*i);
+			CurrentColor.B+=(int)(BFactor*i);
+			CurrentColor.A+=(int)(AFactor*i);
+
+			// Draw the line:
+			dnDraw3DLine(c->Frame,t,PolyFlags,PreviousPosition,CurrentPosition,BeamStartWidth,BeamEndWidth,PreviousColor,CurrentColor,true);
+
+			PreviousPosition=CurrentPosition;
+			PreviousColor=CurrentColor;
+		}
+	}
+
+	void __fastcall DoubleSineWave(UCanvas *c, UTexture *t, FColor BeamColor, FColor BeamEndColor, FLOAT BeamStartWidth, FLOAT BeamEndWidth, DWORD PolyFlags, FLOAT MaxAmplitude, FLOAT MaxFrequency, FLOAT Noise, FLOAT TimeSeconds, FVector LineStart, FVector LineEnd, FVector RangeStart, FVector RangeEnd, INT depth,FLOAT TimeScale)
+	{
+		int LineSegments=((int)appPow(2,depth))+1;
+		FVector CurrentPosition=LineStart;
+		FVector PreviousPosition=CurrentPosition;
+		FVector Distance=LineEnd-LineStart;
+		FVector Direction=Distance;
+		Direction.Normalize();
+		FLOAT Length=Distance.Size();
+		FLOAT StepLength=Length/LineSegments;
+
+		FVector Axis1, Axis2;
+		Direction.FindBestAxisVectors(Axis1,Axis2);
+		Axis1.Normalize();
+		Axis2.Normalize();
+
+		FColor PreviousColor=BeamColor,
+			   CurrentColor=BeamColor;
+
+		FLOAT RFactor=(((FLOAT)(BeamEndColor.R-BeamColor.R))/(FLOAT)LineSegments);
+		FLOAT GFactor=(((FLOAT)(BeamEndColor.G-BeamColor.G))/(FLOAT)LineSegments);
+		FLOAT BFactor=(((FLOAT)(BeamEndColor.B-BeamColor.B))/(FLOAT)LineSegments);
+		FLOAT AFactor=(((FLOAT)(BeamEndColor.A-BeamColor.A))/(FLOAT)LineSegments);
+
+		for(int i=0;i<LineSegments;i++)
+		{
+			FLOAT LengthToHere=(i*StepLength);
+			CurrentPosition=LineStart+(LengthToHere*Direction);
+			
+			FLOAT OriginalMaxAmplitude=MaxAmplitude;
+			MaxAmplitude*=appSin(((FLOAT)i/(FLOAT)LineSegments)*10+TimeSeconds*4.5);
+			CurrentPosition+=(Axis1*(appSin(TimeSeconds*13*TimeScale+LengthToHere*MaxFrequency+appFrand()*Noise-(Noise/2))*MaxAmplitude));
+			CurrentPosition+=(Axis2*(appCos(TimeSeconds*13*TimeScale+LengthToHere*MaxFrequency+appFrand()*Noise-(Noise/2))*MaxAmplitude));
+			MaxAmplitude=OriginalMaxAmplitude;
+
+			// Compute current color:
+			CurrentColor=BeamColor;
+			CurrentColor.R+=(int)(RFactor*i);
+			CurrentColor.G+=(int)(GFactor*i);
+			CurrentColor.B+=(int)(BFactor*i);
+			CurrentColor.A+=(int)(AFactor*i);
+
+			// Draw the line:
+			dnDraw3DLine(c->Frame,t,PolyFlags,PreviousPosition,CurrentPosition,BeamStartWidth,BeamEndWidth,PreviousColor,CurrentColor,true);
+
+			PreviousPosition=CurrentPosition;
+			PreviousColor=CurrentColor;
+		}
+	}
+
+
+	float inline SamplePoint(int x, int y,FLOAT MaxAmplitude, FLOAT MaxFrequency, FLOAT Noise,FLOAT TimeSeconds)
+	{
+		FLOAT value=0;
+		
+		MaxFrequency*=8;
+		value+=appSin(TimeSeconds*8+x*MaxFrequency)*MaxAmplitude;
+		
+		return value;
+	}
+
+	void __fastcall MovingGrid(UCanvas *c, UTexture *t, FColor BeamColor, FColor BeamEndColor, FLOAT BeamStartWidth, FLOAT BeamEndWidth, DWORD PolyFlags, FLOAT MaxAmplitude, FLOAT MaxFrequency, FLOAT Noise, FLOAT TimeSeconds, FVector LineStart, FVector LineEnd, INT Tesselation)
+	{
+		FVector AxisZ=LineEnd-LineStart;
+		FLOAT Length=AxisZ.Size();
+		FLOAT LengthIncrement=Length/Tesselation;
+		AxisZ.Normalize();
+
+		FVector AxisX, AxisY;
+		AxisZ.FindBestAxisVectors( AxisX, AxisY );
+		AxisX.Normalize();
+		AxisY.Normalize();
+
+		FVector AxisXIncrement=AxisX*LengthIncrement;
+		FVector AxisYIncrement=AxisY*LengthIncrement;
+		for(INT x=0;x<Tesselation;x++)
+		{
+			FVector CurrentLocation=LineStart+(AxisXIncrement*(x-Tesselation/2.0f))-(AxisYIncrement*(Tesselation/2.0f));
+			for(INT y=0;y<Tesselation;y++)
+			{
+				FVector A=CurrentLocation;
+				A.Z+=SamplePoint(x,y,MaxAmplitude, MaxFrequency, Noise, TimeSeconds);
+
+				// Connect this point to it's four neighbors:
+				if(x!=Tesselation-1) 
+				{
+					FVector B=CurrentLocation+AxisXIncrement;
+					B.Z+=SamplePoint(x+1,y,MaxAmplitude, MaxFrequency, Noise,TimeSeconds);
+					dnDraw3DLine(c->Frame,t,PolyFlags,A,B,BeamStartWidth,BeamEndWidth,BeamColor,BeamEndColor);
+				}
+				if(y!=Tesselation-1) 
+				{
+					FVector B=CurrentLocation+AxisYIncrement;
+					B.Z+=SamplePoint(x,y+1,MaxAmplitude, MaxFrequency, Noise,TimeSeconds);
+					dnDraw3DLine(c->Frame,t,PolyFlags,A,B,BeamStartWidth,BeamEndWidth,BeamColor,BeamEndColor);
+				}
+				CurrentLocation+=AxisYIncrement;
+			}
+		}
+	}
+
+	void __fastcall dnDrawBeam( ABeamSystem &System, FSceneNode *Frame )
+	{
+		// Don't worry about it if not enabled:
+		if(!System.Enabled) return;
+
+		// Check to see if destination actor is valid: 
+		if(!System.NumberDestinations) 
+			return;
+
+		// CDH... check to make sure camera style matches, if applicable
+		if (System.BeamPlayerCameraStyleMode!=BPCS_None)
+		{
+			if ((System.BeamPlayerCameraStyleMode==BPCS_Equal) && (System.BeamPlayerCameraStyle!=Frame->Viewport->Actor->CameraStyle))
+				return;
+			else if ((System.BeamPlayerCameraStyleMode==BPCS_NotEqual) && (System.BeamPlayerCameraStyle==Frame->Viewport->Actor->CameraStyle))
+				return;
+		}
+		// ...CDH
+		clock(Stats.BeamTime);
+
+		FLOAT TimeSeconds = System.Level->GameTimeSeconds;
+		appSrand((*(DWORD *)&TimeSeconds)^((DWORD)&System));	// Makes the beams pausable, as they are based off of game time.
+
+		UCanvas *c=Frame->Viewport->Canvas;
+
+		/*Frame->Viewport->RenDev->*/PreRender(Frame);
+
+		if(System.BeamStartWidth<1) System.BeamStartWidth=1;
+		if(System.BeamEndWidth<1)   System.BeamEndWidth=1;
+
+		if(System.TesselationLevel>16)     System.TesselationLevel=16;
+		else if(System.TesselationLevel<1) System.TesselationLevel=1;
+
+		System.BoundingBoxMin=System.Location-FVector(5,5,5);
+		System.BoundingBoxMax=System.Location+FVector(5,5,5);
+
+		// Force animated textures to update:
+		UTexture *BeamTexture=System.BeamTexture;
+		if(BeamTexture) BeamTexture=BeamTexture->Get(appSeconds());
+
+		for(INT i=0;i<System.NumberDestinations;i++)
+		{
+			Stats.Beams++;
+
+			FVector DestinationLocation = System.DestinationActor[i]->Location + System.DestinationOffset[i];
+
+				 if(DestinationLocation.X<System.BoundingBoxMin.X) System.BoundingBoxMin.X=DestinationLocation.X;
+			else if(DestinationLocation.X>System.BoundingBoxMax.X) System.BoundingBoxMax.X=DestinationLocation.X;
+
+				 if(DestinationLocation.Y<System.BoundingBoxMin.Y) System.BoundingBoxMin.Y=DestinationLocation.Y;
+			else if(DestinationLocation.Y>System.BoundingBoxMax.Y) System.BoundingBoxMax.Y=DestinationLocation.Y;
+
+				 if(DestinationLocation.Z<System.BoundingBoxMin.Z) System.BoundingBoxMin.Z=DestinationLocation.Z;
+			else if(DestinationLocation.Z>System.BoundingBoxMax.Z) System.BoundingBoxMax.Z=DestinationLocation.Z;
+
+			// Draws from Location to DestinationActor->Location. 
+			switch(System.BeamType)
+			{
+				case BST_RandomWalk:
+					// Not implemented Yet, fall through to recursive subdivide:
+					//debugf(_T("BST_RandomWalk not yet implemented, use BST_RecursiveSubdivide instead. (defaulting to BST_RecursiveSubdivide now.)"));
+					//break;
+
+				case BST_RecursiveSubdivide:
+					RecursiveSubdivideLine(c, BeamTexture, System.BeamColor, System.BeamEndColor, System.BeamStartWidth, System.BeamEndWidth, 0, System.MaxAmplitude, System.Location, DestinationLocation,System.Location, DestinationLocation, System.TesselationLevel);
+					break;
+
+				case BST_SineWave:
+					SineWave(c, BeamTexture, System.BeamColor, System.BeamEndColor, System.BeamStartWidth, System.BeamEndWidth, 0, System.MaxAmplitude, System.MaxFrequency, System.Noise, TimeSeconds, System.Location, DestinationLocation,System.Location, DestinationLocation, System.TesselationLevel,System.TimeScale);
+					break;
+
+				case BST_DoubleSineWave:
+					DoubleSineWave(c, BeamTexture, System.BeamColor, System.BeamEndColor, System.BeamStartWidth, System.BeamEndWidth, 0, System.MaxAmplitude, System.MaxFrequency, System.Noise, TimeSeconds, System.Location, DestinationLocation,System.Location, DestinationLocation, System.TesselationLevel,System.TimeScale);
+					break;
+
+				case BST_Spline:
+					break;
+
+				case BST_Straight:
+					dnDraw3DLine(c->Frame,BeamTexture, 0,System.Location,DestinationLocation,System.BeamStartWidth,System.BeamEndWidth,System.BeamColor,System.BeamEndColor,true);
+					break;
+
+				case BST_Grid:
+					MovingGrid(c, BeamTexture, System.BeamColor, System.BeamEndColor, System.BeamStartWidth, System.BeamEndWidth, 0, System.MaxAmplitude, System.MaxFrequency, System.Noise, TimeSeconds, System.Location, DestinationLocation,System.TesselationLevel);
+					break;
+			}
+			QueuedLinesFlush(System,Frame,BeamTexture,0);
+
+		}
+		QueueParticleFlush(System,Frame);
+		unclock(Stats.BeamTime);
+	}
+
+	// Particle output subsystem:
+	struct QueuedParticle
+	{
+		FD3DParticle v[6];
+	};
+
+	struct QueuedParticleByTexture
+	{
+		UTexture *Texture;
+		QueuedParticle *p;
+		int ParticleCount, ParticleMax;
+	};
+
+	TArray<QueuedParticleByTexture> QueuedParticles;
+
+	void __fastcall QueueParticleShutdown()
+	{
+		for(int i=0;i<QueuedParticles.Num();i++)
+			if(QueuedParticles(i).p&&QueuedParticles(i).ParticleMax)
+				appFree(QueuedParticles(i).p);
+	}
+
+	// NJS: The texture is passed in order to insert it into the proper queue.
+	inline QueuedParticle &QueuedParticleAlloc(UTexture *Texture=NULL)
+	{
+		// Attempt to find the bin this texture fits under, or allocate one if nessecary:
+		for(int bin=0;bin<QueuedParticles.Num();bin++)
+			if(QueuedParticles(bin).Texture==Texture)
+				break;
+
+		// Couldn't locate the bin for this particle system, allocate one of the free bins.
+		if(bin>=QueuedParticles.Num())
+		{
+			// Find an empty bin (ie, particle count is zero)
+			for(bin=0;bin<QueuedParticles.Num();bin++)
+				if(!QueuedParticles(bin).ParticleCount)
+					break;
+
+			// No bins available, allocate and initialize one:
+			if(bin>=QueuedParticles.Num())
+				bin=QueuedParticles.AddZeroed();
+
+			// Set the bin's texture to my own.
+			QueuedParticles(bin).Texture=Texture;
+		}
+
+		// Ok, I've got a valid bin, now allocate a particle out of it:
+	    int ParticleIndex=QueuedParticles(bin).ParticleCount;
+		QueuedParticles(bin).ParticleCount++;
+
+		// Do I need to allocate more particles to make room for the new one?
+		if(QueuedParticles(bin).ParticleCount>=QueuedParticles(bin).ParticleMax)
+		{
+			QueuedParticles(bin).ParticleMax+=1024;
+			QueuedParticles(bin).p=(QueuedParticle *)appRealloc(QueuedParticles(bin).p,(QueuedParticles(bin).ParticleMax+1)*sizeof(QueuedParticle),_T("Queued Particles"));
+		}
+		
+		// Return a reference to the allocated particle:
+		return QueuedParticles(bin).p[ParticleIndex];
+	}
+
+	void __fastcall QueueParticleFlush(AParticleSystem &System, FSceneNode *Frame)
+	{
+		if(!QueuedParticles.Num()) return;
+
+		DWORD PolyFlags=GetPolyFlags(Frame,&System)|PF_TwoSided;
+		DWORD PolyFlagsEx=PFX_Clip;
+
+		// Configure the Z-Buffer
+		     if(System.ZBufferMode==ZBM_Occlude) PolyFlags|=PF_Occlude;	// Full Z buffer occlusion	
+		else if(System.ZBufferMode==ZBM_None)							// No Z buffer interaction whatsoever
+		{
+			Direct3DDevice8->SetRenderState( D3DRS_ZFUNC, D3DCMP_ALWAYS );
+			PolyFlags&=~PF_Occlude;
+		}
+		else PolyFlags&=~PF_Occlude;	// Read only Z Buffer
+
+		UBOOL VariableAlpha=true;
+		if((System.AlphaStart==1.f)&&(System.AlphaEnd==1.f)) VariableAlpha=false;
+		if(VariableAlpha) PolyFlags|=PF_Translucent;
+		
+		SetBlending(PolyFlags,PolyFlagsEx);
+
+		// Set the zbias for the entire particle system:
+			 if(System.ZBias<0)  System.ZBias=0.f;
+		else if(System.ZBias>16) System.ZBias=16.f;
+		SetZBias(System.ZBias); //Direct3DDevice8->SetRenderState(D3DRS_ZBIAS,System.ZBias);
+		SetTextureNULL(1);
+
+		SetDistanceFog(false);
+
+
+//		FLOAT SystemAlphaScale=System.AlphaStartUseSystemAlpha?1.0:System.SystemAlphaScale; 
+
+/*
+		if(VariableAlpha)
+		{
+			Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
+			Direct3DDevice8->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_ONE );
+			Direct3DDevice8->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCCOLOR );
+		}
+*/
+		int TotalParticleCount=0;
+		for(int i=0;i<QueuedParticles.Num();i++)
+			TotalParticleCount+=QueuedParticles(i).ParticleCount;
+
+		Stats.Particles+=TotalParticleCount;
+
+		// First set up the vertex buffer:
+		verify(TotalParticleCount*6<PARTICLE_VERTEXBUFFER_SIZE);
+		FD3DParticle *Vertices=(FD3DParticle*)ParticleVertices.Lock(TotalParticleCount*6);
+		FD3DParticle *v=Vertices;
+		for(i=0;i<QueuedParticles.Num();i++)
+		{
+			if(QueuedParticles(i).ParticleCount)
+			{
+				memcpy(v,QueuedParticles(i).p,QueuedParticles(i).ParticleCount*sizeof(QueuedParticle));
+				v+=QueuedParticles(i).ParticleCount*6;
+			}
+		}
+
+		INT	First = ParticleVertices.Unlock();
+		
+		// Now render the vertex buffer:
+		ParticleVertices.Set();
+
+		UTexture *CurrentTexture=NULL;
+		FTextureInfo CurrentTextureInfo;
+		int ParticleIndex=0;
+
+		for(i=0;i<QueuedParticles.Num();i++)
+		{
+			int RunLength=QueuedParticles(i).ParticleCount;
+			QueuedParticles(i).ParticleCount=0;	
+			if(!RunLength) 
+				continue;
+
+			// Unset the current texture if any:
+			if(CurrentTexture)
+			{
+				CurrentTexture->Unlock( CurrentTextureInfo );
+				CurrentTexture=NULL;
+			}
+
+
+			CurrentTexture=QueuedParticles(i).Texture;
+			if(CurrentTexture)
+			{
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_MODULATE );
+				
+				CurrentTexture->Lock( CurrentTextureInfo, 0/*Frame->Viewport->CurrentTime*/, -1, Frame->Viewport->RenDev );
+				SetTexture( 0, CurrentTextureInfo, PolyFlags, 0 );
+			} 
+			else
+			{
+				//!!should optimize to avoid changing shade mode, color op, alpha op.
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_DISABLE  );
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_DISABLE );
+			}
+
+
+			Direct3DDevice8->DrawPrimitive( D3DPT_TRIANGLELIST, First+(ParticleIndex*6), RunLength*2);
+			ParticleIndex+=RunLength;
+		}
+
+		if(CurrentTexture)
+		{
+			CurrentTexture->Unlock(CurrentTextureInfo);
+			CurrentTexture=NULL;
+		} else
+		{
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_MODULATE );
+		}
+/*
+		if(VariableAlpha)
+		{
+			Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, FALSE );
+			SetBlending(0);
+		}
+*/
+		// NJS: Set up clipping on polygons:
+		//SetClipping(FALSE);
+
+		//if(System.ZBias) SetZBias(0); //Direct3DDevice8->SetRenderState(D3DRS_ZBIAS,0);
+
+		if(System.ZBufferMode==ZBM_None)							// No Z buffer interaction whatsoever
+			Direct3DDevice8->SetRenderState(D3DRS_ZFUNC,D3DCMP_LESSEQUAL);
+	}
+
+	void __fastcall dnDrawParticles( ASoftParticleSystem &System, FSceneNode *Frame )
+	{
+		if(!RenderParticles) return;
+
+		clock(Stats.ParticleTime);
+		INT ParticleCount=System.HighestParticleNumber;
+		
+		// Make sure the xform matrix is correctly set up:
+		/*Frame->Viewport->RenDev->*/PreRender(Frame);
+		FParticle *Particles=(FParticle *)System.ParticleSystemHandle;
+
+		// Texture Management:
+		UTexture *CurrentTexture=NULL;
+		FTextureInfo CurrentTextureInfo;
+
+		if(System.UseLines)
+		{
+			for(INT i=0; i<ParticleCount; i++)
+			{
+				FVector PreviousLocation;
+				FVector NextLocation;
+
+				// Am I drawing a series of connected particle lines?
+				if(System.Connected)
+				{
+					int SuccessorIndex=-1;
+
+					// Attempt to find my successor: 
+					// First try the very next particle in sequence.  In non-starved particle systems, where particles have a constant lifetime, it is VERY likely to be the next particle in sequence. 
+					if((i<(ParticleCount-1))&&((Particles[i+1].SpawnNumber)==(Particles[i].SpawnNumber+1)))
+						SuccessorIndex=i+1;
+					else
+					{
+						Stats.SuccessorMisses++;	// Track how many sucessors were missed.
+						// Scan through the particles and try to find my successor:
+						for(INT j=0;j<ParticleCount;j++)							 // Scan through all potentially active particles.
+							if(Particles[j].SpawnNumber==Particles[i].SpawnNumber+1) // And it's my successor.
+							{
+								SuccessorIndex=j;
+								break;
+							}
+					}
+
+					if(SuccessorIndex==-1) continue; // No sucessor found, can't draw this segment.
+					PreviousLocation=Particles[i].Location;
+					NextLocation=Particles[SuccessorIndex].Location;
+				} else
+				{
+					PreviousLocation=Particles[i].PreviousLocation;
+					NextLocation=Particles[i].Location;
+
+					// If drawscale isn't one, then compute new line length:
+					if((Particles[i].DrawScale!=1)||System.ConstantLength)
+					{
+						FVector Distance=NextLocation-PreviousLocation;
+						FLOAT   Length=System.ConstantLength?1:Distance.Size();
+						
+						if(Length)
+						{
+							FVector Direction=Distance;
+							Direction.Normalize();
+							FVector Midpoint=System.ConstantLength?NextLocation:(PreviousLocation+Direction*(Length/2));
+
+							Length*=Particles[i].DrawScale;
+							Length/=2;
+
+							PreviousLocation=Midpoint-(Direction*Length);
+							NextLocation=Midpoint+(Direction*Length);
+						}
+					}
+				}
+				dnDraw3DLine(Frame,Particles[i].Texture,0,PreviousLocation,NextLocation,System.LineStartWidth,System.LineEndWidth,System.LineStartColor,System.LineEndColor);
+			}
+		} else	
+		{
+
+			float BaseParticleScaleX=1.f,
+				  BaseParticleScaleY=1.f;
+	
+			if(Particles[0].Texture)
+			{
+				//Particles[0].Texture=Particles[0].Texture->Get(appSeconds()/*Frame->Viewport->CurrentTime*/);
+
+				Particles[0].Texture->Lock( CurrentTextureInfo, 0/*Frame->Viewport->CurrentTime*/, -1, Frame->Viewport->RenDev );
+				SetTexture( 0, CurrentTextureInfo, 0, false );
+				Particles[0].Texture->Unlock(CurrentTextureInfo);
+			} 
+
+			UBOOL VariableAlpha=true;
+			if((System.AlphaStart==1.f)&&(System.AlphaEnd==1.f)) VariableAlpha=false;
+			FLOAT SystemAlphaScale=System.AlphaStartUseSystemAlpha?1.f:System.SystemAlphaScale; 
+
+			for(INT i=0;i<ParticleCount;i++)
+			{
+				if(!Particles[i].Texture) continue;		// Ignore untextured particles
+
+				QueuedParticle &p=QueuedParticleAlloc(Particles[i].Texture);
+				
+				// Manage the texture swaps:
+				if(Particles[i].Texture!=CurrentTexture)
+				{
+					CurrentTexture=Particles[i].Texture;
+					BaseParticleScaleX=System.TextureScaleX*128*(Particles[i].Texture->USize*(1/256.f));
+					BaseParticleScaleY=System.TextureScaleY*128*(Particles[i].Texture->VSize*(1/256.f));
+				}
+				
+				FD3DParticle *Vertices=p.v;
+
+				DWORD dwDiffuse;
+				
+				if(VariableAlpha)
+				{
+					FLOAT alphaLevel=Clamp((float)(Particles[i].Alpha*SystemAlphaScale),0.f,1.f);
+					dwDiffuse=D3DCOLOR_RGBA((int)Clamp(((float)(alphaLevel*Stages[0]->MaxColor.R)),0.f,(float)Stages[0]->MaxColor.R),
+											(int)Clamp(((float)(alphaLevel*Stages[0]->MaxColor.G)),0.f,(float)Stages[0]->MaxColor.G),
+											(int)Clamp(((float)(alphaLevel*Stages[0]->MaxColor.B)),0.f,(float)Stages[0]->MaxColor.B),
+											(int)Clamp(((float)(alphaLevel*Stages[0]->MaxColor.A)),0.f,(float)Stages[0]->MaxColor.A));
+
+				} else
+					dwDiffuse=D3DCOLOR_RGBA(Stages[0]->MaxColor.R,Stages[0]->MaxColor.G, Stages[0]->MaxColor.B,Stages[0]->MaxColor.A); 
+
+				float DrawScaleU=(Particles[i].DrawScale*BaseParticleScaleX);
+				float DrawScaleV=(Particles[i].DrawScale*BaseParticleScaleY);
+			
+				// NJS: New:
+				FVector RightVector=Frame->Coords.XAxis;
+				FVector UpVector=Frame->Coords.YAxis;
+				FVector forward=Frame->Coords.ZAxis;
+
+				// NJS: Do I have rotation?
+				if(Particles[i].Rotation)	
+				{
+					UpVector=RotateAboutAxis(UpVector,Particles[i].Rotation,forward);
+					RightVector=RotateAboutAxis(RightVector,Particles[i].Rotation,forward);
+				}
+
+				UpVector*=DrawScaleV;
+				RightVector*=DrawScaleU; 
+				FVector vecPos=Particles[i].WorldLocation;
+
+				Vertices[0].Position = vecPos + (-RightVector+UpVector);
+				Vertices[0].Diffuse = dwDiffuse;
+				Vertices[0].TextureVector = D3DXVECTOR2(1.0f, 1.0f);
+
+				Vertices[1].Position = vecPos + (RightVector+UpVector);
+				Vertices[1].Diffuse = dwDiffuse;
+				Vertices[1].TextureVector = D3DXVECTOR2(0.0f, 1.0f);
+
+				Vertices[2].Position = vecPos + (RightVector+-UpVector);
+				Vertices[2].Diffuse = dwDiffuse;
+				Vertices[2].TextureVector = D3DXVECTOR2(0.0f, 0.0f);
+
+				Vertices[3]=Vertices[2];
+
+				Vertices[4].Position = vecPos + (-RightVector+-UpVector) ;
+				Vertices[4].Diffuse = dwDiffuse;
+				Vertices[4].TextureVector = D3DXVECTOR2(1.0f, 0.0f);
+
+				Vertices[5]=Vertices[0];
+			}
+		}
+
+		QueueParticleFlush(System,Frame);
+		unclock(Stats.ParticleTime);
+	}
+
+	struct QueuedLineSegment
+	{
+		FVector v[2];
+		FLOAT Width;
+		FColor StartColor,
+			   EndColor;
+	};
+
+	TArray<QueuedLineSegment> QueuedLines;
+
+	void __fastcall QueuedLinesFlush(ABeamSystem &System,
+									 FSceneNode *Frame,
+									 UTexture *Texture,
+									 DWORD PolyFlags)
+	{
+		int QueuedLineCount=QueuedLines.Num();
+		if(!QueuedLineCount) return;
+		SetZBias(0);
+
+		FVector LastStart[2];
+
+		// Compute the height of a sub texture segment
+		float SubTextureHeight=1.f;
+		if(System.SubTextureCount>1) SubTextureHeight=(1.f/System.SubTextureCount);
+
+		// Whether the reverse pan pass has been performed yet or not.
+		bool ReversePanPassDone=false;
+
+		for(;;)
+		{
+			float XSystemStart=System.BeamTexturePanOffsetX+(System.BeamTexturePanX*System.Level->GameTimeSeconds);
+			float XSystemEnd=XSystemStart+System.BeamTextureScaleX;
+
+			if((System.BeamReversePanPass&&ReversePanPassDone))
+				Exchange(XSystemStart,XSystemEnd);
+
+			float XFraction=(XSystemEnd-XSystemStart)/QueuedLineCount;
+
+			int SubTextureIndex=0;
+
+			if(System.SubTextureCount>1) 
+				SubTextureIndex=appRand()%System.SubTextureCount;
+
+			for(int i=0;i<QueuedLineCount;i++)
+			{
+				QueuedLineSegment &l=QueuedLines(i);
+				QueuedParticle &p=QueuedParticleAlloc(Texture);	// Alloc the particle to hold this line segment.
+				FVector &Start=l.v[0];
+				FVector &End  =l.v[1];
+
+				FD3DParticle *Vertices=p.v; 
+				DWORD dwDiffuseStart=l.StartColor.TrueColor(); 
+				DWORD dwDiffuseEnd  =l.EndColor.TrueColor(); 
+			
+				//FVector forward=Frame->Coords.ZAxis;			
+				FVector UpVector=(Start-ViewLocation) cross (End-ViewLocation);
+				UpVector.Normalize();
+
+				// texture coordinates:
+				float TexLeft=0.f,
+					  TexTop=1.f,
+					  TexRight=1.f,
+					  TexBottom=0.f;
+
+				if(System.SubTextureCount>1) 
+				{
+					TexBottom=SubTextureIndex*SubTextureHeight;
+					TexTop=TexBottom+SubTextureHeight;
+				}
+
+				TexLeft=XSystemStart+(i*XFraction);
+				TexRight=TexLeft+XFraction;
+
+				Exchange(TexLeft,TexRight);
+
+				float VertPan=System.BeamTexturePanOffsetY+(System.BeamTexturePanY*System.Level->GameTimeSeconds);
+				TexTop+=VertPan;
+				TexBottom+=VertPan;
+
+				if(i)
+				{
+					Vertices[0].Position=LastStart[0];
+					Vertices[1].Position=LastStart[1];
+				} else
+				{
+					Vertices[0].Position=Start+UpVector*l.Width;
+					Vertices[1].Position=Start-UpVector*l.Width;
+				}
+
+				Vertices[0].Diffuse=dwDiffuseStart;
+				Vertices[0].TextureVector=D3DXVECTOR2(TexRight, TexBottom);
+
+				Vertices[1].Diffuse=dwDiffuseStart;
+				Vertices[1].TextureVector=D3DXVECTOR2(TexRight, TexTop);
+
+				Vertices[2].Position=End -UpVector * l.Width; //EndWidth;
+				Vertices[2].Diffuse=dwDiffuseEnd;
+				Vertices[2].TextureVector=D3DXVECTOR2(TexLeft, TexTop);
+
+				Vertices[3]=Vertices[2];
+				
+				Vertices[4].Position=End+UpVector*l.Width; 
+				Vertices[4].Diffuse=dwDiffuseEnd;
+				Vertices[4].TextureVector=D3DXVECTOR2(TexLeft, TexBottom);
+
+				Vertices[5]=Vertices[0];
+
+				LastStart[1]=Vertices[2].Position;
+				LastStart[0]=Vertices[4].Position;
+			}
+			if(System.BeamReversePanPass&&!ReversePanPassDone)
+			{
+				ReversePanPassDone=true;
+				continue;
+			}
+
+			break;
+		}
+
+		QueuedLines.Clear();
+		QueueParticleFlush(System,Frame);
+	}
+
+	// Soon to be merged with draw particles, will be modified to dump all lines out at once.
+	void __fastcall dnDraw3DLine
+	( 
+		FSceneNode *Frame, 
+		UTexture   *Texture,
+		DWORD       PolyFlags, 
+		FVector     Start, 
+		FVector     End, 
+		FLOAT       StartWidth, 
+		FLOAT		EndWidth, 
+		FColor		StartColor, 
+		FColor		EndColor,
+		bool		Connected=false
+	)
+	{
+		if(!RenderLines) return;
+
+		if((StartWidth==1.f)&&(EndWidth==1.f))
+		{
+			DWORD PolyFlagsEx=PFX_Clip;
+
+			SetBlending(PolyFlags,PolyFlagsEx);
+			SetZBias(0);
+			FTextureInfo CurrentTextureInfo;
+			
+			if(Texture) 
+			{
+				Texture->Lock( CurrentTextureInfo, Frame->Viewport->CurrentTime, -1, this );
+				SetTexture( 0, CurrentTextureInfo, PolyFlags, 0, PolyFlagsEx );
+			} else
+			{
+				//!!should optimize to avoid changing shade mode, color op, alpha op.
+				Direct3DDevice8->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_DISABLE);
+				Direct3DDevice8->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_DISABLE);
+			}
+
+			// Handle lines with a width of one:
+			FD3DVertex*	Vertices = (FD3DVertex*) LineVertices.Lock(2);
+
+			Vertices[0].Position=Start;
+			Vertices[0].Diffuse = FColor(StartColor).TrueColor();
+
+			Vertices[1].Position=End;
+			Vertices[1].Diffuse = FColor(EndColor).TrueColor();
+
+			INT	First = LineVertices.Unlock();
+
+			LineVertices.Set();
+
+			Direct3DDevice8->DrawPrimitive( D3DPT_LINELIST, First, 1 );
+			Stats.Particles++;
+
+			if(Texture)
+			{
+				Texture->Unlock(CurrentTextureInfo);
+			} else
+			{
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_MODULATE );
+			}
+
+			return;
+		} 
+
+		if(Connected)
+		{
+			QueuedLineSegment &l=QueuedLines(QueuedLines.Add());
+
+			l.v[0]=Start;
+			l.v[1]=End;
+			l.Width=StartWidth;
+			l.StartColor=StartColor;
+			l.EndColor=EndColor;
+			return;
+		} 
+
+		// Draw unconnected non single width lines:
+		QueuedParticle &p=QueuedParticleAlloc(Texture);
+
+		FD3DParticle *Vertices=p.v; 
+		DWORD dwDiffuseStart = StartColor.TrueColor(); 
+		DWORD dwDiffuseEnd   = EndColor.TrueColor(); 
+
+		// Compute forward and up vectors
+		FVector UpVector=(Start-ViewLocation) cross (End-ViewLocation);
+		UpVector.Normalize();
+
+
+		Vertices[0].Position = Start   + UpVector * StartWidth;
+		Vertices[0].Diffuse = dwDiffuseStart;
+		Vertices[0].TextureVector = D3DXVECTOR2(1.f, 1.f);
+
+		Vertices[1].Position = Start -  UpVector* StartWidth;
+		Vertices[1].Diffuse = dwDiffuseStart;
+		Vertices[1].TextureVector = D3DXVECTOR2(0.f, 1.f);
+
+		Vertices[2].Position = End -UpVector * EndWidth;
+		Vertices[2].Diffuse = dwDiffuseEnd;
+		Vertices[2].TextureVector = D3DXVECTOR2(0.f, 0.f);
+
+		Vertices[3]=Vertices[2];
+		
+		Vertices[4].Position = End + UpVector * EndWidth;
+		Vertices[4].Diffuse = dwDiffuseEnd;
+		Vertices[4].TextureVector = D3DXVECTOR2(1.f, 0.f);
+
+		Vertices[5]=Vertices[0];
+	}
+
+	UBOOL Exec( const TCHAR* Cmd, FOutputDevice& Ar )
+	{
+		if( URenderDevice::Exec( Cmd, Ar ) )
+		{
+			return 1;
+		}
+		else if( ParseCommand(&Cmd,TEXT("GetRes")) )
+		{
+			if(DisplayModes.Num())
+			{
+				TArray<FVector> Res;
+				for( TArray<D3DDISPLAYMODE>::TIterator It(DisplayModes); It; ++It )
+					if( GetFormatBPP(It->Format) == 16)
+						Res.AddUniqueItem( FVector(It->Width, It->Height, 0) );
+				for( INT i=0; i<Res.Num() && i<16/*script limitation*/; i++ )
+					if( Res(i).X<=MaxResWidth && Res(i).Y<=MaxResHeight )
+						Ar.Logf( i ? TEXT(" %ix%i") : TEXT("%ix%i"), (INT)Res(i).X, (INT)Res(i).Y );
+				return 1;
+			}
+		}
+		else if( ParseCommand(&Cmd,TEXT("LodBias")) )
+		{
+			FLOAT LodBias=appAtof(Cmd);
+			Ar.Logf(TEXT("Texture LodBias %f"),LodBias);	
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MIPMAPLODBIAS, *(DWORD*)&LodBias );
+			//if( UseMultitexture )
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_MIPMAPLODBIAS, *(DWORD*)&LodBias );
+			return 1;
+		}
+		else if( ParseCommand(&Cmd, TEXT("WIRE")) )
+		{
+			GWire = !GWire;
+			return 1;
+		}
+
+		return 0;
+	}
+
+	void dnDrawDX8Mesh(FSceneNode *Frame, AActor *me)
+	{
+		appErrorf(TEXT("Stubbed - Report to Nick."));
+	}
+
+	virtual void __fastcall Draw3DLine( FSceneNode* Frame, FPlane Color, DWORD LineFlags, FVector OrigP, FVector OrigQ )
+	{
+
+		if(!RenderLines) return;
+		// If we're not asking for a depth cued line, let the regular function calls handle it.
+		// NOTE : this doesn't work for ortho viewports, so we don't do those right now.
+		//if( Frame->Viewport->IsOrtho() /*!(LineFlags & LINE_DepthCued)*/ )
+		//{
+		//	URenderDevice::Draw3DLine( Frame, Color, LineFlags, OrigP, OrigQ );
+		//	return;
+		//}
+	/*
+		FPlane Color2 = Color;
+		Color2.W=0xFF;
+		dnDraw3DLine
+		( 
+			Frame, 
+			NULL,
+			0, 
+			OrigP, 
+			OrigQ, 
+			1.f, 
+			1.f, 
+			Color2, 
+			Color2
+		);
+
+		return;
+*/
+		SetBlending(0,PFX_Clip);
+		SetZBias(0);
+
+		FD3DVertex*	Vertices = (FD3DVertex*) LineVertices.Lock(2);
+
+		//!!should optimize to avoid changing shade mode, color op, alpha op.
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_DISABLE  );
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_DISABLE );
+
+		Vertices[0].Position.X = OrigP.X;
+		Vertices[0].Position.Y = OrigP.Y;
+		Vertices[0].Position.Z = OrigP.Z;
+		Vertices[0].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+
+		Vertices[1].Position.X = OrigQ.X;
+		Vertices[1].Position.Y = OrigQ.Y;
+		Vertices[1].Position.Z = OrigQ.Z;
+		Vertices[1].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+
+		INT	First = LineVertices.Unlock();
+
+		LineVertices.Set();
+
+		Direct3DDevice8->DrawPrimitive( D3DPT_LINELIST, First, 1 );
+
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_MODULATE );
+
+
+	}
+	void __fastcall Draw2DLine( FSceneNode* Frame, FPlane Color, DWORD LineFlags, FVector P1, FVector P2 )
+	{
+		appErrorf(_T("******** Draw2DLine called, please report to Nick"));
+	
+		if(!RenderLines) return;
+		SetBlending();
+		FD3DTLVertex*	Vertices = (FD3DTLVertex*) ActorVertices.Lock(2);
+
+		//!!should optimize to avoid changing shade mode, color op, alpha op.
+		Direct3DDevice8->SetRenderState( D3DRS_SHADEMODE, D3DSHADE_FLAT );
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_DISABLE  );
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_DISABLE );
+
+		Vertices[0].Position.X = P1.X - 0.5f;
+		Vertices[0].Position.Y = P1.Y - 0.5f;
+		Vertices[0].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43;
+		Vertices[0].Position.W = 1.f;
+		Vertices[0].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+		Vertices[0].Specular = 0;
+
+		Vertices[1].Position.X = P2.X - 0.5f;
+		Vertices[1].Position.Y = P2.Y - 0.5f;
+		Vertices[1].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43;
+		Vertices[1].Position.W = 1.f;
+		Vertices[1].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+		Vertices[1].Specular = 0;
+
+		INT	First = ActorVertices.Unlock();
+
+		ActorVertices.Set();
+
+		Direct3DDevice8->DrawPrimitive( D3DPT_LINELIST, First, 1 );
+
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_MODULATE );
+		Direct3DDevice8->SetRenderState( D3DRS_SHADEMODE, D3DSHADE_GOURAUD );
+
+	}
+	void __fastcall UD3DRenderDevice::Draw2DPoint( FSceneNode* Frame, FPlane Color, DWORD LineFlags, FLOAT X1, FLOAT Y1, FLOAT X2, FLOAT Y2, FLOAT Z )
+	{
+		SetBlending(0,0);
+
+		FD3DTLVertex*	Vertices = (FD3DTLVertex*) ActorVertices.Lock(5);
+
+		//!!should optimize to avoid changing shade mode, color op, alpha op.
+		Direct3DDevice8->SetRenderState( D3DRS_SHADEMODE, D3DSHADE_FLAT );
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_DISABLE );
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_DISABLE );
+
+		Vertices[0].Position.X = X1 - 0.5f;
+		Vertices[0].Position.Y = Y1 - 0.5f;
+		Vertices[0].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43;
+		Vertices[0].Position.W = 1.f;
+		Vertices[0].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+		Vertices[0].Specular = 0;
+
+		Vertices[1].Position.X = X2 - 1.5f;
+		Vertices[1].Position.Y = Y1 - 1.f;
+		Vertices[1].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43;
+		Vertices[1].Position.W = 1.f;
+		Vertices[1].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+		Vertices[1].Specular = 0;
+		
+		Vertices[2].Position.X = X2 - 1.5f;
+		Vertices[2].Position.Y = Y2 - 1.5f;
+		Vertices[2].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43;
+		Vertices[2].Position.W = 1.f; 
+		Vertices[2].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+		Vertices[2].Specular = 0;
+
+		Vertices[3].Position.X = X1 - 0.5f;
+		Vertices[3].Position.Y = Y2 - 1.5f;
+		Vertices[3].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43;
+		Vertices[3].Position.W = 1.f;
+		Vertices[3].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+		Vertices[3].Specular = 0;
+
+		Vertices[4].Position.X = X1 - 0.5f;
+		Vertices[4].Position.Y = Y1 - 0.5f;
+		Vertices[4].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43;
+		Vertices[4].Position.W = 1.f;
+		Vertices[4].Diffuse = FColor(Color).TrueColor() | 0xff000000;
+		Vertices[4].Specular = 0;
+
+		INT	First = ActorVertices.Unlock();
+
+		ActorVertices.Set();
+
+		Direct3DDevice8->DrawPrimitive( D3DPT_LINESTRIP, First, 4 );
+
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
+		Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_MODULATE );
+		Direct3DDevice8->SetRenderState( D3DRS_SHADEMODE, D3DSHADE_GOURAUD );
+
+	}
+
+#if DOHITTEST
+	//	Hit testing.		
+	//  Push hit data.
+	void __fastcall UD3DRenderDevice::PushHit( const BYTE* Data, INT Count )
+	{
+
+		check(Viewport->HitYL<=HIT_SIZE);
+		check(Viewport->HitXL<=HIT_SIZE);
+
+		// Get the current render target surface.
+
+		IDirect3DSurface8*	RenderTarget;
+
+		if(FAILED(h=Direct3DDevice8->GetRenderTarget(&RenderTarget)))
+		{
+			debugf(TEXT("D3D Driver: GetRenderTarget failed (%s)"),*D3DError(h));
+			return;
+		}
+
+		// Lock the render target.
+
+		D3DLOCKED_RECT	LockedRect;
+
+		if(FAILED(h=RenderTarget->LockRect(&LockedRect,NULL,0)))
+		{
+			debugf(TEXT("D3D Driver: LockRect failed (%s)"),*D3DError(h));
+			return;
+		}
+
+		// Save the passed info on the working stack.
+
+		INT	Index = HitStack.Add(Count);
+
+		appMemcpy(&HitStack(Index),Data,Count);
+
+		// Cleanup under cursor.
+		switch( ViewportColorBits )
+		{
+			case 16:
+			{
+				_WORD* src = (_WORD*) LockedRect.pBits;
+				src = (_WORD*) ((BYTE*)src + Viewport->HitX * 2 + Viewport->HitY * LockedRect.Pitch);
+				for( INT Y=0; Y<Viewport->HitYL; Y++, src=(_WORD*)((BYTE*)src + LockedRect.Pitch) )
+				{
+					for( INT X=0; X<Viewport->HitXL; X++ )
+					{
+						HitPixels[X][Y] = src[X];
+						src[X] = IGNOREPIX;
+					}
+				}
+				break;
+			}
+			case 24:
+			{
+				BYTE* src = (BYTE*) LockedRect.pBits;
+				src = src + Viewport->HitX*3  + Viewport->HitY * LockedRect.Pitch;
+				for( INT Y=0; Y<Viewport->HitYL; Y++, src+=LockedRect.Pitch )
+				{
+					for( INT X=0; X<Viewport->HitXL; X++ )
+					{
+						HitPixels[X][Y] = *((DWORD*)&src[X*3]);
+						*((DWORD*)&src[X*3]) = IGNOREPIX;
+					}
+				}			
+				break;
+			}
+			case 32:
+			{
+				DWORD* src = (DWORD*) LockedRect.pBits;
+				src = (DWORD*)((BYTE*)src + Viewport->HitX * 4 + Viewport->HitY * LockedRect.Pitch);
+				for( INT Y=0; Y<Viewport->HitYL; Y++, src=(DWORD*)((BYTE*)src + LockedRect.Pitch) )
+				{
+					for( INT X=0; X<Viewport->HitXL; X++ )
+					{
+						HitPixels[X][Y] = src[X];
+						src[X] = IGNOREPIX;
+					}
+				}
+				break;
+			}
+		
+		}
+
+		// Unlock the render target, and release our reference to it.
+
+		RenderTarget->UnlockRect();
+		RenderTarget->Release();
+
+	};
+	// Pop hit data.
+	void __fastcall UD3DRenderDevice::PopHit( INT Count, UBOOL bForce )
+	{
+
+		//debugf(TEXT("POPHIT stacknum   %i  Count %i "),HitStack.Num(),Count);
+		check(Count <= HitStack.Num());
+		UBOOL Hit=0;
+
+		// Get the current render target surface.
+
+		IDirect3DSurface8*	RenderTarget;
+
+		if(FAILED(h=Direct3DDevice8->GetRenderTarget(&RenderTarget)))
+		{
+			debugf(TEXT("D3D Driver: GetRenderTarget failed (%s)"),*D3DError(h));
+			return;
+		}
+
+		// Lock the render target.
+
+		D3DLOCKED_RECT	LockedRect;
+
+		if(FAILED(h=RenderTarget->LockRect(&LockedRect,NULL,0)))
+		{
+			debugf(TEXT("D3D Driver: LockRect failed (%s)"),*D3DError(h));
+			return;
+		}
+
+		// Check under cursor and restore.
+		switch( ViewportColorBits )
+		{
+			case 16:
+			{
+				_WORD* src = (_WORD*) LockedRect.pBits;
+				src = (_WORD*) ((BYTE*)src + Viewport->HitX * 2 + Viewport->HitY * LockedRect.Pitch);
+				for( INT Y=0; Y<Viewport->HitYL; Y++, src=(_WORD*)((BYTE*)src + LockedRect.Pitch) )
+				{
+					for( INT X=0; X<Viewport->HitXL; X++ )
+					{
+						if( src[X] != IGNOREPIX )
+							Hit=1;
+						src[X] = (_WORD)HitPixels[X][Y];	
+					
+					}
+				}
+				break;
+			}
+			case 24:
+			{
+				BYTE* src = (BYTE*) LockedRect.pBits;
+				src = src + Viewport->HitX*3  + Viewport->HitY * LockedRect.Pitch;
+				for( INT Y=0; Y<Viewport->HitYL; Y++, src+=LockedRect.Pitch )
+				{
+					for( INT X=0; X<Viewport->HitXL; X++ )
+					{
+						if( *((DWORD*)&src[X*3]) != IGNOREPIX )
+							Hit=1;
+						*((DWORD*)&src[X*3]) = HitPixels[X][Y];						
+					}
+				}			
+				break;
+			}
+			case 32:
+			{
+				DWORD* src = (DWORD*) LockedRect.pBits;
+				src = (DWORD*)((BYTE*)src + Viewport->HitX * 4 + Viewport->HitY * LockedRect.Pitch);
+				for( INT Y=0; Y<Viewport->HitYL; Y++, src=(DWORD*)((BYTE*)src + LockedRect.Pitch) )
+				{
+					for( INT X=0; X<Viewport->HitXL; X++ )
+					{						
+						if ( src[X] != IGNOREPIX ) 
+							Hit=1;
+						src[X] = HitPixels[X][Y];						
+					}
+				}
+				break;
+			}		
+		}
+
+		// Unlock the render target, and release our reference to it.
+
+		RenderTarget->UnlockRect();
+		RenderTarget->Release();
+
+		// Handle hit.
+		if( Hit || bForce )
+		{
+			if( HitStack.Num() <= *HitSize )
+			{
+				HitCount = HitStack.Num();
+				appMemcpy( HitData, &HitStack(0), HitCount );
+			}
+			else HitCount = 0;
+		}
+		// Remove the passed info from the working stack.
+		HitStack.Remove( HitStack.Num()-Count, Count );
+	}
+#else
+	void __fastcall UD3DRenderDevice::PushHit( const BYTE* Data, INT Count )
+	{
+	}
+	void __fastcall UD3DRenderDevice::PopHit( INT Count, UBOOL bForce )
+	{
+	}
+#endif //DOHITTEST
+
+	void __fastcall GetStats( TCHAR* Result )
+	{
+		*Result=0;
+		appSprintf
+		(
+			Result,
+			TEXT("total:%.1f (surf=%i, %.1fms) (poly=%i, %.1fms (Queue:%1.fms Render: %.1fms, VertexSetup:%1.fms (Lock:%i %1.fms) DrawPrim:%.1fms) (%i masked)) (tile=%i, %.1fms) (particles=%i, %.1fms (texture changes:%i, succ misses:%i)) (beams=%i, %.1fms) texuploads=%i"),
+			GSecondsPerCycle * 1000 *(Stats.SurfTime+Stats.PolyTime+Stats.TileTime+Stats.ParticleTime+Stats.BeamTime),
+			Stats.Surfs,
+			GSecondsPerCycle * 1000 * Stats.SurfTime,
+			Stats.Polys,
+			GSecondsPerCycle * 1000 * Stats.PolyTime,
+			GSecondsPerCycle * 1000 * Stats.QueueTime,
+			GSecondsPerCycle * 1000 * Stats.D3DVertexRender,
+			GSecondsPerCycle * 1000 * Stats.D3DVertexSetup,
+			Stats.VBLocks,
+			GSecondsPerCycle * 1000 * Stats.D3DVertexLock,
+			GSecondsPerCycle * 1000 * Stats.D3DPolyTime,
+			Stats.MaskedPolys,
+			Stats.Tiles,
+			GSecondsPerCycle * 1000 * Stats.TileTime,
+			Stats.Particles,
+			GSecondsPerCycle * 1000 * Stats.ParticleTime,			
+			Stats.ParticleTextureChanges,
+			Stats.SuccessorMisses,
+			Stats.Beams,
+			GSecondsPerCycle * 1000 * Stats.BeamTime,			
+			Stats.TexUploads
+		);
+
+		for( FPixFormat* Fmt=FirstPixelFormat; Fmt; Fmt=Fmt->Next )
+			appSprintf
+			(
+				Result + appStrlen(Result),
+				TEXT(" Format:%s (Active/Binned Ram:%iK/%iK, textures:%i/%i) sets:%i (uploads:%i, %.1fms)"),
+				Fmt->Desc,
+				Fmt->ActiveRAM/1024,
+				Fmt->BinnedRAM/1024,
+				Fmt->Active,
+				Fmt->Binned,
+				Fmt->Sets,
+				Fmt->Uploads,
+				Fmt->UploadCycles * GSecondsPerCycle * 1000.f
+			);
+	}
+	void __fastcall ClearZ( FSceneNode* Frame )
+	{
+		// Clear only the Z-buffer.
+		Direct3DDevice8->Clear( 0, NULL, D3DCLEAR_ZBUFFER, 0, 1.f, 0 );
+
+	}
+	void __fastcall ReadPixels( FColor* Pixels )
+	{
+		// Create a temporary surface to receive the contents of the front buffer.
+
+		IDirect3DSurface8*	TempScreenBuffer;
+
+		if(FAILED(h=Direct3DDevice8->CreateImageSurface( ViewportX, ViewportY, D3DFMT_A8R8G8B8, &TempScreenBuffer )))
+			appErrorf(TEXT("CreateImageSurface failed: %s"),*D3DError(h));
+
+
+		// Fill the temporary surface with the contents of the front buffer.
+		if(FAILED(h=Direct3DDevice8->GetFrontBuffer( TempScreenBuffer )))
+			appErrorf(TEXT("GetFrontBuffer failed: %s"),*D3DError(h));
+
+		// Lock the temporary surface.
+		D3DLOCKED_RECT	LockedRect;
+		ZeroMemory(&LockedRect,sizeof(LockedRect));
+
+		if(FAILED(h=TempScreenBuffer->LockRect(&LockedRect,NULL,D3DLOCK_READONLY)))
+			appErrorf(TEXT("LockRect failed: %s"),*D3DError(h));
+
+
+		// Compute gamma correction.
+
+		BYTE	GammaCorrect[256];
+		INT		Index;
+
+		if(DeviceCaps8.Caps2 & D3DCAPS2_FULLSCREENGAMMA)
+		{
+			FLOAT Gamma = Viewport->GetOuterUClient()->Gamma;
+			FLOAT Brightness = Viewport->GetOuterUClient()->Brightness;
+			FLOAT Contrast = Viewport->GetOuterUClient()->Contrast;
+
+			for(Index = 0;Index < 256;Index++)
+				GammaCorrect[Index] = Clamp<INT>( appRound( (Contrast+0.5f)*appPow(Index/255.f,1.0f/Gamma)*65535.f + (Brightness-0.5f)*32768.f - Contrast*32768.f + 16384.f ) / 256, 0, 255 );
+		}
+		else
+		{
+			for(Index = 0;Index < 256;Index++)
+				GammaCorrect[Index] = Index;
+		}
+		
+
+		// Copy the contents of the temporary surface to the destination.
+		FColor*	Dest = Pixels;
+		//DWORD*	Src = (DWORD*) LockedRect.pBits;
+		char*	Src = (char*) LockedRect.pBits;
+		INT		X,
+				Y;
+
+		for(Y = 0;Y < ViewportY;Y++)
+		{
+			for(X = 0;X < ViewportX;X++)
+			{
+				GET_COLOR_DWORD(*Dest++) = *((DWORD*) Src);
+				Src += sizeof(DWORD);
+			}
+
+			Src += (LockedRect.Pitch - (ViewportX * sizeof(DWORD)));
+		}
+
+		// Unlock the temporary surface.
+
+		TempScreenBuffer->UnlockRect();
+
+		// Release the temporary surface.
+
+		TempScreenBuffer->Release();
+
+	}
+	void __fastcall UD3DRenderDevice::EndFlash()
+	{
+		if( FlashScale!=FVector(.5f,.5f,.5f) || FlashFog!=FVector(0,0,0) )
+		{
+			// Set up color.
+			FColor		D3DColor = FColor(FPlane(FlashFog.X,FlashFog.Y,FlashFog.Z,Min(FlashScale.X*2.f,1.f)));					
+			D3DCOLOR	Color = D3DCOLOR_RGBA(D3DColor.R, D3DColor.G, D3DColor.B, D3DColor.A);
+
+			// Initialize vertex array
+			FD3DScreenVertex	Vertices[4];
+
+			Vertices[0].Position.X = 0;
+			Vertices[0].Position.Y = 0;
+			Vertices[0].Position.W = 0.5f;
+			Vertices[0].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43 * 0.5f;
+			GET_COLOR_DWORD(Vertices[0].Color) = Color;
+
+			Vertices[1].Position.X = 0;
+			Vertices[1].Position.Y = Viewport->SizeY;
+			Vertices[1].Position.W = 0.5f;
+			Vertices[1].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43 * 0.5f;
+			GET_COLOR_DWORD(Vertices[1].Color) = Color;
+
+			Vertices[2].Position.X = Viewport->SizeX;
+			Vertices[2].Position.Y = Viewport->SizeY;
+			Vertices[2].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43 * 0.5f;
+			Vertices[2].Position.W = 0.5f;
+			GET_COLOR_DWORD(Vertices[2].Color) = Color;
+
+			Vertices[3].Position.X = Viewport->SizeX;
+			Vertices[3].Position.Y = 0;
+			Vertices[3].Position.W = 0.5f;
+			Vertices[3].Position.Z = ProjectionMatrix._33 + ProjectionMatrix._43 * 0.5f;
+			GET_COLOR_DWORD(Vertices[3].Color) = Color;			
+
+			
+			// Draw it.
+			SetBlending( PF_Translucent|PF_NoOcclude|PF_TwoSided );
+			Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
+			Direct3DDevice8->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_ONE );			
+			Direct3DDevice8->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_SRCALPHA );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_DISABLE ); // v 0.4
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG2 );
+			Direct3DDevice8->SetRenderState( D3DRS_ZFUNC, D3DCMP_ALWAYS );
+
+			Direct3DDevice8->SetVertexShader( FD3DScreenVertex::FVF );
+			Direct3DDevice8->DrawPrimitiveUP( D3DPT_TRIANGLEFAN, 2, Vertices, sizeof(FD3DScreenVertex) );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP, D3DTOP_MODULATE );
+			Direct3DDevice8->SetRenderState( D3DRS_ZFUNC, D3DCMP_LESSEQUAL );
+			SetBlending( 0 );
+		}
+	}
+
+	void __fastcall SetZBias(float NewZBias=0.f)
+	{
+		if(ZBias!=NewZBias)
+		{
+			ZBias=NewZBias;
+			Direct3DDevice8->SetRenderState( D3DRS_ZBIAS,ZBias);
+		}
+	}
+	void __fastcall SetBlending( DWORD PolyFlags=0, DWORD PolyFlagsEx=0 )
+	{
+
+		// Adjust PolyFlags according to Unreal's precedence rules.
+		// Allows gouraud-polygonal fog only if specular is supported (1-pass fogging).
+		if( (PolyFlags & (PF_RenderFog|PF_Translucent|PF_Modulated))!=PF_RenderFog || !UseVertexSpecular )
+			PolyFlags &= ~PF_RenderFog;
+
+		if( (!(PolyFlags & (PF_Translucent|PF_Modulated))||(PolyFlagsEx & PFX_AlphaMap)) )
+			PolyFlags |= PF_Occlude;
+		else if( PolyFlags & PF_Translucent )
+			PolyFlags &= ~PF_Masked;
+
+		// Detect changes in the blending modes.
+		DWORD Xor   = CurrentPolyFlags   ^ PolyFlags;
+		DWORD XorEx = CurrentPolyFlagsEx ^ PolyFlagsEx;
+
+		// Adjust Cull Mode based on 'two sided flag*
+		if(Xor&PF_TwoSided)
+		{
+			Direct3DDevice8->SetRenderState( D3DRS_CULLMODE,(PolyFlags&PF_TwoSided)?D3DCULL_NONE:D3DCULL_CCW);
+		}
+
+		if(XorEx&PFX_Clip)
+		{
+			Direct3DDevice8->SetRenderState( D3DRS_CLIPPING, (bool)(PolyFlagsEx&PFX_Clip));
+		}
+
+		if( (Xor  & (PF_Translucent|PF_Modulated|PF_Invisible|PF_Occlude|PF_Masked|PF_Highlighted|PF_NoSmooth|PF_RenderFog|PF_Memorized|PF_Selected)) 
+		  ||(XorEx& (PFX_AlphaMap)))
+		{
+			if( Xor&(PF_Invisible|PF_Translucent|PF_Modulated|PF_Highlighted) || (XorEx&PFX_AlphaMap))
+			{
+				if ((XorEx & PFX_AlphaMap) && (!(PolyFlagsEx & PFX_AlphaMap)))
+				{
+					if (UseTrilinear)
+						Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MIPFILTER , D3DTEXF_LINEAR );
+					else
+						Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MIPFILTER , D3DTEXF_POINT  );
+					
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHAREF, 127);
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHATESTENABLE, FALSE );
+				}
+
+				if( !(PolyFlags & (PF_Invisible|PF_Translucent|PF_Modulated|PF_Highlighted)) && !(PolyFlagsEx & PFX_AlphaMap))
+				{
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, FALSE );
+				}
+				else if( PolyFlags & PF_Invisible )
+				{
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
+					Direct3DDevice8->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_ZERO );
+					Direct3DDevice8->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_ONE );
+				}
+				else if( PolyFlags & PF_Translucent )
+				{
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
+					Direct3DDevice8->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_ONE );
+					Direct3DDevice8->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCCOLOR );
+				}
+				else if( PolyFlags & PF_Modulated )
+				{
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
+					Direct3DDevice8->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_DESTCOLOR );
+					Direct3DDevice8->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_SRCCOLOR );
+				}
+				else if( PolyFlags & PF_Highlighted )
+				{
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
+					Direct3DDevice8->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_ONE );
+					Direct3DDevice8->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
+				}
+				else if( PolyFlagsEx & PFX_AlphaMap )
+				{
+					//debugf(_T("**Turning alphamap on."));
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE);
+					Direct3DDevice8->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+					Direct3DDevice8->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHAREF, 8);
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHAFUNC, D3DCMP_GREATER );
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHATESTENABLE, 1 );
+
+					Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP,   D3DTOP_SELECTARG1);
+					Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+					Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAARG2, D3DTA_DIFFUSE);
+					
+					Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MIPFILTER , D3DTEXF_NONE );
+				}
+			}
+			if( Xor & PF_Invisible )
+			{
+				UBOOL Invisible = ((PolyFlags&PF_Invisible)!=0);
+				Direct3DDevice8->SetRenderState( D3DRS_ALPHABLENDENABLE, Invisible );
+				Direct3DDevice8->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_ZERO );
+				Direct3DDevice8->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_ONE );
+			}
+			if( Xor & PF_Occlude )
+			{
+				Direct3DDevice8->SetRenderState( D3DRS_ZWRITEENABLE, (PolyFlags&PF_Occlude)!=0 );
+			}
+			if( Xor & PF_Masked )
+			{
+				if( PolyFlags&PF_Masked )
+				{
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHAREF, 127 );
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHAFUNC, D3DCMP_GREATER );
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHATESTENABLE, 1 );
+				}
+				else
+				{
+					Direct3DDevice8->SetRenderState( D3DRS_ALPHATESTENABLE, 0 );
+				}
+			}
+			if( Xor & PF_NoSmooth )
+			{
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MAGFILTER, (PolyFlags & PF_NoSmooth) ? D3DTEXF_POINT : D3DTEXF_LINEAR );
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MINFILTER, (PolyFlags & PF_NoSmooth) ? D3DTEXF_POINT : D3DTEXF_LINEAR );
+			}
+			if( Xor & PF_RenderFog )
+			{
+				Direct3DDevice8->SetRenderState( D3DRS_SPECULARENABLE, (PolyFlags&PF_RenderFog)!=0 );
+			}
+			if( (Xor & PF_Memorized) || (Xor & PF_Selected) )
+			{
+				if( PolyFlags&PF_Memorized )
+				{
+					// Lightmap
+					Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP, D3DTOP_MODULATE );
+					Direct3DDevice8->SetTextureStageState( 1, D3DTSS_ALPHAOP, D3DTOP_SELECTARG2 );
+				}
+				else
+				if( PolyFlags&PF_Selected )
+				{
+					// Alphamap
+					Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP, D3DTOP_SELECTARG2 );
+					Direct3DDevice8->SetTextureStageState( 1, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1 );
+				}
+				else
+				{
+					Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP, D3DTOP_DISABLE );
+					Direct3DDevice8->SetTextureStageState( 1, D3DTSS_ALPHAOP, D3DTOP_DISABLE );
+				}
+			}
+		}
+
+		CurrentPolyFlags  =PolyFlags;
+		CurrentPolyFlagsEx=PolyFlagsEx;
+	}
+	void __fastcall SetTextureNULL( DWORD dwStage )
+	{
+		Direct3DDevice8->SetTexture( dwStage, NULL );
+		Stages[dwStage] = &NoTexture;
+	}
+
+	void __fastcall ReleaseOldestTexture()
+	{
+		if(!CachedTextures) return;
+
+		INT Threshold=CachedTextures->Filler->PixelFormat->ActiveRAMPeak+1024*1024*3;
+		if(Threshold<7*1024*1024) Threshold=7*1024*1024;
+
+		while(CachedTextures && (CachedTextures->Filler->PixelFormat->BinnedRAM>Threshold))
+		{
+			FTexInfo *LowestFrameCount=NULL;
+			FTexInfo *LowestFrameCountPrevious=NULL;
+			FTexInfo *Previous=NULL;
+			for(FTexInfo *Iterator=CachedTextures;Iterator;Previous=Iterator,Iterator=Iterator->NextTexture)
+			{
+				if(!LowestFrameCount||(Iterator->FrameCounter<=LowestFrameCount->FrameCounter))
+				{
+					// Don't kick out anything that isn't over 60 frames old.
+					if((FrameCounter-Iterator->FrameCounter)>60)
+					{
+						LowestFrameCount=Iterator;
+						LowestFrameCountPrevious=Previous;
+					}
+				}
+			}
+
+			if(!LowestFrameCount) return;
+
+			LowestFrameCount->Filler->PixelFormat->BinnedRAM -= LowestFrameCount->SizeBytes;
+			LowestFrameCount->Filler->PixelFormat->Binned--;
+
+			// Detach myself from the normal list:
+			if(!LowestFrameCountPrevious)
+			{
+				CachedTextures=CachedTextures->NextTexture;
+			} else
+			{
+				LowestFrameCountPrevious->NextTexture=LowestFrameCount->NextTexture;
+			}
+
+			INT	HashIndex = ((7*(DWORD)LowestFrameCount->CacheId+(DWORD)(LowestFrameCount->CacheId>>32))) & (ARRAY_COUNT(TextureHash)-1);
+
+			Previous=NULL;
+			for(Iterator = TextureHash[HashIndex];
+				Iterator && Iterator!=LowestFrameCount;
+				Previous=Iterator,Iterator = Iterator->HashNext)
+				;
+
+			if(Iterator==LowestFrameCount)
+			{
+				if(!Previous)
+				{
+					TextureHash[HashIndex]=TextureHash[HashIndex]->HashNext;
+				} else
+				{
+					Previous->HashNext=LowestFrameCount->HashNext;
+				}
+			}
+
+			if(LowestFrameCount->Texture8)
+				LowestFrameCount->Texture8->Release();
+
+			delete LowestFrameCount;
+
+		}
+	}
+
+	void __fastcall SetTexture( DWORD dwStage, FTextureInfo& Info, DWORD PolyFlags, UBOOL Precache, DWORD PolyFlagsEx=0 )
+	{
+		UBOOL Masking=(PolyFlags&PF_Masked)?TRUE:FALSE;
+		if(Stages[dwStage] && Stages[dwStage]->CacheId == Info.CacheID && Stages[dwStage]->Masking==Masking)
+			return;
+
+		INT	HashIndex = (7 * (DWORD) Info.CacheID + (DWORD) (Info.CacheID >> 32)) & (ARRAY_COUNT(TextureHash) - 1);
+
+
+		for(FTexInfo* TexInfo = TextureHash[HashIndex];
+			TexInfo && !(TexInfo->CacheId == Info.CacheID && TexInfo->Masking==Masking);
+			TexInfo = TexInfo->HashNext)
+			;
+
+		//Info.bRealtimeChanged =0;
+		if(!TexInfo)
+		{
+			if(Use2ndTierTextureCache) ReleaseOldestTexture();
+
+			// Create a new Direct3D texture.
+			TexInfo = new FTexInfo;
+			TexInfo->CacheId = Info.CacheID;
+			TexInfo->Masking=Masking;
+
+			TexInfo->NextTexture = CachedTextures;
+			CachedTextures = TexInfo;
+
+			TexInfo->HashNext = TextureHash[HashIndex];
+			TextureHash[HashIndex] = TexInfo;
+
+			// Get filler object.
+
+			FTexFiller*	Filler = NULL;
+
+			switch(Info.Format)
+			{
+				case TEXF_P8:    Filler = ( !Format1555.Supported || Use32BitTextures )? (FTexFiller*) &Filler8888_P8 : (FTexFiller*) &Filler1555_P8; break;
+				case TEXF_DXT1:  Filler = &FillerDXT1; break;
+				case TEXF_RGBA7: Filler = (!Format1555.Supported || Use32BitTextures ) ? (FTexFiller*) &Filler8888_RGBA7 : (FTexFiller*) &Filler1555_RGBA7; break;
+				case TEXF_RGBA8: Filler = &Filler8888_RGBA8; break;
+				default:
+					appErrorf(TEXT("Unsupported Texture Format"));
+			}
+			
+			TexInfo->Filler = Filler;
+			if(Info.bParametric) 
+			{
+				TexInfo->UseMips=false;
+				Info.NumMips=1;
+			}
+
+			// Calculate the mipmap to use.
+
+			DWORD	FirstMip = 0;
+
+			while(Info.Mips[FirstMip]->USize > (INT) DeviceCaps8.MaxTextureWidth || Info.Mips[FirstMip]->VSize > (INT) DeviceCaps8.MaxTextureHeight)
+				if(++FirstMip >= (DWORD) Info.NumMips)
+					appErrorf(TEXT("D3D Driver: Encountered oversize texture without sufficient mipmaps"));
+
+			DWORD	USize = Info.Mips[FirstMip]->USize,
+					VSize = Info.Mips[FirstMip]->VSize;
+
+			// Setup the texture info.
+			TexInfo->FirstMip = FirstMip;
+			TexInfo->UScale	= 1.f / (USize * (1 << FirstMip) * Info.UScale);
+			TexInfo->VScale	= 1.f / (VSize * (1 << FirstMip) * Info.VScale);
+			TexInfo->UseMips = UseMipmapping && (FirstMip < (DWORD) Info.NumMips - 1);
+
+			// Create the Direct3D texture.
+			if(FAILED(h=Direct3DDevice8->CreateTexture(USize,VSize,Info.NumMips - FirstMip,0,Filler->PixelFormat->Direct3DFormat,
+				/*Info.bParametric?D3DPOOL_DEFAULT:*/D3DPOOL_MANAGED,&TexInfo->Texture8)))
+			{
+				debugf(TEXT("Failed to create Direct3D texture(%ux%u@%s)."),USize,VSize,Filler->PixelFormat->Desc);
+				appErrorf(TEXT("Failed to create Direct3D texture(%ux%u@%s."),USize,VSize,Filler->PixelFormat->Desc);
+			}
+
+			TexInfo->SizeBytes = Info.USize * Info.VSize * TexInfo->Filler->PixelFormat->BitsPerPixel / 8;
+			if(!Info.NumMips) TexInfo->SizeBytes+=TexInfo->SizeBytes/3;		
+
+			TexInfo->Filler->PixelFormat->Binned++;
+			TexInfo->Filler->PixelFormat->BinnedRAM += TexInfo->SizeBytes;
+
+			Info.bRealtimeChanged = 1;
+		}
+
+		// Transfer texture data.
+		if( Info.bRealtimeChanged /*&& Info.bParametric || (Info.Format==TEXF_RGBA7 && GET_COLOR_DWORD(*Info.MaxColor)==0xFFFFFFFF)*/ )
+		{
+			DWORD Cycles=0;
+			clock(Cycles);
+
+			// Get ready for blt.
+			if( SupportsLazyTextures )
+				Info.Load();
+			//debugf(_T("Uploading texture:%s"),Info.Texture->GetFullName());
+			Info.CacheMaxColor();
+			TexInfo->MaxColor = (Format8888.Supported && Use32BitTextures) ? FColor(255,255,255,1) : *Info.MaxColor;
+
+			// Update texture data.
+			TexInfo->Filler->PixelFormat->Uploads++;
+			TexInfo->Filler->BeginUpload( this, TexInfo, Info, PolyFlags );
+			INT	Count = Info.NumMips - TexInfo->FirstMip;
+			for( INT MipIndex=TexInfo->FirstMip, ListIndex=0; ListIndex<Count; ListIndex++,MipIndex++ )
+			{
+				// Lock the mip-level.
+				D3DLOCKED_RECT		LockedRect;
+				D3DSURFACE_DESC		SurfaceDesc;
+				int					BPP = GetFormatBPP(TexInfo->Filler->PixelFormat->Direct3DFormat);
+
+				TexInfo->Texture8->GetLevelDesc(ListIndex,&SurfaceDesc);
+				TexInfo->Texture8->LockRect(ListIndex,&LockedRect,NULL,0);
+				
+				if(Info.Mips[MipIndex]->DataPtr)
+				{
+					if(Info.Format == TEXF_RGBA7)
+					{
+						TexInfo->Filler->UploadMipmap(this,TexInfo,(BYTE*) LockedRect.pBits,LockedRect.Pitch,Info,MipIndex,PolyFlags);
+					} else
+					{
+						for(DWORD u = 0;u < SurfaceDesc.Width;u += Info.Mips[MipIndex]->USize)
+							for(DWORD v = 0;v < SurfaceDesc.Height;v += Info.Mips[MipIndex]->VSize)
+								TexInfo->Filler->UploadMipmap(this,TexInfo,(BYTE*) LockedRect.pBits + u * BPP / 8 + v * LockedRect.Pitch,LockedRect.Pitch,Info,MipIndex,PolyFlags);
+					}
+				}
+
+				// Unlock the mip-level.
+				TexInfo->Texture8->UnlockRect(ListIndex);
+			}
+			Stats.TexUploads++;
+
+			// Unload texture.
+			Info.bRealtimeChanged = 0;
+			
+			//if(!Info.bParametric) Info.Unload();	// NJS: Reenable when fragmentation is fixed.
+			unclock(Cycles);
+			TexInfo->Filler->PixelFormat->UploadCycles += Cycles;
+		}
+		
+		if( Precache )
+		{
+			Stages[dwStage] = TexInfo;
+			return;
+		}
+		// Update texture info.
+
+		if(TexInfo->FrameCounter != FrameCounter)
+		{
+			TexInfo->Filler->PixelFormat->Active++;
+			TexInfo->Filler->PixelFormat->ActiveRAM += TexInfo->SizeBytes;
+		}
+
+		TexInfo->FrameCounter = FrameCounter;
+		TexInfo->Filler->PixelFormat->Sets++;
+
+		// Set Direct3D state.
+		Direct3DDevice8->SetTexture(dwStage,TexInfo->Texture8);
+
+		if(!Stages[dwStage] || TexInfo->UseMips != Stages[dwStage]->UseMips)
+			Direct3DDevice8->SetTextureStageState(dwStage,D3DTSS_MIPFILTER,TexInfo->UseMips == 0 ? D3DTEXF_NONE : UseTrilinear ? D3DTEXF_LINEAR : D3DTEXF_POINT);
+		
+		Stages[dwStage] = TexInfo;
+	}
+
+	void RecognizePixelFormat( FPixFormat& Dest, const D3DFORMAT Direct3DFormat, const TCHAR* InDesc )
+	{
+		Dest.Init();
+		Dest.Supported = 1;
+		Dest.Direct3DFormat  = Direct3DFormat;
+		Dest.Desc		     = InDesc;
+		Dest.BitsPerPixel	 = GetFormatBPP(Direct3DFormat);
+		Dest.Next            = FirstPixelFormat;
+		FirstPixelFormat     = &Dest;
+		debugf(_T("Pixel format:%s supported"),InDesc);
+	}
+
+	UBOOL __fastcall SetRes( INT NewX, INT NewY, INT NewColorBytes, UBOOL Fullscreen )
+	{
+		UBOOL LocalUse3dfx = Use3dfx;
+		DescFlags=0;
+		Description=TEXT("");
+	Retry:
+
+		// If D3D already inited, uninit it now.
+		UnSetRes(NULL,0);
+
+		if(!Direct3D8||!Direct3DDevice8)
+		{
+			// Create the Direct3D object.
+			Direct3D8=Direct3DCreate8(D3D_SDK_VERSION);
+
+			if(!Direct3D8)
+				return UnSetRes(TEXT("Direct3DCreate8"),0);
+
+			// Enumerate Direct3D adapters.
+			INT	NumAdapters = Direct3D8->GetAdapterCount();
+
+			Adapters.Empty(NumAdapters);
+
+			debugf(NAME_Init,TEXT("Direct3D adapters detected:"));
+
+			for(INT Index=0;Index<NumAdapters;Index++)
+			{
+				D3DADAPTER_IDENTIFIER8 AdapterIdentifier;
+
+				if(FAILED(h=Direct3D8->GetAdapterIdentifier(Index,D3DENUM_NO_WHQL_LEVEL,&AdapterIdentifier)))
+					return UnSetRes(TEXT("GetAdapterIdentifier"),h);
+
+				debugf(TEXT("Adaptor Detected: %s/%s"),appFromAnsi(AdapterIdentifier.Driver),appFromAnsi(AdapterIdentifier.Description));
+				Adapters.AddItem(AdapterIdentifier);
+			}
+
+			if(!Adapters.Num())
+				return UnSetRes(TEXT("No Direct3D adapters found"),0);
+
+		}
+
+		// Find best Direct3D adapter.
+		INT	BestAdapter = 0;
+
+		for(INT Index = 0;Index < Adapters.Num();Index++)
+			if((LocalUse3dfx && !appStrstr(appFromAnsi(Adapters(Index).Description),TEXT("Primary"))) || (!LocalUse3dfx && appStrstr(appFromAnsi(Adapters(Index).Description),TEXT("Primary"))))
+				BestAdapter = Index;
+
+		// Get the Direct3D caps for the best adapter.
+		if(FAILED(h=Direct3D8->GetDeviceCaps(BestAdapter,D3DDEVTYPE_HAL,&DeviceCaps8)))
+			return UnSetRes(TEXT("GetDeviceCaps"),h);
+
+		// Check device caps.
+		if(!(DeviceCaps8.Caps2 & D3DCAPS2_CANRENDERWINDOWED))
+		{
+			debugf(NAME_Init,TEXT("D3D Device: Fullscreen only"));
+			FullscreenOnly = 1;
+			if( Viewport && !Fullscreen )
+				return UnSetRes(TEXT("Can't render to window"),h);
+		}
+
+
+		// Get device identifier.
+		// szDriver, szDescription aren't guaranteed consistent (might change by mfgr, distrubutor, language, etc). Don't do any compares on these.
+		// liDriverVersion is safe to do QWORD comparisons on.
+		// User has changed drivers/cards iff guidDeviceIdentifier changes.
+
+		DeviceIdentifier = Adapters(BestAdapter);
+
+		debugf(NAME_Init,TEXT("Unreal Warfare Direct3D support - internal update 0.7h"));
+		debugf(NAME_Init,TEXT("D3D Device: szDriver=%s"),      appFromAnsi(DeviceIdentifier.Driver));
+		debugf(NAME_Init,TEXT("D3D Device: szDescription=%s"), appFromAnsi(DeviceIdentifier.Description));
+		debugf(NAME_Init,TEXT("D3D Device: wProduct=%i"),      wProduct=HIWORD(DeviceIdentifier.DriverVersion.HighPart));
+		debugf(NAME_Init,TEXT("D3D Device: wVersion=%i"),      wVersion=LOWORD(DeviceIdentifier.DriverVersion.HighPart));
+		debugf(NAME_Init,TEXT("D3D Device: wSubVersion=%i"),   wSubVersion=HIWORD(DeviceIdentifier.DriverVersion.LowPart));
+		debugf(NAME_Init,TEXT("D3D Device: wBuild=%i"),        wBuild=LOWORD(DeviceIdentifier.DriverVersion.LowPart));
+		debugf(NAME_Init,TEXT("D3D Device: dwVendorId=%i"),    DeviceIdentifier.VendorId);
+		debugf(NAME_Init,TEXT("D3D Device: dwDeviceId=%i"),    DeviceIdentifier.DeviceId);
+		debugf(NAME_Init,TEXT("D3D Device: dwSubSysId=%i"),    DeviceIdentifier.SubSysId);
+		debugf(NAME_Init,TEXT("D3D Device: dwRevision=%i"),    DeviceIdentifier.Revision);
+		Description = appFromAnsi(DeviceIdentifier.Description);
+
+		// Enumerate device display modes.
+		{
+			DisplayModes.Empty(Direct3D8->GetAdapterModeCount(BestAdapter));
+
+			for(DWORD Index = 0;Index < Direct3D8->GetAdapterModeCount(BestAdapter);Index++)
+			{
+				D3DDISPLAYMODE	DisplayMode;
+				Direct3D8->EnumAdapterModes(BestAdapter,Index,&DisplayMode);
+				DisplayModes.AddItem(DisplayMode);
+			}
+		}
+
+		// Exit if just testing.
+
+		if(Viewport == NULL)
+		{
+			UBOOL	A=0,
+					C=0;
+
+			dwVendorId = DeviceIdentifier.VendorId;
+			dwDeviceId = DeviceIdentifier.DeviceId;
+
+			for(TArray<D3DDISPLAYMODE>::TIterator DisplayModeIt(DisplayModes);DisplayModeIt;++DisplayModeIt)
+				A = A || GetFormatBPP(DisplayModeIt->Format) >= 24;
+
+			C += (DeviceCaps8.MaxSimultaneousTextures >= 2);
+
+			if(A && C && DeviceIdentifier.VendorId != 4634)	// Don't certify 3dfx cards.
+				DescFlags |= RDDESCF_Certified;
+
+			if((DeviceIdentifier.VendorId == 4318 && DeviceIdentifier.DeviceId <  40)			// NVidia TNT1=32, TNT2  = 40-255 GeForce=256-259 
+			|| (DeviceIdentifier.VendorId == 4634 && DeviceIdentifier.DeviceId <= 1))			// 3dfx Voodoo1
+				DescFlags |= RDDESCF_LowDetailWorld|RDDESCF_LowDetailSkins;
+			else if(DeviceIdentifier.VendorId == 4318 && DeviceIdentifier.DeviceId <= 255)		// Any NVidia pre-GeForce card.
+				DescFlags |= RDDESCF_LowDetailSkins;
+
+			SaveConfig();
+
+			if(DeviceIdentifier.VendorId == 4634)
+				GConfig->SetString(TEXT("GlideDrv.GlideRenderDevice"),TEXT("DescFlags"),*FString::Printf(TEXT("%i"),DescFlags|RDDESCF_Certified));
+
+			UnSetRes(TEXT("Successfully tested Direct3D presence"),0);
+
+			if(!LocalUse3dfx)
+			{
+				LocalUse3dfx = 1;
+				goto Retry;
+			}
+
+			return 1;
+		}
+
+		// Remember parameters.
+
+		ViewporthWnd       = (HWND)Viewport->GetWindow();
+		ViewportX          = Min( NewX, MaxResWidth  );
+		ViewportY          = Min( NewY, MaxResHeight );
+		ViewportFullscreen = Fullscreen;
+		ViewportColorBits  = NewColorBytes * 8;
+
+		// See if the window is full screen.
+
+		D3DFORMAT	AdapterFormat;
+
+		if(ViewportFullscreen)
+		{
+			if(DisplayModes.Num()==0 )
+				return UnSetRes(TEXT("No fullscreen display modes found"),0);
+
+			// Find matching display mode.
+
+
+			INT	BestMode = 0,
+				BestError = MAXINT;
+
+			for(INT Index = 0;Index < DisplayModes.Num();Index++)
+			{
+				INT ThisError
+				=	Abs((INT)DisplayModes(Index).Width -(INT)ViewportX)
+				+	Abs((INT)DisplayModes(Index).Height-(INT)ViewportY)
+				+	Abs((INT)GetFormatBPP(DisplayModes(Index).Format)-(INT)ViewportColorBits);
+
+				if(ThisError < BestError && (GetFormatBPP(DisplayModes(Index).Format)==16 || GetFormatBPP(DisplayModes(Index).Format)==24 || GetFormatBPP(DisplayModes(Index).Format)==32) && (DisplayModes(Index).Format >= D3DFMT_R8G8B8 && DisplayModes(Index).Format <= D3DFMT_X4R4G4B4))
+				{
+					BestMode = Index;
+					BestError = ThisError;
+					debugf(NAME_Init,TEXT("Next mode is best match so far:"));
+				}
+				
+				debugf(NAME_Init,TEXT("Enum modes: %ix%ix%i "),(INT)DisplayModes(Index).Width,(INT)DisplayModes(Index).Height,GetFormatBPP(DisplayModes(Index).Format));
+			}
+
+			if(BestError == MAXINT)
+				return UnSetRes(TEXT("No acceptable display modes found"),0);
+
+			ViewportColorBits = GetFormatBPP(DisplayModes(BestMode).Format);
+			ViewportX         = DisplayModes(BestMode).Width;
+			ViewportY         = DisplayModes(BestMode).Height;
+
+			AdapterFormat = DisplayModes(BestMode).Format;
+
+			debugf(NAME_Init,TEXT("Best-match display mode: %ix%ix%i (Error=%i)"),DisplayModes(BestMode).Width,DisplayModes(BestMode).Height,GetFormatBPP(DisplayModes(BestMode).Format),BestError);
+
+		}
+		else
+		{
+
+			D3DDISPLAYMODE	DisplayMode;
+
+			if(FAILED(h=Direct3D8->GetAdapterDisplayMode(BestAdapter,&DisplayMode)))
+				return UnSetRes(TEXT("GetAdapterDisplayMode"),h);
+
+			AdapterFormat = DisplayMode.Format;
+
+		}
+
+		// Setup the presentation parameters.
+		D3DPRESENT_PARAMETERS PresentParms;
+		appMemzero(&PresentParms,sizeof(PresentParms));
+		
+		if(GIsEditor)
+			PresentParms.Flags = D3DPRESENTFLAG_LOCKABLE_BACKBUFFER;
+
+		PresentParms.Windowed						= !ViewportFullscreen;
+		PresentParms.hDeviceWindow					= (HWND)ViewporthWnd;
+		PresentParms.SwapEffect						= ViewportFullscreen ? D3DSWAPEFFECT_DISCARD : D3DSWAPEFFECT_COPY;
+		PresentParms.BackBufferWidth				= Max(ViewportX,1);
+		PresentParms.BackBufferHeight				= Max(ViewportY,1);
+		PresentParms.BackBufferCount				= (ViewportFullscreen ? (UseTripleBuffering ? 3: 2) : 1);
+		PresentParms.EnableAutoDepthStencil			= TRUE;
+		PresentParms.FullScreen_PresentationInterval= ViewportFullscreen ? (UseVSync ? D3DPRESENT_INTERVAL_ONE : D3DPRESENT_INTERVAL_IMMEDIATE) : D3DPRESENT_INTERVAL_DEFAULT;
+		PresentParms.FullScreen_RefreshRateInHz=D3DPRESENT_RATE_DEFAULT;
+
+		//PresentParms.FullScreen_PresentationInterval=D3DPRESENT_INTERVAL_DEFAULT/*D3DPRESENT_INTERVAL_ONE*/ /*D3DPRESENT_INTERVAL_IMMEDIATE*/;
+		//PresentParms.SwapEffect=D3DSWAPEFFECT_COPY;
+
+		// Determine which back buffer format to use.
+		D3DFORMAT	BackBufferFormat = (ViewportColorBits == 32 ? /*D3DFMT_X8R8G8B8*/D3DFMT_A8R8G8B8 : ViewportColorBits == 16 ? D3DFMT_R5G6B5 : D3DFMT_X8R8G8B8);
+
+		while(Direct3D8->CheckDeviceFormat(BestAdapter,D3DDEVTYPE_HAL,AdapterFormat,D3DUSAGE_RENDERTARGET,D3DRTYPE_SURFACE,BackBufferFormat) != D3D_OK)
+		{
+				 if(BackBufferFormat == D3DFMT_A8R8G8B8)	BackBufferFormat = D3DFMT_X8R8G8B8;
+			else if(BackBufferFormat == D3DFMT_X8R8G8B8)	BackBufferFormat = D3DFMT_R5G6B5;
+			else if(BackBufferFormat == D3DFMT_R8G8B8)		BackBufferFormat = D3DFMT_X8R8G8B8;
+			else if(BackBufferFormat == D3DFMT_R5G6B5)		BackBufferFormat = D3DFMT_X1R5G5B5;
+			else return UnSetRes(TEXT("CheckDeviceFormat"),0);
+
+			if(ViewportFullscreen)
+				AdapterFormat = BackBufferFormat;
+		}
+
+		PresentParms.BackBufferFormat = BackBufferFormat;
+
+		debugf(TEXT("Using back-buffer format %u(%u-bit)"),BackBufferFormat,GetFormatBPP(BackBufferFormat));
+
+		// Determine which depth buffer format to use.
+
+		D3DFORMAT	DepthFormat = (ViewportColorBits==32 ? D3DFMT_D32 : D3DFMT_D16);
+
+		// ??
+		if(DeviceIdentifier.VendorId == 4139 && DeviceIdentifier.DeviceId >= 1317)
+			DepthFormat = D3DFMT_D32;
+
+		while(Direct3D8->CheckDeviceFormat(BestAdapter,D3DDEVTYPE_HAL,AdapterFormat,D3DUSAGE_DEPTHSTENCIL,D3DRTYPE_SURFACE,DepthFormat) != D3D_OK ||
+			  Direct3D8->CheckDepthStencilMatch(BestAdapter,D3DDEVTYPE_HAL,AdapterFormat,BackBufferFormat,DepthFormat) != D3D_OK)
+		{
+			     if(DepthFormat == D3DFMT_D32)    DepthFormat = D3DFMT_D24S8;
+			else if(DepthFormat == D3DFMT_D24S8)  DepthFormat = D3DFMT_D16;
+			else if(DepthFormat == D3DFMT_D16)
+				return UnSetRes(TEXT("CheckDepthStencilMatch"),0);
+		}
+
+		debugf(TEXT("Using depth-buffer format %u(%u-bit)"),DepthFormat,GetFormatBPP(DepthFormat));
+
+		PresentParms.AutoDepthStencilFormat = DepthFormat;
+
+
+		if(Direct3DDevice8)
+		{
+			if(FAILED(h=Direct3DDevice8->Reset(&PresentParms)))
+				return UnSetRes(TEXT("Reset"),h);
+		} else
+		{ 
+		   /*
+		    * The code below assumes that pD3D is a valid pointer 
+			* to a IDirect3D8 interface.
+			*/
+
+			for(int i=D3DMULTISAMPLE_NONE;i<=D3DMULTISAMPLE_16_SAMPLES;i++)
+			{
+				
+				if( SUCCEEDED(Direct3D8->CheckDeviceMultiSampleType( BestAdapter, 
+																	 D3DDEVTYPE_HAL , BackBufferFormat, 
+																	 PresentParms.Windowed, (D3DMULTISAMPLE_TYPE)i ) ) )
+				{
+					debugf(_T("%ix Fullscreen Antialiasing supported."),i);
+					MultisampleSupport[i]=TRUE;
+				} else
+					MultisampleSupport[i]=FALSE;
+			}
+			//PresentParms.SwapEffect=D3DSWAPEFFECT_DISCARD;
+			PresentParms.MultiSampleType=D3DMULTISAMPLE_NONE;
+
+			// Create the Direct3D device.
+			if(FAILED(h=Direct3D8->CreateDevice(BestAdapter,D3DDEVTYPE_HAL,ViewporthWnd,D3DCREATE_HARDWARE_VERTEXPROCESSING,&PresentParms,&Direct3DDevice8)))
+			{
+				if(FAILED(h=Direct3D8->CreateDevice(BestAdapter,D3DDEVTYPE_HAL,ViewporthWnd,D3DCREATE_SOFTWARE_VERTEXPROCESSING,&PresentParms,&Direct3DDevice8)))
+					return UnSetRes(TEXT("CreateDevice"),h);
+				else
+				{
+					debugf(_T("Device is using software vertex processing."));
+				}
+			} 
+			else
+			{
+				debugf(_T("Device is using hardware vertex processing."));
+			}
+			/*D3DCREATE_SOFTWARE_VERTEXPROCESSING*/
+			//Direct3DDevice8->SetRenderState(D3DRS_MULTISAMPLEANTIALIAS,TRUE); 
+		}
+
+		// Set viewport.
+		ViewportInfo.X      = 0;
+		ViewportInfo.Y      = 0;
+		ViewportInfo.Width  = ViewportX;
+		ViewportInfo.Height = ViewportY;
+		ViewportInfo.MaxZ   = 1.f;
+		ViewportInfo.MinZ   = 0.f;
+		verify(!FAILED(Direct3DDevice8->SetViewport(&ViewportInfo)));
+		verify(!FAILED(Direct3DDevice8->GetViewport(&ViewportInfo)));
+
+
+		// Check multitexture caps.
+		debugf(NAME_Init,TEXT("D3D Driver: MaxTextureBlendStages=%i"),DeviceCaps8.MaxTextureBlendStages);
+		debugf(NAME_Init,TEXT("D3D Driver: MaxSimultaneousTextures=%i"),DeviceCaps8.MaxSimultaneousTextures);
+
+		// Handle the texture formats we need.
+		{
+			// Zero them all.
+			Format1555.Init();
+			Format8888.Init();
+			FormatDXT1.Init();
+			FormatP8  .Init();
+
+			// Determine which texture formats the device supports by calling CheckDeviceFormat for each supported format.
+			FirstPixelFormat = NULL;
+
+			//if(Use32BitTextures)
+			//{
+			
+				if(!FAILED(Direct3D8->CheckDeviceFormat(BestAdapter,D3DDEVTYPE_HAL,AdapterFormat,0,D3DRTYPE_TEXTURE,D3DFMT_A8R8G8B8)))
+					RecognizePixelFormat(Format8888,D3DFMT_A8R8G8B8,TEXT("A8R8G8B8"));
+			
+			//} else
+			//{
+				
+				if(!FAILED(Direct3D8->CheckDeviceFormat(BestAdapter,D3DDEVTYPE_HAL,AdapterFormat,0,D3DRTYPE_TEXTURE,D3DFMT_A1R5G5B5)))
+				   RecognizePixelFormat(Format1555,D3DFMT_A1R5G5B5,TEXT("A1R5G5B5"));
+				
+			//}
+
+			// NJS: Originally Commented out:
+			//if(!FAILED(Direct3D8->CheckDeviceFormat(BestAdapter,D3DDEVTYPE_HAL,AdapterFormat,0,D3DRTYPE_TEXTURE,D3DFMT_P8)))
+			//	RecognizePixelFormat(FormatP8,D3DFMT_P8,TEXT("P8"));
+/*
+			if(!FAILED(Direct3D8->CheckDeviceFormat(BestAdapter,D3DDEVTYPE_HAL,AdapterFormat,0,D3DRTYPE_TEXTURE,D3DFMT_DXT1)))
+				RecognizePixelFormat(FormatDXT1,D3DFMT_DXT1,TEXT("DXT1"));
+			*/
+		}
+
+		// Hardware-specific initialization and workarounds for driver bugs.
+		UBOOL ConstrainAspect = 1;
+		if( ParseParam(appCmdLine(),TEXT("nodeviceid")) )
+		{
+			debugf(NAME_Init,TEXT("D3D Detected: -nodeviceid specified, 3D device identification skipped"));
+		}
+		else if( DeviceIdentifier.VendorId==4098 )
+		{
+			debugf(NAME_Init,TEXT("D3D Detected: ATI video card"));
+			if( DeviceIdentifier.DeviceId==18242 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: ATI Rage Pro"));
+				//UsePalettes = 0; // Both stages must use same texture format for multitexturing to function.
+			}
+			else if( DeviceIdentifier.DeviceId==21062 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: ATI Rage 128"));
+			}
+		}
+		else if( DeviceIdentifier.VendorId==4634 )
+		{
+			debugf(TEXT("D3D Detected: 3dfx video card"));
+			if( DeviceIdentifier.DeviceId==1 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: 3dfx Voodoo"));
+				MaxResWidth  = 640;
+				MaxResHeight = 480;
+			}
+			else if( DeviceIdentifier.DeviceId==2 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: 3dfx Voodoo2"));
+				MaxResWidth  = 800;
+				MaxResHeight = 600;
+			}
+			else if( DeviceIdentifier.DeviceId==3 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: 3dfx Voodoo Banshee"));
+			}
+			else if( DeviceIdentifier.DeviceId==5 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: 3dfx Voodoo3"));
+			}
+			UseVertexSpecular = 0; // Driver lies about support for this.
+			DeviceCaps8.MaxTextureAspectRatio = 8; // Driver lies in its aspect-ratio caps.
+		}
+		else if( DeviceIdentifier.VendorId==32902 )
+		{
+			debugf(NAME_Init,TEXT("D3D Detected: Intel video card"));
+			if( DeviceIdentifier.DeviceId==30720 )
+			{
+				debugf(TEXT("D3D Detected: Intel i740"));
+			}
+		}
+		else if( DeviceIdentifier.VendorId==4318 )
+		{
+			debugf(NAME_Init,TEXT("D3D Detected: NVidia video card"));
+			if( DeviceIdentifier.DeviceId==32 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: Riva TNT"));
+			}
+			if( DeviceIdentifier.DeviceId==40 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: Riva TNT2"));
+			}
+			if( DeviceIdentifier.DeviceId==41 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: Riva TNT2 Ultra"));
+			}
+			if( DeviceIdentifier.DeviceId==256 )
+			{
+				debugf(NAME_Init,TEXT("D3D Detected: NVidia GeForce256"));
+			}
+			ConstrainAspect = 0;
+		}
+		else if( DeviceIdentifier.VendorId==4139 )
+		{
+			debugf(NAME_Init,TEXT("D3D Detected: Matrox video card"));
+			if( DeviceIdentifier.DeviceId==1313 )
+				debugf(NAME_Init,TEXT("D3D Detected: Matrox G200"));
+			else if( DeviceIdentifier.DeviceId==1317 )
+				debugf(NAME_Init,TEXT("D3D Detected: Matrox G400"));
+			//G400 lies about texture stages, last one is for bump only
+		}
+		else
+		{
+			debugf(NAME_Init,TEXT("D3D Detected: Generic 3D accelerator"));
+		}
+
+		// Verify mipmapping supported.
+		if
+		(	UseMipmapping
+		&&	!(DeviceCaps8.TextureFilterCaps & D3DPTFILTERCAPS_MIPFPOINT)
+		&&	!(DeviceCaps8.TextureFilterCaps & D3DPTFILTERCAPS_MIPFLINEAR))
+		{
+			UseMipmapping = 0;
+			debugf(NAME_Init, TEXT("D3D Driver: Mipmapping not available with this driver"));
+		}
+		else
+		{
+			if( DeviceCaps8.TextureFilterCaps & D3DPTFILTERCAPS_MIPFLINEAR )
+				debugf( NAME_Init, TEXT("D3D Driver: Supports trilinear"));
+			else
+				UseTrilinear = 0;
+		}
+
+		// Check caps.
+		if( DeviceCaps8.ShadeCaps & D3DPSHADECAPS_SPECULARGOURAUDRGB )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports specular gouraud") );
+		else
+			UseVertexSpecular = 0;
+
+		if( DeviceCaps8.TextureOpCaps & D3DTEXOPCAPS_BLENDDIFFUSEALPHA )
+			debugf( NAME_Init, TEXT("D3D Driver: Supports BLENDDIFFUSEALPHA") );
+		else
+			DetailTextures = 0;
+
+
+		if( DeviceCaps8.TextureCaps & D3DPTEXTURECAPS_SQUAREONLY )
+		{
+ 			DeviceCaps8.MaxTextureAspectRatio = 1;
+			debugf( NAME_Init, TEXT("D3D Driver: Requires square textures") );
+		}
+		else if( !DeviceCaps8.MaxTextureAspectRatio )
+			DeviceCaps8.MaxTextureAspectRatio = Max<INT>(1,Max<INT>(DeviceCaps8.MaxTextureWidth,DeviceCaps8.MaxTextureHeight));
+
+		if( !(DeviceCaps8.RasterCaps & D3DPTEXTURECAPS_POW2) )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports non-power-of-2 textures") );
+
+		if( DeviceCaps8.RasterCaps & D3DPRASTERCAPS_MIPMAPLODBIAS )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports LOD biasing") );
+
+		if( DeviceCaps8.RasterCaps & D3DPRASTERCAPS_ZBIAS )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports Z biasing") );
+
+		if( DeviceCaps8.TextureOpCaps & D3DTEXOPCAPS_ADDSIGNED2X )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports D3DTOP_ADDSIGNED2X") );
+
+		if( DeviceCaps8.TextureOpCaps & D3DTEXOPCAPS_BUMPENVMAP )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports D3DTOP_BUMPENVMAP") );
+
+		if( DeviceCaps8.TextureOpCaps & D3DTEXOPCAPS_BUMPENVMAPLUMINANCE )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports D3DTOP_BUMPENVMAPLUMINANCE") );
+
+		if( DeviceCaps8.TextureOpCaps & D3DTEXOPCAPS_DOTPRODUCT3 )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports D3DTOP_DOTPRODUCT3") );
+
+		if( DeviceCaps8.TextureOpCaps & D3DTEXOPCAPS_MODULATEALPHA_ADDCOLOR )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports D3DTOP_MODULATEALPHA_ADDCOLOR") );
+
+		if( DeviceCaps8.TextureOpCaps & D3DTEXOPCAPS_MODULATECOLOR_ADDALPHA )
+ 			debugf( NAME_Init, TEXT("D3D Driver: Supports D3DTOP_MODULATECOLOR_ADDALPHA") ); 
+
+		debugf( NAME_Init, TEXT("D3D Driver: Textures (%ix%i), Max aspect %i"), DeviceCaps8.MaxTextureWidth, DeviceCaps8.MaxTextureHeight, DeviceCaps8.MaxTextureAspectRatio );
+
+		// Depth buffering.
+		Direct3DDevice8->SetRenderState( D3DRS_ZENABLE, TRUE );
+		//if(	DeviceCaps8.RasterCaps & D3DPRASTERCAPS_WBUFFER)
+		//{
+		//	debugf( NAME_Init, TEXT("D3D Driver: Supports w-buffering.") );
+		//	if((DeviceIdentifier.VendorId!=4318 || ViewportColorBits==16) ) // NVidia w-buffering in 32-bit color is borked on Pentium III's.
+		//	{
+		//		Direct3DDevice8->SetRenderState( D3DRS_ZENABLE, D3DZB_USEW );
+		//		debugf( NAME_Init, TEXT("D3D Driver: w-buffering enabled.") );
+		//	} else
+		//		debugf(NAME_Init, TEXT("D3D Driver: w-buffering NOT enabled."));
+		//}
+
+		// Init render states.
+		{
+			Direct3DDevice8->SetRenderState( D3DRS_SHADEMODE, D3DSHADE_GOURAUD );
+			//Direct3DDevice8->SetRenderState( D3DRS_TEXTUREPERSPECTIVE, TRUE ); No corresponding D3D 8 setting?
+			Direct3DDevice8->SetRenderState( D3DRS_SPECULARENABLE, FALSE );
+			Direct3DDevice8->SetRenderState( D3DRS_DITHERENABLE, TRUE );
+			//Direct3DDevice8->SetRenderState( D3DRS_ZBIAS,0);
+			Direct3DDevice8->SetRenderState( D3DRS_ZFUNC,D3DCMP_LESSEQUAL);
+			Direct3DDevice8->SetRenderState( D3DRS_FOGCOLOR, 0 );        
+			Direct3DDevice8->SetRenderState( D3DRS_FOGTABLEMODE, D3DFOG_LINEAR );
+			FLOAT FogStart=0.f, FogEnd = 65535.f;
+			Direct3DDevice8->SetRenderState( D3DRS_FOGSTART, *(DWORD*)&FogStart );
+			Direct3DDevice8->SetRenderState( D3DRS_FOGEND, *(DWORD*)&FogEnd );
+			//SetClipping(FALSE);
+			Direct3DDevice8->SetRenderState( D3DRS_LIGHTING, FALSE );
+			ZBias=-1.f;	// Set ZBias to an invalid state to force it to be reset next time SetZBias is called
+
+
+			D3DMATERIAL8	Material8;
+
+			appMemzero(&Material8,sizeof(Material8));
+
+			Material8.Ambient.r = 1.0f;
+			Material8.Ambient.g = 1.0f;
+			Material8.Ambient.b = 1.0f;
+			Material8.Ambient.a = 1.0f;
+
+			Material8.Diffuse.r = 0.5f;
+			Material8.Diffuse.g = 0.5f;
+			Material8.Diffuse.b = 0.5f;
+			Material8.Diffuse.a = 1.0f;
+
+			Material8.Power = 0.0f;
+
+			Direct3DDevice8->SetMaterial(&Material8);
+
+			Direct3DDevice8->SetRenderState(D3DRS_SHADEMODE,D3DSHADE_GOURAUD);
+			Direct3DDevice8->SetRenderState(D3DRS_EMISSIVEMATERIALSOURCE,D3DMCS_COLOR1);
+			Direct3DDevice8->SetRenderState(D3DRS_DIFFUSEMATERIALSOURCE,D3DMCS_MATERIAL);
+		}
+
+		// Init texture stage state.
+		{
+			// Set stage 0 state.
+			FLOAT LodBias=-0.5f;
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MIPMAPLODBIAS, *(DWORD*)&LodBias );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSU,   D3DTADDRESS_WRAP );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ADDRESSV,   D3DTADDRESS_WRAP );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLORARG1, D3DTA_TEXTURE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLORARG2, D3DTA_DIFFUSE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_COLOROP,   D3DTOP_MODULATE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAARG2, D3DTA_DIFFUSE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_ALPHAOP,   D3DTOP_MODULATE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MAGFILTER, D3DTEXF_LINEAR );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MINFILTER, D3DTEXF_LINEAR );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MIPFILTER, UseMipmapping ? (UseTrilinear ? D3DTEXF_LINEAR : D3DTEXF_POINT) : D3DTEXF_NONE );
+			Direct3DDevice8->SetTextureStageState( 0, D3DTSS_TEXCOORDINDEX, 0 );
+			//if( UseMultitexture )
+			{
+				// Set stage 1 state.
+				FLOAT LodBias=-0.5f;
+				Direct3DDevice8->SetTextureStageState( 0, D3DTSS_MIPMAPLODBIAS, *(DWORD*)&LodBias );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_ADDRESSU,   D3DTADDRESS_WRAP );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_ADDRESSV,   D3DTADDRESS_WRAP );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLORARG1, D3DTA_TEXTURE );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLORARG2, D3DTA_CURRENT );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_COLOROP,   D3DTOP_DISABLE );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_ALPHAARG1, D3DTA_TEXTURE );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_ALPHAARG2, D3DTA_CURRENT );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_ALPHAOP,   D3DTOP_DISABLE );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_MAGFILTER, D3DTEXF_LINEAR );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_MINFILTER, D3DTEXF_LINEAR );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_MIPFILTER, UseMipmapping==0 ? D3DTEXF_NONE : UseTrilinear ? D3DTEXF_LINEAR : D3DTEXF_POINT  );
+				Direct3DDevice8->SetTextureStageState( 1, D3DTSS_TEXCOORDINDEX, 1 );
+			}
+		}
+
+		// Update the viewport.
+
+		verify(Viewport->ResizeViewport( (ViewportFullscreen ? BLIT_Fullscreen : 0) | BLIT_Direct3D, NewX, ViewportY, ViewportColorBits / 8 ));
+		Lock( FColor(0,0,0), 0, 0, FPlane(0,0,0,0), FPlane(0,0,0,0), FPlane(0,0,0,0), LOCKR_ClearScreen, NULL, NULL );
+		Unlock( 1 );
+
+		// Allocate dynamic vertex buffers.
+
+		WorldVertices.Init(Direct3DDevice8);
+		ActorVertices.Init(Direct3DDevice8);
+		LineVertices.Init(Direct3DDevice8);
+		ParticleVertices.Init(Direct3DDevice8);
+		Flush(1);
+		return 1;
+	}
+	UBOOL UnSetRes( const TCHAR* Msg, HRESULT h )
+	{
+		Flush(0);
+		if( Msg )
+			debugf(NAME_Init,TEXT("%s (%s)"),Msg,*D3DError(h));
+		return 0;
+	}
+	D3DCOLOR UpdateModulation( INT& ModulateThings, FPlane& FinalColor, const FPlane& MaxColor )
+	{
+		FinalColor *= MaxColor;
+		return --ModulateThings ? 0xffffffff : (FColor(FinalColor).TrueColor() | 0xff000000);
+	}
+
+	virtual void SetTransform(FCoords& Coords)
+	{
+		WorldMatrix._11 = Coords.XAxis.X;
+		WorldMatrix._12 = Coords.YAxis.X;
+		WorldMatrix._13 = Coords.ZAxis.X;
+		WorldMatrix._14 = 0.0f;
+		WorldMatrix._21 = Coords.XAxis.Y;
+		WorldMatrix._22 = Coords.YAxis.Y;
+		WorldMatrix._23 = Coords.ZAxis.Y;
+		WorldMatrix._24 = 0.0f;
+		WorldMatrix._31 = Coords.XAxis.Z;
+		WorldMatrix._32 = Coords.YAxis.Z;
+		WorldMatrix._33 = Coords.ZAxis.Z;
+		WorldMatrix._34 = 0.0f;
+		WorldMatrix._41 = Coords.XAxis | -Coords.Origin;
+		WorldMatrix._42 = Coords.YAxis | -Coords.Origin;
+		WorldMatrix._43 = Coords.ZAxis | -Coords.Origin;
+		WorldMatrix._44 = 1.0f;
+
+		Direct3DDevice8->SetTransform(D3DTS_WORLDMATRIX(0),&WorldMatrix);
+	}
+
+	virtual void SetTextureTransform( INT Stage, FMatrix* TexMatrix )
+	{
+		TextureTransform[Stage] = *TexMatrix;
+		switch( Stage )
+		{
+		case 0:
+			Direct3DDevice8->SetTransform(D3DTS_TEXTURE0,(D3DMATRIX*)TexMatrix);
+			break;
+		case 1:
+			Direct3DDevice8->SetTransform(D3DTS_TEXTURE1,(D3DMATRIX*)TexMatrix);
+			break;
+		}
+	}
+	void SetDistanceFog(UBOOL Enable)
+	{	
+		if(!UseDistanceFog) return;
+		if(Enable==DistanceFogEnabled) return;
+
+
+		if(Enable)
+		{		
+			// Enable fog.
+			Direct3DDevice8->SetRenderState(D3DRS_FOGENABLE, TRUE);
+			Direct3DDevice8->SetRenderState(D3DRS_RANGEFOGENABLE, TRUE);
+
+			// Set the fog color.
+			Direct3DDevice8->SetRenderState(D3DRS_FOGCOLOR, ((DWORD)(DistanceFogColor.R)<<16) | ((DWORD)(DistanceFogColor.G)<<8) | ((DWORD)(DistanceFogColor.B)));
+
+			// Set fog parameters.
+			Direct3DDevice8->SetRenderState(D3DRS_FOGTABLEMODE, D3DFOG_LINEAR);
+			Direct3DDevice8->SetRenderState(D3DRS_FOGSTART, *(DWORD *)(&DistanceFogBegin));
+			Direct3DDevice8->SetRenderState(D3DRS_FOGEND,   *(DWORD *)(&DistanceFogEnd));
+		}
+		else
+			Direct3DDevice8->SetRenderState(D3DRS_FOGENABLE, FALSE);		
+
+		DistanceFogEnabled=Enable;
+	}
+
+};
+IMPLEMENT_CLASS(UD3DRenderDevice);
+
+/*-----------------------------------------------------------------------------
+	End.
+-----------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+

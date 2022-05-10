@@ -1,0 +1,45 @@
+[Public]
+// Multipurpose Data Specification
+//
+// How to add backgrounds.
+//
+// Copy one of the lines under "Backgrounds" into your own .mds file.  It's probably a good idea to name the .mds file
+// the same name as your custom art package (if you have one).  Make sure your .mds file has a [Public]
+// identifier at the top like this one.
+//
+// Each background line has a set of parameters that specify how DNF will setup and use the background.
+// The "Name" parameter is the internal name of your background, it's used by the system.
+// The "Class" and "Parent" parameters must be "Background."
+// The "Description" parameter is the name that is displayed to users inside the game.
+// Finally "ExtraData" contains the flags that describe your background.
+// Flags:
+//	flag_smack		- Optional. Use this if your background texture is a smackertexture.
+//	flag_layout=WxH	- Required. The first value is the number of tiles across, the second is the number of tiles down.
+//	flag_texture=name	- Required.	You must have W*H of these flags, each one specifying a texture.
+// The background will be rendered in columns, starting at the top left tile and moving down.
+//
+// How to add themes.
+//
+// First, copy the "menutheme1.dtx" to a custom dtx name.  Replace the art inside with your custom art.
+//
+// Copy one of the lines under "Themes" into your .mds file.  You can mix Themes and Backgrounds in the same .mds.
+// The "Name" parameter contains the texture package name that your theme art is located in.
+// The "Class" and "Parent" parameters must be "Theme."
+// The "Description" parameter is the name that is displayed to users inside the game.
+// The "ExtraData" parameter contains the flags that describe your theme.
+// Flags:
+//	flag_colorizable		- Optional.	If true, the theme art pieces will be drawn with the user's current HUD color.
+//	flag_translucenticons	- Optional. If true, the theme's icon art will be drawn with translucency instead of solid.
+//	flag_background=name 	- Required.	Specifies the background that this theme will use.
+// The theme will be drawn using the art in your texture package.
+
+// Themes
+Object=(Name="mtheme_cobaltblue",Class="Theme",Parent="Theme",Description="Cobalt Fusion",ExtraData="flag_background=Blue Noise")
+Object=(Name="mtheme_blackwhite",Class="Theme",Parent="Theme",Description="Custom Color",ExtraData="flag_colorizable,flag_background=White Noise")
+
+// Backgrounds
+Object=(Name="Blue Noise",Class="Background",Parent="Background",Description="Blue Noise",ExtraData="flag_layout=2x2,flag_smack,flag_texture=mtheme_cobaltblue.mback_topleft,flag_texture=mtheme_cobaltblue.mback_botleft,flag_texture=mtheme_cobaltblue.mback_topright,flag_texture=mtheme_cobaltblue.mback_botright")
+Object=(Name="White Noise",Class="Background",Parent="Background",Description="White Noise",ExtraData="flag_layout=2x2,flag_smack,flag_texture=mtheme_blackwhite.mbackbw_topleft,flag_texture=mtheme_blackwhite.mbackbw_botleft,flag_texture=mtheme_blackwhite.mbackbw_topright,flag_texture=mtheme_blackwhite.mbackbw_botright")
+Object=(Name="Black Void",Class="Background",Parent="Background",Description="Black Void",ExtraData="flag_layout=1x1,flag_texture=engine.BlackTexture")
+Object=(Name="DNF Logo",Class="Background",Parent="Background",Description="DNF Logo",ExtraData="flag_layout=4x3,flag_texture=hud_effects.loadscreen1abc,flag_texture=hud_effects.loadscreen2abc,flag_texture=hud_effects.loadscreen3abc,flag_texture=hud_effects.loadscreen1bbc,flag_texture=hud_effects.loadscreen2bbc,flag_texture=hud_effects.loadscreen3bbc,flag_texture=hud_effects.loadscreen1cbc,flag_texture=hud_effects.loadscreen2cbc,flag_texture=hud_effects.loadscreen3cbc,flag_texture=hud_effects.loadscreen1dbc,flag_texture=hud_effects.loadscreen2dbc,flag_texture=hud_effects.loadscreen3dbc")
+Object=(Name="DNF Logo 2",Class="Background",Parent="Background",Description="DNF Logo 2",ExtraData="flag_layout=1x1,flag_texture=keiththeme.templogo")

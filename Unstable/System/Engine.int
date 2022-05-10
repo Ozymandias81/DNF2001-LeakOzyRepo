@@ -1,0 +1,266 @@
+[Language]
+Language=English (International)
+LangId=9
+SubLangId=1
+
+[Public]
+;Object=(Name=Engine.Console,Class=Class,MetaClass=Engine.Console)
+Object=(Name=Engine.ServerCommandlet,Class=Class,MetaClass=Engine.Commandlet)
+Object=(Name=Engine.HelloWorldCommandlet,Class=Class,MetaClass=Engine.Commandlet)
+Object=(Name=Engine.TcpNetDriver,Class=Class,MetaClass=Engine.NetDriver)
+Object=(Name=Engine.UdpBeacon,Class=Class,MetaClass=Engine.Actor)
+Object=(Name=Engine.UpdateServerCommandlet,Class=Class,MetaClass=Engine.Commandlet)
+Object=(Name=Engine.MasterServerCommandlet,Class=Class,MetaClass=Engine.Commandlet)
+Preferences=(Caption="Advanced",Parent="Advanced Options")
+Preferences=(Caption="Game Engine Settings",Parent="Advanced",Class=Engine.GameEngine,Category=Settings,Immediate=True)
+Preferences=(Caption="Key Aliases",Parent="Advanced",Class=Engine.Input,Immediate=True,Category=Aliases)
+Preferences=(Caption="Raw Key Bindings",Parent="Advanced",Class=Engine.Input,Immediate=True,Category=RawKeys)
+Preferences=(Caption="Drivers",Parent="Advanced Options",Class=Engine.Engine,Immediate=False,Category=Drivers)
+Preferences=(Caption="Public Server Information",Parent="Networking",Class=Engine.GameReplicationInfo,Immediate=True)
+Preferences=(Caption="Game Settings",Parent="Advanced Options",Class=Engine.GameInfo,Immediate=True)
+Preferences=(Caption="Advanced",Parent="Advanced Options")
+Preferences=(Caption="File System",Parent="Advanced",Class=Core.System,Immediate=True)
+Preferences=(Caption="Networking",Parent="Advanced Options")
+Preferences=(Caption="TCP/IP Network Play",Parent="Networking",Class=Engine.TcpNetDriver)
+Preferences=(Caption="Server Beacon",Parent="Networking",Class=Engine.UdpBeacon,Immediate=True)
+
+[ServerCommandlet]
+HelpCmd="server"
+HelpOneLiner="Network game server"
+HelpUsage="server map.dnf[?game=gametype] [-option...] [parm=value]..."
+HelpWebLink="http://www.3drealms.com/servertips.htm"
+HelpParm[0]="Log"
+HelpDesc[0]="Specify the log file to generate"
+HelpParm[1]="AllAdmin"
+HelpDesc[1]="Give all players admin privelages"
+
+[UpdateServerCommandlet]
+HelpCmd=updateserver
+HelpOneLiner=Service Duke Nukem Forever auto update requests.
+HelpUsage=updateserver [-option...] [parm=value]
+HelpParm[0]=ConfigFile
+HelpDesc[0]=Configuration file to use.  Default: UpdateServer.ini
+
+[MasterServerCommandlet]
+HelpCmd=masterserver
+HelpOneLiner=Maintain master list of servers.
+HelpUsage=masterserver [-option...] [parm=value]
+HelpParm[0]=ConfigFile
+HelpDesc[0]=Configuration file to use.  Default: MasterServer.ini
+
+[TcpNetDriver]
+ClassCaption="TCP/IP Network Play"
+
+[UdpBeacon]
+ClassCaption="Server LAN Beacon"
+
+[Errors]
+Unknown=Unknown Error
+Aborted=Aborted
+ExportOpen=Error exporting %s: couldn't open file '%s'
+ExportWrite=Error exporting %s: couldn't write file '%s'
+FileNotFound=Can't find file '%s'
+ObjectNotFound=Failed to find object '%s %s.%s'
+PackageNotFound=Can't find file for package '%s'
+PackageResolveFailed=Can't resolve package name
+FilenameToPackage=Can't convert filename '%s' to package name
+Sandbox=Package '%s' is not accessible in this sandbox
+PackageVersion=Package '%s' version mismatch
+FailedLoad=Failed to load '%s': %s
+ConfigNotFound=Can't find '%s' in configuration file
+LoadClassMismatch=%s is not a child class of %s.%s
+NotDll='%s' is not a DLL package; can't find export '%s'
+NotInDll=Can't find '%s' in '%s.dll'
+FailedLoadPackage=Failed loading package: %s
+FailedLoadObject=Failed to load '%s %s.%s': %s
+TransientImport=Transient object imported: %s
+FailedSavePrivate=Can't save %s: Graph is linked to external private object %s
+FailedImportPrivate=Can't import private object %s %s
+FailedCreate=%s %s not found for creation
+FailedImport=Can't find %s in file '%s'
+FailedSaveFile=Error saving file '%s': %s
+SaveWarning=Error saving '%s'
+NotPackaged=Object is not packaged: %s %s
+NotWithin=Object %s %s created in %s instead of %s
+Abstract=Can't create object %s: class %s is abstract
+NoReplace=Can't replace %s with %s
+NoFindImport=Can't find file '%s' for import
+ReadFileFailed=Failed to read file '%s' for import
+SeekFailed=Error seeking file
+OpenFailed=Error opening file
+WriteFailed=Error writing to file
+ReadEof=Read beyond end of file
+IniReadOnly=The file %s is write protected; settings cannot be saved
+UrlFailed=Failed launching URL
+Warning=Warning
+Question=Question
+OutOfMemory=Ran out of virtual memory. To prevent this condition, you must free up more space on your primary hard disk.
+History=History
+Assert=Assertion failed: %s [File:%s] [Line: %i]
+Debug=Debug assertion failed: %s [File:%s] [Line: %i]
+LinkerExists=Linker for '%s' already exists
+BinaryFormat=The file '%s' contains unrecognizable data
+SerialSize=%s: Serial size mismatch: Got %i, Expected %i
+ExportIndex=Bad export index %i/%i
+ImportIndex=Bad import index %i/%i
+Password=Password not recognized
+Exec=Unrecognized command
+BadProperty='%s': Bad or missing property '%s'
+MisingIni=Missing .ini file: %s
+NetOpen=Error opening file
+NetWrite=Error writing to file
+NetRefused=Server refused to send '%s'
+NetClose=Error closing file
+NetSize=File size mismatch
+NetMove=Error moving file
+NetInvalid=Received invalid file request
+NoDownload=Package '%s' is not downloadable
+DownloadFailed=Downloading package '%s' failed: %s
+RequestDenied=Server requested file from pending level: Denied
+ConnectionFailed=Connection failed
+ChAllocate=Couldn't allocate channel
+NetAlready=Already networking
+NetListen=Listen failed: No linker context available
+LoadEntry=Can't load Entry: %s
+InvalidUrl=Invalid URL: %s
+InvalidLink=Invalid Link: %s
+FailedBrowse=Failed to enter %s: %s
+Listen=Listen failed: %s
+AbortToEntry=Failed; returning to Entry
+ServerOpen=Servers can't open network URLs
+ServerListen=Dedicated server can't listen: %s
+Pending=Pending connect to '%s' failed; %s
+LoadPlayerClass=Failed to load player class
+ServerOutdated=Server's version is outdated
+
+[Query]
+OldVersion=The file %s was saved by a previous version which is not backwards compatible with this one.  Reading it will likely fail, and may cause a crash. Do you want to try anyway?
+Name=Name:
+Password=Password:
+PassPrompt=Enter your name and password:
+PassDlg=Identity Check
+Overwrite=The file '%s' needs to be updated.  Do you want to overwrite the existing version?
+
+[Progress]
+Saving=Saving file %s...
+Loading=Loading file %s...
+Closing=Closing
+CancelledConnect=Cancelled Connect Attempt
+RunningNet=%s: %s (%i players)
+NetReceiving=Receiving '%s': %i/%i
+NetReceiveOk=Successfully received '%s'
+NetSend=Sending '%s'
+NetSending=Sending '%s': %i/%i
+Connecting=Connecting...
+Listening=Listening for clients...
+Loading=Loading
+Saving=Saving
+Paused=Paused by %s
+ReceiveFile=Receiving '%s' (F10 Cancels)
+ReceiveSize=Size %iK, Complete %3.1f%%
+ConnectingText=Connecting (F10 Cancels):
+ConnectingURL=unreal://%s/%s
+
+[Console]
+ClassCaption=Standard Duke Nukem Forever Console
+LoadingMessage=LOADING
+SavingMessage=SAVING
+ConnectingMessage=CONNECTING
+PausedMessage=PAUSED
+PrecachingMessage=PRECACHING
+ChatChannel=(CHAT) 
+TeamChannel=(TEAM) 
+
+[General]
+Product=Duke Forever
+Engine=Duke Nukem Forever
+Copyright=Copyright 2000-2001 3D Realms, Inc.
+True=True
+False=False
+None=None
+Yes=Yes
+No=No
+Upgrade=To enter this server, you need the latest free update to Duke Forever available from 3D Realms's Web site:
+UpgradeURL=http://www.3drealms.com/upgrade
+UpgradeQuestion=Do you want to launch your web browser and go to the upgrade page now?
+Version=Version %i
+
+[Menu]
+HelpMessage=
+MenuList=
+LeftString=Left
+RightString=Right
+CenterString=Center
+EnabledString=Enabled
+DisabledString=Disabled
+HelpMessage[1]="This menu has not yet been implemented."
+YesString=yes
+NoString=no
+
+[Inventory]
+PickupMessage=Snagged an item
+M_Activated=" activated"
+M_Selected=" selected"
+M_Deactivated=" deactivated"
+ItemArticle=a
+
+[WarpZoneInfo]
+OtherSideURL=
+
+[GameInfo]
+SwitchLevelMessage=Switching Levels
+DefaultPlayerName=Player
+LeftMessage=" left the game."
+FailedSpawnMessage=Failed to spawn player actor
+FailedPlaceMessage=Could not find starting spot (level might need a 'PlayerStart' actor)
+NameChangedMessage=Name changed to 
+EnteredMessage=" entered the game."
+GameName="Game"
+MaxedOutMessage=Server is already at capacity.
+WrongPassword=The password you entered is incorrect.
+NeedPassword=You need to enter a password to join this game.
+FailedTeamMessage=Could not find team for player
+
+[LevelInfo]
+Title=Untitled
+
+[Weapon]
+MessageNoAmmo=" has no ammo."
+PickupMessage=You got a weapon
+DeathMessage=%o was killed by %k's %w.
+ItemName=Weapon
+DeathMessage[0]=%o was killed by %k's %w.
+DeathMessage[1]=%o was killed by %k's %w.
+DeathMessage[2]=%o was killed by %k's %w.
+DeathMessage[3]=%o was killed by %k's %w.
+
+[Counter]
+CountMessage=Only %i more to go...
+CompleteMessage=Completed!
+
+[Ammo]
+PickupMessage=You picked up some ammo.
+
+[Pickup]
+ExpireMessage=
+
+[SpecialEvent]
+DamageString=
+
+[DamageType]
+Name=killed
+AltName=killed
+
+[PlayerPawn]
+QuickSaveString=Quick Saving
+NoPauseMessage=Game is not pauseable
+ViewingFrom=Now viewing from 
+OwnCamera=own camera
+FailedView=Failed to change view.
+CantChangeNameMsg=You can't change your name during a global logged game.
+
+[Pawn]
+NameArticle=" a "
+
+[Spectator]
+MenuName=Spectator

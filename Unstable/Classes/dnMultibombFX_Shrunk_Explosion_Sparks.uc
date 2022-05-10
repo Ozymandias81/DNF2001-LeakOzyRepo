@@ -1,0 +1,39 @@
+//=============================================================================
+// dnMultibombFX_Shrunk_Explosion_Sparks. 				  June 28th, 2000 - Charlie Wiederhold
+//=============================================================================
+class dnMultibombFX_Shrunk_Explosion_Sparks expands dnMultibombFX_Shrunk;
+
+defaultproperties
+{
+     Enabled=False
+     DestroyWhenEmpty=True
+     SpawnNumber=0
+     SpawnPeriod=0.000000
+     Lifetime=0.750000
+     LifetimeVariance=0.750000
+     InitialVelocity=(Z=384.000000)
+     MaxVelocityVariance=(X=1024.000000,Y=1024.000000,Z=512.000000)
+     LocalFriction=128.000000
+     BounceElasticity=0.100000
+     UseLines=True
+     ConstantLength=True
+     LineStartColor=(R=255,G=255,B=255)
+     LineEndColor=(R=255,G=255,B=255)
+     LineStartWidth=1.500000
+     LineEndWidth=1.500000
+     Textures(0)=Texture't_generic.Sparks.sparkblast3RC'
+     StartDrawScale=8.000000
+     EndDrawScale=24.000000
+     UpdateWhenNotVisible=True
+     TriggerType=SPT_None
+     PulseSeconds=4.000000
+     AlphaVariance=0.250000
+     AlphaEnd=0.000000
+     bBurning=True
+     bHidden=True
+     CollisionRadius=16.000000
+     CollisionHeight=16.000000
+     Style=STY_Translucent
+     bUnlit=True
+     bIgnoreBList=True
+}

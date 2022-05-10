@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: xcore - Win32 Release--------------------
+</h3>
+
+
+Microsoft (R) Program Maintenance Utility   Version 6.00.8168.0
+Copyright (C) Microsoft Corp 1988-1998. All rights reserved.
+
+-------XCORE.DLL BUILD STARTING (RETAIL)--------
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Fodll.obj C:\duke4\xcore\dll.cpp
+dll.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Foerror.obj C:\duke4\xcore\error.cpp
+error.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Fofile.obj C:\duke4\xcore\file.cpp
+file.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Foglobal.obj C:\duke4\xcore\global.cpp
+global.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Folist.obj C:\duke4\xcore\list.cpp
+list.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Foprintf.obj C:\duke4\xcore\printf.cpp
+printf.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Fostat.obj C:\duke4\xcore\stat.cpp
+stat.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Fostream.obj C:\duke4\xcore\stream.cpp
+stream.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Fostring.obj C:\duke4\xcore\string.cpp
+string.cpp
+ "c:\util\ml.exe"  -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -coff -nologo -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -coff -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -Fostuff.obj C:\duke4\xcore\stuff.asm
+ Assembling: C:\duke4\xcore\stuff.asm
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Fowin.obj C:\duke4\xcore\win.cpp
+win.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Fowinfile.obj C:\duke4\xcore\winfile.cpp
+winfile.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Fowinmem.obj C:\duke4\xcore\winmem.cpp
+winmem.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\cl.exe" -Ox  -FAs -W3 -WX -c -D__MSC__ -DWIN32 -D__WIN32__ -nologo -IC:\duke4\core\inc  -IC:\duke4\xcore -DXCORE_LIBRARY -FR -Foxmisc.obj C:\duke4\xcore\xmisc.cpp
+xmisc.cpp
+ "c:\Program Files\Microsoft Visual Studio\VC98\Bin\\link.exe"  -dll -map -subsystem:windows -nodefaultlib -nologo -def:C:\duke4\xcore\xcore.def -base:0x21000000 -out:xcore.dll dll.obj error.obj file.obj global.obj list.obj printf.obj  stat.obj stream.obj string.obj stuff.obj win.obj winfile.obj  winmem.obj xmisc.obj user32.lib gdi32.lib kernel32.lib msvcrt.lib 
+   Creating library xcore.lib and object xcore.exp
+ bscmake.exe -nologo -o xcore.bsc *.sbr
+Installing XCORE.DLL BUILD...
+Copied file "C:\duke4\xcore\obj\xcore.lib" to "C:\duke4\xcore\xcore.lib".
+Copied file "C:\duke4\xcore\obj\xcore.dll" to "C:\duke4\system\xcore.dll".
+Copied file "C:\duke4\xcore\obj\xcore.bsc" to "C:\duke4\xcore\xcore.bsc".
+-------XCORE.DLL BUILD COMPLETE (RETAIL)--------
+
+
+
+<h3>Results</h3>
+xcore.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

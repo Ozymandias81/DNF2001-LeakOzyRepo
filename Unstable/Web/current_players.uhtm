@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="Black" text="Silver" link="33cc66" vlink="33cc66"><table width="100%%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+    <td align="LEFT" valign="TOP">
+<table width="100%%" border="0" cellspacing="0" cellpadding="0"><tr>    <td colspan="3" bgcolor="#226474"><img src="/images/1-1.gif" width=26 height=6 hspace=0 vspace=0 border=0 align="left"><img src="/images/1-2.gif" width=114 height=6 hspace=0 vspace=0 border=0 align="right"></td></tr>
+<tr>    <td width="21" bgcolor="Black"><img src="/images/2-1.gif" width=21 height=19 hspace=0 vspace=0 border=0 align="left"></td>    <td width="100%%" align="LEFT" bgcolor="Black"><font face="Verdana,Arial" color="White" size="-1"><b>
+
+Player List
+
+</b></font><br></td>    <td width="114" align="RIGHT" bgcolor="Black"><img src="/images/2-2.gif" width=114 height=19 hspace=0 vspace=0 border=0 align="right"></td></tr><tr>    <td bgcolor="#226474" colspan="3"><img src="/images/3-1.gif" width=26 height=7 hspace=0 vspace=0 border=0 align="left">
+<img src="/images/3-2.gif" width=114 height=7 hspace=0 vspace=0 border=0 align="right"></td></tr></table><table width="100%%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="26" align="RIGHT" bgcolor="Black"><img vspace="0" hspace="0" src="/images/4-2.gif" width=26 height=26 align="right"></td><td align="LEFT" bgcolor="Black" width="100%%">
+<font face="Verdana,Arial" color="33cc66"><b>
+
+%CurrentGame%
+
+</b>
+</font>
+</td><td width="67" align="LEFT"><img vspace="0" hspace="0" src="/images/4-1.gif" width=67 height=26 align="left"></td><td width="1" align="RIGHT" valign=middle><font face="Verdana,Arial" size="-1" color=white><b>«</b><a href="mailto:%BugAddress%">Bugs?</a><b>»</b></font>
+</td><td width="26" align="RIGHT"><img vspace="0" hspace="0" src="/images/4-2.gif" width=26 height=26 align="right"></td></tr>
+</table>
+<table width="100%%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td rowspan="2" colspan="2"><img vspace="0" hspace="0" src="/images/5-1.gif" width=24 height=21 align="left"></td><td width="100%%" height="9" bgcolor="#226474"><img vspace="0" hspace="0" src="/images/1.gif" width=1 height=1></td>
+<td rowspan="2" colspan="2"><img vspace="0" hspace="0" src="/images/5-2.gif" width=25 height=21 align="right"></td></tr>
+<tr>
+<td width="100%%" height="12" bgcolor="#135565"><img vspace="0" hspace="0" src="/images/1.gif" width=1 height=1></td></tr>
+<tr>
+<td width="9" bgcolor="#226474"><img vspace="0" hspace="0" src="/images/1.gif" width=1 height=1></td><td width="15" bgcolor="#135565"><img vspace="0" hspace="0" src="/images/1.gif" width=1 height=1></td><td width="100%%" bgcolor="#135565"><a name="PQN41556"></a>
+<font face="Verdana,Arial" color="White">
+
+
+<form method="post" action="%PostAction%">
+  <input type="hidden" name="Sort" value="%Sort%">
+  <table width="400" border="0">
+    <tr> 
+      <td width="1%%">
+        <input type="submit" name="Refresh" value="Refresh">
+      </td>
+       <td align="right">
+        <div align="right">Minimum&nbsp;players:&nbsp;&nbsp;
+          <input type="text" name="MinPlayers" size="2" maxlength="2" value="%MinPlayers%">
+          <input type="submit" name="SetMinPlayers" value="Set">
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table width="400" border="0">
+    <tr> 
+      <td width="1%%">Kick</td>
+      <td width="1%%">BanIP</td>
+      <td><a href="%PostAction%?Sort=Name" target="_self">Name:</a></td>
+      <td width="1%%"><a href="%PostAction%?Sort=Team" target="_self">Team:</a></td>
+      <td width="1%%"><a href="%PostAction%?Sort=Ping" target="_self">Ping:</a></td>
+      <td width="1%%"><a href="%PostAction%?Sort=Score" target="_self">Score:</a></td>
+      <td width="1%%">IP:</td>
+    </tr>
+%PlayerList%
+  </table>
+  <input type="submit" name="Kick" value="Kick / Ban">
+</form>
+</font>
+<p></td><td width="16" bgcolor="#135565"><img vspace="0" hspace="0" src="/images/1.gif" width=16 height=1></td><td width="9"bgcolor="#226474"><img vspace="0" hspace="0" src="/images/1.gif" width=9 height=1></td></tr>
+<tr>
+<td rowspan="2" colspan="2"><img vspace="0" hspace="0" src="/images/6-1.gif" width=24 height=23 align="left"></td>
+<td width="100%%" height="13" bgcolor="#135565"><img vspace="0" hspace="0" src="/images/1.gif" width=1 height=1></td>
+<td rowspan="2" colspan="2"><img vspace="0" hspace="0" src="/images/6-2.gif" width=25 height=23 align="right"></td></tr>
+<tr>
+<td width="100%%" height="10" bgcolor="#226474"><img vspace="0" hspace="0" src="/images/1.gif" width=1 height=1></td></tr>
+</table>
+<table width="100%%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign=bottom bgcolor="#226474" ><img vspace="0" hspace="0" src="/images/7-1.gif" width=25 height=18 align="left"></td><td bgcolor="#226474" width="100%%" valign=top> </td>
+<td valign=bottom bgcolor="#226474" ><img vspace="0" hspace="0" src="/images/7-2.gif" width=25 height=18 align="right"></td>
+<td height="18" valign="TOP">
+<FONT face='Verdana, Arial, Helvetica' size='-1'>Thanks&nbsp;to&nbsp;<a href="http://www.planetunreal.com/modcentral/ut" target=_top>Mod&nbsp;Central</a>&nbsp;for&nbsp;this&nbsp;design
+</tt></td><td align="RIGHT" valign=top><img vspace="0" hspace="0" src="/images/7-3.gif" width=46 height=18 align="right"></td></tr>
+</table>
+		</td>
+		<td width="20"><img src="images/1.gif" width=1 height=1 hspace=0 vspace=0 border=0 alt=""></td>
+		
+	</tr>
+	</table>
+</body>
+</html>

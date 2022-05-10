@@ -1,0 +1,8 @@
+[public]
+Object=(Name="dmMaps1",Class=MapList,Parent=dnGame.dnDeathmatchGame,Description="Deathmatch Maps 1" )
+Object=(Name="dmMaps2",Class=MapList,Parent=dnGame.dnDeathmatchGame,Description="Deathmatch Maps 2" )
+
+Object=(Name=DM-EDFTrainingGrounds.dnf, Class=Map, Parent="dmMaps1" )
+Object=(Name=DM-FutureThrill.dnf,       Class=Map, Parent="dmMaps1" )
+
+Object=(Name=DM-FullHouse.dnf,          Class=Map, Parent="dmMaps2" )
