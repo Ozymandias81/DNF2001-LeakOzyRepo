@@ -1060,7 +1060,7 @@ void UCanvas::execCreateTTFont( FFrame& Stack, RESULT_DECL )
 	INT MetricError = GetTextMetricsA( DC, &tm );
 	if (MetricError == 0)
 		GWarn->Logf( TEXT("Failed to get text metrics: %s [%s]"), appGetSystemErrorMessage(), *FontKey );
-	//NewFont->CharactersPerPage = (256*256)/(tm.tmHeight * tm.tmMaxCharWidth);
+	NewFont->CharactersPerPage = (256*256)/(tm.tmHeight * tm.tmMaxCharWidth);
 	DeleteDC(DC);
 
 //	GWarn->Logf( TEXT("Metrics for %s"), *FontKey );

@@ -1,10 +1,10 @@
-Log: Log file open, 05/10/22 23:31:03
+Log: Log file open, 05/11/22 19:08:26
 Init: Name subsystem initialized
 Init: Detected: Microsoft Windows NT 6.1 (Build: 7601)
 Init: Version: 400
 Init: Compiled: Aug 21 2001 18:27:31
 Init: Command line: 
-Init: Base directory: D:\Games\DF2001\August 21\System\
+Init: Base directory: C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstable\System\
 Init: Character set: Unicode
 Init: Profile: Duke
 Log: Bound to Engine.dll
@@ -13,7 +13,7 @@ Init: Computer: VIRJPC
 Init: User: virj
 Init: Memory total: Phys=4194303K Pagef=4194303K Virt=2097024K
 Init: Working set: 32000 / 159000
-Init: CPU Speed=3515.818370 MHz
+Init: CPU Speed=3515.886150 MHz
 Init: CPU Page size=4096, Processors=6
 Init: CPU Detected: Unknown processor (AuthenticAMD)
 Init: CPU Features: CMov FPU RDTSC PAE MMX KNI
@@ -96,7 +96,7 @@ Log: EndLoadMap
 Log: LoadMap NumPreloads: 11164
 Log: LoadMap PreloadSize: 822064
 Log: LoadMap TexturePreloadSize: 279085
-Log: LoadMap SerializeTime: 0.251013
+Log: LoadMap SerializeTime: 0.263132
 Log: Setting Actor Collision.
 Log: Entered SetActorCollision.
 Log: Entering Actor collision loop 1.
@@ -116,8 +116,8 @@ Log: Bound to Galaxy.dll
 Init: Galaxy is using DirectSound
 Init: Galaxy initialized
 Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
-Log: DnExec: Seconds: 2424.769887 CrossfadeStart:2424.769886
-Log: LoadMap TotalTime: 0.317576
+Log: DnExec: Seconds: 11367.065675 CrossfadeStart:11367.065674
+Log: LoadMap TotalTime: 0.316280
 Log: Browse: Entry.dnf?Name=Duke Nukem?Class=dnGame.DukePlayer?team=0
 Log: LoadMap: Entry.dnf?Name=Duke Nukem?Class=dnGame.DukePlayer?team=0
 Log: EndLoadMap
@@ -134,8 +134,8 @@ Log: Init the game info.
 Log: Listen for clients.
 DevAudio: Galaxy SetViewport: NULL
 Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
-Log: DnExec: Seconds: 2424.772761 CrossfadeStart:2424.772761
-Log: LoadMap TotalTime: 0.002475
+Log: DnExec: Seconds: 11367.068541 CrossfadeStart:11367.068541
+Log: LoadMap TotalTime: 0.002459
 Warning: Property bDarkenModulate of Class Engine.Texture not found
 Warning: Skipping 0 bytes of type 3
 Warning: Property bDarkenModulate of Class Engine.Texture not found
@@ -151,7 +151,7 @@ ScriptLog: Console: Copyright 2000-2001 3D Realms, Inc.
 ScriptLog: Console:  
 ScriptLog: Console:  
 Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
-Log: DnExec: Seconds: 2425.015914 CrossfadeStart:2425.015914
+Log: DnExec: Seconds: 11367.320172 CrossfadeStart:11367.320172
 ScriptLog: GameInfo::Login: Duke Nukem
 Init: Input system initialized for WindowsViewport0
 Log: Trying D3DDrv.D3DRenderDevice
@@ -159,8 +159,7 @@ Log: Bound to D3DDrv.dll
 Init: Direct3D adapters detected:
 Log: Adaptor Detected: nvd3dum.dll/NVIDIA GeForce GT 1030
 Init: DukeForever Direct3D support initializing.
-Log: SetRes(NewX=800,NewY=600,NewColorBytes=4,Fullscreen1) (this:0a3d0000);
-Init: Best-match display mode: 800x600x32 (Error=0)
+Log: SetRes(NewX=800,NewY=600,NewColorBytes=4,Fullscreen0) (this:08ab0000);
 Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
 Log: Using depth-buffer format 75(32-bit)
 Init: D3D Driver: Supports trilinear
@@ -168,7 +167,7 @@ Init: D3D Driver: Supports specular gouraud
 Init: D3D Driver: Supports BLENDDIFFUSEALPHA
 DevAudio: Galaxy SetViewport: WindowsViewport0
 Init: Game engine initialized
-Log: Startup time: 1.601251 seconds
+Log: Startup time: 0.921988 seconds
 Log: DnExec: OpenNextMP3 NextJumpPattern:DukeNukemTheme.mp3 ChosenFilename:..\Music\DukeNukemTheme.mp3
 Log: Loading: Package DukeLookAndFeel
 ScriptWarning: UDukeDesktopWindow Transient.UDukeDesktopWindow0 (Function dnWindow.UDukeDesktopWindow.Created:05E8) Accessed None
@@ -202,25 +201,9 @@ ScriptWarning: UDukeDesktopWindow Transient.UDukeDesktopWindow0 (Function dnWind
 ScriptWarning: UDukeDesktopWindow Transient.UDukeDesktopWindow0 (Function dnWindow.UDukeDesktopWindow.ResolutionChanged:0272) Accessed None
 ScriptWarning: UDukeDesktopWindow Transient.UDukeDesktopWindow0 (Function dnWindow.UDukeDesktopWindow.ResolutionChanged:023D) Accessed None
 ScriptWarning: UDukeDesktopWindow Transient.UDukeDesktopWindow0 (Function dnWindow.UDukeDesktopWindow.ResolutionChanged:0272) Accessed None
-ScriptWarning: UDukeDesktopWindow Transient.UDukeDesktopWindow0 (Function dnWindow.UDukeDesktopWindow.SelectIcon:0230) Accessed None
-ScriptWarning: UDukeDesktopWindow Transient.UDukeDesktopWindow0 (Function dnWindow.UDukeDesktopWindow.SelectIcon:0246) Accessed None
-Log: EndFullscreen
-Log: SetRes(NewX=800,NewY=600,NewColorBytes=4,Fullscreen0) (this:0a3d0000);
-Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
-Log: Using depth-buffer format 75(32-bit)
-Log: Viewport WindowsViewport0: WM_DisplayChange
-Init: D3D Driver: Supports trilinear
-Init: D3D Driver: Supports specular gouraud
-Init: D3D Driver: Supports BLENDDIFFUSEALPHA
-Log: AttemptFullscreen
-Log: SetRes(NewX=800,NewY=600,NewColorBytes=4,Fullscreen1) (this:0a3d0000);
-Init: Best-match display mode: 800x600x32 (Error=0)
-Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
-Log: Using depth-buffer format 75(32-bit)
-Init: D3D Driver: Supports trilinear
-Init: D3D Driver: Supports specular gouraud
-Init: D3D Driver: Supports BLENDDIFFUSEALPHA
-ScriptLog: Saving GRI defaults 
+DevAudio: Galaxy SetViewport: NULL
+Log: Unloading TrueType fonts.
+Log: All Windows Closed
 Log: appRequestExit(0)
 Exit: Preparing to exit.
 Log: Purging garbage - DispatchDestroy
@@ -302,18 +285,17 @@ Log: Unloading: Package SMK7
 Log: Unbound to Galaxy.dll
 DevAudio: Galaxy SetViewport: NULL
 Exit: Galaxy shut down
-Log: Unloading TrueType fonts.
 Log: Unbound to D3DDrv.dll
 Log: Unloading: Package DukeLookAndFeel
 Log: Purging garbage - DeleteGarbage
 Log: Purging garbage - DeleteNames
-Log: Garbage: objects: 22561->0; refs: 0
+Log: Garbage: objects: 22555->0; refs: 0
 Exit: Object subsystem successfully closed.
 Log: Terminating main loop
 Exit: Exiting.
 Uninitialized: Name subsystem shut down
 Uninitialized: Memory Allocation Status
-Uninitialized: Curr Memory  0.286M /  4.121M
-Uninitialized: Peak Memory  23.389M /  25.051M
-Uninitialized: Allocs        2291 Current /  7715310 Total
-Uninitialized: Log file closed, 05/10/22 23:32:01
+Uninitialized: Curr Memory  0.286M /  4.059M
+Uninitialized: Peak Memory  275.388M /  277.051M
+Uninitialized: Allocs        2290 Current /  9116169 Total
+Uninitialized: Log file closed, 05/11/22 19:09:58
