@@ -1,6 +1,7 @@
 # Let's remove these from commits
 
 *.bak
+*.log
 
 # Then ignore these folders
 
