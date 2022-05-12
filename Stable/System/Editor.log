@@ -1,10 +1,10 @@
-Log: Log file open, 05/10/22 23:33:03
+Log: Log file open, 05/12/22 20:55:16
 Init: Name subsystem initialized
 Init: Detected: Microsoft Windows NT 6.1 (Build: 7601)
 Init: Version: 400
 Init: Compiled: Apr 22 2022 03:39:04
 Init: Command line: 
-Init: Base directory: D:\Games\DF2001\October 26\System\
+Init: Base directory: C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Stable\System\
 Init: Character set: Unicode
 Init: Profile: DukeEd
 Log: Bound to Editor.dll
@@ -14,7 +14,7 @@ Init: Computer: VIRJPC
 Init: User: virj
 Init: Memory total: Phys=4194303K Pagef=4194303K Virt=2097024K
 Init: Working set: 32000 / 159000
-Init: CPU Speed=3515.872019 MHz
+Init: CPU Speed=3515.804387 MHz
 Init: CPU Page size=4096, Processors=6
 Init: CPU Detected: Unknown processor (AuhenicAD)
 Init: CPU Features: CMov FPU RDTSC PAE MMX KNI
@@ -123,7 +123,7 @@ Init: Win32 client initialized.
 Init: Lighting manager initialized.
 Init: Render core initialized.
 Init: Editor engine initialized
-Log: Startup time: 3.469719 seconds
+Log: Startup time: 1.190508 seconds
 Cmd: MODE MAPEXT=dnf
 Init: Input system initialized for U2Viewport0
 Localization: No localization: Engine.General.ViewXY (int)
@@ -131,12 +131,394 @@ Localization: No localization: Engine.General.ViewXY (int)
 Log: Trying D3DDrv.D3DRenderDevice
 Log: Bound to D3DDrv.dll
 Init: Direct3D adapters detected:
-Log: Adaptor Detected: nvd3dumx,nvwgf2umx,nvwgf2umx.dll/NVIDIA GeForce GT 1030
-Critical: appError called:
-Critical: [Z:\D3DDrv\Src\Direct3D8.cpp, 861] D3D ERROR: Direct3D8->GetDeviceCaps(BestAdapterIndex,D3DDEVTYPE_HAL,&DeviceCaps8) == D3DERR_NOTAVAILABLE
-Critical: Windows GetLastError: Impossibile trovare il file specificato. (2)
-Exit: Executing UObject::StaticShutdownAfterError
-Exit: UGalaxyAudioSubsystem::ShutdownAfterError
-Warning: glxStopOutput() failed: 6
-Exit: Executing UWindowsClient::ShutdownAfterError
-Exit: UD3DRenderDevice::ShutdownAfterError
+Log: Adaptor Detected: nvd3dum.dll/NVIDIA GeForce GT 1030
+Init: DukeForever Direct3D support initializing.
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:0d500000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Localization: No localization: Engine.General.ViewXY (int)
+Log: SetRes(NewX=314,NewY=173,NewColorBytes=4,Fullscreen0) (this:0d500000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0d500000);
+Log: SetRes(NewX=4,NewY=1,NewColorBytes=4,Fullscreen0) (this:0d500000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=4,NewY=1,NewColorBytes=4,Fullscreen0) (this:0d500000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Init: Input system initialized for U2Viewport1
+Localization: No localization: Engine.General.ViewXY (int)
+Localization: No localization: Engine.General.ViewXZ (int)
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:1b260000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: SetRes(NewX=314,NewY=173,NewColorBytes=4,Fullscreen0) (this:1b260000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:1b260000);
+Log: SetRes(NewX=4,NewY=1,NewColorBytes=4,Fullscreen0) (this:1b260000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=4,NewY=1,NewColorBytes=4,Fullscreen0) (this:1b260000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Init: Input system initialized for U2Viewport2
+Localization: No localization: Engine.General.ViewXZ (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:22120000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=314,NewY=173,NewColorBytes=4,Fullscreen0) (this:22120000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:22120000);
+Log: SetRes(NewX=4,NewY=1,NewColorBytes=4,Fullscreen0) (this:22120000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=4,NewY=1,NewColorBytes=4,Fullscreen0) (this:22120000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Init: Input system initialized for U2Viewport3
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewYZ (int)
+Localization: No localization: Engine.General.ViewYZ (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:24450000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Localization: No localization: Engine.General.ViewYZ (int)
+Log: SetRes(NewX=314,NewY=173,NewColorBytes=4,Fullscreen0) (this:24450000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:24450000);
+Log: SetRes(NewX=4,NewY=1,NewColorBytes=4,Fullscreen0) (this:24450000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=4,NewY=1,NewColorBytes=4,Fullscreen0) (this:24450000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=567,NewY=442,NewColorBytes=4,Fullscreen0) (this:0d500000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=615,NewY=442,NewColorBytes=4,Fullscreen0) (this:1b260000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=567,NewY=442,NewColorBytes=4,Fullscreen0) (this:22120000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=615,NewY=442,NewColorBytes=4,Fullscreen0) (this:24450000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Init: Input system initialized for MeshViewer
+Localization: No localization: Engine.General.ViewYZ (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=256,NewY=256,NewColorBytes=4,Fullscreen0) (this:26430000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Localization: No localization: Engine.General.ViewOther (int)
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=24754 MISC2=0
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=24754 MISC2=0
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=24754 MISC2=0
+Log: SetRes(NewX=523,NewY=732,NewColorBytes=4,Fullscreen0) (this:26430000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=524,NewY=732,NewColorBytes=4,Fullscreen0) (this:26430000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: 4.00 216.00 488.00 104.00
+Log: 4.00 216.00 488.00 104.00
+Log: 4.00 216.00 488.00 104.00
+Init: Input system initialized for TextureBrowser
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:47c60000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Localization: No localization: Engine.General.ViewOther (int)
+Cmd: SETPAUSE 0
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=626,NewY=326,NewColorBytes=4,Fullscreen0) (this:47c60000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Cmd: CAMERA UPDATE FLAGS=8832 MISC1=128 MISC2=0 REN=17 NAME=TextureBrowser PACKAGE="afbproship" GROUP="WMD" NAMEFILTER=""
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=567,NewY=432,NewColorBytes=4,Fullscreen0) (this:0d500000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=615,NewY=432,NewColorBytes=4,Fullscreen0) (this:1b260000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=567,NewY=432,NewColorBytes=4,Fullscreen0) (this:22120000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: SetRes(NewX=615,NewY=432,NewColorBytes=4,Fullscreen0) (this:24450000);
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Init: Rendertarget format: D3DFMT_X8R8G8B8
+Init: Clipper texture created
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: appRequestExit(0)
+Exit: Preparing to exit.
+Log: Purging garbage - DispatchDestroy
+Log: Unbound to Editor.dll
+Log: Unbound to Engine.dll
+Log: Unloading: Package Editor
+Log: Unloading: Package Engine
+Exit: Editor shut down
+Log: Cannibal shutdown...
+Log: ...Cannibal shutdown complete.
+Log: Unbound to Galaxy.dll
+DevAudio: Galaxy SetViewport: NULL
+Exit: Galaxy shut down
+Exit: Transaction tracking system shut down
+Log: Unloading: Package UWindow
+Log: Unbound to Fire.dll
+Log: Unloading: Package Fire
+Log: Unloading: Package IPServer
+Log: Unbound to UWeb.dll
+Log: Unloading: Package UWeb
+Log: Unloading: Package UBrowser
+Log: Unloading: Package dnParticles
+Log: Unloading: Package t_generic
+Log: Unloading: Package t_detail
+Log: Unloading: Package t_firefx
+Log: Unloading: Package a_impact
+Log: Unloading: Package m_dnWeapon
+Log: Unloading: Package palettes
+Log: Unloading: Package m_vehicles
+Log: Unloading: Package c_FX
+Log: Unloading: Package t_explosionFx
+Log: Unloading: Package dnModulation
+Log: Unloading: Package afbproship
+Log: Unloading: Package a_generic
+Log: Unloading: Package mario
+Log: Unloading: Package dnsWeapn
+Log: Unloading: Package a_transport
+Log: Unloading: Package t_test
+Log: Unloading: Package m_generic
+Log: Unloading: Package a_edf
+Log: Unloading: Package c_generic
+Log: Unloading: Package m_zone1_vegas
+Log: Unloading: Package a_ambient
+Log: Unloading: Package c_zone1_vegas
+Log: Unloading: Package petalumahouse
+Log: Unloading: Package dnGame
+Log: Unloading: Package hud_effects
+Log: Unloading: Package powerpuzzle1
+Log: Unloading: Package c_dnWeapon
+Log: Unloading: Package a_dukevoice
+Log: Unloading: Package circuitpuzzle1
+Log: Unloading: Package ezmail
+Log: Unloading: Package c_characters
+Log: Unloading: Package ezvend
+Log: Unloading: Package EZPhone
+Log: Unloading: Package c_dukeitems
+Log: Unloading: Package a_zone1_vegas
+Log: Unloading: Package keypads
+Log: Unloading: Package m_turretfx
+Log: Unloading: Package m_characters
+Log: Unloading: Package a_switch
+Log: Unloading: Package a_inventory
+Log: Unloading: Package c_hands
+Log: Unloading: Package a_creatures
+Log: Unloading: Package m_hands
+Log: Unloading: Package dnsMaterials
+Log: Unloading: Package SMK6
+Log: Unloading: Package crane
+Log: Unloading: Package ts01
+Log: Unloading: Package SMK5
+Log: Unloading: Package dukeED_gfx
+Log: Unloading: Package canvasfx
+Log: Unloading: Package arcadeFX
+Log: Unloading: Package ShieldFX
+Log: Unloading: Package SMK4
+Log: Unloading: Package vegas
+Log: Unloading: Package smk8
+Log: Unloading: Package a_npcvoice
+Log: Unloading: Package modelfx
+Log: Unloading: Package c_vehicles
+Log: Unloading: Package D3DSounds
+Log: Unloading: Package dnMountables
+Log: Unloading: Package dnAI
+Log: Unloading: Package m_zone3_canyon
+Log: Unloading: Package c_zone3_canyon
+Log: Unloading: Package TEMPVOICE
+Log: Unloading: Package a_doors
+Log: Unloading: Package m_fx
+Log: Unloading: Package dnWindow
+Log: Unloading: Package SMK3
+Log: Unloading: Package SMK7
+Log: Unloading: Package U_Generic
+Log: Unloading: Package airforcebase
+Log: Unloading: Package Airforcebase2
+Log: Unloading: Package c_zone4_afb
+Log: Unloading: Package RocketFX
+Log: Unloading: Package U_Zone1_Vegas
+Log: Unloading: Package U_Zone2_Dam
+Log: Unloading: Package c_zone2_dam
+Log: Unloading: Package U_Zone3_Canyon
+Log: Unloading: Package U_Zone4_AFB
+Log: Unloading: Package U_Zone5_Area51
+Log: Unloading: Package c_zone5_area51
+Log: Unloading: Package computer
+Log: Unloading: Package m_zone5_area51
+Log: Unloading: Package U_Zone6_Ship
+Log: Unloading: Package dnMaterial
+Log: Unloading: Package U_Fragment
+Exit: Windows client shut down
+Exit: Rendering shut down
+Log: Unbound to D3DDrv.dll
+Log: Purging garbage - DeleteGarbage
+Log: Purging garbage - DeleteNames
+Log: Garbage: objects: 48114->0; refs: 0
+Exit: Object subsystem successfully closed.
+Exit: Exiting.
+Uninitialized: Name subsystem shut down
+Uninitialized: Memory Allocation Status
+Uninitialized: Curr Memory  0.248M /  3.434M
+Uninitialized: Peak Memory  80.712M /  82.484M
+Uninitialized: Allocs        6344 Current /  231692 Total
+Uninitialized: Log file closed, 05/12/22 20:56:57

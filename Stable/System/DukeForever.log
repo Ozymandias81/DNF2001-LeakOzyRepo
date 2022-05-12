@@ -1,4 +1,4 @@
-Log: Log file open, 05/12/22 13:14:32
+Log: Log file open, 05/12/22 22:37:12
 Init: Name subsystem initialized
 Init: Detected: Microsoft Windows NT 6.1 (Build: 7601)
 Init: Version: 400
@@ -13,7 +13,7 @@ Init: Computer: VIRJPC
 Init: User: virj
 Init: Memory total: Phys=4194303K Pagef=4194303K Virt=2097024K
 Init: Working set: 32000 / 159000
-Init: CPU Speed=3515.921635 MHz
+Init: CPU Speed=3515.869718 MHz
 Init: CPU Page size=4096, Processors=6
 Init: CPU Detected: Unknown processor (AuhenicAD)
 Init: CPU Features: CMov FPU RDTSC PAE MMX KNI
@@ -96,7 +96,7 @@ Log: EndLoadMap
 Log: LoadMap NumPreloads: 11973
 Log: LoadMap PreloadSize: 929059
 Log: LoadMap TexturePreloadSize: 413792
-Log: LoadMap SerializeTime: 0.314092
+Log: LoadMap SerializeTime: 0.261109
 Log: Setting Actor Collision.
 Log: Entered SetActorCollision.
 Log: Entering Actor collision loop 1.
@@ -115,8 +115,8 @@ Log: Bound to Galaxy.dll
 Init: Galaxy is using DirectSound
 Init: Galaxy initialized
 Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
-Log: DnExec: Seconds: 1972.423287 CrossfadeStart:1972.423287
-Log: LoadMap TotalTime: 0.545508
+Log: DnExec: Seconds: 901.441319 CrossfadeStart:901.441319
+Log: LoadMap TotalTime: 0.326827
 Log: URL: Original URL: Entry.dnf
 Log: URL: Escaped URL: Entry.dnf
 Log: Browse: Entry.dnf?Name=Duke%20Nukem?Class=dnGame.DukePlayer?team=0?Mesh=c_characters.duke?Face=?Torso=?Arms=?Legs=?Voice=dngame.MalePlayerSounds?Icon=p_portraiticons.p_NukeSymbol1?Spectate=
@@ -134,14 +134,14 @@ Log: Updating the level info's time.
 Log: Init the game info.
 DevAudio: Galaxy SetViewport: NULL
 Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
-Log: DnExec: Seconds: 1972.426659 CrossfadeStart:1972.426659
-Log: LoadMap TotalTime: 0.002869
+Log: DnExec: Seconds: 901.444489 CrossfadeStart:901.444489
+Log: LoadMap TotalTime: 0.002694
 ScriptLog: Console: Duke Nukem Forever
 ScriptLog: Console: Copyright 2000-2001 3D Realms, Inc.
 ScriptLog: Console:  
 ScriptLog: Console:  
 Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
-Log: DnExec: Seconds: 1972.921029 CrossfadeStart:1972.921029
+Log: DnExec: Seconds: 901.724383 CrossfadeStart:901.724383
 ScriptLog: GameInfo::Login: Duke Nukem
 ScriptLog: LOGIN:Spawning New Player Class dnGame.DukePlayer
 Log: Loading: Package p_portraiticons
@@ -151,7 +151,7 @@ Log: Bound to D3DDrv.dll
 Init: Direct3D adapters detected:
 Log: Adaptor Detected: nvd3dum.dll/NVIDIA GeForce GT 1030
 Init: DukeForever Direct3D support initializing.
-Log: SetRes(NewX=1280,NewY=1024,NewColorBytes=4,Fullscreen1) (this:0a330000);
+Log: SetRes(NewX=1280,NewY=1024,NewColorBytes=4,Fullscreen1) (this:0a340000);
 Init: Best-match display mode: 1280x1024x32 (Error=0)
 Init: D3D Driver: Supports trilinear
 Init: D3D Driver: Supports specular gouraud
@@ -160,9 +160,15 @@ Init: Rendertarget format: D3DFMT_X8R8G8B8
 Init: Clipper texture created
 DevAudio: Galaxy SetViewport: WindowsViewport___0
 Init: Game engine initialized
-Log: Startup time: 3.397708 seconds
+Log: Startup time: 1.159476 seconds
 Log: DnExec: OpenNextMP3 NextJumpPattern:DukeNukemTheme.mp3 ChosenFilename:..\Music\DukeNukemTheme.mp3
 Log: Created 16 shadowcaster render targets
+Log: DukePlayer___0 fell out of the world!
+Log: DnExec: *** MusicPlay: Filename:DukeNukemTheme.mp3
+Log: DnExec: Seconds: 902.438542 CrossfadeStart:902.438542
+Log: DnExec: *** MusicPlay: Filename:stinger
+Log: DnExec: Seconds: 902.438561 CrossfadeStart:902.438561
+Log: DnExec: OpenNextMP3 NextJumpPattern:stinger ChosenFilename:..\Music\stinger
 Log: Loading: Package mtheme_cobaltblue
 ScriptLog: Theme doesn't implement sunglassesTL reverting to mtheme_cobaltblue.
 ScriptLog: Cobalt Blue theme doesn't implement sunglassesTL reverting to hud_effects.
@@ -188,21 +194,6 @@ ScriptLog: Theme doesn't implement mover_bleft reverting to mtheme_cobaltblue.
 ScriptLog: Cobalt Blue theme doesn't implement mover_bleft reverting to hud_effects.
 ScriptLog: Theme doesn't implement mover_bright reverting to mtheme_cobaltblue.
 ScriptLog: Cobalt Blue theme doesn't implement mover_bright reverting to hud_effects.
-ScriptWarning: UDukeControlsBinder Transient.UDukeControlsBinder___0 (Function dnWindow.UDukeControlsBinder.Close:0014) Accessed None
-Log: DnExec: 0
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePasswordChangeWindows:0006) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePasswordChangeWindows:0016) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePasswordChangeWindows:0026) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePasswordChangeWindows:0036) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePasswordChangeWindows:0046) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePasswordChangeWindows:0056) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePasswordChangeWindows:0066) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePasswordChangeWindows:0076) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePWSelectWindows:0006) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePWSelectWindows:0016) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePWSelectWindows:0026) Accessed None
-ScriptWarning: UDukeParentLockWindowCW Transient.UDukeParentLockWindowCW___0 (Function dnWindow.UDukeParentLockWindowCW.HidePWSelectWindows:0036) Accessed None
-ScriptLog: Client Area is None for Transient.UDukeParentLockWindow___0
 Log: Loading: Package Screenshots
 Log: URL: Original URL: !z1l1_1?noauto
 Log: URL: Escaped URL: !z1l1_1?noauto
@@ -249,13 +240,13 @@ Log: EndLoadMap
 Log: LoadMap NumPreloads: 6458
 Log: LoadMap PreloadSize: 18163285
 Log: LoadMap TexturePreloadSize: 11861318
-Log: LoadMap SerializeTime: 0.608109
+Log: LoadMap SerializeTime: 0.397180
 Log: Purging Unused Objects.
 Log: Collecting garbage
 Log: Purging garbage - DispatchDestroy
 Log: Purging garbage - DeleteGarbage
 Log: Purging garbage - DeleteNames
-Log: Garbage: objects: 30889->30817; refs: 468048
+Log: Garbage: objects: 30777->30717; refs: 466168
 Log: Garbage collection complete.
 Log: Unused Objects Purged.
 Log: Setting Actor Collision.
@@ -278,7 +269,7 @@ ScriptLog: GameInfo::Login: Duke Nukem
 ScriptLog: LOGIN:Spawning New Player Class dnGame.DukePlayer
 Init: Initialized moving brush tracker for Level !z1l1_1.MyLevel
 DevAudio: Galaxy SetViewport: WindowsViewport___0
-Log: LoadMap TotalTime: 0.901238
+Log: LoadMap TotalTime: 0.484134
 Log: Loading: Package m_dukeitems
 Log: Loading: Package area51_level2
 Log: Loading: Package dnMaterial
@@ -289,77 +280,30 @@ ScriptLog: Attaching HUD:dnGame.DukeHUD
 ScriptLog: HumanNPCFlags set bVisiblySnatched to False for !z1l1_1.NPCMale1___0
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
 ScriptWarning: NPCMale1 !z1l1_1.NPCMale1___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
 ScriptLog: Console: <Knock!><Knock!>
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
+ScriptLog: Console: Page:"Mr. Nukem, you're needed on the set. Are you in there?"
 ScriptLog: Console: Page:"Lookin' good Mr. Nukem! Follow me, I'll guide you to the studio."
 ScriptLog: !z1l1_1.NPCActivityEvent___0 SENDING !z1l1_1.NPCMale1___0 TO ACTIVITY CONTROL
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptLog: !z1l1_1.NPCActivityEvent___1 SENDING !z1l1_1.NPCMale1___0 TO ACTIVITY CONTROL
-ScriptLog: Console: Page:"It's a real honor meeting you like this, Mr. Nukem. I'm a huge fan of yours, I don't care what the President says."
 ScriptLog: !z1l1_1.NPCActivityEvent___6 SENDING !z1l1_1.NPCMale1___0 TO ACTIVITY CONTROL
 ScriptLog: !z1l1_1.NPCActivityEvent___6 no new destination found. Going to Idling state.
 ScriptLog: !z1l1_1.NPCMale1___0 Idling 1
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: NPCMale1 !z1l1_1.NPCMale1___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: NPCMale1 !z1l1_1.NPCMale1___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: NPCMale1 !z1l1_1.NPCMale1___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
-ScriptLog: Console: Page:"That's the sound room. Janet is responsible for mixing all the music and sound effects during the show."
+ScriptLog: !z1l1_1.NPCActivityEvent___1 SENDING !z1l1_1.NPCMale1___0 TO ACTIVITY CONTROL
+ScriptLog: Console: Page:"It's a real honor meeting you like this, Mr. Nukem. I'm a huge fan of yours, I don't care what the President says."
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
+ScriptLog: !z1l1_1.NPCActivityEvent___5 SENDING !z1l1_1.NPCMale1___0 TO ACTIVITY CONTROL
+ScriptLog: !z1l1_1.NPCActivityEvent___5 no new destination found. Going to Idling state.
+ScriptLog: !z1l1_1.NPCMale1___0 Idling 1
+ScriptLog: !z1l1_1.NPCActivityEvent___2 SENDING !z1l1_1.NPCMale1___0 TO ACTIVITY CONTROL
+ScriptLog: Console: Page:"We've got a full house tonight. We always sell out when Duke Nukem is one of the guests."
 ScriptLog: Console: Page:"That's the ladies dressing room! You'd better not go in there!"
-ScriptWarning: NPCMale1 !z1l1_1.NPCMale1___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptLog: Console: Page:"That's just a janitor closet."
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptLog: Console: Page:"That's the green room. It's basically a break room."
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: NPCMale1 !z1l1_1.NPCMale1___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: NPCMale1 !z1l1_1.NPCMale1___0 (Function Engine.Pawn.DriveFacialTrack:00F0) Accessed array out of bounds (-1/16)
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
 ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
 ScriptLog: WARN FRIENDS ON DEATH CALLED!
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
-Log: DnExec: *** MusicPlay: Filename:stinger
-Log: DnExec: Seconds: 2269.625727 CrossfadeStart:2269.625727
-Log: DnExec: OpenNextMP3 NextJumpPattern:stinger ChosenFilename:..\Music\stinger
-Log: DnExec: Failed to open stream: ..\Music\stinger
-ScriptWarning: GruntSWAT10 !z1l1_1.GruntSWAT10___1 (State dnAI.Grunt.Idling:0277) Accessed None
 ScriptWarning: UWindowMessageBoxCW Transient.UWindowMessageBoxCW___0 (Function UWindow.UWindowMessageBoxCW.Resized:0030) Accessed None
 ScriptWarning: UWindowMessageBoxCW Transient.UWindowMessageBoxCW___0 (Function UWindow.UWindowMessageBoxCW.Resized:0030) Accessed None
 ScriptLog: Saving GRI defaults 
@@ -483,13 +427,13 @@ Log: Unloading: Package dnMaterial
 Log: Unloading: Package miningtown
 Log: Purging garbage - DeleteGarbage
 Log: Purging garbage - DeleteNames
-Log: Garbage: objects: 31710->0; refs: 468048
+Log: Garbage: objects: 31258->0; refs: 466168
 Exit: Object subsystem successfully closed.
 Log: Terminating main loop
 Exit: Exiting.
 Uninitialized: Name subsystem shut down
 Uninitialized: Memory Allocation Status
-Uninitialized: Curr Memory  1.131M /  5.059M
-Uninitialized: Peak Memory  318.051M /  320.008M
-Uninitialized: Allocs        2984 Current /  1264168 Total
-Uninitialized: Log file closed, 05/12/22 13:19:41
+Uninitialized: Curr Memory  1.132M /  4.996M
+Uninitialized: Peak Memory  316.856M /  318.641M
+Uninitialized: Allocs        2984 Current /  901688 Total
+Uninitialized: Log file closed, 05/12/22 22:38:30
