@@ -1,1 +1,0 @@
-class ManagerWindowStub expands NotifyWindow;

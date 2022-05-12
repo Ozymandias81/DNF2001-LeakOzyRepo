@@ -20,7 +20,6 @@ The Stable folder was originally the "October 26" folder, that has been patched 
 The Unstable folder was originally the "August 21" folder, that only had System in it, and which has been built with unpatched files from October 26 version. While in game, in order to access the menu you must open the console and use ccmds. A list soon will be provided here.
 
 The Tools folder might contain in future apps necessary to create a packed .pk3 file and proper distribution files to build up sources in a organized way. At the moment the DNF2001.exe has been created using the "Slimm BAT to EXE" tool, you might want to modify the #PLAY.bat and rebuild the .exe in case you want to update actual DNF2001 executable file.
-There is also the original Unreal Tournament source code version 400 used probably to build up the DNF 2001 E3 Demo, use it at your own discretion.
 
 # How To Run It #
 
