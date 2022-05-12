@@ -6,7 +6,6 @@ This repository has multiple aims:
 - An easy to go build that allows you to run all of its leaked versions and relative editors
 - Pack all improvements and such from the Duke3d community and by myself
 - Have a repository where all can contribute easily through pushing requests
-- Rip resources from the game and make them useful for the Doom Modding community, since why not
 - Include documentation for the know-how of the leak and its console commands and such
 
 # The Content #
@@ -42,10 +41,13 @@ It needs to be added yet
 
 - Ozymandias81: Archive Maintainer, Programmer
 - neoxaero: Discord Coordinator Lead
+- Xinarki: DXVK Wrapper
+- BFG9000: Othe minor wrappers attempts (D3D8-9)
 
 # Known Bugs #
 
-DO NOT PRESS F10 IN GAME, IT TRIES TO SAVE A SCREENSHOT BUT INSTEAD IT FREEZES THE APP
+DO NOT PRESS F10 IN GAME, IT TRIES TO SAVE A SCREENSHOT BUT INSTEAD IT FREEZES THE APP (though the shot gets saved)
+Changing brightness with F11 works only with the unpatched wrapper on October 26 folder (Stable) , other wrappers doesn't
 Obviously the game is not complete at all, it is very unstable and you can't save properly the game in several situations
 
 # License #

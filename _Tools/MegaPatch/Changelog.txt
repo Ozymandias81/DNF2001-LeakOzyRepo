@@ -1,0 +1,22 @@
+* Fixed DirectX references in projects
+* Galaxy now uses Galaxy.h from GalaxyLib
+* Tweaked GalaxyLib to support more audio voices and channels
+* Disabled mesh LODs by default
+* Partial fix for buggy mouse and keyboard capture
+* Collision bugs will not crash the game
+* FOV changes are saved to the user configuration and survive map loads
+* Changed default player model to Duke
+* EDF grunts are no longer snatched/infected by default
+* Disabled fog due to rendering errors
+* Added new console commands: god2, togglehud, togglecrosshair, togglelookat, setspeed
+* Game no longer ignores renderer settings in config
+* Restored alt-fire for Shrinker weapon
+* Fixed EDFHeavyWeps looping minigun audio
+* Game will now ignore missing packages, allows some more maps to load
+* Added dummy Duke3D_e1l1, Duke3D_e1l2, Botpack, UnrealShare and UnrealI texture packages to allow more maps to load
+* Maps without a player start will spawn the player at 0,0,0
+* Implemented automatic Hor+ FOV adjustment
+* Added blood splatter properties to Creature class
+* Replaced blood splatters with sparks for robot characters
+* Fixed Pimpmobile during intro in !z1l5_1 and !z1l5_1-retex
+* Fixed missing textures in ks_E3_ShootWindow
