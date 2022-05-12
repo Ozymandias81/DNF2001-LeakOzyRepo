@@ -1,30 +1,41 @@
-While I had to struggle a lot to make it work since I don't have a widescreen monitor, I noticed that I had to uncomment a line
-inside the file ..\Stable\Engine\Src\UnCanvas.cpp , precisely line 1063, otherwise I would get an error with wrong canvas
-screen size inheritance belonging to fonts on screen (probably). If you get an inversed issue, simply remove the // from that
-line.
+# Welcome to Duke Nukem Forever 2001 Leak repository Ozy Variant #
 
-Now that you have downloaded this file, run the #PLAY.bat file double-clicking on it and follow on screen instructions.
-I am still trying to understand how to fix Cannibal and DNF editors, and "Unstable" leak has an issue on the menu screen, but at 
-least now you have a sort of easy-to-go loader with everything configured. I used the MegaPatch folder plus the dnGame.u fix
-inside System found on the web.
+This repository has multiple aims:
 
-#NOTES
+- Let the leak live Forever in the web with also my little contribute
+- An easy to go build that allows you to run all of its leaked versions and relative editors
+- Pack all improvements and such from the Duke3d community and by myself
+- Have a repository where all can contribute easily through pushing requests
+- Rip resources from the game and make them useful for the Doom Modding community, since why not
+- Include documentation for the know-how of the leak and its console commands and such
 
-DO NOT PRESS F10 IN GAME, IT SEEMS THAT IT CHANGES BRIGHTNESS OR RENDERING METHOD AND IT FREEZES THE APP
+# The Content #
+
+As you might have notice, this version has different folders names compared to its original leak, that can be found at https://archive.org/details/duke-nukem-forever-2001-leak . 
+
+You now have Stable and Unstable folder, plus the Rips one which contains resources useful for modders (Doom mainly I think)
+
+The Stable folder was originally the "October 26" folder, that has been patched with the MegaPatch and the dnGame.u file re-enabled inside System thanks to Zombie (you can find the thread here https://forums.duke4.net/topic/12013-leaked-duke-nukem-forever-2001/ ).
+
+The Unstable folder was originally the "August 21" folder, that only had System in it, and which has been built with unpatched files from October 26 version. While in game, in order to access the menu you must open the console and use ccmds. A list soon will be provided here.
+
+# How To Run It #
+
+Simply double-click on #PLAY.bat and follow on screen directions.
 
 RESET.bat - It removes previously generated .ini files from the very first start of the game, unlike any old UE1 games you had 
 to follow your accelerator card tests to see which rendering method was the best for you, though here we have only Direct3d
 
-REBUILD.bat - This should rebuild somehow the whole structure of "Stable" files, but I am not sure yet how much it changes
-or if it is related to prebuilt method for hackers who have leaked this build (it was common during 90s on cracked gamed to 
-shrink games into separate files that would have fit into a CD or floppy via lha, zip or rar or more else), use it at your own
-risk.
-
-Obviously the game is not complete at all, has chunks of the game as stated on WWW infos about this leak
-.DTX files seems sadly slightly different from UE1 .UTX files for textures, but I must investigate still on it to rip textures
+REBUILD.bat - This should rebuild somehow the whole structure of "Stable" files, but it should work properly only under Win98.
 
 If you want to edit your windowed/fullscreen resolutions and settings, check inside Stable-Unstable/Players folder and edit the
 DukeForever.ini file inside the folder of your Profile name. My monitor can't handle more than 1280x1024, but you will find those
 values under Engine.WindowsClient list. You might also attempt to play with D3DDrv.D3DRenderDevice settings.
+
+# Known Bugs #
+
+DO NOT PRESS F10 IN GAME, IT TRIES TO SAVE A SCREENSHOT BUT INSTEAD IT FREEZES THE APP
+
+Obviously the game is not complete at all, it is very unstable and you can't save properly the game in several situations
 
 ALWAYS BET ON DUKE... and sometimes on Ozy81 :P
