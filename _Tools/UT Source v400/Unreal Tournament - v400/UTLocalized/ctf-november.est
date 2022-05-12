@@ -1,0 +1,30 @@
+[LevelSummary]
+LevelEnterText=entrando en la Penitenciaría submarina nuclear November.
+
+[WaterZone5]
+ZoneName=Agua
+
+[ZoneInfo0]
+ZoneName=Base roja
+
+[ZoneInfo3]
+ZoneName=Vestíbulo azul
+
+[ZoneInfo5]
+ZoneName=Entrada roja
+
+[ZoneInfo6]
+ZoneName=Vestíbulo rojo
+
+[ZoneInfo2]
+ZoneName=Base azul
+
+[ZoneInfo4]
+ZoneName=Penitenciaría submarina
+
+[LevelInfo0]
+Title=November
+IdealPlayerCount=8-12
+LevelEnterText=entrando en la Penitenciaría submarina nuclear November.
+
+

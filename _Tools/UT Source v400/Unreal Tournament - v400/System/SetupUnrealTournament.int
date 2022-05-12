@@ -1,0 +1,71 @@
+[Setup]
+LocalProduct=Unreal Tournament
+DefaultFolder=C:\UnrealTournament
+ReadMe=Help\ReadMe.htm
+SetupWindowTitle=Unreal Tournament Setup
+AutoplayWindowTitle=Unreal Tournament Options
+ProductURL=http://www.unreal.com/
+VersionURL=http://unreal.epicgames.com/versions.htm
+Developer=Epic Games, Inc.
+DeveloperURL=http://www.epicgames.com/
+Logo=Help\UnrealTournamentSetupLogo.bmp
+License=License.int
+
+[General]
+PlayLevelCommand=&Play this Unreal level
+OpenLinkCommand=&Open this Unreal link
+InstallModuleCommand=&Install this Unreal module
+EditLevelCommand=&Edit this Unreal level
+
+[UnrealTournamentContentGroup]
+Caption=Game Content
+Description=Install this for best performance. If you deselect it, the game content will be loaded from CD during play, degrading performance, but using less hard disk space.
+
+[GameGroup]
+Caption=Unreal Tournament Game
+Description=Installation is required.
+
+[NetGamesGroup]
+Caption=NetGames USA Stat Utils
+Description=These tools can be used to generate HTML statistics about your Unreal Tournament games. You can also view your global ranking online!
+
+[DirectXGroup]
+Caption=DirectX
+Description=Optional Microsoft DirectX 7 drivers for enhanced graphics, sound, and joystick support.
+
+[EditorGroup]
+Caption=Unreal Editor
+Description=Unreal world editor, for creating your own 3D Unreal environments. For advanced users; installation is optional.
+
+[PlayShortcut]
+Caption=Play Unreal Tournament
+
+[SafeModeShortcut]
+Caption=Unreal Tournament Safe Mode
+
+[EditorShortcut]
+Caption=Unreal Editor
+
+[DocumentationShortcut]
+Caption=Documentation
+
+[WebShortcut]
+Caption=Unreal Tournament Web Page
+
+[NetGamesShortcut]
+Caption=NetGames USA
+
+[LocalStatsShortcut]
+Caption=View my local UT stats. [ngStats]
+
+[GlobalStatsShortcut]
+Caption=View my global UT stats. [ngWorldStats]
+
+[MPlayerShortcut]
+Caption=Play Unreal Tournament on mplayer.com
+
+[HeatShortcut]
+Caption=Play Unreal Tournament on HEAT
+
+[UninstallShortcut]
+Caption=Uninstall Unreal Tournament Demo

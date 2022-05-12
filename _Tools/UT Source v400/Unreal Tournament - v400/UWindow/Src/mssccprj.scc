@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[UWindow.dsp]
+SCC_Aux_Path = "\\server\safe\vss"
+SCC_Project_Name = "$/Unreal/UWindow/Src", HVKAAAAA
+
+[UWindow.mak]
+SCC_Aux_Path = "\\server\safe\vss"
+SCC_Project_Name = "$/Unreal/UWindow/Src", HVKAAAAA

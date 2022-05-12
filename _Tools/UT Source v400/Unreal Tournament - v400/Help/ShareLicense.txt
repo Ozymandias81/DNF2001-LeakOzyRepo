@@ -1,0 +1,81 @@
+                               Epic MegaGames Inc.
+                           SOFTWARE LICENSE AGREEMENT
+
+This document, describes the terms and conditions by which Epic MegaGames, Inc. ("Epic") will license the use and distribution of this software program which is intended solely for distribution as "shareware" (the "Program") by an end-user (You).  No use, reproduction or distribution of the Program, or of copies of the Program, is authorized except in compliance with the terms and conditions set forth below. By installing the Program You agree to be bound by the terms of this Agreement.  If You do not agree to these terms, please remove the Program from your hard drive and/or any other storage media You may have stored the Program.
+
+The Program is protected by copyright in the United States, as well as in other countries pursuant to international treaties. The Program is intended solely for distribution as "shareware" (i.e., "try-before-you-buy" software); it is NOT public domain or free software or "freeware".  Epic encourages distribution of the Program in accordance with the provisions of this Agreement.  Any use, copying or distribution of the Program, or of any copies or elements thereof, that is not in compliance with the terms and conditions of this Agreement is prohibited.
+
+Limited Use and Distribution License:
+
+Epic authorizes the use, distribution and/or copying of the Program only in accordance with the following terms and conditions (the "General Terms and Conditions") and with other terms and conditions set forth below that may be applicable:
+
+1. Epic hereby grants You a limited right to use the Program for Your gaming enjoyment. You acknowledge that the Program is a valuable asset of Epic and Epic is the owner of the Program. Enjoy! 
+
+2. The Program may be made available for downloading free of charge on the Internet and online services.  No download or distribution fee may be charged in conjunction with the online distribution of the Program.
+	
+3. The Program shall be identified by name and shall be expressly identified as shareware (and not identified or described as "free software", "public domain software", or the like) in any Distribution.
+	
+4. You may copy and/or distribute the Program only in its original, unaltered form, with all files included unmodified, and without making any additions, modifications or deletions except as provided in this paragraph. You may not modify the Program or any of its files, and the Program must be distributed as a complete package. You may not change, delete, merge or rename any files or elements of the Program in any manner, and You may not add any files or new elements (except for installation routines which do not interfere with the proper operation or installation of the Program).
+	
+5. You may not decompile, recompile, disassemble, reverse engineer, adapt or create derivative works of the Program or any files or elements thereof. You may not use the artwork from the Program without Epic’s prior written permission.
+
+6. You may make custom levels using the editing tools contained in Game for your own personal use and for the free, non-profit use of others.  You may not sell, distribute, bundle, or, otherwise, provide any custom levels you create to any third party for any compensation or remuneration without first obtaining written permission from Epic. 
+
+7. Since the Program is intended for free distribution as shareware, You shall not charge any fee or other compensation for the Program.  You are permitted, and encouraged, to make and distribute copies of the Program to Your friends, family members and co-workers without charge, for Your and their private noncommercial use, in compliance with the terms and conditions hereof.
+	
+8. You may not remove or alter any copyright or trademark information on the Program, and You must take reasonable steps to protect the copyrights, trademarks and other rights of Epic in the Program.
+	
+9. You recognize that Your right to distribute the Program is nonexclusive and that Epic can terminate the license granted to You hereunder at any time for any reason upon written notice. Epic reserves the right to withhold or withdraw permission to distribute the Program from anyone at any time for any reason. You acknowledge that You have no reasonable basis or expectation to make a profit regarding the Distribution of the Program.
+
+10. This is the current version of the Program and all previous versions of this Program have been withdrawn from distribution. You shall use reasonable efforts to distribute only the latest version of the Program. If You have a question about this, please contact Epic to confirm what is the latest version (You can do this through Epic's web site at http://www.epicgames.com/).
+
+11. Your limited right to distribute under this Agreement is personal and does not include any right of sublicense.
+	
+12. You may not use, copy, modify, distribute or transfer the Program or any element thereof in whole or in part, except as expressly provided for herein.
+	
+13. You may not "rent" or "lease" the Program to anyone.
+	
+14. Any permission, consent or approval of Epic referred to herein may be granted or withheld in Epic's sole discretion (and, unless expressly granted in writing, shall be deemed to be withheld).
+	
+15. DISCLAIMER OF WARRANTY AND LIMITATION OF LIABILITY.
+
+THIS PROGRAM IS PROVIDED "AS IS".   YOU HEREBY ACKNOWLEDGE THAT THE PROGRAM IS PROVIDED AS SHAREWARE AND YOU HAVE PAID NO FEE FOR THE PROGRAM.  
+
+EPIC  MAKES NO WARRANTY OR REPRESENTATION OF ANY KIND, EITHER EXPRESS OR IMPLIED, WITH RESPECT TO THIS PROGRAM OR ANY FILES, DOCUMENTATION OR ELEMENTS THEREOF OR RELATING THERETO OR ANY MEDIUM THE PROGRAM MAY BE ON (INCLUDING, WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, OF FITNESS FOR A PARTICULAR PURPOSE, OF QUALITY OR PERFORMANCE OR OF NON-INFRINGEMENT). EPIC HEREBY DISCLAIMS ANY AND ALL WARRANTIES TO THE MAXIMUM EXTENT PERMITTED BY LAW.  
+
+SUBJECT TO ANY CONTRARY PROVISIONS OF APPLICABLE STATE LAW, IN NO EVENT WILL EPIC BE LIABLE FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM THE USE OF OR INABILITY TO USE THE PROGRAM OR ANY FILES, DOCUMENTATION OR ELEMENTS THEREOF, INCLUDING FROM NEGLIGENCE, STRICT LIABILITY, OR BREACH OF WARRANTY OR CONTRACT, EVEN IF EPIC  IS ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  IN PARTICULAR, EPIC  IS NOT RESPONSIBLE FOR ANY COSTS OR EXPENSES, INCLUDING BUT NOT LIMITED TO THOSE INCURRED AS A RESULT OF LOST PROFITS OR REVENUE, LOSS OF USE OF COMPUTER PROGRAMS, LOSS OF DATA, THE COST OF A SUBSTITUTE PROGRAM, OR CLAIMS BY THIRD PARTIES.  IN NO EVENT SHALL THE LIABILITY OF EPIC FOR ANY DAMAGES EVER EXCEED THE PRICE PAID FOR THE LICENSE TO USE THE PROGRAM, REGARDLESS OF THE FORM OF CLAIM.  THE USER OF THE PROGRAM BEARS ALL RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM AND ALL OTHER RISKS RELATING TO THE USE OF OR INABILITY TO USE THE PROGRAM. BECAUSE SOFTWARE IS INHERENTLY COMPLEX AND MAY NOT BE COMPLETELY FREE OF ERRORS, ALL USERS ARE ADVISED TO VERIFY THEIR WORK AND TO MAKE BACK-UP COPIES.
+
+THE PROVISIONS OF THIS SECTION ARE AN ESSENTIAL COMPONENT OF EPIC’S WILLINGNESS TO ENTER INTO THIS AGREEMENT.
+	
+16. This Software License Agreement shall be governed by and construed in accordance with the internal laws of the State of Maryland applicable to agreements entered into and wholly to be performed therein, without reference to conflicts of laws. It shall inure to the benefit of Epic and its successors and assigns. With respect to every matter arising under this Agreement, You consent to the jurisdiction and venue of the state and federal courts located in Maryland, and to service by certified mail, return receipt requested, or as otherwise permitted by law.
+	
+17. Epic reserves the right to update the contents of the Program and/or its associated files, documentation and/or other elements, at its discretion from time to time, without the consent of, or any obligation to, any licensed users or distributors.
+	
+18. All rights not expressly granted herein are reserved by Epic.
+	
+19. In the event of any violation of this Agreement or failure to comply with any of the terms and conditions set forth herein, or any other violation or infringement of any of Epic's rights, Epic shall have available all rights and remedies at law and in equity.  Without limiting the foregoing, in the event of any such violation or failure to comply, then in addition to its other rights and remedies, if Epic so elects Epic shall have the right to seek damages of not less than the full registration fee for the registered version of the software program with the same name as the Program, with respect to each copy of the Program distributed or copied and/or each user or recipient to whom the Program was distributed.  (By way of illustration and not limitation, if the registration fee for the registered version is $50.00 and distribution to 1,000 persons was made in violation of this Agreement, then if Epic so elects Epic shall have the right to seek damages of not less than $50,000 under the provisions of this paragraph, in addition to its other rights and remedies at law or in equity.)
+	
+20. You will hold Epic, its officers, directors, employees, contractors, attorneys, and agents, harmless from and against any and all claims, actions, damages, losses, liabilities, costs and expenses (including reasonable attorney's fees) arising directly or indirectly from Your acts and omissions in copying and distributing the Program (including without limitation from any installation routine that You may add).
+	
+21. If any provision of this Agreement is held to be void, invalid or unenforceable, it will not affect the validity of the balance of this Agreement, which shall remain valid and enforceable according to its terms and conditions.
+
+We thank you for playing our game. Enjoy!
+
+Epic MegaGames can be contacted at:
+
+	Epic MegaGames, Inc.
+	3204 Tower Oaks Blvd. #410
+	Rockville, MD 20852
+	Tel:  +(301) 983-9771
+	Fax:  +(301) 299-3841
+
+In Europe, we can be contacted at:
+
+	Epic MegaGames UK
+	39 Norton Road
+	Winton, Bournemouth
+	Dorset BH9 2PY
+	United Kingdom
+	Tel:  +44 (0) 1202 52 10 11
+	Fax:  +44 (0) 1202 522837
+

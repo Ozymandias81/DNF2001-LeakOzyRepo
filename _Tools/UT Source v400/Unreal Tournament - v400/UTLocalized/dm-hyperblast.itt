@@ -1,0 +1,13 @@
+[LevelSummary]
+Title=Iperscoppio
+IdealPlayerCount=2-8
+LevelEnterText=E' L'IPERTEMPO!!!
+
+[VacuumZone0]
+DamageString=%k è stato sparato nello spazio!!!
+
+[LevelInfo0]
+Title=Iperscoppio
+IdealPlayerCount=2-8
+LevelEnterText=E' L'IPERTEMPO!!!
+

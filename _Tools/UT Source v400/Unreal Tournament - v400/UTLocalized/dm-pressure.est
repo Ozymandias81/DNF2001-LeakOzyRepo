@@ -1,0 +1,44 @@
+[WaterZone1]
+ZoneName=Depósito de agua
+
+[ZoneInfo3]
+ZoneName=Sala del pasadizo
+
+[ZoneInfo5]
+ZoneName=Sala de las columnas
+
+[WaterZone0]
+ZoneName=Depósito de agua
+
+[ZoneInfo2]
+ZoneName=Sala de presión
+
+[ZoneInfo7]
+ZoneName=Tunel del rifle
+
+[PressureZone0]
+ZoneName=Cámara de presión
+
+[ZoneInfo6]
+ZoneName=Sala de las columnas
+
+[ZoneInfo1]
+ZoneName=Sala de presión
+
+[ZoneInfo4]
+ZoneName=Sala de las columnas
+
+[ZoneInfo0]
+ZoneName=Sala del pasadizo
+
+[LevelInfo0]
+Title=Presión
+IdealPlayerCount=8
+LevelEnterText=¡¡LLÉVALOS A LA CÁMARA DE PRESIÓN!!
+
+[LevelSummary]
+Title=Presión
+IdealPlayerCount=8
+LevelEnterText=¡¡LLÉVALOS A LA CÁMARA DE PRESIÓN!!
+
+

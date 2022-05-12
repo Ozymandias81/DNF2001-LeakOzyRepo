@@ -1,0 +1,17 @@
+[LevelInfo0]
+Title=Barriera di Orione
+IdealPlayerCount=6-12
+
+[LevelSummary]
+Title=Barriera di Orione
+IdealPlayerCount=6-12
+
+[ZoneInfo12]
+ZoneName=Casello
+
+[ZoneInfo11]
+ZoneName=Esterno
+
+[ZoneInfo13]
+ZoneName=Scantinato
+

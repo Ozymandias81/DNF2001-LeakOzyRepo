@@ -1,0 +1,1 @@
+class CriticalStringPlus extends CriticalEventPlus;

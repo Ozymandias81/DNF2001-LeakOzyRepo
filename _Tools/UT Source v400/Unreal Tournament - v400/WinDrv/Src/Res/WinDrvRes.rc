@@ -1,0 +1,161 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "WinDrvRes.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "WinDrvRes.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDMENU_PlayerCam MENU DISCARDABLE 
+BEGIN
+    POPUP "ID_FileMenu"
+    BEGIN
+        MENUITEM "ID_FileExit",                 ID_FileExit
+    END
+    POPUP "ID_ViewMenu"
+    BEGIN
+        MENUITEM "ID_ViewAdvanced",             ID_ViewAdvanced
+        MENUITEM "ID_ViewLog",                  ID_ViewLog
+        MENUITEM "ID_ViewTop",                  ID_ViewTop
+    END
+    POPUP "ID_WindowMenu"
+    BEGIN
+        MENUITEM SEPARATOR
+    END
+END
+
+IDMENU_EditorCam MENU DISCARDABLE 
+BEGIN
+    POPUP "&Mode"
+    BEGIN
+        MENUITEM "&Dynamic Lighting",           ID_MapDynLight, CHECKED
+        MENUITEM "&Textures",                   ID_MapPlainTex
+        MENUITEM "&Polygons",                   ID_MapPolys
+        MENUITEM "&Zone/Portal View",           ID_MapZones
+        MENUITEM "&BSP Cuts",                   ID_MapPolyCuts
+        MENUITEM SEPARATOR
+        MENUITEM "&Map Overhead",               ID_MapOverhead
+        MENUITEM "Map &XZ",                     ID_MapXZ
+        MENUITEM "Map &YZ",                     ID_MapYZ
+        MENUITEM "&Map Persp",                  ID_MapWire
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Always on top",              ID_ViewTop
+        MENUITEM SEPARATOR
+        MENUITEM "Show Active &Brush",          ID_ShowBrush, CHECKED
+        MENUITEM "Show &Moving Brushes",        ID_ShowMovingBrushes
+        , CHECKED
+        MENUITEM "Show Bac&kdrop",              ID_ShowBackdrop
+        MENUITEM "Show &Coordinates",           ID_ShowCoords
+        MENUITEM "Show Paths",                  ID_ShowPaths
+    END
+    POPUP "&Actors"
+    BEGIN
+        MENUITEM "&Full Actor View",            ID_ActorsShow
+        MENUITEM "&Icon View",                  ID_ActorsIcons
+        MENUITEM "&Radii View",                 ID_ActorsRadii
+        MENUITEM "&Hide Actors",                ID_ActorsHide
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM SEPARATOR
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDICON_MAINFRAME        ICON    DISCARDABLE     "..\\res\\Unreal.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDCURSOR_TexSet         CURSOR  DISCARDABLE     "..\\res\\TEXSET.CUR"
+IDCURSOR_TexScale       CURSOR  DISCARDABLE     "..\\res\\TEXSCALE.CUR"
+IDCURSOR_TexRot         CURSOR  DISCARDABLE     "..\\res\\TEXROT.CUR"
+IDCURSOR_TexPan         CURSOR  DISCARDABLE     "..\\res\\TEXPAN.CUR"
+IDCURSOR_TexGrab        CURSOR  DISCARDABLE     "..\\res\\TEXGRAB.CUR"
+IDCURSOR_Terraform      CURSOR  DISCARDABLE     "..\\res\\terrafor.cur"
+IDCURSOR_SelectPolys    CURSOR  DISCARDABLE     "..\\res\\SELECTPO.CUR"
+IDCURSOR_SelectActors   CURSOR  DISCARDABLE     "..\\res\\SELACTOR.CUR"
+IDCURSOR_MoveActor      CURSOR  DISCARDABLE     "..\\res\\MOVEACT.CUR"
+IDCURSOR_CameraZoom     CURSOR  DISCARDABLE     "..\\res\\CAMZOOM.CUR"
+IDCURSOR_BrushWarp      CURSOR  DISCARDABLE     "..\\res\\BrushWrp.cur"
+IDCURSOR_BrushStretch   CURSOR  DISCARDABLE     "..\\res\\BRUSHSTR.CUR"
+IDCURSOR_BrushSnap      CURSOR  DISCARDABLE     "..\\res\\BrushSna.cur"
+IDCURSOR_BrushSheer     CURSOR  DISCARDABLE     "..\\res\\BRUSHSHR.CUR"
+IDCURSOR_BrushScale     CURSOR  DISCARDABLE     "..\\res\\BRUSHSCA.CUR"
+IDCURSOR_BrushRot       CURSOR  DISCARDABLE     "..\\res\\BRUSHROT.CUR"
+IDCURSOR_BrushMove      CURSOR  DISCARDABLE     "..\\res\\BRUSHMOV.CUR"
+IDCURSOR_BrushFree      CURSOR  DISCARDABLE     "..\\res\\BRUSHFR.CUR"
+IDCURSOR_AddActor       CURSOR  DISCARDABLE     "..\\res\\ADDACTOR.CUR"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

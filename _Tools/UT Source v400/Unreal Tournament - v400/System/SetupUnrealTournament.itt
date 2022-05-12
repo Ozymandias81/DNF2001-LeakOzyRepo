@@ -1,0 +1,74 @@
+[Setup]
+LocalProduct=Unreal Tournament
+DefaultFolder=C:\UnrealTournament
+ReadMe=Help\ReadMe.htm
+SetupWindowTitle=Installazione di Unreal Tournament
+AutoplayWindowTitle=Opzioni di Unreal Tournament
+ProductURL=http://www.unreal.com/
+VersionURL=http://unreal.epicgames.com/versions.htm
+Developer=Epic Games, Inc.
+DeveloperURL=http://www.epicgames.com/
+Logo=Help\UnrealTournamentSetupLogo.bmp
+
+[General]
+PlayLevelCommand=&Gioca questo livello di Unreal
+OpenLinkCommand=&Apri questo collegamento a Unreal
+InstallModuleCommand=&Installa questo modulo di Unreal
+EditLevelCommand=&Modifica questo livello di Unreal
+
+
+[UnrealTournamentContentGroup]
+Caption=Contenuto del gioco
+Description=Usa questa installazione per delle prestazioni ottimali. Se la deselezioni, il contenuto del gioco verrà caricato da CD durante l'azione, diminuendone le prestazioni, ma sfruttando meno spazio su disco.
+
+
+[GameGroup]
+Caption=Unreal Tournament
+Description=È necessaria l'installazione.
+
+
+[NetGamesGroup]
+Caption=Statistiche NetGames USA
+Description=Questi tool possono essere utilizzati per generare statistiche HTML riguardo alle vostre partite ad Unreal Tournament. Potrete anche vedere la vostra posizione generale in classica online!
+
+
+[DirectXGroup]
+Caption=DirectX
+Description=Driver Microsoft DirectX 6 opzionali per il miglioramento di grafica e audio e il supporto di joystick.
+
+
+[EditorGroup]
+Caption=Editor di Unreal
+Description=Editor di Unreal per la creazione delle vostre ambientazioni 3D con Unreal. Per utenti esperti; l'installazione è opzionale.
+
+
+[PlayShortcut]
+Caption=Gioca a Unreal Tournament
+
+
+[SafeModeShortcut]
+Caption=Modalità sicura di Unreal Tournament
+
+
+[EditorShortcut]
+Caption=Editor di Unreal
+
+
+[DocumentationShortcut]
+Caption=Documentazione
+
+
+[WebShortcut]
+Caption=Pagina web di Unreal Tournament
+
+
+[NetGamesShortcut]
+Caption=NetGames USA
+
+
+[LocalStatsShortcut]
+Caption=Visualizza le mie statistiche locali di UT. [ngStats]
+
+
+[GlobalStatsShortcut]
+Caption=Visualizza le mie statistiche generali di UT. [ngWorldStats] 

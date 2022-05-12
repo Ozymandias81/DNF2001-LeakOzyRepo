@@ -1,0 +1,37 @@
+[LevelInfo0]
+Title=Tomba di Sesmar 
+IdealPlayerCount=10
+LevelEnterText=DOMINA!!!
+
+[ZoneInfo3]
+ZoneName=Esterno
+
+[ZoneInfo0]
+ZoneName=Sala dei pilastri
+
+[ZoneInfo5]
+ZoneName=Ankh rosso
+
+[ZoneInfo4]
+ZoneName=Ankh blu
+
+[ZoneInfo2]
+ZoneName=Passaggi
+
+[ZoneInfo1]
+ZoneName=Passaggi
+
+[ControlPoint3]
+PointName=Sala dei pilastri
+
+[ControlPoint0]
+PointName=Ankh blu
+
+[ControlPoint1]
+PointName=Ankh rosso
+
+[LevelSummary]
+Title=Tomba di Sesmar 
+IdealPlayerCount=10
+LevelEnterText=DOMINA!!!
+

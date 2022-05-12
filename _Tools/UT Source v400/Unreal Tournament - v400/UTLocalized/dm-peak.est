@@ -1,0 +1,30 @@
+[LevelSummary]
+LevelEnterText=¡¡Ten cuidado por donde pisas!!  ¡¡El terreno es muy peligroso!!
+
+[ZoneInfo6]
+ZoneName=Sala inferior
+
+[ZoneInfo2]
+ZoneName=Sala superior
+
+[ZoneInfo4]
+ZoneName=Sala inferior
+
+[ZoneInfo7]
+ZoneName=Mirador
+
+[ZoneInfo5]
+ZoneName=La sala del pozo
+
+[ZoneInfo3]
+ZoneName=Habitación principal
+
+[ZoneInfo0]
+ZoneName=Afueras
+
+[LevelInfo0]
+Title=El monasterio del pico
+IdealPlayerCount=6-8
+LevelEnterText=¡¡Ten cuidado por donde pisas!!  ¡¡El terreno es muy peligroso!!
+
+

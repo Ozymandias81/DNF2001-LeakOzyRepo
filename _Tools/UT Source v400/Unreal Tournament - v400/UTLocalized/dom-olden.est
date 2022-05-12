@@ -1,0 +1,29 @@
+[LevelInfo0]
+Title=Antiguo aquífero
+IdealPlayerCount=4-6
+
+[ControlPoint1]
+PointName=Inferior
+
+[ControlPoint2]
+PointName=Superior
+
+[ControlPoint0]
+PointName=Intermedio
+
+[TranslatorEvent0]
+Message=Descúbranse ante Sombras... Esta vez por D.G.
+
+[LevelSummary]
+Title=Antiguo aquífero
+IdealPlayerCount=4-6
+
+[ZoneInfo2]
+ZoneName=Inferior
+
+[ZoneInfo0]
+ZoneName=Intermedio
+
+[ZoneInfo1]
+ZoneName=Superior
+

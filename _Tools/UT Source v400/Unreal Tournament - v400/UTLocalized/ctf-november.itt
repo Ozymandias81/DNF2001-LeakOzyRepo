@@ -1,0 +1,29 @@
+[LevelSummary]
+LevelEnterText=Ingresso alla base sottomarina nucleare Novembre.
+
+[WaterZone5]
+ZoneName=Acqua
+
+[ZoneInfo0]
+ZoneName=Base rossa
+
+[ZoneInfo3]
+ZoneName=Atrio blu
+
+[ZoneInfo5]
+ZoneName=Ingresso rosso
+
+[ZoneInfo6]
+ZoneName=Atrio rosso
+
+[ZoneInfo2]
+ZoneName=Base blu
+
+[ZoneInfo4]
+ZoneName=Base sottomarina
+
+[LevelInfo0]
+Title=Novembre
+IdealPlayerCount=8-12
+LevelEnterText=Ingresso alla base sottomarina nucleare Novembre.
+

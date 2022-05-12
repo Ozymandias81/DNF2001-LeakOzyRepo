@@ -1,0 +1,69 @@
+[Setup]
+LocalProduct=Unreal Tournament
+DefaultFolder=C:\UnrealTournament
+ReadMe=Ayuda\ReadMe.htm
+SetupWindowTitle=Instalación de Unreal Tournament
+AutoplayWindowTitle=Opciones de Unreal Tournament
+ProductURL=http://www.unreal.com/
+VersionURL=http://unreal.epicgames.com/versions.htm
+Developer=Epic Games, Inc.
+DeveloperURL=http://www.epicgames.com/
+Logo=Ayuda\UnrealTournamentSetupLogo.bmp
+License=None
+
+[General]
+PlayLevelCommand=&Jugar este nivel de Unreal
+OpenLinkCommand=&Abrir este enlace de Unreal
+InstallModuleCommand=&Instalar este módulo de Unreal
+EditLevelCommand=&Editar este nivel de Unreal
+
+[UnrealTournamentContentGroup]
+Caption=Contenido del juego
+Description=Instálalo para obtener un mayor rendimiento. Si cancelas la selección, el contenido del juego se cargará desde el CD cuando estés jugando, lo que hará disminuir el rendimiento, pero ocupará menos espacio en el disco duro. 
+
+[GameGroup]
+Caption=Juego de Unreal Tournament
+Description=Su instalación es imprescindible.
+
+[NetGamesGroup]
+Caption=Utilidades Stat de NetGames USA
+Description=Estas herramientas se pueden utilizar para crear estadísticas en HTML de las partidas que hayas jugado en Unreal Tournament. 
+¡También aquí puedes ver en línea tu posición en la clasificación total!
+
+[DirectXGroup]
+Caption=DirectX
+Description=Controladores DirectX 7 de Microsoft opcionales para obtener un mayor rendimiento de los gráficos, el sonido y el joystick. 
+
+[EditorGroup]
+Caption=Editor de Unreal 
+Description=Editor del mundo Unreal para crear tus propios entornos Unreal en 3D. Para usuarios avanzados; su instalación es opcional.
+
+[PlayShortcut]
+Caption=Jugar a Unreal Tournament
+
+[SafeModeShortcut]
+Caption=Modo a prueba de fallos de Unreal Tournament
+
+[EditorShortcut]
+Caption=Editor de Unreal 
+
+[DocumentationShortcut]
+Caption=Documentación
+
+[WebShortcut]
+Caption=Página Web de Unreal Tournament
+
+[NetGamesShortcut]
+Caption=NetGames USA
+
+[LocalStatsShortcut]
+Caption=Ver mis estadísticas locales de UT. [ngStats]
+
+[GlobalStatsShortcut]
+Caption=Ver mis estadísticas totales de UT. [ngWorldStats]
+
+[MPlayerShortcut]
+Caption=Partidas Internet en mplayer.com
+
+[HeatShortcut]
+Caption=Partidas Internet en HEAT

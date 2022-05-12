@@ -1,0 +1,69 @@
+[General]
+Run=¡Ejecutar!
+FirstTime=Configuración inicial de Unreal Tournament
+SafeMode=Modo a prueba de fallos de Unreal Tournament
+Video=Configuración de vídeo de Unreal Tournament
+RecoveryMode=Modo de recuperación de Unreal Tournament
+WebPage=http://unreal.epicgames.com/versions.htm
+Direct3DWebPage=http://unreal.epicgames.com/Direct3d.htm
+Detecting=Detectando dispositivos de vídeo en 3D, espera...
+SoundLow=Baja calidad de sonido
+SoundHigh=Alta calidad de sonido
+SkinsLow=Nivel medio de detalle de la textura de la piel de los jugadores
+SkinsHigh=Nivel alto de detalle de la textura de la piel de los jugadores
+WorldLow=Nivel medio de detalle de la textura del mundo
+WorldHigh="Nivel alto de detalle de la textura del mundo"
+ResLow=Resolución de vídeo baja
+ResHigh=Resolución de vídeo estándar
+
+[Descriptions]
+SoftDrv.SoftwareRenderDevice=Procesador integrado de software de Unreal Tournament. Compatible con todas las tarjetas de vídeo.
+GlideDrv.GlideRenderDevice=Compatible con tarjetas 3dfx; la elección idónea para los usuarios de 3dfx. Es imprescindible disponer de una tarjeta 3dfx.
+D3DDrv.D3DRenderDevice=Utiliza el procesador de hardware de Direct3D. Compatible con las tarjetas de vídeo más recientes, tales como Riva TNT, ATI Rage 128, Matrox G400 y S3 Savage4. No es aconsejable utilizarlo con tarjetas de vídeo más antiguas. Utiliza el procesador de software si dispones de tarjetas ATI Rage Pro, Riva 128, Intel i740 o Rendition V2200.
+OpenGLDrv.OpenGLRenderDevice=Compatible con OpenGl experimental. Se suministra con fines de prueba, aunque se sabe que tiene problemas de compatibilidad con algunos controladores. La utilización de este dispositivo queda por tanto bajo responsabilidad del usuario. 
+MetalDrv.MetalRenderDevice=Para usuarios de tarjetas de vídeo S3 Savage4. 
+
+[IDDIALOG_ConfigPageDetail]
+IDC_ConfigPageDetail=
+IDC_DetailPrompt=De acuerdo con la velocidad, memoria y la tarjeta de vídeo de tu ordenador, Unreal Tournament ha seleccionado las siguientes opciones con el fin de mejorar el rendimiento del juego.
+IDC_DetailNote=Si quieres, puedes cambiar estas opciones en la ventana "Preferencias" del juego.
+
+[IDDIALOG_ConfigPageFirstTime]
+IDC_ConfigPageFirstTime=
+IDC_Prompt=Unreal Tournament está iniciándose por primera vez. Si te encuentras con algún problema, consulta las notas de la versión Unreal, incluidas en la sección "Programas / Unreal Tournament", en el menú "Inicio" de Windows.
+
+[IDDIALOG_ConfigPageRenderer]
+IDC_ConfigPageRenderer=
+IDC_RenderPrompt=Tu ordenador es compatible con los siguientes dispositivos de vídeo en 3D. Unreal Tournament ha seleccionado el que más se ajusta a la configuración de tu PC. Si quieres cambiarlo, destaca una de las opciones indicadas abajo.
+IDC_RenderNote=
+IDC_Compatible=Ver dispositivos certificados y compatibles
+IDC_All=Mostrar todos los dispositivos
+
+[IDDIALOG_ConfigPageSafeMode]
+IDC_ConfigPageSafeMode=
+IDC_SafeModePrompt=La última vez que se ejecutó Unreal Tournament, no se cerró correctamente. Si esto se debió a un problema en tu PC, puedes utilizar las opciones indicadas abajo para repararlo.
+IDC_SafeModePrompt2=Opciones del modo a prueba de fallos de Unreal Tournament: Si tienes problemas, puedes utilizar las opciones indicadas abajo para repararlos.
+IDC_Run=Ejecutar Unreal Tournament
+IDC_Video=Cambiar dispositivo de vídeo en 3D
+IDC_SafeMode=Ejecutar Unreal Tournament en el modo a prueba de fallos para acceder a la sección de identificación y resolución de problemas.
+IDC_Web=Visita nuestro sitio Web para obtener información sobre identificación y resolución de problemas.
+
+[IDDIALOG_ConfigPageSafeOptions]
+IDC_ConfigPageSafeOptions=
+IDC_SafeOptions=Opciones del modo a prueba de fallos para diagnosticar problemas
+IDC_NoSound=Desactivar todas las opciones del sonido
+IDC_No3DSound=Desactivar el hardware del sonido en 3D
+IDC_No3DVideo=Desactivar el hardware del vídeo en 3D
+IDC_Window=Ejecutar el juego en una ventana (en lugar de en la pantalla completa)
+IDC_Res=Ejecutar en resolución estándar 640x480
+IDC_ResetConfig=Restablecer todas las opciones de configuración a sus valores originales
+IDC_NoProcessor=Desactivar extensiones del procesador Pentium III/3DNow 
+IDC_NoJoy=Desactivar función de compatibilidad con joystick
+
+[IDDIALOG_ConfigPageDriver]
+IDC_ConfigPageDriver=
+IDC_DriverText=Unreal Tournament ha detectado la siguiente tarjeta de vídeo, compatible con Direct3D:
+IDC_DriverInfo=Puesto que has seleccionado Direct3D, Unreal Tournament tratará de utilizar el controlador de este tipo de tarjeta de vídeo para garantizar su compatibilidad con las tarjetas Direct3D.\n\nSin embargo, algunos controladores de tarjetas 3D deberán actualizarse para que funcionen correctamente con las funciones de vanguardia 3D de Unreal Tournament. Te recomendamos que consultes el enlace en la Red, que se indica abajo, para más información sobre la compatibilidad de tu tarjeta de vídeo y para obtener los últimos controladores Direct3D.\n\nSi experimentas alguna dificultad con los gráficos como, por ejemplo, problemas en los colores, polígonos intermitentes, bajo rendimiento, o bloqueos, consulta el enlace "Modo a prueba de fallos de Unreal Tournament" en el menú "Inicio / Programas" para cambiar el controlador de tu vídeo.
+IDC_Web=Para más enlaces con información sobre los controladores más recientes, visita nuestra página Web: 
+IDC_WebButton=Página sobre controladores e información acerca de Direct3D 
+IDC_Card=

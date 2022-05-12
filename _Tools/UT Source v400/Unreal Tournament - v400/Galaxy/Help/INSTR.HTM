@@ -1,0 +1,711 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System API (Instrument)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="glxControlInstrument"></a><font size="4" face="Arial"><strong>glxControlInstrument</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxControlInstrument</strong> function offers
+realtime control over important instrument attributes (like pitch, modulation etc.)</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxControlInstrument</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxVoice *</strong><em>Voice</em>,<br>
+<strong>int </strong><em>Pitchwheel,<br>
+</em><strong>int </strong><em>Volume,</em><br>
+<strong>int </strong><em>Velocity,</em><br>
+<strong>int </strong><em>Expression,</em><br>
+<strong>int </strong><em>Panning,<br>
+</em><strong>int </strong><em>Modulation,</em><br>
+<strong>int </strong><em>Reverb,<br>
+</em><strong>int </strong><em>Chorus,</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice of which the instrument attributes have to be
+modified.</font></p>
+
+<p><font size="2" face="Arial"><em>Pitchwheel</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument pitch (256 units/semitone)
+relative to the current pitch/key. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSPITCH</font></p>
+
+<p><font size="2" face="Arial">The relative instrument pitch is NOT changed</font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument volume. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSVOLUME</font></p>
+
+<p><font size="2" face="Arial">The instrument volume is NOT changed</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSVOLUME</font></p>
+
+<p><font size="2" face="Arial">The instrument volume is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSVOLUME</font></p>
+
+<p><font size="2" face="Arial">The instrument volume is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Velocity</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument velocity. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSVELOCITY</font></p>
+
+<p><font size="2" face="Arial">The instrument velocity is NOT changed</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSVELOCITY</font></p>
+
+<p><font size="2" face="Arial">The instrument velocity is set to its minimum value
+(silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSVELOCITY</font></p>
+
+<p><font size="2" face="Arial">The instrument velocity is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Expression</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument expression. The following values
+are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSEXPRESSION</font></p>
+
+<p><font size="2" face="Arial">The instrument expression is NOT changed</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSEXPRESSION</font></p>
+
+<p><font size="2" face="Arial">The instrument expression is set to its minimum value
+(silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSEXPRESSION</font></p>
+
+<p><font size="2" face="Arial">The instrument expression is set to its maximum value (0
+dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Panning</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument panning. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSPANNING</font></p>
+
+<p><font size="2" face="Arial">The instrument panning is NOT changed</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSPANNING</font></p>
+
+<p><font size="2" face="Arial">The instrument panning is set to its minimum value (left)</font></p>
+
+<p><font size="2" face="Arial">GLX_MIDINSPANNING</font></p>
+
+<p><font size="2" face="Arial">The instrument panning is set to its half-way value
+(center)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSPANNING</font></p>
+
+<p><font size="2" face="Arial">The instrument panning is set to its maximum value (right)</font></p>
+
+<p><font size="2" face="Arial"><em>Modulation</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument modulation. The following values
+are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSMODULATION</font></p>
+
+<p><font size="2" face="Arial">The instrument modulation is NOT changed</font></p>
+
+<p><font size="2" face="Arial"><em>Chorus</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument chorus. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSCHORUS</font></p>
+
+<p><font size="2" face="Arial">The instrument chorus is NOT changed</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSCHORUS</font></p>
+
+<p><font size="2" face="Arial">The instrument chorus is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSCHORUS</font></p>
+
+<p><font size="2" face="Arial">The instrument chorus is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Reverb</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument reverb. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSREVERB</font></p>
+
+<p><font size="2" face="Arial">The instrument reverb is NOT changed</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSREVERB</font></p>
+
+<p><font size="2" face="Arial">The instrument reverb is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSREVERB</font></p>
+
+<p><font size="2" face="Arial">The instrument reverb is set to its maximum value (0 dB)</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxLoadInstrument"></a><font size="4" face="Arial"><strong>glxLoadInstrument</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxLoadInstrument</strong> function loads and
+converts an instrument from a given type of stream (file, memory etc.) to the internal
+format (signed 8 or 16 bit PCM samples).</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxLoadInstrument</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Instrument,<br>
+</em><strong>void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Instrument</em></font></p>
+
+<p><font size="2" face="Arial">Bank number and program number of instrument to load sample
+into (high 25 bits contain the bank number and the remaining 7 bits contain the program
+number)</font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to read sample data from. This can either be a FILE
+* or a pointer to a custom structure (like a glxMemory *). The following formats will be
+recognized : </font></p>
+
+<p><font size="2" face="Arial">AI</font></p>
+
+<p><font size="2" face="Arial">Advanced instrument streams, our internal format</font></p>
+
+<p><font size="2" face="Arial">DLS</font></p>
+
+<p><font size="2" face="Arial">DownLoadable Sample streams, currently level 1 only</font></p>
+
+<p><font size="2" face="Arial">SF2</font></p>
+
+<p><font size="2" face="Arial">SoundFont v2.0 streams from Creative Labs/EMU</font></p>
+
+<p><font size="2" face="Arial">WAV</font></p>
+
+<p><font size="2" face="Arial">Wave audio streams, the industry standard</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+glxMemory *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><font size="2" face="Arial">GLXERR_UNSUPPORTEDFORMAT</font></p>
+
+<p><a name="glxSaveInstrument"></a><font size="4" face="Arial"><strong>glxSaveInstrument</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSaveInstrument</strong> function saves the
+specified instrument to a given type of stream (file, memory etc.) as an advanced
+instrument (AI) stream.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSaveInstrument</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Instrument,</em><strong><br>
+void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Instrument</em></font></p>
+
+<p><font size="2" face="Arial">Bank number and program number of instrument to load sample
+into (high 25 bits contain the bank number and the remaining 7 bits contain the program
+number)</font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to save advanced instrument (AI) stream to. This can
+either be a FILE * or a pointer to a custom structure (like a glxMemory *). If a NULL
+pointer is supplied, this function will still return the correct number of bytes saved to <em>Stream</em>.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+glxMemory *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns the number of bytes saved to <em>Stream</em> or one
+of the following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxSetInstrumentChannels"></a><font size="4" face="Arial"><strong>glxSetInstrumentVoices</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSetInstrumentVoices</strong> funtion
+dedicates a number of consecutive audio voices to instrument playback only. The default
+setting is eight (8) dedicated instrument voices.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSetInstrumentVoices</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Voices</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voices</em></font></p>
+
+<p><font size="2" face="Arial">Number of voices to dedicate to instrument playback.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns the physical voice number of the first dedicated
+instrument voice if successful or zero otherwise.</font></p>
+
+<p><a name="glxStartInstrument"></a><font size="4" face="Arial"><strong>glxStartInstrument</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStartInstrument</strong> funtion starts a
+new instrument with the specified sample attributes (like pitch, modulation etc.) on a
+given voice.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">glxVoice *glxStartInstrument</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Voice,<br>
+</em><strong>int </strong><em>Instrument</em>,<br>
+<strong>int </strong><em>Key,<br>
+</em><strong>int </strong><em>Pitchwheel,<br>
+</em><strong>int </strong><em>Volume,<br>
+</em><strong>int </strong><em>Velocity,<br>
+</em><strong>int </strong><em>Expression,<br>
+</em><strong>int </strong><em>Panning,</em><br>
+<strong>int </strong><em>Modulation,</em><br>
+<strong>int</strong> <em>Reverb,</em><br>
+<strong>int</strong><em> Chorus,</em><br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice on which the sample is played. The following values
+are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_AUTO</font></p>
+
+<p><font size="2" face="Arial">An empty voice is selected automatically, if all voices are
+occupied the longest playing voice, which received a key-off, is used.</font></p>
+
+<p><font size="2" face="Arial"><em>Instrument</em></font></p>
+
+<p><font size="2" face="Arial">Bank number and program number of instrument to load sample
+into (high 25 bits contain the bank number and the remaining 7 bits contain the program
+number)</font></p>
+
+<p><font size="2" face="Arial"><em>Key</em></font></p>
+
+<p><font size="2" face="Arial">Key number to start instrument with (upper bit contains the
+key-off message and the remaining 7 bits contain the key number)</font></p>
+
+<p><font size="2" face="Arial"><em>Pitchwheel</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument pitch (256 units/semitone)
+relative to the current pitch/key. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSPITCH</font></p>
+
+<p><font size="2" face="Arial">The relative instrument pitch is set to zero (no change)</font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument volume. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSVOLUME</font></p>
+
+<p><font size="2" face="Arial">The instrument volume is set it's default value of 100</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSVOLUME</font></p>
+
+<p><font size="2" face="Arial">The instrument volume is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSVOLUME</font></p>
+
+<p><font size="2" face="Arial">The instrument volume is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Velocity</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument velocity. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSVELOCITY</font></p>
+
+<p><font size="2" face="Arial">The instrument velocity is set to it's default value of 127</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSVELOCITY</font></p>
+
+<p><font size="2" face="Arial">The instrument velocity is set to its minimum value
+(silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSVELOCITY</font></p>
+
+<p><font size="2" face="Arial">The instrument velocity is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Expression</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument expression. The following values
+are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSEXPRESSION</font></p>
+
+<p><font size="2" face="Arial">The instrument expression is set to it's default value of
+127</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSEXPRESSION</font></p>
+
+<p><font size="2" face="Arial">The instrument expression is set to its minimum value
+(silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSEXPRESSION</font></p>
+
+<p><font size="2" face="Arial">The instrument expression is set to its maximum value (0
+dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Panning</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument panning. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSPANNING</font></p>
+
+<p><font size="2" face="Arial">The instrument panning is set to the value found in the <strong>glxSample</strong>
+structure, only if the type field specifies the sample has a panning of its own</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSPANNING</font></p>
+
+<p><font size="2" face="Arial">The instrument panning is set to its minimum value (left)</font></p>
+
+<p><font size="2" face="Arial">GLX_MIDINSPANNING</font></p>
+
+<p><font size="2" face="Arial">The instrument panning is set to its half-way value
+(center)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSPANNING</font></p>
+
+<p><font size="2" face="Arial">The instrument panning is set to its maximum value (right)</font></p>
+
+<p><font size="2" face="Arial"><em>Modulation</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument modulation. The following values
+are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSMODULATION</font></p>
+
+<p><font size="2" face="Arial">The instrument modulation is set to the corresponding value
+found in the <strong>glxInstrument</strong> structure.</font></p>
+
+<p><font size="2" face="Arial"><em>Chorus</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument chorus. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSCHORUS</font></p>
+
+<p><font size="2" face="Arial">The instrument chorus is set to it's default value of zero</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSCHORUS</font></p>
+
+<p><font size="2" face="Arial">The instrument chorus is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSCHORUS</font></p>
+
+<p><font size="2" face="Arial">The instrument chorus is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Reverb</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument reverb. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFINSREVERB</font></p>
+
+<p><font size="2" face="Arial">The instrument reverb is set to it's default value of 40</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSREVERB</font></p>
+
+<p><font size="2" face="Arial">The instrument reverb is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSREVERB</font></p>
+
+<p><font size="2" face="Arial">The instrument reverb is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the instrument flags. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_NORMAL</font></p>
+
+<p><font size="2" face="Arial">The instrument is played in normal mode, which means it
+will be replaced whenever empty voices are not available</font></p>
+
+<p><font size="2" face="Arial">GLX_LOCKED</font></p>
+
+<p><font size="2" face="Arial">The instrument is played in locked mode, which means it
+will NOT be replaced (even when empty voices are not available)</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns a non NULL-pointer if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxStopInstrument"></a><font size="4" face="Arial"><strong>glxStopInstrument</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStopInstrument</strong> funtion stops an
+instrument on a given voice by sending a key-off message.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxStopInstrument</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxVoice *</strong><em>Voice</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice on which the instrument is stopped</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxLoadInstrumentSample"></a><font size="4" face="Arial"><strong>glxLoadInstrumentSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxLoadInstrumentSample</strong> function loads
+and converts a sample from a given type of stream (file, memory etc.) to the internal
+format (signed 8 or 16 bit PCM samples) and places it in the specifed instrument at the
+given sample slot.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">glxSample *glxLoadInstrumentSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Instrument</em>,<br>
+<strong>int </strong><em>Sample,<br>
+</em><strong>void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Instrument</em></font></p>
+
+<p><font size="2" face="Arial">Bank number and program number of instrument to load sample
+into (high 25 bits contain the bank number and the remaining 7 bits contain the program
+number)</font></p>
+
+<p><font size="2" face="Arial"><em>Sample</em></font></p>
+
+<p><font size="2" face="Arial">Sample slot within instrument to use for sample (instrument
+structure will be resized as needed to hold all sample structures)</font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to read sample data from. This can either be a FILE
+*, a BYTE * or a pointer to a custom structure (like a memStream *). The following formats
+will be recognized : </font></p>
+
+<p><font size="2" face="Arial">AS</font></p>
+
+<p><font size="2" face="Arial">Advanced sample streams, our internal format.</font></p>
+
+<p><font size="2" face="Arial">AU</font></p>
+
+<p><font size="2" face="Arial">Audio streams from SUN/Unix</font></p>
+
+<p><font size="2" face="Arial">ST3</font></p>
+
+<p><font size="2" face="Arial">Sample streams from ScreamTracker 3</font></p>
+
+<p><font size="2" face="Arial">WAV</font></p>
+
+<p><font size="2" face="Arial">Wave audio streams, the industry standard.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a BYTE *
+or a memStream *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns a non NULL-pointer if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxSaveInstrumentSample"></a><font size="4" face="Arial"><strong>glxSaveInstrumentSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSaveInstrumentSample</strong> function saves
+the specified sample to a given type of stream (file, memory etc.) as an advanced sample
+(AS) stream.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSaveInstrumentSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong>Instrument,<br>
+<strong>int </strong><em>Sample,</em><strong><br>
+void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Instrument</em></font></p>
+
+<p><font size="2" face="Arial">Bank number and program number of instrument to save sample
+from (high 25 bits contain the bank number and the remaining 7 bits contain the program
+number)</font></p>
+
+<p><font size="2" face="Arial"><em>Sample</em></font></p>
+
+<p><font size="2" face="Arial">Sample slot within instrument of sample to save</font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to save advanced sample (AS) stream to. This can
+either be a FILE *, a BYTE * or a pointer to a custom structure (like a memStream *). If a
+NULL pointer is supplied, this function will still return the correct number of bytes
+saved to <em>Stream</em>.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a BYTE *
+or a memStream *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns the number of bytes saved to <em>Stream</em> or one
+of the following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

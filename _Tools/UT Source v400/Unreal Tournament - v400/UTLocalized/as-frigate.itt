@@ -1,0 +1,20 @@
+[LevelInfo0]
+Title=Fregata
+IdealPlayerCount=4-8
+
+[FortStandard0]
+FortName=I missili
+DestroyedMessage="sono stati lanciati!"
+
+[FortStandard1]
+FortName=La nave
+DestroyedMessage=è stata abbordata!
+
+[FortStandard2]
+FortName=Il compressore idraulico
+
+[AssaultInfo0]
+ObjDesc[0]=La porta della sala comandi della nave è controllata da un compressore idraulico collocato nella cabina di poppa. Per poter accedere alla sala comandi, è necessario che questo compressore venga distrutto.
+ObjDesc[1]=Devi impadronirti della nave da guerra attraverso il molo e raggiungere la sala comandi al piano superiore del vascello. Lì troverai un pulsante rosso che attiverà i cannoni di bordo e consentirà alla nave di lasciare la baia.
+
+

@@ -1,0 +1,826 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System API (Sample)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="glxControlSample"></a><font size="4" face="Arial"><strong>glxControlSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxControlSample</strong> function offers
+realtime control over important sample attributes (like pitch, volume etc.)</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxControlSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxVoice *</strong><em>Voice</em>,<br>
+<strong>int </strong><em>Frequency,<br>
+</em><strong>int </strong><em>Volume,<br>
+</em><strong>int </strong><em>Panning</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice of which the sample attributes have to be modified.</font></p>
+
+<p><font size="2" face="Arial"><em>Frequency</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample replay frequency (in Hertz). The
+following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPFREQUENCY</font></p>
+
+<p><font size="2" face="Arial">The sample replay frequency is NOT changed</font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample volume. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is NOT changed</font></p>
+
+<p><font size="2" face="Arial">GLX_MINSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Panning</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample panning. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is NOT changed</font></p>
+
+<p><font size="2" face="Arial">GLX_MINSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its minimum value (left)</font></p>
+
+<p><font size="2" face="Arial">GLX_MIDSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its half-way value (center)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its maximum value (right)</font></p>
+
+<p><font size="2" face="Arial">GLX_SURSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">This flag can be specified in combination with values given
+above. This will output the sample with a ±90 degree phase-difference between the left
+and right channel. This flag has NO effect when using one output channel (monophonic
+output)</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxConvertSample3D"></a><a name="glxControlSample3D"></a><font size="4" face="Arial"><strong>glxControlSample3D</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxControlSample3D</strong> function offers
+realtime control over important 3D-positional sample attributes (like position, velocity
+etc.). Galaxy will automatically calculate the correct panning position, volume and amount
+of Doppler shifting. The sound can either be processed by 3D positional audio-hardware or
+Galaxy's own internal 3D audio algorithms, this is completely transparent to the user. You
+can always be sure that the best option is selected by Galaxy. This function can only be
+used if <strong>glxStartOutput</strong> was called with the GLX_3DAUDIO flag.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxControlSample3D</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxVoice *</strong><em>Voice</em>,<br>
+<strong>int </strong><em>Frequency,<br>
+</em><strong>int </strong><em>Volume,<br>
+</em><strong>glxVector * </strong><em>Position,<br>
+</em><strong>glxVector * </strong><em>Velocity<br>
+</em></font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice of which the sample attributes have to be modified.</font></p>
+
+<p><font size="2" face="Arial"><em>Frequency</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample replay frequency (in Hertz). The
+following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPFREQUENCY</font></p>
+
+<p><font size="2" face="Arial">The sample replay frequency is set to the value found in
+the <strong>glxSample</strong> structure</font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample volume. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to the value found in the <strong>glxSample</strong>
+structure</font></p>
+
+<p><font size="2" face="Arial">GLX_MINSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Position</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample's 3D position RELATIVE to the
+listener. Galaxy uses a left-handed coordinate system, with positive X pointing right,
+positive Y pointing upwards and positive Z pointing away from you. The coordinate scale is
+in meters, so each unit corresponds to one meter.</font></p>
+
+<p><font size="2" face="Arial"><em>Velocity</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample's 3D velocity. Galaxy uses a
+left-handed coordinate system, with positive X pointing right, positive Y pointing upwards
+and positive Z pointing away from you. The coordinate scale is in meters, so each unit
+corresponds to one meter.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxLoadSample"></a><font size="4" face="Arial"><strong>glxLoadSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxLoadSample</strong> function loads and
+converts a sample from a given type of stream (file, memory etc.) to the internal format
+(signed 8 or 16 bit PCM samples).</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">glxSample *glxLoadSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to read sample data from. This can either be a FILE
+* or a pointer to a custom structure (like a glxMemory *). The following formats will be
+recognized : </font></p>
+
+<p><font size="2" face="Arial">AS</font></p>
+
+<p><font size="2" face="Arial">Advanced sample streams, our internal format.</font></p>
+
+<p><font size="2" face="Arial">AU</font></p>
+
+<p><font size="2" face="Arial">Audio streams from SUN/Unix</font></p>
+
+<p><font size="2" face="Arial">MPx</font></p>
+
+<p><font size="2" face="Arial">MPEG 1, 2 or 2.5 audio streams, as defined by ISO/IEC
+11172-3 and 13818-3</font></p>
+
+<p><font size="2" face="Arial">ST3</font></p>
+
+<p><font size="2" face="Arial">Sample streams from ScreamTracker 3</font></p>
+
+<p><font size="2" face="Arial">WAV</font></p>
+
+<p><font size="2" face="Arial">Wave audio streams, the industry standard.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+glxMemory *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADASSTREAMING</font></p>
+
+<p><font size="2" face="Arial">This flag can be specified in combination with values given
+above. This treats the sample as a streaming sample (it will only load and convert the
+type fields and leaves the current stream position at the start of the actual sampledata)
+and will issue a callback set by <a href="misc.htm#glxSetCallback">glxSetCallback</a> if
+it needs new data from the stream.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns a non NULL-pointer if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxSaveSample"></a><font size="4" face="Arial"><strong>glxSaveSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSaveSample</strong> function saves the
+specified sample to a given type of stream (file, memory etc.) as an advanced sample (AS)
+stream.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSaveSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxSample *</strong><em>Sample,</em><strong><br>
+void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Sample</em></font></p>
+
+<p><font size="2" face="Arial">Pointer to a <strong>glxSample</strong> structure
+containing information about the sample to be saved.</font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to save advanced sample (AS) stream to. This can
+either be a FILE * or a pointer to a custom structure (like a glxMemory *). If a NULL
+pointer is supplied, this function will still return the correct number of bytes saved to <em>Stream</em>.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+glxMemory *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns the number of bytes saved to <em>Stream</em> or one
+of the following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxSetSampleChannels"></a><font size="4" face="Arial"><strong>glxSetSampleVoices</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSetSampleVoices</strong> funtion dedicates a
+number of consecutive audio voices to sample playback only. The default setting is eight
+(8) dedicated sample voices.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSetSampleVoices</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Voices</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voices</em></font></p>
+
+<p><font size="2" face="Arial">Number of voices to dedicate to sample playback.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns the physical voice number of the first dedicated
+sample voice if successful or zero otherwise.</font></p>
+
+<p><a name="glxSetSampleReverb"></a><font size="4" face="Arial"><strong>glxSetSampleReverb</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSetSampleReverb</strong> funtion sets the
+overall sample reverb parameters, such as type and volume (this does NOT affect the music
+reverb). If a NULL pointer is supplied reverb processing for the samples will be disabled.
+Reverb processing will use approximately 384 kB of memory.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSetSampleReverb</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxReverb *</strong><em>Reverb</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Reverb</em></font></p>
+
+<p><font size="2" face="Arial">Pointer to a glxReverb structure containing parameters for
+the sample reverb.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxSetSampleVolume"></a><font size="4" face="Arial"><strong>glxSetSampleVolume</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSetSampleVolume</strong> funtion sets the
+overall sample volume (this does NOT affect the music volume).</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSetSampleVolume</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Volume,</em><br>
+<strong>int </strong><em>Speed</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the overall sample volume (0..127). </font></p>
+
+<p><font size="2" face="Arial"><em>Speed</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample volume change speed in units per
+millisecond. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLSET</font></p>
+
+<p><font size="2" face="Arial">The overall sample volume is changed immediately.</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLFADE</font></p>
+
+<p><font size="2" face="Arial">The overall sample volume is changed by one (1) unit per
+millisecond (giving a full scale ramp time of 128 milliseconds)</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLFADE2</font></p>
+
+<p><font size="2" face="Arial">The overall sample volume is changed by two (2) units per
+millisecond (giving a full scale ramp time of 64 milliseconds)</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxStartSample"></a><font size="4" face="Arial"><strong>glxStartSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStartSample</strong> function starts a new
+sample with the specified sample attributes (like pitch, volume etc.) on a given voice.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">glxVoice *glxStartSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Voice,<br>
+</em><strong>glxSample *</strong><em>Sample</em>,<br>
+<strong>int </strong><em>Frequency,<br>
+</em><strong>int </strong><em>Volume,<br>
+</em><strong>int </strong><em>Panning,</em><br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice on which the sample is played. The following values
+are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_AUTO</font></p>
+
+<p><font size="2" face="Arial">An empty voice is selected automatically, if all voices are
+occupied the longest playing voice is used.</font></p>
+
+<p><font size="2" face="Arial"><em>Sample</em></font></p>
+
+<p><font size="2" face="Arial">Pointer to a <strong>glxSample</strong> structure
+containing information about the sample to be started.</font></p>
+
+<p><font size="2" face="Arial"><em>Frequency</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample replay frequency (in Hertz). The
+following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPFREQUENCY</font></p>
+
+<p><font size="2" face="Arial">The sample replay frequency is set to the value found in
+the <strong>glxSample</strong> structure</font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample volume. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to the value found in the <strong>glxSample</strong>
+structure</font></p>
+
+<p><font size="2" face="Arial">GLX_MINSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Panning</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample panning. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to the value found in the <strong>glxSample</strong>
+structure, only if the type field specifies the sample has a panning of its own</font></p>
+
+<p><font size="2" face="Arial">GLX_MINSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its minimum value (left)</font></p>
+
+<p><font size="2" face="Arial">GLX_MIDSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its half-way value (center)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its maximum value (right)</font></p>
+
+<p><font size="2" face="Arial">GLX_SURSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">This flag can be specified in combination with values given
+above. This will output the sample with a ±90 degree phase-difference between the left
+and right channel. This flag has NO effect when using one output channel (monophonic
+output)</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample flags. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_NORMAL</font></p>
+
+<p><font size="2" face="Arial">The sample is played in normal mode, which means it will be
+replaced whenever empty voices are not available</font></p>
+
+<p><font size="2" face="Arial">GLX_LOCKED</font></p>
+
+<p><font size="2" face="Arial">The sample is played in locked mode, which means it will
+NOT be replaced (even when empty voices are not available)</font></p>
+
+<p><font size="2" face="Arial">GLX_CALLBACK</font></p>
+
+<p><font size="2" face="Arial">When the sample finishes playing a callback function will
+be called, this callback function can be set using <a href="misc.htm#glxSetCallback">glxSetCallback</a>.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns a non NULL-pointer if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxStartSample3D"></a><font size="4" face="Arial"><strong>glxStartSample3D</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStartSample3D</strong> function starts a new
+3D-positional sample with the specified sample attributes (like position, velocity etc.)
+on a given voice. Galaxy will automatically calculate the correct panning position, volume
+and amount of Doppler shifting. The sound can either be processed by 3D positional
+audio-hardware or Galaxy's own internal 3D audio algorithms, this is completely
+transparent to the user. You can always be sure that the best option is selected by
+Galaxy. This function can only be used if <a href="output.htm#glxStartOutput"><strong>glxStartOutput</strong></a>
+was called with the GLX_3DAUDIO flag.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">glxVoice *glxStartSample3D</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Voice,<br>
+</em><strong>glxSample *</strong><em>Sample</em>,<br>
+<strong>int </strong><em>Frequency,<br>
+</em><strong>int </strong><em>Volume,<br>
+</em><strong>glxVector * </strong><em>Position,<br>
+</em><strong>glxVector * </strong><em>Velocity<br>
+</em><strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice on which the sample is played. The following values
+are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_AUTO</font></p>
+
+<p><font size="2" face="Arial">An empty voice is selected automatically, if all voices are
+occupied the longest playing voice is used.</font></p>
+
+<p><font size="2" face="Arial"><em>Sample</em></font></p>
+
+<p><font size="2" face="Arial">Pointer to a <strong>glxSample</strong> structure
+containing information about the sample to be started.</font></p>
+
+<p><font size="2" face="Arial"><em>Frequency</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample replay frequency (in Hertz). The
+following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPFREQUENCY</font></p>
+
+<p><font size="2" face="Arial">The sample replay frequency is set to the value found in
+the <strong>glxSample</strong> structure</font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample volume. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_DEFSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to the value found in the <strong>glxSample</strong>
+structure</font></p>
+
+<p><font size="2" face="Arial">GLX_MINSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Position</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample's 3D position RELATIVE to the
+listener. Galaxy uses a left-handed coordinate system, with positive X pointing right,
+positive Y pointing upwards and positive Z pointing away from you. The coordinate scale is
+in meters, so each unit corresponds to one meter.</font></p>
+
+<p><font size="2" face="Arial"><em>Velocity</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample's 3D velocity. Galaxy uses a
+left-handed coordinate system, with positive X pointing right, positive Y pointing upwards
+and positive Z pointing away from you. The coordinate scale is in meters, so each unit
+corresponds to one meter.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the sample flags. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_NORMAL</font></p>
+
+<p><font size="2" face="Arial">The sample is played in normal mode, which means it will be
+replaced whenever empty voices are not available</font></p>
+
+<p><font size="2" face="Arial">GLX_LOCKED</font></p>
+
+<p><font size="2" face="Arial">The sample is played in locked mode, which means it will
+NOT be replaced (even when empty voices are not available)</font></p>
+
+<p><font size="2" face="Arial">GLX_CALLBACK</font></p>
+
+<p><font size="2" face="Arial">When the sample finishes playing a callback function will
+be called, this callback function can be set using <a href="misc.htm#glxSetCallback">glxSetCallback</a>.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns a non NULL-pointer if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxStopSample"></a><font size="4" face="Arial"><strong>glxStopSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStopSample</strong> funtion stops a sample
+on a given voice.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxStopSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxVoice *</strong><em>Voice</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice on which the sample is stopped</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxStopSample3D"></a><font size="4" face="Arial"><strong>glxStopSample3D</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStopSample3D</strong> funtion stops a
+3D-positional sample on a given voice. This function can only by used if the sample was
+started using <a href="#glxStartSample3D"><strong>glxStartSample3D</strong></a>.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxStopSample3D</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxVoice *</strong><em>Voice</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Voice</em></font></p>
+
+<p><font size="2" face="Arial">Voice on which the sample is stopped</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxLoadInstrumentSample"></a><font size="4" face="Arial"><strong>glxLoadInstrumentSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxLoadInstrumentSample</strong> function loads
+and converts a sample from a given type of stream (file, memory etc.) to the internal
+format (signed 8 or 16 bit PCM samples) and places it in the specifed instrument at the
+given sample slot.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">glxSample *glxLoadInstrumentSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Instrument</em>,<br>
+<strong>int </strong><em>Sample,<br>
+</em><strong>void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Instrument</em></font></p>
+
+<p><font size="2" face="Arial">Bank number and program number of instrument to load sample
+into (high 25 bits contain the bank number and the remaining 7 bits contain the program
+number)</font></p>
+
+<p><font size="2" face="Arial"><em>Sample</em></font></p>
+
+<p><font size="2" face="Arial">Sample slot within instrument to use for sample (instrument
+structure will be resized as needed to hold all sample structures)</font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to read sample data from. This can either be a FILE
+*, a BYTE * or a pointer to a custom structure (like a memStream *). The following formats
+will be recognized : </font></p>
+
+<p><font size="2" face="Arial">AS</font></p>
+
+<p><font size="2" face="Arial">Advanced sample streams, our internal format.</font></p>
+
+<p><font size="2" face="Arial">AU</font></p>
+
+<p><font size="2" face="Arial">Audio streams from SUN/Unix</font></p>
+
+<p><font size="2" face="Arial">ST3</font></p>
+
+<p><font size="2" face="Arial">Sample streams from ScreamTracker 3</font></p>
+
+<p><font size="2" face="Arial">WAV</font></p>
+
+<p><font size="2" face="Arial">Wave audio streams, the industry standard.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a BYTE *
+or a memStream *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns a non NULL-pointer if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxSaveInstrumentSample"></a><font size="4" face="Arial"><strong>glxSaveInstrumentSample</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSaveInstrumentSample</strong> function saves
+the specified sample to a given type of stream (file, memory etc.) as an advanced sample
+(AS) stream.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSaveInstrumentSample</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong>Instrument,<br>
+<strong>int </strong><em>Sample,</em><strong><br>
+void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Instrument</em></font></p>
+
+<p><font size="2" face="Arial">Bank number and program number of instrument to save sample
+from (high 25 bits contain the bank number and the remaining 7 bits contain the program
+number)</font></p>
+
+<p><font size="2" face="Arial"><em>Sample</em></font></p>
+
+<p><font size="2" face="Arial">Sample slot within instrument of sample to save</font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to save advanced sample (AS) stream to. This can
+either be a FILE *, a BYTE * or a pointer to a custom structure (like a memStream *). If a
+NULL pointer is supplied, this function will still return the correct number of bytes
+saved to <em>Stream</em>.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a BYTE *
+or a memStream *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns the number of bytes saved to <em>Stream</em> or one
+of the following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+[ScrollingMessageTexture2]
+ScrollingMessage=%lp conduce la sfida con %lf uccisioni...
+
+[ScrollingMessageTexture0]
+ScrollingMessage=%lp conduce la sfida con %lf uccisioni...
+
+[ScrollingMessageTexture3]
+ScrollingMessage=%lp conduce la sfida con %lf uccisioni...
+
+[LevelSummary]
+Title=Morfeo
+IdealPlayerCount=da 3 a 6
+LevelEnterText=Nessuno compie il primo passo.
+
+[VacuumZone0]
+DamageString=%k ha fatto una lunga caduta...
+
+[LevelInfo0]
+Title=Morfeo
+IdealPlayerCount=da 3 a 6
+LevelEnterText=Nessuno compie il primo passo.
+

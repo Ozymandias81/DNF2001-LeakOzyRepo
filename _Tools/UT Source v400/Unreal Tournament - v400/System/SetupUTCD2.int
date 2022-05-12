@@ -1,0 +1,22 @@
+[Setup]
+LocalProduct=Unreal Tournament Extras
+DefaultFolder=C:\UnrealTournament
+SetupWindowTitle=Unreal Tournament Extras
+AutoplayWindowTitle=Unreal Tournament Options
+ProductURL=http://www.unrealtournament.com/
+VersionURL=http://unreal.epicgames.com/versions.htm
+Developer=Epic Games, Inc.
+DeveloperURL=http://www.epicgames.com/
+Logo=Help\UnrealTournamentSetupLogo.bmp
+License=License.int
+
+[UnrealTournamentRequirement]
+LocalProduct=Unreal Tournament
+ProductURL=http://www.unrealtournament.com/
+VersionURL=http://unreal.epicgames.com/versions.htm
+Developer=Epic Games, Inc.
+DeveloperURL=http://www.epicgames.com/
+
+[TexturesDXTGroup]
+Caption=High-res Compressed Textures
+Description=Improves visuals on 3Ds card which supports DXT1 / S3TC format compressed textures such as the S3 Savage 3D.  This option will have no visual effect if you have an unsupported 3D card.

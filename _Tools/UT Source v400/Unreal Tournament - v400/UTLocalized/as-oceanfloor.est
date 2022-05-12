@@ -1,0 +1,67 @@
+[LevelInfo0]
+Title=SueloOceánico ' Estación 5'
+IdealPlayerCount=8-10
+LevelEnterText=¡Controla la base submarina!
+
+[ZoneInfo5]
+ZoneName=Área central
+
+[ZoneInfo3]
+ZoneName=Área principal de atraque
+
+[WaterZone0]
+ZoneName=Bajo el agua
+
+[ZoneInfo4]
+ZoneName=Área secundaria de atraque
+
+[ZoneInfo1]
+ZoneName=El submarino
+
+[ZoneInfo2]
+ZoneName=El centro de operaciones
+
+[ZoneInfo7]
+ZoneName=vestíbulo de rampa de subida
+
+[LevelSummary]
+LevelEnterText=¡Controla la base submarina!
+
+[SpecialEvent0]
+Message=La terminal 1 ha sido desactivada.
+
+[FortStandard0]
+FortName=¡¡La terminal 3
+DestroyedMessage=ha sido destruida!!
+
+[SpecialEvent10]
+Message=La terminal 4 sido inutilizada.
+
+[FortStandard1]
+FortName=¡La terminal 1
+DestroyedMessage=ha sido destruida!
+
+[FortStandard2]
+FortName=¡¡La terminal 2
+DestroyedMessage=ha sido destruida!!
+
+[FortStandard3]
+FortName=¡La terminal 4
+DestroyedMessage=ha sido destruida!
+
+[AssaultInfo0]
+ObjDesc[0]=Destruye la terminal 1. No existe un orden fijo para destruir las terminales.
+ObjDesc[1]=Destruye la terminal 2. No existe un orden fijo para destruir las terminales.
+ObjDesc[2]=Destruye la terminal 3. No existe un orden fijo para destruir las terminales.
+ObjDesc[3]=Destruye la terminal 4. No existe un orden fijo para destruir las terminales.
+
+[ZoneInfo6]
+ZoneName=Caja del ascensor
+
+[SpecialEvent15]
+Message=La terminal 3 ha sido inutilizada.
+
+[SpecialEvent5]
+Message=La terminal 2 ha sido inutilizada.
+
+

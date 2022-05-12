@@ -1,0 +1,2 @@
+class UMenuPageControl extends UWindowPageControl;
+

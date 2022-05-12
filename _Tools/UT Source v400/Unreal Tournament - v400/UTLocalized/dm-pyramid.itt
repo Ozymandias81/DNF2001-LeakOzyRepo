@@ -1,0 +1,10 @@
+[LevelInfo0]
+Title=Piramide volante
+IdealPlayerCount=2-8
+
+[SpecialEvent1]
+Message=Hai dimenticato le ali, lamer!
+
+[LevelSummary]
+Title=Piramide volante
+IdealPlayerCount=2-8

@@ -1,0 +1,52 @@
+[LevelInfo0]
+Title=Condannato
+IdealPlayerCount=6
+LevelEnterText=Domina la competizione!
+
+[LevelSummary]
+Title=Condannato
+IdealPlayerCount=6
+LevelEnterText=Domina la competizione!
+
+[ZoneInfo1]
+ZoneName=il tetto
+
+[ControlPoint2]
+PointName=Da Arturo
+
+[ControlPoint1]
+PointName=Tetto
+
+[ZoneInfo0]
+ZoneName=L'edificio condannato
+
+[ControlPoint0]
+PointName=Porta del garage
+
+[LevelSummary]
+LevelEnterText=Domina la competizione!
+
+[ZoneInfo4]
+ZoneName=i vicoli
+
+[ScrollingMessageTexture0]
+ScrollingMessage=QUESTA NOTTE 10:00PM... %p GUIDA LA %h INDOMITA SQUADRA NELL'ARENA CONDANNATA
+
+[locationid0]
+LocationName=il garage
+
+[locationid2]
+LocationName=Bar da Arturo
+
+[locationid1]
+LocationName=Bar da Arturo
+
+[locationid3]
+LocationName=Tetto
+
+[locationid4]
+LocationName=Tetto
+
+[locationid5]
+LocationName=Tetto
+

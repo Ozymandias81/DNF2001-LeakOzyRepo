@@ -1,0 +1,1 @@
+class UMenuFramedWindow extends UWindowFramedWindow;

@@ -1,0 +1,19 @@
+[LevelInfo0]
+Title=Segreto
+IdealPlayerCount=8
+LevelEnterText=Controllati
+
+[ControlPoint4]
+PointName=Stella di ferro
+
+[ControlPoint2]
+PointName=Testa del demone
+
+[ControlPoint3]
+PointName=Gargolla
+
+[LevelSummary]
+Title=Segreto
+IdealPlayerCount=8
+LevelEnterText=Controllati
+

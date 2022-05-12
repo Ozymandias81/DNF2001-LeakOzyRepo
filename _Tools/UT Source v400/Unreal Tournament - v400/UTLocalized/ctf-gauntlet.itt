@@ -1,0 +1,22 @@
+[ZoneInfo5]
+ZoneName=Armeria blu
+
+[ZoneInfo3]
+ZoneName=Sala della lava
+
+[ZoneInfo1]
+ZoneName=Base rossa
+
+[ZoneInfo0]
+ZoneName=Base blu
+
+[ZoneInfo4]
+ZoneName=Atrio blu
+
+[ZoneInfo2]
+ZoneName=Atrio rosso
+
+[LevelInfo0]
+Title=Il guantone di ferro
+IdealPlayerCount=6-8
+

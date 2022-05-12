@@ -1,0 +1,27 @@
+[locationid5]
+LocationName=Sierra del lanzacohetes
+
+[locationid4]
+LocationName=Sierra del cinturón de protección
+
+[locationid3]
+LocationName=Sierra del redentor
+
+[locationid2]
+LocationName=Base azul
+
+[locationid1]
+LocationName=Base roja
+
+[LevelSummary]
+LevelEnterText=¡¡HAZTE CON LAS BANDERAS!!
+
+[ZoneInfo0]
+ZoneName=En la isla
+
+[LevelInfo0]
+Title=LavaGigante
+IdealPlayerCount=8-14
+LevelEnterText=¡¡HAZTE CON LAS BANDERAS!!
+
+

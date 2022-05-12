@@ -1,0 +1,1725 @@
+[Public]
+Object=(Name=BotPack.DeathMatchPlus,Class=Class,MetaClass=Botpack.TournamentGameInfo)
+Object=(Name=BotPack.TeamGamePlus,Class=Class,MetaClass=Botpack.TournamentGameInfo)
+Object=(Name=BotPack.Assault,Class=Class,MetaClass=Botpack.TournamentGameInfo)
+Object=(Name=BotPack.Domination,Class=Class,MetaClass=Botpack.TournamentGameInfo)
+Object=(Name=BotPack.CTFGame,Class=Class,MetaClass=Botpack.TournamentGameInfo)
+Object=(Name=BotPack.LastManStanding,Class=Class,MetaClass=Botpack.TournamentGameInfo)
+Object=(Name=BotPack.TMale1Bot,Class=Class,MetaClass=BotPack.Bot,Description="Comm. maschio")
+Object=(Name=BotPack.TMale1,Class=Class,MetaClass=Botpack.TournamentPlayer,Description="Comm. maschio")
+Object=(Name=BotPack.TMale2Bot,Class=Class,MetaClass=BotPack.Bot,Description="Soldato maschio")
+Object=(Name=BotPack.TMale2,Class=Class,MetaClass=Botpack.TournamentPlayer,Description="Soldato maschio")
+Object=(Name=BotPack.TFemale1Bot,Class=Class,MetaClass=BotPack.Bot,Description="Comm. femmina")
+Object=(Name=BotPack.TFemale1,Class=Class,MetaClass=Botpack.TournamentPlayer,Description="Comm. femmina")
+Object=(Name=BotPack.TFemale2Bot,Class=Class,MetaClass=BotPack.Bot,Description="Soldato femmina")
+Object=(Name=BotPack.TFemale2,Class=Class,MetaClass=Botpack.TournamentPlayer,Description="Soldato femmina")
+Object=(Name=BotPack.TBoss,Class=Class,MetaClass=Botpack.TournamentPlayer,Description="Capo")
+Object=(Name=BotPack.TBossBot,Class=Class,MetaClass=BotPack.Bot,Description="Capo")
+Object=(Name=BotPack.VoiceMaleOne,Class=Class,MetaClass=BotPack.VoiceMale,Description="Maschio Uno")
+Object=(Name=BotPack.VoiceFemaleOne,Class=Class,MetaClass=BotPack.VoiceFemale,Description="Femmina Uno")
+Object=(Name=BotPack.VoiceMaleTwo,Class=Class,MetaClass=BotPack.VoiceMale,Description="Maschio Due")
+Object=(Name=BotPack.VoiceFemaleTwo,Class=Class,MetaClass=BotPack.VoiceFemale,Description="Femmina Due")
+Object=(Name=BotPack.VoiceBoss,Class=Class,MetaClass=BotPack.VoiceBoss,Description="Robot")
+Object=(Name=BotPack.Enforcer,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Enforcer")
+Object=(Name=BotPack.DoubleEnforcer,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Enforcer doppi")
+Object=(Name=BotPack.Translocator,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Traslocatore")
+Object=(Name=BotPack.ImpactHammer,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Maglio a impatto")
+Object=(Name=BotPack.Minigun2,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Mini-cannone")
+Object=(Name=BotPack.PulseGun,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Cannone a impulsi")
+Object=(Name=BotPack.Ripper,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Squartatore")
+Object=(Name=BotPack.ShockRifle,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Fucile shock")
+Object=(Name=BotPack.SniperRifle,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Fucile di precisione")
+Object=(Name=BotPack.UT_BioRifle,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Biofucile GES")
+Object=(Name=BotPack.UT_Eightball,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Lanciamissili")
+Object=(Name=BotPack.UT_FlakCannon,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Cannone contraereo")
+Object=(Name=BotPack.WarHeadLauncher,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Redentore")
+Object=(Name=BotPack.Chainsaw,Class=Class,MetaClass=Botpack.TournamentWeapon,Description="Motosega")
+Object=(Name=BotPack.InstaGibDM,Class=Class,MetaClass=Engine.Mutator,Description="InstaGib DM")
+Object=(Name=BotPack.PulseArena,Class=Class,MetaClass=Engine.Mutator,Description="Solo cannoni a impulsi!")
+Object=(Name=BotPack.FlakArena,Class=Class,MetaClass=Engine.Mutator,Description="Solo cannoni contraerei!")
+Object=(Name=BotPack.RocketArena,Class=Class,MetaClass=Engine.Mutator,Description="Solo lanciamissili!")
+Object=(Name=BotPack.ShockArena,Class=Class,MetaClass=Engine.Mutator,Description="Solo fucili shock!")
+Object=(Name=BotPack.SniperArena,Class=Class,MetaClass=Engine.Mutator,Description="Solo fucili di precisione!")
+Object=(Name=BotPack.ChainsawMelee,Class=Class,MetaClass=Engine.Mutator,Description="Motosega,La motosega è un'arma da mischia")
+Object=(Name=BotPack.JumpMatch,Class=Class,MetaClass=Engine.Mutator,Description="JumpMatch,Il giocatore sarà in grado di spiccare dei salti particolarmente alti")
+Object=(Name=BotPack.NoRedeemer,Class=Class,MetaClass=Engine.Mutator,Description="Nessun redentore")
+Object=(Name=BotPack.NoPowerups,Class=Class,MetaClass=Engine.Mutator,Description="Nessun powerup")
+Object=(Name=BotPack.LowGrav,Class=Class,MetaClass=Engine.Mutator,Description="Bassa gravità")
+Object=(Name=BotPack.Stealth,Class=Class,MetaClass=Engine.Mutator,Description="Furtività,Sono tutti invisibili")
+Object=(Name=BotPack.FatBoy,Class=Class,MetaClass=Engine.Mutator,Description="Fatboy,Fatboy!")
+Object=(Name=BotPack.TDMDefaultMapList,Class=Class,MetaClass=Botpack.TDMmaplist,Description="Mappe predefinite")
+Object=(Name=BotPack.TDMLargeMapList,Class=Class,MetaClass=Botpack.TDMmaplist,Description="Mappe grandi")
+Object=(Name=BotPack.TDMMediumMapList,Class=Class,MetaClass=Botpack.TDMmaplist,Description="Mappe medie")
+Object=(Name=BotPack.TDMSmallMapList,Class=Class,MetaClass=Botpack.TDMmaplist,Description="Mappe piccole")
+Object=(Name=BotPack.ASDefaultMapList,Class=Class,MetaClass=Botpack.ASMapList,Description="Mappe predefinite")
+Object=(Name=BotPack.DOMDefaultMapList,Class=Class,MetaClass=Botpack.DOMMapList,Description="Mappe predefinite")
+Object=(Name=BotPack.CTFDefaultMapList,Class=Class,MetaClass=Botpack.CTFMapList,Description="Mappe predefinite")
+Object=(Name=BotPack.TDKDefaultMapList,Class=Class,MetaClass=Botpack.TDKMapList,Description="Mappe predefinite")
+Preferences=(Caption="UTDeathmatch",Parent="Game Types",Class=Botpack.DeathmatchPlus,Immediate=True)
+Preferences=(Caption="UTTeamGame",Parent="Game Types",Class=Botpack.TeamGamePlus,Immediate=True)
+Preferences=(Caption="CTF",Parent="Game Types",Class=Botpack.CTFGame,Immediate=True)
+Preferences=(Caption="Assault",Parent="Game Types",Class=Botpack.Assault,Immediate=True)
+Preferences=(Caption="Domination",Parent="Game Types",Class=Botpack.Domination,Immediate=True)
+Preferences=(Caption="LastManStanding",Parent="Game Types",Class=Botpack.LastManStanding,Immediate=True)
+
+[ChallengeHUD]
+VersionMessage=Versione
+PlayerCountString=Numero giocatori ideale:
+MapTitleString=in
+AuthorString=da
+MapTitleString2=Mappa:
+AuthorString2=Autore:
+RankString=Posizione:
+SpreadString=Divario:
+IdentifyName=Nome:
+IdentifyHealth=Salute:
+IdentifyCallsign=Soprannome:
+LiveFeed="In diretta da "
+
+[DeathMatchPlus]
+TourneyMessage=In attesa di altri giocatori.
+WaitingMessage1=In attesa dei segnali di via.
+WaitingMessage2=(Usa il tasto del fuoco per essere pronto!)
+ReadyMessage=Sei PRONTO!
+NotReadyMessage=Sei NON PRONTO!
+CountDownMessage=" secondi all'inizio della partita!"
+StartMessage=La partita è iniziata!
+GameEndedMessage=vince la partita!
+SingleWaitingMessage=Premi Fuoco per iniziare.
+gamegoal=uccisioni vince la partita.
+NoNameChange=" è già in uso."
+OvertimeMessage=Punteggio in parità al termine della partita. Sudden Death Overtime!!!
+GameName=Torneo di DeathMatch
+
+[TournamentGameInfo]
+DeathMessage[0]=ucciso
+DeathMessage[1]=sconfitto
+DeathMessage[2]=affumicato
+DeathMessage[3]=massacrato
+DeathMessage[4]=annientato
+DeathMessage[5]=soppresso
+DeathMessage[6]=scannato
+DeathMessage[7]=perforato
+DeathMessage[8]=fatto a brandelli
+DeathMessage[9]=distrutto
+DeathMessage[10]=bastonato
+DeathMessage[11]=smembrato
+DeathMessage[12]=disintegrato
+DeathMessage[13]=cremato
+DeathMessage[14]=spalmato
+DeathMessage[15]=spento
+DeathMessage[16]=abbattuto
+DeathMessage[17]=sbudellato
+DeathMessage[18]=polverizzato
+DeathMessage[19]=affettato
+DeathMessage[20]=triturato
+DeathMessage[21]=squartato
+DeathMessage[22]=dilaniato
+DeathMessage[23]=stracciato
+DeathMessage[24]=conciato male
+DeathMessage[25]=eviscerato
+DeathMessage[26]=neutralizzato
+DeathMessage[27]=fustigato
+DeathMessage[28]=impalato
+DeathMessage[29]=brutalizzato
+DeathMessage[30]=spiaccicato
+DeathMessage[31]=battuto
+DeathModifier[0]=letteralmente 
+DeathModifier[1]=completamente 
+DeathModifier[2]=definitivamente 
+DeathModifier[3]=totalmente 
+DeathModifier[4]=del tutto 
+MajorDeathMessage[0]=squartato di nuovo
+MajorDeathMessage[1]=conciato proprio male
+MajorDeathMessage[2]=scoperto una nuova definizione di dolore
+HeadLossMessage[0]=decapitato
+HeadLossMessage[1]=privato della testa
+DeathVerb=" è stato "
+DeathPrep=" da "
+DeathTerm=ucciso
+ExplodeMessage=" è stato polverizzato."
+SuicideMessage=" ha avuto un improvviso attacco di cuore."
+FallMessage=" ha lasciato un piccolo cratere."
+DrownedMessage=" ha dimenticato di respirare."
+BurnedMessage=" è andato in cenere"
+CorrodedMessage=" è finito nella melma"
+HackedMessage=" è stato fatto a pezzi."
+MortarMessage=" è stato fatto saltare in aria da un mortaio."
+MaleSuicideMessage=" si è ammazzato."
+FemaleSuicideMessage=" si è ammazzata."
+
+[CTFGame]
+StartUpMessage=
+gamegoal=catture vince la partita!
+GameName=Cattura la bandiera
+
+[TeamGamePlus]
+StartUpTeamMessage=Sei su
+TeamChangeMessage=Usa Opzioni->Configurazione giocatore per cambiare le squadre.
+TeamColor[0]=Rosso
+TeamColor[1]=Blu
+TeamColor[2]=Verde
+TeamColor[3]=Oro
+StartUpMessage=Opera con i tuoi compagni contro le altre squadre.
+GameName=Partita torneo a squadre
+
+[Assault]
+AttackMessage=Conquista la base nemica!
+DefendMessage=Difendi la tua base dal nemico!
+TieMessage=Pareggia!
+WinMessage=e vince!
+ObjectivesMessage=Premi F3 per un briefing sugli obiettivi.
+DefenderSuccess=ha difeso la base
+StartUpMessage=
+GameEndedMessage=ha conquistato la base in
+GameName=Assalto
+
+[ControlPoint]
+PointName=Posizione
+
+[TournamentPlayer]
+spreenote[0]=è assetato di sangue!
+spreenote[1]=è inferocito!
+spreenote[2]=sta dominando!
+spreenote[3]=sta brutalizzando la competizione!
+spreenote[4]=è inarrestabile!
+spreenote[5]=è indemoniato!
+spreenote[6]=ha bisogno di avversari validi!
+spreenote[7]=è un DIO!
+
+[Domination]
+StartUpMessage=Per vincere, conquista e mantieni i punti di controllo.
+gamegoal=punti vince la partita!
+GameName=Dominio
+
+[FortStandard]
+FortName=L'obiettivo dell'Assalto
+DestroyedMessage=è stato distrutto!
+
+[TrainingCTF]
+SoundLengths[0]=15
+SoundLengths[1]=11
+SoundLengths[2]=9
+SoundLengths[3]=6
+SoundLengths[4]=11
+SoundLengths[5]=5
+SoundLengths[6]=6
+SoundLengths[7]=6
+SoundLengths[8]=6
+SoundLengths[9]=8
+SoundLengths[10]=13
+SoundLengths[11]=8
+SoundLengths[12]=8
+SoundLengths[13]=5
+SoundLengths[14]=25
+SoundLengths[15]=11
+SoundLengths[16]=9
+SoundLengths[17]=9
+SoundLengths[18]=11
+SoundLengths[19]=11
+SoundLengths[20]=8
+SoundLengths[21]=13
+SoundLengths[22]=9
+SoundLengths[23]=12
+SoundLengths[24]=10
+SoundLengths[25]=8
+SoundLengths[26]=9
+TutMessage[0]="Benvenuto all'addestramento per il combattimento Cattura la bandiera. Questo tutorial ti insegnerà le regole di base di questo tipo di partita. Sono disponibili anche i tutorial per Deathmatch, Dominio e Assalto."
+TutMessage[1]=Iniziamo parlando dell'HUD. Controlla la bandiera aggiunge all'HUD dei nuovi elementi di cui è bene che tu sia al corrente.
+TutMessage[2]=Il colore dell'HUD rappresenta la squadra alla quale appartieni. Il tuo HUD è rosso, a indicare che fai parte della squadra rossa.
+TutMessage[3]=Un HUD blu vorrebbe dire che appartieni alla squadra blu.
+TutMessage[4]=Le due icone a forma di bandiera indicano lo stato della bandiera rossa e di quella blu. Questo ti consente di avere una rapida panoramica delle condizioni del campo di battaglia.
+TutMessage[5]=Discuteremo del significato dell'icona di stato di ogni bandiera fra breve.
+TutMessage[6]=Appena a sinistra delle icone di stato di ogni bandiera si trova il punteggio della relativa squadra.
+TutMessage[7]=Diamo adesso un'occhiata agli elementi che la partita Cattura la bandiera aggiunge al tabellone...
+TutMessage[8]=Il tabellone di Cattura la bandiera utilizza la classica configurazione di Unreal.
+TutMessage[9]=La colonna di sinistra riporta i giocatori e i punteggi della squadra rossa, quella di destra svolge la stessa funzione, ma per la squadra blu.
+TutMessage[10]=Sulla sinistra puoi notare il tuo nome e l'attuale punteggio, pari a 0. Sopra al tuo nome si trova quello della squadra di cui fai parte. L'attuale punteggio della tua squadra è visualizzato a destra del suo nome.
+TutMessage[11]=Quando un giocatore, in una partita Cattura la bandiera, sta portando il vessillo, sul tabellone, accanto al suo nome, apparirà un piccolo puntino.
+TutMessage[12]=Questo ti consente di stabilire rapidamente quale compagno proteggere o quale nemico abbattere.
+TutMessage[13]=Adesso è ora di imparare le regole di una partita Cattura la bandiera.
+TutMessage[14]="In Cattura la bandiera puoi utilizzare il traslocatore. Funziona come nel Dominio, con una leggera differenza. Non puoi teletrasportarti e portare con te la bandiera allo stesso tempo. Se ti teletrasporti mentre sei in possesso del vessillo nemico, tu riuscirai nell'intento, ma la bandiera sarà abbandonata a terra. Questo serve a impedire che tu possa usare il traslocatore per tornare alla tua base dopo aver catturato la bandiera avversaria."
+TutMessage[15]=Ogni mappa ha una base rossa e una blu. Questa è la base rossa. Quella blu si trova in fondo al corridoio. Ogni base contiene una bandiera.
+TutMessage[16]=Di fronte a te c'è la bandiera rossa. Lo scopo della partita è catturare il vessillo della squadra nemica, difendendo al tempo stesso la tua.
+TutMessage[17]=Facciamo una prova. Corri fino alla base blu e tocca la bandiera, in modo da prenderla. Raccogli qualsiasi tipo di equipaggiamento che trovi lungo il percorso.
+TutMessage[18]=Perfetto! Adesso hai la bandiera nemica. Il messaggio giallo lampeggiante serve a ricordarti che, una volta presa la bandiera, per segnare il punto devi portarla fino alla tua base.
+TutMessage[19]=Guarda: l'icona di stato della bandiera della squadra blu è cambiata. Adesso indica che un giocatore della squadra rossa è in possesso del vessillo. La squadra blu è in pericolo!
+TutMessage[20]=Riporta la bandiera blu alla tua base e tocca quella rossa per catturare definitivamente il vessillo blu e segnare il punto.
+TutMessage[21]=Ottimo lavoro! Hai catturato la bandiera nemica e segnato un punto per la tua squadra. Non è stata poi così dura, vero?
+TutMessage[22]=Il difficile arriva adesso. Fra qualche istante, genererò due bot per la squadra blu e un compagno rosso con i quali potrai fare pratica.
+TutMessage[23]=C'è un'ultima icona di stato che devi conoscere. Se un giocatore abbandona la bandiera mentre la sta portando con sé, all'interno dell'icona di stato della bandiera della sua squadra comparirà una freccia rivolta verso il basso.
+TutMessage[24]=Se trovi la tua bandiera per terra dopo avere ucciso un nemico che se n'era impadronito, ti basta toccarla affinché essa torni automaticamente alla tua base.
+TutMessage[25]=Così si conclude il tutorial per le partite Cattura la bandiera. Adesso genererò per te quei bot da addestramento. Buona caccia!
+TutMessage[26]=Congratulazioni! Ti sei dimostrato all'altezza delle partite Cattura la bandiera. Adesso è giunto il momento di far sul serio col torneo "Cattura la bandiera".
+SingleWaitingMessage=
+GameName=Addestramento: CLB
+
+[TrainingDM]
+SoundLengths[0]=14
+SoundLengths[1]=13
+SoundLengths[2]=7
+SoundLengths[3]=10
+SoundLengths[4]=14
+SoundLengths[5]=12
+SoundLengths[6]=14
+SoundLengths[7]=3
+SoundLengths[8]=10
+SoundLengths[9]=7
+SoundLengths[10]=12
+SoundLengths[11]=8
+SoundLengths[12]=8
+SoundLengths[13]=8
+SoundLengths[14]=14
+SoundLengths[15]=15
+SoundLengths[16]=28
+SoundLengths[17]=13
+SoundLengths[18]=16
+SoundLengths[19]=8
+SoundLengths[20]=5
+SoundLengths[21]=7
+SoundLengths[22]=12
+SoundLengths[23]=8
+TutMessage[0]=Benvenuto all'addestramento per il Deathmatch. Si tratta di uno sport nel quale devi affrontare altri giocatori armati in un concitato scontro tutti contro tutti. L'obiettivo è annientare tutti i tuoi nemici con qualsiasi mezzo.
+TutMessage[1]=Ogni volta che elimini un nemico ottieni un punto, che nel linguaggio dei giochi viene detto 'uccisione'. Puoi vedere il totale delle tue uccisioni sul lato sinistro dello schermo. Al termine della partita, risulterà vincitore il giocatore col maggior numero di uccisioni.
+TutMessage[2]=Ricorda, se accidentalmente ti fai saltare in aria o cadi nella lava, perderai un'uccisione!
+TutMessage[3]=Impariamo qualche regola di base sugli spostamenti. Un buon giocatore di Deathmatch è sempre in movimento, perché un bersaglio mobile risulta più difficile da colpire che non uno stazionario.
+TutMessage[4]=Con i tasti cursore potrai muoverti avanti e indietro ed effettuare gli spostamenti laterali.
+TutMessage[5]=Gli spostamenti laterali sono molto importanti in un Deathmatch, perché ti consentono di muoverti lateralmente senza girarti e senza perdere di vista il tuo nemico. Adesso proviamo a spostarci verso sinistra e verso destra.
+TutMessage[6]=Un altro elemento importante negli spostamenti è il salto. Questo ti consente di raggiungere le aree rialzate della mappa e di superare fosse insidiose. Prova a saltare premendo il relativo tasto.
+TutMessage[7]=Perfetto.
+TutMessage[8]=Adesso parleremo dello sguardo col mouse. Muovi il mouse e nota come, così facendo, tu possa modificare la tua visuale. È così che puoi guardarti intorno e girarti.
+TutMessage[9]=Prova a girarti intorno più volte muovendo il mouse da sinistra a destra, per dare uno sguardo all'arena da combattimento.
+TutMessage[10]=Eccellente. Puoi anche spostare lo sguardo verticalmente, al fine di vedere cosa stia succedendo sopra e sotto di te. In un Deathmatch i tuoi nemici potranno attaccarti anche dall'alto e dal basso: ricordati quindi di tenere sempre gli occhi ben aperti.
+TutMessage[11]=Se ritieni di guardarti intorno troppo rapidamente, puoi facilmente regolare la sensibilità del mouse nel menu OPZIONI.
+TutMessage[12]=Impariamo ad attaccare. Ricorda, il solo modo per vincere un Deathmatch è annientare i tuoi nemici con le armi che riesci a raccogliere.
+TutMessage[13]=Aprirò l'armadietto degli armamenti e ti lascerò prendere qualche giocattolo; preparati a fare un po' di tiro al bersaglio.
+TutMessage[14]=Perfetto, adesso siamo armati. Il gingillo che hai con te è comunemente chiamato 'fucile shock'. Come tutte le armi del Torneo, ha due modalità di fuoco. Adesso proviamo a sparare. Premi il tasto del fuoco, in modo da scatenare un raggio elettrico letale.
+TutMessage[15]=Molto bene. Il fuoco primario del fucile shock colpirà istantaneamente la persona contro la quale spari. In Unreal Tournament, ogni arma è dotata anche di una modalità di fuoco alternativo. Premi il tasto del fuoco alternativo per scagliare contro l'obiettivo una sfera di plasma.
+TutMessage[16]=Grandioso! Il fuoco alternativo del fucile shock è più lento di quello primario, ma infligge danni maggiori. Sta a te decidere quale attacco sia migliore in rapporto alla situazione. A volte può capitare che tu abbia con te più di un'arma. Ho appena collocato un 'enforcer' nel tuo zaino. A ogni arma è associato un numero, come puoi vedere alla base dello schermo. L'enforcer è l'arma numero 2. Premi 2 e passa all'enforcer. Puoi tornare al fucile shock premendo il numero relativo.
+TutMessage[17]=Bene, adesso sai come cambiare arma durante la battaglia. Tutte le armi presenti in Unreal Tournament sono efficaci sulla lunga distanza, tranne il 'maglio a impatto'. Adesso premi 1 per passare al maglio a impatto.
+TutMessage[18]=Il maglio a impatto è un'arma utile negli scontri corpo a corpo. Richiede che tu sia molto vicino al bersaglio ma, se il colpo va a segno, il tuo nemico morirà quasi sempre sul colpo. Adesso premi e tieni premuto il tasto del fuoco primario per caricare il maglio a impatto.
+TutMessage[19]=Ora avventati contro il Nali che ho appena generato. Quando sarai abbastanza vicino, il maglio a impatto verrà rilasciato, facendolo saltare in mille pezzi.
+TutMessage[20]=Guarda quei brandelli che volano! Ottimo lavoro.
+TutMessage[21]=Ora ci occuperemo di qualche obiettivo stazionario. Per procedere, spara a tutti e tre i barili.
+TutMessage[22]=Ottima mira, Tex. È ora di fare sul serio. Libererò un avversario umano, col quale potrai fare pratica. Dovrai farlo fuori tre volte, per completare il tutorial. Buona fortuna!
+TutMessage[23]=Congratulazioni! Ti sei dimostrato all'altezza di un Deathmatch. Adesso è giunto il momento di far sul serio col torneo "Deathmatch".
+TutMessage4Parts[0]=Con i tasti cursore
+TutMessage4Parts[1]=potrai muoverti avanti
+TutMessage4Parts[2]=e indietro
+TutMessage4Parts[3]=ed effettuare gli
+TutMessage4Parts[4]=spostamenti laterali.
+TutMessage6Parts[0]=Un altro elemento importante negli spostamenti è il salto. Questo ti consente di raggiungere le aree rialzate della mappa e di superare fosse insidiose. Prova a saltare
+TutMessage6Parts[1]=premendo il relativo tasto.
+TutMessage14Parts[0]=Perfetto, adesso siamo armati. Il gingillo che hai con te è comunemente chiamato 'fucile shock'. Come tutte le armi del Torneo, ha due modalità di fuoco. Adesso proviamo a sparare. Premi il tasto del fuoco,
+TutMessage14Parts[1]=in modo da scatenare un raggio elettrico letale.
+TutMessage15Parts[0]=Molto bene. Il fuoco primario del fucile shock colpirà istantaneamente la persona contro la quale spari. In Unreal Tournament, ogni arma è dotata anche di una modalità di fuoco alternativo. Premi il tasto del fuoco alternativo
+TutMessage15Parts[1]=per scagliare contro l'obiettivo una sfera di plasma.
+SingleWaitingMessage=
+GameName=Addestramento: DM
+
+[TrainingDOM]
+SoundLengths[0]=13
+SoundLengths[1]=7
+SoundLengths[2]=8
+SoundLengths[3]=8
+SoundLengths[4]=7
+SoundLengths[5]=8
+SoundLengths[6]=10
+SoundLengths[7]=6
+SoundLengths[8]=6
+SoundLengths[9]=11
+SoundLengths[10]=10
+SoundLengths[11]=13
+SoundLengths[12]=5
+SoundLengths[13]=5
+SoundLengths[14]=11
+SoundLengths[15]=2
+SoundLengths[16]=10
+SoundLengths[17]=11
+SoundLengths[18]=10
+SoundLengths[19]=10
+SoundLengths[20]=9
+TutMessage[0]=Benvenuto all'addestramento per il Dominio. Questo tutorial ti insegnerà le regole di base per questo tipo di combattimento. Sono disponibili anche i tutorial per Deathmatch, Cattura la bandiera e Assalto.
+TutMessage[1]=Iniziamo parlando degli elementi che il Dominio aggiunge all'HUD.
+TutMessage[2]=Il Dominio espande l'HUD di base aggiungendo degli indicatori di stato dei punti di controllo sul lato sinistro dello schermo.
+TutMessage[3]=Come puoi vedere, in questa mappa tutorial ci sono due punti di controllo. Tra breve parleremo della loro funzione.
+TutMessage[4]=Ogni indicatore riporta il nome di un punto di controllo e il suo stato attuale.
+TutMessage[5]=Ogni punto di controllo in una mappa di Dominio ha un nome distintivo. Questi si chiamano Alpha e Gamma.
+TutMessage[6]=L'icona accanto al nome del punto di controllo visualizza lo stato di quella posizione. Prima di spiegare come funzionano queste icone, vediamo le regole del Dominio.
+TutMessage[7]=Nel Dominio, ogni squadra cerca di impadronirsi dei punti di controllo del livello e di mantenerli.
+TutMessage[8]=Una squadra riceve 1 punto ogni 5 secondi per ciascuna delle posizioni da essa controllate.
+TutMessage[9]=Questo è un punto di controllo. Il simbolo X in grigio indica che nessuno sta attualmente controllando questa posizione. Per ottenere il controllo di una posizione, toccalo. Fallo adesso.
+TutMessage[10]=Bene. Adesso la tua squadra controlla questa posizione. Nota come la forma e il colore del punto di controllo siano cambiati, in modo da riflettere quelli del simbolo della tua squadra.
+TutMessage[11]=Guarda l'icona di stato del punto di controllo. L'icona del punto Gamma è cambiata, a indicare che la tua squadra ne ha ottenuto il controllo. Puoi utilizzare queste icone per valutare rapidamente la situazione di una partita di Dominio.
+TutMessage[12]=Adesso trova il punto Alpha e prendine controllo, così da ottenere il Dominio di questa mappa.
+TutMessage[13]=Eccellente, tutti i punti di questa mappa sono sotto il tuo controllo.
+TutMessage[14]=Riassumendo, ogni squadra deve individuare e conquistare determinati punti in una mappa di Dominio. Più posizioni una squadra controlla, più velocemente aumenterà il suo punteggio.
+TutMessage[15]=Questo congegno è chiamato 'traslocatore': puoi utilizzarlo per farti trasportare istantaneamente da una posizione all'altra. Premi il tasto del fuoco per lanciare il modulo di destinazione del traslocatore.
+TutMessage[16]=Adesso il modulo si trova per terra. Se premi il tasto del fuoco alternativo, verrai teletrasportato fino a esso. Allontanati dal modulo e prova a premere il tasto del fuoco alternativo.
+TutMessage[17]=Bene, adesso sei tornato al modulo. Se lo disattivi, puoi passare a un'arma e, in seguito, tornare al traslocatore e attivarlo in qualsiasi momento.
+TutMessage[18]=Se vedi il modulo di un traslocatore nemico per terra, puoi sparargli e distruggerlo. Il teletrasporto verso un modulo distrutto causa la morte istantanea.
+TutMessage[19]=È ora di fare una prova. Genererò due bot per la squadra avversaria e uno da mettere al tuo fianco. Vincerà la prima squadra che raggiungerà i 20 punti. Buona fortuna!
+TutMessage[20]=Congratulazioni! Hai dato prova di essere all'altezza del Dominio. Adesso è giunto il momento di far sul serio col torneo "Dominio".
+StartUpMessage=
+SingleWaitingMessage=
+GameName=Addestramento: DOM
+
+[enforcer]
+DoubleName=Enforcer Doppio
+WeaponDescription=Classificazione: pistola leggera\n\nFuoco primario: preciso ma lento.\n\nFuoco secondario: spara lateralmente, alla 'gangster', con velocità doppia rispetto al fuoco primario ma precisione dimezzata.\n\nTecniche: raccogline due per raddoppiare i danni.
+DeathMessage=%k ha crivellato di colpi %o con il suo %w.
+PickupMessage=Hai raccolto un altro enforcer!
+ItemName=Enforcer
+
+[Translocator]
+WeaponDescription=Classificazione: congegno di teletrasporto personale\n\nFuoco primario: lancia il modulo di destinazione. Lancia il modulo verso la posizione in cui vuoi essere teletrasportato.\n\nFuoco secondario: attiva il traslocatore e teletrasporta l'utente al modulo di destinazione.\n\nTecniche: lancia il modulo di destinazione contro un altro giocatore e attiva il fuoco secondario: potrai così telefraggare il tuo avversario! Se premi il tasto del fuoco primario quando attivi il traslocatore con il fuoco secondario, una volta traslocato, tornerà l'ultima arma selezionata.
+DeathMessage=%k ha telefraggato %o!
+PickupMessage=Hai il modulo del traslocatore.
+ItemName=Traslocatore
+
+[TournamentPickup]
+M_Activated=
+M_Selected=
+M_Deactivated=
+
+[TournamentGameReplicationInfo]
+HumanString=*Umano*
+CommanderString=*Comandante*
+SupportString=in supporto
+DefendString=in difesa
+AttackString=all'attacco
+HoldString=in mantenimento
+FreelanceString=indipendente
+
+[TeamScoreBoard]
+TeamName[0]=Squadra rossa: 
+TeamName[1]=Squadra blu: 
+TeamName[2]=Squadra verde: 
+TeamName[3]=Squadra oro: 
+TeamExt=Squadra:
+OrdersString=Ordini:
+InString=Posizione:
+
+[TournamentScoreBoard]
+MapTitle=in
+Author=da
+Restart=Sei morto. Premi [Fire] per resuscitare!
+Ended=Il match è finito.
+Continue=" Premi [Fire] per continuare!"
+ElapsedTime=Elapsed Time: 
+RemainingTime=Tempo rimanente: 
+FragGoal=Limite uccisioni:
+TimeLimit=Tempo limite:
+PlayerString=Giocatore
+FragsString=Uccisioni
+DeathsString=Morti
+PingString=Ping
+TimeString="Tempo"
+
+[ChallengeBotInfo]
+Skills[0]=Novizio
+Skills[1]=Medio
+Skills[2]=Esperto
+Skills[3]=Abile
+Skills[4]=Adepto
+Skills[5]=Maestro
+Skills[6]=Inumano
+Skills[7]=Divino
+
+[ChallengeTeamHUD]
+OrderNames[0]=Difendi
+OrderNames[1]=Mantieni
+OrderNames[2]=Attacca
+OrderNames[3]=Segui
+OrderNames[4]=Indipendente
+OrderNames[5]=Punta
+OrderNames[10]=Attacca
+OrderNames[11]=Indipendente
+
+[ChallengeVoicePack]
+LeaderSign[0]=Leader Rosso
+LeaderSign[1]=Leader Blu
+LeaderSign[2]=Leader Verde
+LeaderSign[3]=Leader Oro
+
+[LastManStanding]
+StartUpMessage=Ultimo uomo rimasto. Quanto riuscirai a sopravvivere?
+GameName=Ultimo uomo rimasto
+
+[CTFMessage]
+ReturnBlue=riporta la bandiera blu!
+ReturnRed=riporta la bandiera rossa!
+ReturnedBlue=La bandiera blu è stata riportata!
+ReturnedRed=La bandiera rossa è stata riportata!
+CaptureBlue=ha catturato la bandiera blu! La squadra rossa segna!
+CaptureRed=ha catturato la bandiera! La squadra blu segna!
+DroppedBlue=ha abbandonato la bandiera blu!
+DroppedRed=ha abbandonato la bandiera rossa!
+HasRed=ha la bandiera rossa!
+HasBlue=ha la bandiera blu!
+
+[VacuumZone]
+DamageString=%o è stato depressurizzato
+
+[CTFMessage2]
+YouHaveFlagString=Hai la bandiera, torna alla base!
+EnemyHasFlagString=Il nemico ha la tua bandiera, recuperala!
+
+[UT_Eightball]
+WeaponDescription=Classificazione: balistica pesante\n\nFuoco primario: spara dei razzi lenti ma letali contro gli avversari. Tenendo premuto il grilletto, puoi caricare fino a sei missili alla volta, che verranno lanciati contemporaneamente.\n\nFuoco secondario: dalla canna vengono lanciate delle granate. Tenendo premuto il grilletto secondario puoi caricare fino a sei granate.\n\nTecniche: tenendo quest'arma puntata contro un avversario, essa bloccherà il bersaglio e il successivo razzo sparato sarà a ricerca. Poiché il lanciamissili può caricare più razzi, esso sparerà quando rilascerai il tasto del fuoco. Se preferisci, può essere configurato per lanciare un missile quando il tasto viene premuto, rinunciando però alla possibilità di caricare più razzi. Questa funzione si trova nel menu Opzioni Input.
+DeathMessage=%o è stato abbattuto da %k col %w.
+PickupMessage=Hai il lanciamissili.
+ItemName=Lanciamissili
+
+[TrainingAS]
+SoundLengths[0]=14
+SoundLengths[1]=14
+SoundLengths[2]=16
+SoundLengths[3]=9
+SoundLengths[4]=9
+SoundLengths[5]=17
+SoundLengths[6]=10
+SoundLengths[7]=11
+SoundLengths[8]=13
+SoundLengths[9]=13
+SoundLengths[10]=13
+TutMessage[0]=Benvenuto all'addestramento sull'Assalto. Questo tutorial ti insegnerà le regole di base di questo combattimento. Sono disponibili anche i tutorial per Deathmatch, Dominio e Cattura la bandiera.
+TutMessage[1]=La prima cosa che noterai entrando in una partita di Assalto è il grosso orologio digitale collocato alla sinistra del tuo HUD. Questo timer segna il passare dei secondi fino al termine della partita. In una partita di Assalto, il tempo è un fattore critico.
+TutMessage[2]=La partita si gioca fra due squadre, ognuna con un obiettivo diverso. Tu fai parte del gruppo che attacca. Il tuo compito è penetrare nella base nemica e distruggere alcuni punti chiave. Se non riesci a occupare la base avversaria prima dello scadere del tempo, hai perso.
+TutMessage[3]=L'altra squadra dovrà difendersi. Il suo compito sarà proteggere la propria base e i suoi punti chiave dal gruppo d'assalto.
+TutMessage[4]=Se riesci, nel ruolo di chi attacca, a conquistare la base nemica, dovrai poi giocare nel ruolo di chi si difende per lo stesso ammontare di tempo.
+TutMessage[5]=Per esempio, se hai a disposizione 20 minuti per occupare la base avversaria e riesci a portare a termine l'operazione in 10, dovrai a tua volta difendere la tua postazione per 10 minuti. Più tempo impiegherai a conquistare la base nemica, più tempo dovrai passare a difendere la tua.
+TutMessage[6]=Ogni mappa d'Assalto presenta un disegno unico. L'apprendimento delle sue caratteristiche e lo sviluppo di strategie difensive e offensive potrebbe richiedere un po' di tempo.
+TutMessage[7]=All'inizio di ogni partita, ti trovi in modalità spettatore. Prima che lo scontro abbia inizio, puoi quindi andare in giro ed esplorare la mappa, in modo da familiarizzare con l'ambiente.
+TutMessage[8]=Quando affronti una partita di Assalto con i bot, puoi utilizzare il menu Ordini per stabilire il comportamento di questi ultimi. Premendo il tasto "V" potrai accedere direttamente al menu Ordini e disporre i bot a tuo piacimento.
+TutMessage[9]=Lo scopo di questa mappa tutorial è penetrare nella base e distruggere il prototipo di un carro armato al plasma. Io genererò due bot nemici per cercare di fermarti, ma tu potrai contare sull'aiuto di un compagno.
+TutMessage[10]=Nella parete vicina alla base nemica è stato collocato dell'esplosivo. Utilizza la tua arma per accendere la miccia e torna indietro! Sfrutta la breccia creata dall'esplosivo per penetrare nella base nemica e distruggere il carro armato!
+TutMessage[11]=Stai attento ai bot nemici che proteggono la base e le torrette al plasma. Buona fortuna!
+TutMessage[12]=Congratulazioni! Sei riuscito a distruggere il carro armato al plasma. Adesso è giunto il momento di far sul serio col torneo d'Assalto.
+SingleWaitingMessage=
+GameName=Addestramento: AS
+
+[TBoss]
+MenuName=Capo
+
+[TBossBot]
+MenuName=Capo
+
+[DeathMessagePlus]
+KilledString=è stato ucciso da
+
+[TournamentHealth]
+PickupMessage=Hai raccolto un medikit +.
+
+[ut_shieldbelt]
+PickupMessage=Hai l'elettrocintura.
+ItemName=Elettrocintura
+
+[ScrollingMessageTexture]
+HisMessage=sua
+HerMessage=sua
+
+[TeamCannon]
+MenuName=cannone automatico!
+NameArticle=: 
+
+[lmsscoreboard]
+VictoryGoal=Rimani l'ultimo sopravvissuto!
+FragsString=Vite
+
+[ShockRifle]
+WeaponDescription=Classificazione: fucile a energia\n\nFuoco primario: raggio laser a effetto immediato.\n\nFuoco secondario: grosse ma lente sfere di plasma.\n\nTecniche: colpendo le sfere di plasma, sparate col fuoco secondario, con il raggio laser, causerai un'esplosione incredibilmente potente.
+DeathMessage=%k ha inflitto danno mortali a %o con il %w.
+PickupMessage=Hai il fucile shock ASMD.
+ItemName=Fucile shock
+
+[PulseGun]
+WeaponDescription=Classificazione: fucile al plasma\n\nFuoco primario: vengono sparate in rapida successione delle veloci sfere di plasma di dimensioni medie.\n\nFuoco secondario: viene scagliata una saetta di energia verde che elettrifica tutti gli avversari in un raggio di 100 metri.\n\nTecniche: Sparando e tenendo premuto il tasto del fuoco secondario su un avversario, lo farai sciogliere nel giro di pochi secondi.
+MessageNoAmmo=" non ha plasma."
+DeathMessage=%o ha assaggiato il plasma letale di %k.
+PickupMessage=Hai il cannone a impulsi
+ItemName=Cannone a impulsi
+
+[WarheadLauncher]
+WeaponDescription=Classificazione: congegno termonucleare\n\nFuoco primario: lancia un missile di grandi dimensioni ma lento che, a contatto con una superficie solida, esploderà scatenando una gigantesca onda d'urto, polverizzando all'istante tutto quello che si trova all'interno del suo raggio d'azione, te compreso.\n\nFuoco secondario: prendi controllo del missile e guidalo dove vuoi. Puoi premere il tasto del fuoco primario per fare esplodere il razzo in anticipo.\n\nTecniche: ricorda che, mentre stai pilotando il razzo, sei un facile bersaglio. Se un avversario riesce a colpire il tuo missile mentre questo si trova in aria, esso esploderà innocuamente.
+DeathMessage="%o è stato vaporizzato da %k con il %w!!"
+PickupMessage=Hai il redentore.
+ItemName=Redentore
+
+[SniperRifle]
+WeaponDescription=Classifizione: arma a lunga gittata\n\nFuoco primario: spara dei potenti proiettili che, se colpiscono il cranio di un avversario, sono in grado di uccidere all'istante. \n\nFuoco secondario: attiva lo zoom, fino a otto volte la normale visuale. Consente la massima precisione anche da centinaia di metri di distanza.\n\nTecniche: ottimo per piazzare un colpo in testa al nemico dalla lunga distanza!
+DeathMessage=%k ha messo una palla in testa a %o.
+PickupMessage=Hai un fucile di precisione.
+ItemName=Fucile di precisione
+
+[ImpactHammer]
+WeaponDescription=Classificazione: mazza da mischia\n\nFuoco primario: tenendo premuto il grilletto, colpisci gli avversari con questo maglio per infliggere danni massicci.\n\nFuoco secondario: danneggia gli avversari vicini e ha la capacità di deviare i proiettili.\n\nTecniche: colpisci il suolo mentre salti per effettuare balzi molto più alti.
+DeathMessage=%o è stato smaciullato dal maglio di %k.
+PickupMessage=Hai il maglio a impatto.
+ItemName=Maglio a impatto
+
+[CHEOLHUD]
+ESCMessage=Premi ESC per continuare...
+
+[PressureZone]
+DamageString=%o è stato depressurizzato da %k.
+
+[CHNullHUD]
+ESCMessage=Premi ESC per iniziare.
+
+[UT_FlakCannon]
+WeaponDescription=Classificazione: granate pesanti\n\nFuoco primario: vengono sparate delle schegge di metallo frammentato.\n\nFuoco secondario: viene lanciata contro il nemico una granata infarcita di schegge.\n\nTecniche: il cannone contraereo è molto più utile nelle situazioni di combattimento ravvicinato.
+DeathMessage=%o è stato ridotto a brandelli da %k col %w.
+PickupMessage=Hai il cannone contraereo.
+ItemName=Cannone contraereo
+
+[UDamage]
+PickupMessage=Hai l'amplificatore di danni!
+ItemName=amplificatore di danni
+
+[AssaultHUD]
+IdentifyAssault=" !! Obiettivo dell'assalto !! "
+
+[UnrealCTFScoreboard]
+FragGoal=Limite catture:
+
+[ut_biorifle]
+WeaponDescription=Classificazione: fucile tossico\n\nFuoco primario: vengono lanciati, a velocità di fuoco media, dei grumi di sottoprodotti del tarydium .\n\nFuoco secondario: tenendo premuto il grilletto, il biofucile creerà un grumo di maggiori dimensioni. Quando questo viene lanciato, esploderà in diversi grumi più piccoli, in grado di aderire a qualsiasi superficie.\n\nTecniche: i sottoprodotti si attaccheranno alle pareti, al pavimento o al soffitto. E' possibile causare delle reazioni a catena coprendo le vie d'accesso con questi letali scarti verdi.
+DeathMessage=%o si è bevuto un bicchiere dell'unto liquido di %k.
+PickupMessage=Hai il biofucile GES.
+ItemName=Biofucile GES
+
+[MultiKillMessage]
+DoubleKillString=Doppia uccisione!
+TripleKillString=Tripla uccisione!
+MultiKillString=Multi uccisione!
+UltraKillString=ULTRA UCCISIONE!!
+MonsterKillString=U C C I S I O N E  M O S T R U O S A !!!
+
+[DecapitationMessage]
+DecapitationString=Colpo in testa!!!
+
+[KillerMessagePlus]
+YouKilled=Hai ucciso
+ScoreString=Punteggio:
+
+[VoiceMaleTwo]
+NameTime[0]=0.960000
+NameTime[1]=1.100000
+NameTime[2]=1.020000
+NameTime[3]=0.990000
+AckString[0]=OK
+AckString[1]=Ricevuto
+AckString[2]=Subito
+AckTime[0]=0.780000
+AckTime[1]=0.810000
+AckTime[2]=0.980000
+FFireString[0]=Ehi! Stessa squadra!
+FFireString[1]=Sono della tua squadra, idiota!
+FFireAbbrev[1]=Stessa squadra!
+TauntString[0]=Beccati questo!
+TauntString[1]=Ti piace?
+TauntString[2]=Buffone!
+TauntString[3]=Boom!
+TauntString[4]=Brucia, baby!
+TauntString[5]=Fai ridere!
+TauntString[6]=Muori.
+TauntString[7]=Fallito.
+TauntString[8]=Yeehaw!
+TauntString[9]=Oh, sì!
+TauntString[10]=Brutto colpo, eh?
+TauntString[11]=Scarafaggio!
+TauntString[12]=È casa mia!
+TauntString[13]=Fammi il solletico!
+TauntString[14]=Sento il fuoco nelle vene!
+TauntString[15]=Inutile!
+TauntString[16]=Ah ah ah!
+TauntString[17]=Sei morto!
+TauntString[18]=Sotto il prossimo!
+TauntString[19]=Un dottore!
+TauntString[20]=Addio!
+TauntString[21]=Obiettivo eliminato.
+TauntString[22]=Qualcun altro ne vuole un po'?
+TauntString[23]=Beccato!
+TauntString[24]=E stai giù!
+TauntAbbrev[22]=Qualcun altro?
+OrderString[0]=Difendi la base.
+OrderString[1]=Mantieni la posizione.
+OrderString[2]=Assalta la base.
+OrderString[3]=Coprimi.
+OrderString[4]=Agisci secondo i parametri operativi.
+OrderString[10]=Prendi la loro bandiera.
+OrderString[11]=Snidali e falli fuori.
+OrderAbbrev[0]=Difendi
+OrderAbbrev[2]=Attacca
+OrderAbbrev[4]=Indipendente
+OtherString[0]=La base è indifesa!
+OtherString[1]=Qualcuno riprenda la nostra bandiera!
+OtherString[2]=Ho la bandiera.
+OtherString[3]=Ti sono alle spalle.
+OtherString[4]=Mi hanno colpito!
+OtherString[5]=Uomo a terra!
+OtherString[6]=Mi stanno attaccando!
+OtherString[7]=Ci sei.
+OtherString[8]=Ho la nostra bandiera.
+OtherString[9]=Sono in posizione.
+OtherString[10]=Rimani lì.
+OtherString[11]=Il punto di controllo è al sicuro.
+OtherString[12]=Il portabandiera nemico è qui.
+OtherString[13]=Ho bisogno di sostegno.
+OtherString[14]=Arrivo!
+OtherString[15]=Ti sono alle spalle.
+OtherString[16]=Obiettivo distrutto.
+OtherString[17]=Un dottore!
+OtherAbbrev[1]=Riprendi la nostra bandiera!
+OtherAbbrev[2]=Ho la bandiera.
+OtherAbbrev[3]=Ti sono alle spalle.
+OtherAbbrev[6]=Mi attaccano!
+OtherAbbrev[8]=Ho la nostra bandiera.
+OtherAbbrev[9]=In posizione.
+OtherAbbrev[11]=Punto al sicuro.
+OtherAbbrev[12]=Portabandiera nemico qui.
+OtherAbbrev[15]=Ti sono alle spalle.
+
+[VictimMessage]
+YouWereKilledBy=Sei stato ucciso da
+
+[minigun2]
+WeaponDescription=Classificazione: cannoncino\n\nFuoco primario: vengono sparati proiettili con velocità di fuoco media e buona precisione.\n\nFuoco secondario: il minicannone spara a velocità doppia ma con la metà della precisione.\n\nTecniche: il fuoco secondario è molto più efficace a breve distanza, ma consuma tonnellate di munizioni.
+DeathMessage=%k, con il %w, ha crivellato di colpi %o.
+PickupMessage=Hai il minicannone.
+ItemName=Minicannone
+
+[DeathMatchMessage]
+OvertimeMessage=Punteggio in parità al termine della partita. Sudden Death Overtime!!!
+GlobalNameChange=ha cambiato nome in
+NewTeamMessage=è adesso con
+
+[VoiceBoss]
+NameTime[0]=0.960000
+NameTime[1]=1.100000
+NameTime[2]=1.020000
+NameTime[3]=0.990000
+AckString[0]=OK
+AckString[1]=Ricevuto
+AckString[2]=Subito
+AckString[3]=Ci sono
+AckTime[0]=0.780000
+AckTime[1]=0.810000
+AckTime[2]=0.980000
+AckTime[3]=0.980000
+FFireString[0]=Sono della tua squadra!
+FFireString[1]=Stessa squadra!
+FFireAbbrev[0]=Tua squadra!
+TauntString[0]=Inchinati!
+TauntString[1]=Muori, umano.
+TauntString[2]=Forma di vita obiettivo eliminata.
+TauntString[3]=È troppo facile ucciderti.
+TauntString[4]=Inutile.
+TauntString[5]=Inizia a tremare.
+TauntString[6]=Sei inferiore.
+TauntString[7]=Sei obsoleto.
+TauntString[8]=Io sono l'alfa e l'omega.
+TauntString[9]=Scappa, umano.
+TauntString[10]=Fatti da parte.
+TauntString[11]=Sono un essere superiore.
+TauntString[12]=Ammira la mia perfezione.
+TauntString[13]=Boom!
+TauntString[14]=È casa mia.
+TauntString[15]=Sotto il prossimo.
+TauntString[16]=Brucia, baby.
+TauntString[17]=Qualcun altro ne vuole un po'?
+TauntString[18]=Ti ho fatto male.
+TauntString[19]=Sento il fuoco nelle vene.
+TauntAbbrev[2]=Forma di vita obiettivo.
+TauntAbbrev[8]=Alfa/Omega
+OrderString[0]=Difendi la base.
+OrderString[1]=Mantieni la posizione.
+OrderString[2]=Assalta la base.
+OrderString[3]=Coprimi.
+OrderString[4]=Agisci secondo i parametri operativi.
+OrderString[10]=Prendi la loro bandiera.
+OrderString[11]=Snidali e falli fuori.
+OrderAbbrev[0]=Difendi
+OrderAbbrev[2]=Attacca
+OrderAbbrev[4]=Indipendente
+OtherString[0]=La base è indifesa!
+OtherString[1]=Riprendi la nostra bandiera!
+OtherString[2]=Ho la bandiera.
+OtherString[3]=Ti sono alle spalle.
+OtherString[4]=Mi hanno colpito!
+OtherString[5]=Uomo a terra!
+OtherString[6]=Mi stanno attaccando!
+OtherString[7]=Ci sei.
+OtherString[8]=Ho la nostra bandiera.
+OtherString[9]=Sono in posizione.
+OtherString[10]=Rimani lì.
+OtherString[11]=Il punto di controllo è al sicuro.
+OtherString[12]=Il portabandiera nemico è qui.
+OtherString[13]=Ho bisogno di sostegno.
+OtherString[14]=Arrivo!
+OtherString[15]=Ti sono alle spalle.
+OtherString[16]=Obiettivo distrutto.
+OtherAbbrev[1]=Riprendi la nostra bandiera!
+OtherAbbrev[2]=Ho la bandiera.
+OtherAbbrev[3]=Ti sono alle spalle.
+OtherAbbrev[6]=Mi attaccano!
+OtherAbbrev[8]=Ho la nostra bandiera.
+OtherAbbrev[9]=In posizione.
+OtherAbbrev[11]=Punto al sicuro.
+OtherAbbrev[12]=Portabandiera nemico qui.
+OtherAbbrev[15]=Ti sono alle spalle.
+
+[VoiceMaleOne]
+NameTime[0]=0.960000
+NameTime[1]=1.100000
+NameTime[2]=1.020000
+NameTime[3]=0.990000
+AckString[0]=OK
+AckString[1]=Ricevuto
+AckString[2]=Subito
+AckString[3]=Ci sono
+AckTime[0]=0.780000
+AckTime[1]=0.810000
+AckTime[2]=0.980000
+AckTime[3]=0.980000
+FFireString[0]=Ehi! Stessa squadra!
+FFireString[1]=Sono della tua squadra, idiota!
+FFireAbbrev[1]=Stessa squadra!
+TauntString[0]=Beccati questo!
+TauntString[1]=Ti piace?
+TauntString[2]=Sì, verme!
+TauntString[3]=Boom!
+TauntString[4]=Brucia, baby
+TauntString[5]=Divertiamoci un po'!
+TauntString[6]=Muori.
+TauntString[7]=Fallito.
+TauntString[8]=Inchiodato.
+TauntString[9]=Bel colpo.
+TauntString[10]=Bene.
+TauntString[11]=Oh, sì!
+TauntString[12]="L'ho massacrato."
+TauntString[13]=Buffone!
+TauntString[14]=Yeehaw!
+TauntString[15]=Fai ridere!
+TauntAbbrev[12]=Massacrato.
+OrderString[0]=Difendi la base.
+OrderString[1]=Mantieni la posizione.
+OrderString[2]=Assalta la base.
+OrderString[3]=Coprimi.
+OrderString[4]=Agisci secondo i parametri operativi.
+OrderString[10]=Prendi la loro bandiera.
+OrderString[11]=Snidali e falli fuori.
+OrderAbbrev[0]=Difendi
+OrderAbbrev[2]=Attacca
+OrderAbbrev[4]=Indipendente
+OtherString[0]=La base è indifesa!
+OtherString[1]=Qualcuno riprenda la nostra bandiera!
+OtherString[2]=Ho la bandiera.
+OtherString[3]=Ti sono alle spalle.
+OtherString[4]=Mi hanno colpito!
+OtherString[5]=Uomo a terra!
+OtherString[6]=Mi stanno attaccando!
+OtherString[7]=Ci sei.
+OtherString[8]=Ho la nostra bandiera.
+OtherString[9]=Sono in posizione.
+OtherString[10]=Subito
+OtherString[11]=Il punto di controllo è al sicuro.
+OtherString[12]=Il portabandiera nemico è qui.
+OtherString[13]=Ho bisogno di sostegno.
+OtherString[14]=Tirali giù.
+OtherString[15]=Ti sto coprendo.
+OtherString[16]=Obiettivo distrutto.
+OtherAbbrev[1]=Prendi la nostra bandiera!
+OtherAbbrev[2]=Ho la bandiera.
+OtherAbbrev[3]=Ti sono alle spalle.
+OtherAbbrev[6]=Mi attaccano!
+OtherAbbrev[8]=Ho la nostra bandiera.
+OtherAbbrev[9]=In posizione.
+OtherAbbrev[11]=Punto al sicuro.
+OtherAbbrev[12]=Portabandiera nemico qui.
+OtherAbbrev[15]=Ti copro.
+
+[TMale2]
+MenuName=Soldato maschio
+
+[TMale2Bot]
+MenuName=Soldato maschio
+
+[ut_jumpboots]
+ExpireMessage=Gli stivali antigravità si sono esauriti.
+PickupMessage=Hai raccolto gli stivali antigravità.
+ItemName=Stivali antigravità
+
+[ChainSaw]
+WeaponDescription=Classificazione: lama da mischia\n\nFuoco primario: tenendo premuto il grilletto, la sega si metterà in moto. Portatela contro i nemici per infliggere danni massicci.\n\nFuoco secondario: una volta azionata, la lama può essere utilizzata orizzontalmente per decapitare i nemici.\n\nTecniche: la motosega produce un rumore forte e facilmente riconoscibile e può quindi essere evitata tenendo le orecchie aperte.
+DeathMessage=%k ha squarciato %o con la sua sanguinaria %w.
+PickupMessage=Erano cinque anni che non vedevo qualcosa del genere.
+ItemName=Motosega
+
+[VoiceFemaleOne]
+NameTime[0]=0.890000
+NameTime[1]=0.940000
+NameTime[2]=0.810000
+NameTime[3]=0.930000
+AckString[0]=OK
+AckString[1]=Ricevuto
+AckString[2]=Subito
+AckTime[0]=0.520000
+AckTime[1]=0.750000
+AckTime[2]=0.930000
+FFireString[0]=Stessa squadra!
+FFireString[1]=Sono della tua squadra, idiota!
+FFireAbbrev[1]=Tua squadra!
+TauntString[0]=Beccati questo!
+TauntString[1]=Buffone!
+TauntString[2]=Beccato!
+TauntString[3]=Brutto colpo, eh?
+TauntString[4]=Qualcun altro ne vuole un po'?
+TauntString[5]=Boom!
+TauntString[6]=Brucia, baby!
+TauntString[7]=Muori.
+TauntString[8]=Fai ridere!
+TauntString[9]=Ti piace?
+TauntString[10]=Yeehaw!
+TauntString[11]=Fallito!
+TauntString[12]=Oh, sì!
+TauntString[13]=Sei solo spazzatura!
+TauntString[14]=Siediti!
+TauntString[15]=L'ho massacrato!
+TauntString[16]=Mi spiace, ti ho fatto saltare la testa?
+TauntString[17]=Piangi, bambino, piangi!
+TauntString[18]=E stai giù.
+TauntString[19]=Buffone!
+TauntString[20]=Arrostito!
+TauntString[21]=Divertiamoci un po'!
+TauntAbbrev[3]=Brutto colpo!
+TauntAbbrev[4]=Qualcun altro?
+TauntAbbrev[15]=Massacrato.
+TauntAbbrev[16]=Mi spiace.
+OrderString[0]=Difendi la base.
+OrderString[1]=Mantieni la posizione.
+OrderString[2]=Assalta la base.
+OrderString[3]=Coprimi.
+OrderString[4]=Agisci secondo i parametri operativi.
+OrderString[10]=Prendi la loro bandiera.
+OrderString[11]=Snidali e falli fuori.
+OrderAbbrev[0]=Difendi
+OrderAbbrev[2]=Attacca
+OrderAbbrev[4]=Indipendente
+OtherString[0]=La base è indifesa!
+OtherString[1]=Qualcuno riprenda la nostra bandiera!
+OtherString[2]=Ho la bandiera.
+OtherString[3]=Ti sono alle spalle.
+OtherString[4]=Mi hanno colpito! Mi hanno colpito!
+OtherString[5]=Uomo a terra!
+OtherString[6]=Mi stanno attaccando!
+OtherString[7]=Ci sei.
+OtherString[8]=Ho la nostra bandiera.
+OtherString[9]=Sono in posizione.
+OtherString[10]=Rimani lì.
+OtherString[11]=Il punto di controllo è al sicuro.
+OtherString[12]=Il portabandiera nemico è qui.
+OtherString[13]=Ho bisogno di sostegno.
+OtherString[14]=Arrivo!
+OtherString[15]=Ti sono alle spalle.
+OtherString[16]=Obiettivo distrutto.
+OtherAbbrev[1]=Riprendi la nostra bandiera!
+OtherAbbrev[2]=Ho la bandiera.
+OtherAbbrev[3]=Ti sono alle spalle.
+OtherAbbrev[6]=Mi attaccano!
+OtherAbbrev[8]=Ho la nostra bandiera.
+OtherAbbrev[9]=In posizione.
+OtherAbbrev[11]=Punto al sicuro.
+OtherAbbrev[12]=Portabandiera nemico qui.
+OtherAbbrev[15]=Ti sono alle spalle.
+
+[VoiceFemaleTwo]
+NameTime[0]=0.890000
+NameTime[1]=0.940000
+NameTime[2]=0.810000
+NameTime[3]=0.930000
+AckString[0]=OK
+AckString[1]=Ricevuto
+AckString[2]=Subito
+AckTime[0]=0.520000
+AckTime[1]=0.750000
+AckTime[2]=0.930000
+FFireString[0]=Stessa squadra!
+FFireString[1]=Sono della tua squadra!
+FFireAbbrev[1]=Tua squadra!
+TauntString[0]=Beccati questo!
+TauntString[1]=Buffone!
+TauntString[2]=Beccato!
+TauntString[3]=Brutto colpo, eh
+TauntString[4]=Prova con un'arma più potente.
+TauntString[5]=Boom!
+TauntString[6]=Brucia, baby!
+TauntString[7]=Muori.
+TauntString[8]=Troppo facile!
+TauntString[9]=Ti piace?
+TauntString[10]=Fai ridere!
+TauntString[11]=Fallito!
+TauntString[12]=Oh, sì!
+TauntString[13]=Prova a togliere la sicura.
+TauntString[14]=Yeehaw!
+TauntString[15]=Che bello!
+TauntString[16]=Qualcun altro ne vuole un po'?
+TauntString[17]=Buffone!
+TauntString[18]=E stai giù!
+TauntString[19]=Impara a sparare!
+TauntString[20]=Muori!
+TauntString[21]=Scarafaggio!
+TauntString[22]=Sotto il prossimo!
+TauntString[23]=Addio!
+TauntString[24]=È casa mia!
+TauntString[25]=Obiettivo eliminato.
+TauntString[26]=Inutile!
+TauntAbbrev[13]=Togli la sicura.
+TauntAbbrev[16]=Qualcun altro?
+OrderString[0]=Difendi la base.
+OrderString[1]=Mantieni la posizione.
+OrderString[2]=Assalta la base.
+OrderString[3]=Coprimi.
+OrderString[4]=Agisci secondo i parametri operativi.
+OrderString[10]=Prendi la loro bandiera.
+OrderString[11]=Snidali e falli fuori.
+OrderAbbrev[0]=Difendi
+OrderAbbrev[2]=Attacca
+OrderAbbrev[4]=Indipendente
+OtherString[0]=La base è indifesa!
+OtherString[1]=Qualcuno riprenda la nostra bandiera!
+OtherString[2]=Ho la bandiera.
+OtherString[3]=Ti sono alle spalle.
+OtherString[4]=Mi hanno colpito! Mi hanno colpito!
+OtherString[5]=Uomo a terra!
+OtherString[6]=Mi stanno attaccando!
+OtherString[7]=Ci sei.
+OtherString[8]=Ho la nostra bandiera.
+OtherString[9]=Sono in posizione.
+OtherString[10]=Rimani lì.
+OtherString[11]=Il punto di controllo è al sicuro.
+OtherString[12]=Il portabandiera nemico è qui.
+OtherString[13]=Ho bisogno di sostegno.
+OtherString[14]=Arrivo!
+OtherString[15]=Ti sono alle spalle.
+OtherString[16]=Obiettivo distrutto.
+OtherAbbrev[1]=Riprendi la nostra bandiera!
+OtherAbbrev[2]=Ho la bandiera.
+OtherAbbrev[3]=Ti sono alle spalle.
+OtherAbbrev[6]=Mi attaccano!
+OtherAbbrev[8]=Ho la nostra bandiera.
+OtherAbbrev[9]=In posizione.
+OtherAbbrev[11]=Punto al sicuro.
+OtherAbbrev[12]=Portabandiera nemico qui.
+OtherAbbrev[15]=Ti sono alle spalle.
+
+[TMale1]
+MenuName=Comm. maschio
+
+[TMale1Bot]
+MenuName=Comm. maschio
+
+[TDarkMatch]
+GameName=Torneo di DarkMatch
+
+[KillingSpreeMessage]
+EndSpreeNote= e la sua scia di sangue sono stati fermati da
+EndSelfSpree=andava alla grande, finché non si è ammazzato!
+EndFemaleSpree=andava alla grande, finché non si è ammazzata!
+spreenote[0]=è assetato di sangue!
+spreenote[1]=è inferocito!
+spreenote[2]=sta dominando!
+spreenote[3]=è inarrestabile!
+spreenote[4]=è un DIO!
+
+[ripper]
+WeaponDescription=Classificazione: arma lancia-lame\n\nFuoco primario: vengono lanciati a velocità media dei dischi di titanio affilati come rasoi, che rimbalzeranno contro qualsiasi superficie.\n\nFuoco secondario: vengono lanciati, a bassa velocità di fuoco, dei dischi esplosivi.\n\nTecniche: mira al collo dei tuoi nemici.
+DeathMessage="%k ha mozzato un pezzo di carne da %o con lo %w."
+PickupMessage=Hai lo squartatore.
+ItemName=Squartatore
+
+[UT_invisibility]
+ExpireMessage=L'invisibilità si è esaurita.
+PickupMessage=Hai l'invisibilità.
+ItemName=Invisibilità
+
+[Miniammo]
+PickupMessage=Hai raccolto 50 proiettili.
+ItemName=Proiettili grossi
+
+[ControlPointMessage]
+ControlPointStr=Punto di controllo
+ControlledBy=adesso controllato da
+TeamStr=squadra!
+ClaimedStr=rivendicato!
+
+[TFemale1]
+MenuName=Comm. femmina
+
+[TFemale1Bot]
+MenuName=Comm. femmina
+
+[BulletBox]
+PickupMessage=Hai una scatola di caricatori per fucili.
+ItemName=Scatola di caricatori per fucile
+
+[TFemale2]
+MenuName=Soldato femmina
+
+[TFemale2Bot]
+MenuName=Soldato femmina
+
+[AssaultScoreboard]
+AssaultCondition=Assalta la base!
+FragGoal=Punteggio limite:
+
+[FirstBloodMessage]
+FirstBloodString=ha versato il sangue per primo!
+
+[Commander]
+MenuName=Comandante
+
+[ShockCore]
+PickupMessage=Hai raccolto un nucleo shock.
+ItemName=Nucleo shock
+
+[doubleenforcer]
+ItemName=Enforcer doppi
+
+[LMSOutMessage]
+OutMessage=è FUORI!
+
+[TimeMessage]
+TimeMessage[0]=5 minuti al termine!
+TimeMessage[2]=3 minuti al termine!
+TimeMessage[3]=2 minuti al termine!
+TimeMessage[4]=1 minuto al termine!
+TimeMessage[5]=30 secondi al termine!
+TimeMessage[6]=10 secondi al termine!
+TimeMessage[7]=9...
+TimeMessage[8]=8...
+TimeMessage[9]=7...
+TimeMessage[10]=6...
+TimeMessage[11]=5 secondi al termine!
+TimeMessage[12]=4...
+TimeMessage[13]=3...
+TimeMessage[14]=2...
+TimeMessage[15]=1...
+
+[armor2]
+PickupMessage=Hai la corazza.
+ItemName=Corazza
+
+[SuperShockRifle]
+DeathMessage=%k ha elettrificato %o con il %w.
+PickupMessage=Hai il fucile shock.
+ItemName=Fucile shock potenziato
+
+[bioammo]
+PickupMessage=Hai raccolto delle scorie biologiche.
+ItemName=Scorie biologiche
+
+[RocketPack]
+PickupMessage=Hai raccolto dei missili.
+
+[BladeHopper]
+PickupMessage=Hai raccolto delle lame a disco.
+ItemName=Lame a disco
+
+[ThighPads]
+PickupMessage=Hai i paracosce.
+ItemName=Paracosce
+
+[DominationScoreboard]
+FragGoal=Punteggio limite:
+
+[flakammo]
+PickupMessage=Hai raccolto 10 pallottole contraeree.
+ItemName=Pallottole contraeree
+
+[SuperShockCore]
+PickupMessage=Hai raccolto un nucleo shock potenziato.
+ItemName=Nucleo shock potenziato
+
+[PAmmo]
+PickupMessage=Hai racccolto una cella al plasma.
+ItemName=Cella al plasma
+
+[RifleShell]
+PickupMessage=Hai un caricatore per fucile.
+ItemName=Caricatore per fucile
+
+[HealthVial]
+PickupMessage=Hai raccolto una fiala guaritrice +
+ItemName=Fiala guaritrice
+
+[HealthPack]
+PickupMessage=Hai raccolto un super medikit +
+ItemName=Super medikit
+
+[EClip]
+PickupMessage=Hai raccolto un caricatore.
+
+[ChallengeDMP]
+GameName=Sfida DeathMatch
+
+[RatedTeamInfoS]
+TeamName=Rombo di Tuono
+TeamBio=La squadra Rombo di Tuono è, al momento, la favorita indiscussa. Grazie a un misurato equilibrio fra forza e stile, riesce sempre ad avere la meglio sugli avversari e a mantenere, al tempo stesso, un'immagine positiva.
+BotClassifications[0]=Guerriero
+BotClassifications[1]=Guerriero 
+BotClassifications[2]=Guerriero 
+BotClassifications[3]=Killer chimico
+BotClassifications[4]=Guerriero 
+BotClassifications[5]=Guerriero 
+BotClassifications[6]=Guerriero 
+BotClassifications[7]=Guerriero 
+BotBio[0]=Un tempo impiegato presso la Commissione Finanziaria Cyron, Othello divenne un guerriero suicida in seguito alla misteriosa morte di sua moglie.
+BotBio[1]=Nata in una famiglia estremamente ricca, Azure ha avuto la fortuna di potersi allenare con i migliori guerrieri della sua epoca. L'ingegneria fisica dei migliori ospedali ha sviluppato le sue abilità al limite della perfezione.
+BotBio[2]= Aryss, un'ex pilota, ha capito che le sue capacità e la sua agilità si addicevano perfettamente al campo di battaglia e si è guadagnata un posto nella squadra Rombo di Tuono.
+BotBio[3]=Malcom, la migliore creazione della FenTech, è un guerriero prodotto dall'ingegneria e potenziato con l'aiuto di composti chimici. Stimolanti adrenalinici, catalizzatori sinaptici e regolatori di impulsi si combinano per creare una vera e propria macchina della morte.
+BotBio[4]=Riker è il risultato vivente della fusione di tattica e stile. Cerca sempre nuovi metodi per uccidere i suoi avversari e ha ottenuto numerosi riconoscimenti per le sue capacità innovative.
+BotBio[5]=La sorella di Annika, una minatrice, morì nelle profondità di Vulcana 32 a causa dell'incompetenza dei dirigenti della Liandri. Lei è entrata a far parte della squadra Rombo di Tuono per vincere il Torneo, in modo da poter intraprendere una causa contro la compagnia e costringerla a pagare per il decesso della sorella.
+BotBio[6]=Tamika fu abbandonata dalla madre in tenera età e venne cresciuta in una casa piena di uomini, dove fu costretta per anni a subire abusi di ogni genere. Piena di rancore oltre ogni immaginazione, è una combattente coriacea, con una spiccata propensione a schiacciare i nemici di sesso maschile.
+BotBio[7]=Nessuna descrizione.
+
+[RatedTeamInfo1]
+TeamName=Guardia di Ferro
+TeamBio=Questa squadra di veterani d'élite un tempo fungeva da gruppo di guardie del corpo del potente contrabbandiere di armi Jihan Nyhn. Dopo l'assassinio di quest'ultimo, gli uomini della Guardia di Ferro si sono ritrovati senza lavoro: il Torneo è diventato quindi l'arena ideale in cui sfogare tutta la loro aggressività.
+BotClassifications[0]=Guerriero Guardia di Ferro 
+BotClassifications[1]=Guerriero Guardia di Ferro 
+BotClassifications[2]=Guerriero Guardia di Ferro 
+BotClassifications[3]=Guerriero Guardia di Ferro 
+BotClassifications[4]=Guerriero Guardia di Ferro 
+BotClassifications[5]=Guerriero Guardia di Ferro 
+BotClassifications[6]=Guardia di Ferro 
+BotClassifications[7]=Guardia di Ferro 
+BotBio[0]=Harlin è un robusto guerriero con una grande esperienza sul campo. Si è unito alla Guardia di Ferro dopo aver visto le truppe d'assalto del GNT massacrare la sua famiglia nel corso di un raid.
+BotBio[1]=Non si hanno molte notizie su Rylisa e sulle motivazioni che l'hanno spinta a unirsi alla Guardia di Ferro. Quasi tutti i membri di questa squadra hanno una valida ragione per combattere il Governo della Nuova Terra e la Liandri, ma lei non ha mai confidato la sua a nessuno.
+BotBio[2]=Johnson è stato assoldato dal mercato nero degli schiavi per lavorare come guardia del corpo di Nyhn. È forte e possiede un'incredibile resistenza.
+BotBio[3]=Si narra che Lauren fosse l'amante di Jihan Nyhn. Sospettando che, dietro la sua morte, si celasse la Liandri, è entrata nella Guardia di Ferro per scoprire la verità.
+BotBio[4]=Le abilità belliche di Brock sono seconde solamente alla sua forza d'animo. Quando non è intento a sedurre qualche donna, sarà sicuramente nell'arena, con la sua pistola a impulsi in mano.
+BotBio[5]=Shyann è molto abile nell'uso delle armi e degli equipaggiamenti. Svolge la funzione di tecnico, nonché di armaiola, per la Guardia di Ferro.
+BotBio[6]=Rankin ha lasciato le proprietà di Jihan Nyhn per cercare fortuna nei combattimenti. È un abile guerriero con un carattere piuttosto rude.
+BotBio[7]=La vita di Sara è dedicata alla protezione del prossimo. Il suo servizio presso Nyhn era legato al sostegno di quest'ultimo nei confronti delle guerriglie mirate a eliminare l'oppressione del Governo della Nuova Terra. Adesso che lui è morto, lei continua a combattere il GNT nel suo stesso gioco di morte.
+
+[RatedTeamInfo3]
+TeamName=Predatori Sanguinari
+TeamBio=I Predatori Sanguinari, un'organizzazione di mercenari e di ex soldati scelti, inseguono con decisione fama e denaro. Vogliono vincere il Torneo per assicurarsi il premio in palio: ricchezza e potere quasi illimitati.
+BotClassifications[0]=Capo Predatori 
+BotClassifications[1]=Predatore Sanguinario
+BotClassifications[2]=Predatore Sanguinario 
+BotClassifications[3]=Predatore Sanguinario 
+BotClassifications[4]=Predatore Sanguinario 
+BotClassifications[5]=Predatore Sanguinario 
+BotClassifications[6]=Predatore Sanguinario 
+BotClassifications[7]=Predatore Sanguinario 
+BotBio[0]=Kyla venne catturata dopo una caccia durata cinque anni, nella quale furono coinvolti 13 sistemi stellari. Colpevole di essere la mente di una delle più massicce ribellioni di minatori della storia, è stata costretta a combattere nel Torneo per salvare la propria vita.
+BotBio[1]=Boris ha combattuto nelle Forze di Difesa della Terra, ma ha abbandonato il campo di battaglia durante un cruento scontro su Io. Arrestato poco tempo dopo, è stato condannato alla peggiore delle punizioni: la morte per mano di Xan Kriegor.
+BotBio[2]=A differenza della maggior parte dei Predatori Sanguinari, Mariana ha servito fedelmente il Governo della Nuova Terra per quattro anni. Tale periodo finì con il suo licenziamento, con una buonuscita davvero insignificante. Adesso è convinta che il governo e la Liandri debbano ripagarla per i servigi resi.
+BotBio[3]=Luthor ha passato vent'anni a lavorare come specialista nelle operazioni segrete. Venne arrestato dalle forze di sicurezza del GNT durante un raid interno ordinato dal governo. Adesso si sente tradito e combatte contro lo stesso organo che lo ha creato.
+BotBio[4]=Jayce è la mente tecnologica della squadra. Sfrutta il suo eccellente addestramento militare per occuparsi dell'equipaggiamento.
+BotBio[5]=Non si hanno molte notizie su Ramirez. È un ottimo cecchino, ma i suoi dati sono assolutamente segreti.
+BotBio[6]=Tanya agisce come unità di ricognizione per i Predatori Sanguinari. Il successo non deriva solamente dall'esperienza, ma anche dalle informazioni che si riescono a raccogliere.
+BotBio[7]=Graves abbandonò le forze di sicurezza del Governo della Nuova Terra dopo essere stato sospeso per aver abusato della propria forza. Adesso utilizza quella stessa forza per aiutare i Predatori Sanguinari ad arrivare al successo.
+
+[RatedTeamInfo2]
+TeamName=Legione Nera
+TeamBio=Si tratta di una potente squadra di assassini Necris Phayder che cercano di dominare il Torneo. Distruggendo Xan Kriegor, il corrotto Campione del Torneo, la Legione crede di poter assumere il controllo delle attività della Liandri.
+BotClassifications[0]=Assassino Phayder 
+BotClassifications[1]=Assassino Phayder 
+BotClassifications[2]=Spadaccina Necris 
+BotClassifications[3]=Assassino Phayder 
+BotClassifications[4]=Assassino Phayder 
+BotClassifications[5]=Gran Maestro Phayder 
+BotClassifications[6]=Spadaccina Necris 
+BotClassifications[7]=Assassino Phayder 
+BotBio[0]=Cryss, come Visse, adora la distruzione. A differenza della sua sorella di sangue, però, difficilmente si lascerà sorprendere dalla reazione di un guerriero. Le armi a lungo raggio e le tattiche silenziose sono i suoi punti forti.
+BotBio[1]=Conosciuto come il 'massacratore delle stelle' Kragoth è uno dei terribili assassini della società segreta Phayder. Si mormora che abbia ucciso da solo l'intero equipaggio di un ICV Star Cruiser. La Liandri non conferma né smentisce questa informazione.
+BotBio[2]=Spadaccina di primo livello, Freylis è una combattente abile ed esperta. Conosce bene le tattiche di squadra e sarà sempre presente nelle situazioni in cui c'è bisogno di lei.
+BotBio[3]=Malakai combatte per la gloria e la distruzione. Come molti Necris, ritiene che ogni emozione, compresa ogni sfumatura del dolore, debba essere assaporata.
+BotBio[4]=Cercando il piacere attraverso il dolore degli altri, Visse massacra i suoi nemici con una furia implacabile.
+BotBio[5]=Necroth è il Gran Maestro Phayderis della Legione Nera. In questo ruolo svolge le funzioni di un cappellano nero, col compito di mantenere alto il morale del gruppo.
+BotBio[6]=Malise, come suggerisce il nome stesso, è l'incarnazione dell'odio. Se non fosse tenuta sotto controllo molto da vicino da Necroth, non esiterebbe ad attaccare i suoi stessi confratelli.
+BotBio[7]=Grail è il membro più colto della Legione. Attende con pazienza il momento in cui potrà assumere il comando.
+
+[RatedTeamInfoDemo2]
+TeamName=Rombo di Tuono
+TeamBio=La squadra Rombo di Tuono è, al momento, la favorita indiscussa. Grazie a un misurato equilibrio fra forza e stile, riesce sempre ad avere la meglio sugli avversari e a mantenere, al tempo stesso, un'immagine positiva.
+BotClassifications[0]=Guerriero
+BotClassifications[1]=Guerriero 
+BotClassifications[2]=Killer chimico
+BotClassifications[3]=Guerriero 
+BotClassifications[4]=Guerriero 
+BotBio[0]=Un tempo impiegato presso la Commissione Finanziaria Cyron, Othello divenne un guerriero suicida in seguito alla misteriosa morte di sua moglie.
+BotBio[1]=Johnson è stato assoldato dal mercato nero degli schiavi per lavorare come guardia del corpo di Jihan Nyhn, il potente contrabbandiere d'armi.
+BotBio[2]=Malcom, la migliore creazione della FenTech, è un guerriero prodotto dall'ingegneria e potenziato con l'aiuto di composti chimici. Stimolanti adrenalinici, catalizzatori sinaptici e regolatori di impulsi si combinano per creare una vera e propria macchina della morte.
+BotBio[3]=Le abilità belliche di Brock sono seconde solamente alla sua forza d'animo. Quando non è intento a sedurre qualche donna, sarà sicuramente nell'arena, con la sua pistola a impulsi in mano.
+BotBio[4]=Riker è il risulto vivente della fusione di tattica e stile. Cerca sempre nuovi metodi per uccidere i suoi avversari e ha ottenuto numerosi riconoscimenti per le sue capacità innovative.
+
+[RatedTeamInfo5]
+TeamName=Veleno
+TeamBio=Si tratta di una fazione di guerriere e atlete di primo piano. I membri sono tutti femmine e combattono unicamente per divertimento.
+BotClassifications[0]=Guerriero
+BotClassifications[1]=Guerriero 
+BotClassifications[2]=Guerriero 
+BotClassifications[3]=Guerriero 
+BotClassifications[4]=Killer chimico
+BotClassifications[5]=Guerriero 
+BotClassifications[6]=Guerriero 
+BotClassifications[7]=Guerriero 
+BotBio[0]=Athena combatte per amore della battaglia. Ha gli occhi sempre aperti e la mente concentrata sull'obiettivo. Non confida molto nelle sue compagne di squadra: a volte cerca di arrivare alla vittoria da sola.
+BotBio[1]=Cilia combatte per raggiungere la perfezione. Considera il Torneo come la più elevata espressione di forza fisica e cerca di dominarlo con la stessa decisione con cui cerca di dominare se stessa.
+BotBio[2]=Sconosciuta alle sue sorelle di battaglia, Sarena è il risultato di un complesso esperimento di controllo mentale effettuato dal GNT. Lei combatte non solo per suo volere, ma anche per il condizionamento subito dal governo.
+BotBio[3]=Tara è il modello atletico della nuova era. È forte, rapida e intelligente. Utilizza tutte le armi con uguale efficacia e studia le diverse forme di combattimento.
+BotBio[4]=Zanna è un prototipo di guerriero chimico sviluppato dalla FenTech Incorporated. La sua notevole forza fisica è potenziata da un costante flusso di catalizzatori sinaptici e di endorfine.
+BotBio[5]=Lovelace si è lasciata alle spalle il mondo normale per inseguire una nuova vita caratterizzata dalla perfezione fisica. Studia le arti marziali e le tattiche sotto la direzione di Cilia.
+BotBio[6]=Xyra si considera una sorta di supereroina. Combatte nel Torneo come simbolo di ribellione contro le politiche oppressive del GNT.
+BotBio[7]=Nessuna descrizione.
+
+[RatedTeamInfo4]
+TeamName=Acciaio Grezzo
+TeamBio=Nel gruppo di guerrieri noti con il nome di Acciaio Grezzo sono ammessi solamente gli uomini. Risultato di una miscela di muscoli umani e metalli poi lavorati, questa squadra punta tutto sulla forza fisica e sull'energia.
+BotClassifications[0]=Guerriero 
+BotClassifications[1]=Guerriero 
+BotClassifications[2]=Guerriero 
+BotClassifications[3]=Guerriero 
+BotClassifications[4]=Guerriero 
+BotClassifications[5]=Guerriero 
+BotClassifications[6]=Guerriero 
+BotClassifications[7]=Guerriero 
+BotBio[0]=Slain è il fondatore dell'Acciaio Grezzo. Capisce bene che il successo della squadra non dipende solamente dalla forza fisica, ma anche dallo stile 'pro-wrestling' tanto amato dal pubblico.
+BotBio[1]=Manwell è l'elemento più forte della squadra dell'Acciaio Grezzo. Sfrutta una miscela personalizzata di potenziatori biochimici per mantenere sempre al massimo il suo livello energetico.
+BotBio[2]=Kregore è un tipo molto rude. Essendo sopravvissuto a molte stagioni del Torneo, conosce bene tutte le arene ed è sicuramente l'elemento più esperto della squadra dell'Acciaio Grezzo.
+BotBio[3]=Bruce è un vero personaggio. Spesso, nel bel mezzo di un combattimento, si fermerà per esprimere qualche commento verso la più vicina telecamera olografica. È uno dei più amati nei mondi interni.
+BotBio[4]=Arkon ha lasciato le forze di sicurezza del Governo della Nuova Terra quando la squadra dell'Acciaio Grezzo gli ha offerto un posto. Non ha mai amato la vita militare e trova che l'assenza di regole, che contraddistingue il Torneo, si addica maggiormente al suo stile di combattimento.
+BotBio[5]=Rolph è l'elemento più debole della squadra, ma è comunque di gran lunga superiore alla normale media degli esseri umani. Sopperisce alla carenza di forza bruta con la velocità e la resistenza.
+BotBio[6]=Arnold è un ex stuntman del cinema, diventato in seguito un guerriero del Torneo. È sempre alla ricerca delle sensazioni più forti e il suo nuovo impiego soddisfa in pieno questo suo bisogno.
+BotBio[7]=Nessuna descrizione.
+
+
+[LadderDOM]
+MapTitle[0]=Tutorial DOM 
+MapTitle[1]=Condannato
+MapTitle[2]=Giardino
+MapTitle[3]=Segreto
+MapTitle[4]=Fonderia di scorie
+MapTitle[5]=Dardo a ingranaggi
+MapTitle[6]=La fonderia
+MapTitle[7]=Olden
+MapTitle[8]=Tomba di Sesmar
+MapTitle[9]=Sogno di metallo
+MapDescription[0]=Impara le regole e i sistemi di base del Dominio in questo speciale ambiente d'addestramento. Metti alla prova le tue abilità contro una squadra di nemici non allenata, prima di entrare nel Torneo vero e proprio.
+MapDescription[1]=I molti scontri fra gang che hanno devastato questa particolare zona dei bassifondi cittadini hanno dimostrato come essa sia un campo di battaglia estremamente cruento. Gli organizzatori della Liandri sperano che si riveli all'altezza delle aspettative come arena per il Dominio.
+MapDescription[2]=Questi laboratori, costruiti di recente come struttura per i test sulle esplosioni, ospitano due camere cariche di esplosivi. Sfortunatamente, uno degli investitori occulti era un agente della Liandri, alla quale adesso appartiene il Giardino.
+MapDescription[3]=Una delle poche arene artificiali del Torneo; questa struttura simile ad antiche rovine fu costruita dal leggendario Kilbragh, il Signore del Torneo, come centro d'addestramento personale. Dopo la sua morte, la proprietà è passata alla Liandri, che adesso ne fa pieno uso.
+MapDescription[4]=Dopo dozzine di gambe rotte e di lavoratori inceneriti, la Fonderia di scorie venne finalmente chiusa e messa all'asta, dove è stata prontamente acquistata da un astuto agente della Liandri.
+MapDescription[5]=I nuovi trattati di pace stipulati dal Governo della Nuova Terra hanno portato all'abbandono di molte strutture militari. Il Dardo a ingranaggi era un tempo un deposito sotterraneo utilizzato per l'immagazzinamento delle armi.
+MapDescription[6]=Una vecchia fonderia con queste caratteristiche è un luogo eccellente per combattere. In alcune aree di questa struttura potrai imbatterti in pozze di piombo fuso. Muoviti con circospezione, se vuoi cercare di essere efficace.
+MapDescription[7]=Questo antico tempio era sacro per la razza che lo eresse, ma non per la Liandri che, dopo averlo scoperto fra le montagne sopra le Caverne Eterne, ha deciso di utilizzarlo per i combattimenti.
+MapDescription[8]=Nonostante le proteste levatesi da tutto il mondo, questo luogo storico appartiene oggi alla Liandri. Jerl Liandri, presidente dell'omonima compagnia mineraria, ha dichiarato: 'È per la gente che ci sentiamo in dovere di organizzare eventi culturali di qualità. Non ci accontenteremo di meno'.
+MapDescription[9]=Questa piattaforma petrolifera è stata convertita in un'arena per il Dominio. È situata nei pressi di uno strano fenomeno meteorologico all'estremità settentrionale di Kryllia. Sfrutta l'architettura per riuscire a dominare i tuoi avversari.
+
+
+[LadderDM]
+MapTitle[0]=Tutorial DM
+MapTitle[1]=Oblio
+MapTitle[2]=Coraggioso
+MapTitle[3]=Frattale
+MapTitle[4]=Turbina
+MapTitle[5]=Codice
+MapTitle[6]=Pressurizzata
+MapTitle[7]=Macinatore
+MapTitle[8]=Galeone Koos
+MapTitle[9]=Stazione Zeto
+MapTitle[10]=Barriera di Orione
+MapTitle[11]=Liandri
+MapTitle[12]=Trasportatore
+MapTitle[13]=Monastero sul picco
+MapDescription[0]=Impara le regole di base del Deatmatch in questo speciale ambiente d'addestramento. Metti alla prova le tue abilità contro una squadra di nemici non allenata, prima di entrare nel Torneo vero e proprio.
+MapDescription[1]=La ITV Oblio è una delle navi corazzate da trasporto della Liandri. Essa conduce i nuovi contestatori, attraverso un salto nell'iperspazio, dalle Camere di Iniziazione alle prime competizioni sulla terra. Pochi dei guerrieri, però, sanno che la nave stessa è un'arena di combattimento.
+MapDescription[2]=Jerl Liandri acquistò questo vecchio garage per ottenere delle agevolazioni fiscali per la sua neonata compagnia mineraria. Adesso, la Liandri Corporation ha convertito la struttura in un'arena di combattimento. Anche se non è particolarmente complessa, essa riesce comunque a mietere più vittime che non i sobborghi della città in cui si trova.
+MapDescription[3]=I sondaggi pubblici della Liandri hanno appurato che la maggioranza degli spettatori del Torneo ama i combattimenti ambientati nei luoghi di 'vita reale'. Questo reattore al plasma convertito ne è un esempio. I guerrieri devono stare estremamente attenti, in quanto i raggi di energia al plasma diventano accessibili attraverso il 'Portale Frattale', qualora uno dei LED gialli collocati sul pavimento dovesse essere colpito.
+MapDescription[4]=La Turbina, una struttura abbandonata per il trattamento delle acque, acquistata per essere utilizzata nel Torneo, offre un'arena di combattimento estremamente difficile e veloce, nella quale non c'è possibilità di fuggire o di nascondersi dalla morte sicura.
+MapDescription[5]=Il Codice della Saggezza doveva essere una importantissima risorsa per la ricerca di esseri viventi in tutta la galassia. Doveva essere anche l'ultimo luogo nello spazio conosciuto dove fosse possibile accedere a testi rari nella loro originale forma stampata. Invece, quando la squadra di costruzione si imbatté accidentalmente in un flusso di magma, il progetto venne abbandonato e venduto alla Liandri a un prezzo stracciato.
+MapDescription[6]=I trabocchetti rappresentano una tradizione, nonché uno degli aspetti preferiti dagli spettatori del Torneo. Molte strutture della Compagnia Mineraria Liandri offrono questo tipo di trappole 'interattive'.
+MapDescription[7]=Un tempo una struttura di fusione della Liandri, questo complesso ha dimostrato di essere una delle arene più cruente del Torneo. Coloro che entrano in questo luogo, chiamato amorevolmente Macinatore di Metallo Pesante, si ritroveranno al centro di una spietata azione di ricerca e distruzione.
+MapDescription[8]=La popolazione indigena del mondo di Koos è abituata a muoversi sull'acqua, e trova che questo antico galeone da trasporto sia in assoluto la migliore delle arene.
+MapDescription[9]=La Liandri Corporation, nel tentativo di recuperare le perdite finanziarie subite a causa del fallimento di un centro di ricerca sulla luna artica di Coret, ha convertito questa postazione fra i ghiacci in un'arena del Torneo.
+MapDescription[10]=La Barriera di Orione, un antico castello alieno sospeso sopra una tempesta elettrica, rappresenta un'arena di battaglia estremamente pericolosa.
+MapDescription[11]=Si tratta di una perfetta struttura della Liandri per la lavorazione dei minerali, situata presso la discontinuità terrestre Mohorovicic, appena al di sotto del Messico. Degli scudi ionici a fasi respingono l'intenso calore e la forte pressione caratteristici delle profonde miniere della litosfera.
+MapDescription[12]=Questa raffineria è un'arena particolarmente equilibrata. Una camera centrale a più livelli costringe gli sfidanti a non abbassare la guardia, mentre la vicina vasca di fusione li tiene al caldo.
+MapDescription[13]=Costruito originariamente dai monaci Nipi in Nepal per fuggire al degrado morale, questo sereno e incantevole luogo era un tempo dedicato alla meditazione, finché la Liandri non lo ha acquistato per utilizzarlo come arena per il Torneo.
+
+
+[LadderCTF]
+MapTitle[0]=Tutorial CLB
+MapTitle[1]=Laboratorio Niven
+MapTitle[2]=Mondi nemici
+MapTitle[3]=Caverne eterne
+MapTitle[4]=Struttura Coret
+MapTitle[5]=Il guantone di ferro
+MapTitle[6]=Postazione isolata
+MapTitle[7]=L'ultimo comando
+MapTitle[8]=Gigante di lava
+MapTitle[9]=Base sottomarina 
+MapDescription[0]=Impara le regole e i sistemi di base di Cattura la Bandiera in questo speciale ambiente d'addestramento. Metti alla prova le tue abilità contro una squadra di nemici non allenata, prima di entrare nel Torneo vero e proprio.
+MapDescription[1]=Si tratta di un reattore nucleare orbitale sperimentale, abbandonato dopo l'esaurimento dei fondi destinati al progetto. Gli alti livelli di radioattività e la dispersione di scorie offrono una sfida eccitante ai guerrieri del Torneo.
+MapDescription[2]=Questo antico asteroide è stato convertito in un'arena per il Torneo, resa estremamente pericolosa dalle aberranti caratteristiche gravitazionali e, ovviamente, dai cecchini avversari.
+MapDescription[3]=Si tratta di rovine appartenenti a una razza sconosciuta, acquisite dalla Divisione Xenobiologica della Liandri Corporation per effettuare scavi e ricerche. Sono state giudicate dal Consiglio del Torneo un luogo 'idoneo all'intrattenimento' dopo che 17 archeologi XD vi persero la vita.
+MapDescription[4]=Costruita all'interno della vetta di una montagna sulla luna di Coret, questa struttura era un tempo una tappa fondamentale, il cancello interstellare in orbita sopra la luna e la stazione di ricerca Zeto situata fra le distese di ghiaccio.
+MapDescription[5]=Non tutte le ambientazioni sono proprietà immobiliari della Liandri riadattate. Il Guantone d'acciaio è una delle pochissime arene di combattimento altamente stilizzate progettate appositamente per il Torneo. Questa particolare struttura è stata adattata al meglio per il gioco di squadra.
+MapDescription[6]=La distante palude di Vandaron 3 è ritenuta uno dei luoghi più umidi della galassia. Si tratta di un posto temuto dai soldati a causa della sua remota collocazione, degli ambienti ristretti e della fastidiosa eco di una costante pioggia battente.
+MapDescription[7]=L'ultimo comando è una stazione per gli esperimenti nucleari perfettamente funzionante, di proprietà della Liandri Corporation. Il disegno di questa struttura ne fa una delle arene di combattimento ideali per le sfide del Torneo del tipo Cattura la Bandiera. La voluminosa architettura industriale high tech, insieme ai tortuosi corridoi di manutenzione, richiedono a chi vi combatte una pronta reattività.
+MapDescription[8]=Questo mondo volatile è caratterizzato da un'orbita estremamente bassa intorno a una gigantesca massa gassosa molto densa. Le risultanti forze gravitazionali hanno portato al collasso del manto planetario. In ogni incontro, gli sfidanti vengono equipaggiati con delle particolari cinture gravitazionali.
+MapDescription[9]=Qui si combatte intorno a un sottomarino nucleare classe Novembre, smantellato e attraccato presso una base sotterranea. Questo relitto, risalente ai tempi della prima guerra fredda, ospita ancora delle mitragliatrici e delle postazioni difensive fondamentali per la vittoria.
+
+
+[LadderChal]
+MapTitle[0]=Phobos
+MapTitle[1]=Morfeo
+MapTitle[2]=Tempesta
+MapTitle[3]=Iperscoppio
+MapDescription[0]=Questa stazione spaziale marziana è situata fra Marte e il suo satellite Phobos, posizione che causa una caotica rotazione. Fortunatamente, i generatori di gravità funzionano abbastanza bene da garantire ai Deatmatch un ritmo adeguato.
+MapDescription[1]=La Compagnia Mineraria Liandri capì subito di aver trovato un'eccellente arena, proprio in cima alla recentissima Superstruttura dei Grattacieli Galattici. Grazie al moderno miracolo dei materiali ad altissima trazione, questi tre edifici raggiungono la sbalorditiva altezza di 12 miglia. L'atmosfera rarefatta e il ridotto influsso della gravità terrestre mettono severamente alla prova la capacità degli atleti del Torneo di adattarsi e di combattere in un contesto ambientale estremo.
+MapDescription[2]=La struttura Tempesta è stata costruita appositamente per il Torneo. Disegnata per essere un'arena di combattimento, è articolata su aree multi-livello ed è ricca di piccoli anfratti in cui nascondersi. È una delle arene d'addestramento personali di Xan Kriegor e si trova sopra la ricostruita città di New York."
+MapDescription[3]=Grazie alla tecnologia della risonanza magnetica anti-vuoto, gli sfidanti sono in grado di combattere all'esterno di questa nave-arena di Xan per un lungo periodo di tempo. Usa la massima cautela, però: un solo errore e ti ritroverai a vagare nello spazio.
+
+
+[LadderAS]
+MapTitle[0]=Tutorial AS
+MapTitle[1]=Fregata
+MapTitle[2]=Alta velocità
+MapTitle[3]=Torre
+MapTitle[4]=Mazon
+MapTitle[5]=Livello oceano 
+MapTitle[6]=Operazione Overlord
+MapDescription[0]= Impara le regole di base dell'Assalto in questo speciale ambiente d'addestramento. Metti alla prova le tue abilità contro una squadra di nemici non allenata, prima di entrare nel Torneo vero e proprio.
+MapDescription[1]=La SS Victory, un'antica nave da guerra terrestre restaurata, è ancora in grado di navigare. Un doppio sistema di sicurezza impedisce agli estranei di attivare i cannoni, consentendo solamente ai membri dell'equipaggio di aprire il portale della sala comandi. Se, però, la caldaia di poppa dovesse essere definitivamente danneggiata, la porta si aprirebbe automaticamente, permettendo a chiunque di entrare.
+MapDescription[2]=Nella continua ricerca del massimo divertimento per gli spettatori, la Liandri ha riadattato questo treno, capace di superare le 200 miglia orarie, per il Torneo. Questa volta gli sfidanti dovranno vedersela anche con il pericolo di cadere dal treno. Tira fuori i popcorn e godeti lo spettacolo!
+MapDescription[3]=Questo antico castello, annidato sugli altopiani della Romania, fu acquistato da Xan Kriegor come campo d'addestramento personale per i suoi avversari, nella speranza di riuscire a selezionarne i migliori. La squadra che attacca deve aprire i cancelli principali, fuggire dal castello liberando la ragazza nella biblioteca e tirando la leva della casa di guardia, mentre quella che difende deve impedire la fuga.
+MapDescription[4]=Immersa fra le colline pedemontane del pianeta-giunla Zeus, si trova la Fortezza Mazon, una roccaforte apparentemente inespugnabile. Nelle viscere di questa base è custodito un enorme frammento di Tarydium, un raro elemento volatile. Questo frammento è sospeso fra due enormi barre elettrificate sopra una pozza di acqua superconduttrice.
+MapDescription[5]=La Stazione 5 livello oceano, costruita da varie università del globo per le ricerche nelle profondità marine, stava per fallire, quando la Liandri intervenne e la riscattò. Jerl Liandri, presidente della compagnia, ha dichiarato: 'Se non fossimo in grado di occuparci dell'istruzione dei nostri figli, cosa ne sarebbe di questo mondo?'.
+MapDescription[6]=Gli organizzatori del Torneo hanno capito che, ricreando le più violente guerre verificatesi sulla Terra, avrebbero potuto dare vita a una perfetta arena di combattimento. In particolare, hanno scelto lo sbarco in Normandia della II Guerra Mondiale a causa dell'incredibile superiorità numerica delle forze che cercavano di respingere l'attacco. La difesa di questa spiaggia, però, si rivelerà un compito estremamente arduo.
+
+
+[RatedTeamInfo6]
+TeamName=Falange Nera
+TeamBio=La Falange Nera è un rispettabile gruppo di soldati scelti. Tutti i suoi elementi hanno partecipato alla guerra fra umani e Skaarj e adesso cercano la gloria nel Torneo.
+BotClassifications[0]=Leader Falange Nera 
+BotClassifications[1]=Falange Nera 
+BotClassifications[2]=Falange Nera 
+BotClassifications[3]=Falange Nera 
+BotClassifications[4]=Falange Nera 
+BotClassifications[5]=Falange Nera 
+BotClassifications[6]=Falange Nera 
+BotClassifications[7]=Falange Nera 
+BotBio[0]=Ivana è una guerriera autodidatta; è entrata a far parte della Falange Nera quando ha sentito Gorn parlare su Neurovision nel corso di un allenamento. Fortemente motivata, ha deciso di unirsi alla squadra e di combattere al fianco di Gorn.
+BotBio[1]=Farham ha combattuto con le Forze di Difesa della Terra durante l'Assedio dei 7 giorni, uno dei momenti più bui della guerra. È completamente suo il merito della distruzione della corazzata Skaarj Skri'ith 'Krujhlok'; è inoltre un veterano pluridecorato.
+BotBio[2]=Nikita è stata addestrata alla costruzione e alla manutenzione delle armi pesanti. È lei che mantiene l'armonia della Falange Nera.
+BotBio[3]=Gorn era un guerriero carismatico, fino a quando la sua faccia non venne brutalmente sfigurata durante l'Assedio dei 7 giorni. Non essendo possibile restituirgli i suoi bei lineamenti, i medici specialisti gli hanno impiantato degli innesti tecnologicamente avanzati per ridargli la sensibilità.
+BotBio[4]=Ex portaordini nelle operazioni segrete del Governo della Nuova Terra, Anna decise di dire basta dopo essere stata assegnata a una serie di missioni particolarmente brutali. Adesso sogna di sconfiggere Xan e di distruggere la Liandri Corporation e il GNT.
+BotBio[5]=Whitman è un ex Neo-Cop dell'Avamposto Glosk che ha deciso di rinunciare all'anarchia delle strade in cambio del caos organizzato del Torneo. La sua esperienza lo rende un guerriero di primissimo piano e un importante alleato.
+BotBio[6]=Iyrash ha lasciato le forze Neo-Cop di Glosk insieme a Whitman. Era stata in servizio al suo fianco per cinque anni e continuerà a seguirlo ovunque le sue battaglie personali lo porteranno.
+BotBio[7]=Nessuna descrizione.
+
+
+[RatedTeamInfoDemo1]
+TeamName=Acciaio Grezzo
+TeamBio=Nel gruppo di guerrieri noti con il nome di Acciaio Grezzo sono ammessi solamente gli uomini. Risultato di una miscela di muscoli umani e metalli poi lavorati, questa squadra punta tutto sulla forza fisica e sull'energia.
+BotClassifications[0]=Guerriero 
+BotClassifications[1]=Guerriero 
+BotClassifications[2]=Guerriero 
+BotClassifications[3]=Guerriero 
+BotClassifications[4]=Guerriero 
+BotClassifications[5]=Guerriero 
+BotClassifications[6]=Guerriero 
+BotClassifications[7]=Guerriero 
+BotBio[0]=Slain è il fondatore dell'Acciaio Grezzo. Capisce bene che il successo della squadra non dipende solamente dalla forza fisica, ma anche dallo stile 'pro-wrestling' tanto amato dal pubblico.
+BotBio[1]=Manwell è l'elemento più forte della squadra dell'Acciaio Grezzo. Sfrutta una miscela personalizzata di potenziatori biochimici per mantenere sempre al massimo il suo livello energetico.
+BotBio[2]=Kregore è un tipo molto rude. Essendo sopravvissuto a molte stagioni del Torneo, conosce bene tutte le arene ed è sicuramente l'elemento più esperto della squadra dell'Acciaio Grezzo.
+BotBio[3]=Bruce è un vero personaggio. Spesso, nel bel mezzo di un combattimento, si fermerà per esprimere qualche commento verso la più vicina telecamera olografica. È uno dei più amati nei mondi interni.
+BotBio[4]=Arkon ha lasciato le forze di sicurezza del Governo della Nuova Terra quando la squadra dell'Acciaio Grezzo gli ha offerto un posto. Non ha mai amato la vita militare e trova che l'assenza di regole, che contraddistingue il Torneo, si addica maggiormente al suo stile di combattimento.
+BotBio[5]=Rolph è l'elemento più debole della squadra, ma è comunque di gran lunga superiore alla normale media degli esseri umani. Sopperisce alla carenza di forza bruta con la velocità e la resistenza.
+BotBio[6]=Arnold è un ex stuntman del cinema, diventato in seguito un guerriero del Torneo. È sempre alla ricerca delle sensazioni più forti e il suo nuovo impiego soddisfa in pieno questo suo bisogno.
+BotBio[7]=Nessuna descrizione.
+
+
+[RatedMatchDMDemo3]
+BotClassifications[0]=Killer chimico
+BotClassifications[1]=Criminale
+BotClassifications[2]=Guerriero
+BotClassifications[3]=Veterano 
+BotClassifications[4]=Psicotico
+Bio[0]=Malcom, la migliore creazione della FenTech, è un guerriero prodotto dall'ingegneria e potenziato con l'aiuto di composti chimici. Stimolanti adrenalinici, catalizzatori sinaptici e regolatori di impulsi si combinano per creare una vera e propria macchina della morte.
+Bio[1]=Zenith è uno dei più formidabili guerrieri mai apparsi nel Torneo. I suoi tifosi lo chiamano 'Doc', a causa del modo in cui seziona gli avversari con lo squartatore.
+Bio[2]=Riker è il risulto vivente della fusione di tattica e stile. Cerca sempre nuovi metodi per uccidere i suoi avversari e ha ottenuto numerosi riconoscimenti per le sue capacità innovative.
+Bio[3]=Bruce torna dopo una fortunosa vittoria nel gruppo dei perdenti per crearti nuovi problemi. Stai attento: ha studiato i video dei tuoi ultimi combattimenti e conosce il tuo stile.
+Bio[4]=Qualcuno ha rimesso in sesto Darhl dopo l'ultimo scontro con te e lui non è molto felice. Esaltato dai più recenti potenziatori e bioregolatori per ghiandole sintetiche, è più indemoniato che mai.
+
+
+[RatedMatchDMDemo2]
+BotClassifications[0]=Classificazione: L9
+BotClassifications[1]=Predone/Prigioniero
+BotClassifications[2]=Guerriero
+BotClassifications[3]=Veterano 
+Bio[0]=Nessun profilo disponibile. Richiesta autorizzazione di sicurezza di livello 9.
+Bio[1]=Genghis prende il nome dal vecchio conquistatore. Lui si proclama 'Dominatore dell'Espansione Orientale', destinato a fondare un nuovo impero. In realtà è un gretto predatore, condannato a combattere nel Torneo in seguito ai crimini commessi.
+Bio[2]=Deslok è il compagno di clan di Drimacus. Nonostante sia più debole del suo fratello di guerra, è un guerriero competente e si dimostrerà un valido avversario.
+Bio[3]=Bruce è un vero personaggio. Spesso, nel bel mezzo di un combattimento, si fermerà per esprimere qualche commento verso la più vicina telecamera olografica. È uno dei più amati nei mondi interni.
+
+
+[RatedMatchDMDemo1]
+BotClassifications[0]=Criminale
+BotClassifications[1]=Criminale
+BotClassifications[2]=Veterano 
+BotClassifications[3]=Psicotico
+BotClassifications[4]=Psicotico
+Bio[0]= Il Distruttore, il cui vero nome è sconosciuto, è il famoso capo di una gang. Catturato durante una retata a sud della New York Ricostruita, la sua partecipazione al Torneo non è mai stata messa in dubbio.
+Bio[1]=Piuttosto che subire l'esecuzione per mano del Tribunale della Prigione di Marte, Botanika ha scelto di combattere nel Torneo. Con oltre 11 brutali omicidi alle spalle, Botanika non dovrebbe avere problemi ad adattarsi all'arena di combattimento.
+Bio[2]=Kregore ha combattuto con il 47° Battaglione Meccanizzato Imperiale durante la Prima Invasione dei Necris. È un veterano delle moderne operazioni militari. Nonostante sia più propenso all'impiego delle tattiche, è un eccellente guerriero anche nel corpo a corpo.
+Bio[3]=Skirge Archon è uno spietato assassino, ruolo al quale non intende assolutamente rinunciare. Questo individuo ha i cavi invertiti... il piacere suscita in lui dolore e viceversa. È probabilmente il peggiore elemento che ti capiterà di incontrare.
+Bio[4]=Il Torneo ha una politica molto permissiva nei confronti degli 'stimolanti' e Darhl è notoriamente uno di coloro che abusano di queste sostanze. Combatte in maniera eccentrica, abbandonando spesso le convenzionali armi a lungo raggio in favore del maglio a impatto.
+
+
+[RatedMatchDM9]
+BotClassifications[0]=Soldato
+BotClassifications[1]=Guerriero d'arena
+BotClassifications[2]=Predone/Prigioniero
+BotClassifications[3]=Spadaccina Necris
+BotClassifications[4]=Necris Phayder
+BotClassifications[5]=Criminale
+Bio[0]=Arys è una comandante di campo proveniente dal 12° Battaglione Meccanizzato Imperiale. È stata selezionata per partecipare al Torneo dopo aver ucciso da sola otto Skaarj, utilizzando un coltello energetico durante la battaglia per l'avamposto Stormwatch su Orion.
+Bio[1]=Blake è tornato più furioso che mai. La prima volta che l'hai affrontato era decisamente fuori forma, ma adesso è sicuro di poterti battere. Fagli vedere dove può ficcarsi le sue convinzioni.
+Bio[2]=Genghis prende il nome dal vecchio conquistatore. Lui si proclama 'Dominatore dell'Espansione Orientale', destinato a fondare un nuovo impero. In realtà è un gretto predatore, condannato a combattere nel Torneo in seguito ai crimini commessi.
+Bio[3]=Kryss non è ancora stata estromessa dal Torneo. I Necris sono perseveranti e pericolosi e lei non fa eccezione. Stai attento: è decisamente molto più forte di prima.
+Bio[4]=Loque è un sospetto Phayder catturato mentre bazzicava fra le strutture direttive di Io. I Phayder, negli ultimi tempi, sono diventati molto più attivi e sono considerati responsabili dei sei bombardamenti nucleari contro le installazioni del GNT verificatisi durante il mese scorso.
+Bio[5]=Azure ha prestato servizio per sei lunghi anni su Marte per ragioni che sono al momento tenute segrete. È stata recentemente trasferita al Torneo, ma non ci sono dati disponibili sulla sua storia.
+
+
+[RatedMatchDM8]
+BotClassifications[0]=Assassino
+BotClassifications[1]=Psicotico
+BotClassifications[2]=Civile
+BotClassifications[3]=Minatore
+BotClassifications[4]=Civile
+Bio[0]=Rimasto orfano subito dopo la nascita, questo killer spietato ha passato parecchi anni sulle strade, imparando a sopravvivere e a mettere da parte le proprie emozioni. I Corrotti non hanno avuto difficoltà a sfruttare questo suo carattere per i loro fini. Ormai completamente privo di sentimenti umani, Damascus è una macchina della morte inarrestabile.
+Bio[1]=Il Torneo ha una politica molto permissiva nei confronti degli 'stimolanti' e Darhl è notoriamente uno di coloro che abusano di queste sostanze. Combatte in maniera eccentrica, abbandonando spesso le convenzionali armi a lungo raggio in favore del maglio a impatto.
+Bio[2]=Anna è una ex artista del circo, costretta suo malgrado a partecipare al Torneo per motivi finanziari. Adora lo squartatore perché le consente di far saltare in aria gli avversari con il suo esplosivo fuoco secondario.
+Bio[3]=Risucchiato nelle competizioni del Torneo dai suoi vecchi impiegati della Liandri Corp., questo povero ex minatore non ha alcuna possibilità di riuscire a risultare vincitore. È un individuo disperato e disposto a tutto pur di uccidere un nemico, disinteressandosi dei danni che potrebbe subire.
+Bio[4]=Catturata e sbattuta sul mercato degli schiavi, Tajheri riuscì a fuggire in maniera rocambolesca, ma venne arrestata dalla polizia del GNT e costretta a battersi nel Torneo. Non ha una grande esperienza nei combattimenti e sarà molto felice di trovare qualsiasi tipo di arma da fuoco.
+
+
+[RatedMatchDM7]
+BotClassifications[0]=Classificazione: L9
+BotClassifications[1]=Carnefice
+BotClassifications[2]=Assassino Necris
+Bio[0]=Nessun profilo disponibile. Richiesta autorizzazione di sicurezza di livello 9.
+Bio[1]=Ex carnefice per la tutela degli 'affari di famiglia', Xoleras ha fama di dominare completamente i suoi avversari. Maestro sui terreni accidentati e dotato di una vista da falco, raramente si lascia sfuggire un'occasione per eliminare un nemico sprovveduto.
+Bio[2]=Si tratta di uno spietato e abile assassino che conosce tutti gli angoli, i nascondigli e le collocazioni delle armi. La sua aggressiva capacità di dominio nelle arene del Torneo trasforma i suoi sfidanti in facili prede.
+
+
+[RatedMatchDM6]
+BotClassifications[0]=Psicotico
+BotClassifications[1]=Civile
+BotClassifications[2]=Criminale
+BotClassifications[3]=Economista
+Bio[0]=Archon è uno spietato assassino, ruolo al quale non intende assolutamente rinunciare. Questo individuo ha i cavi invertiti... il piacere suscita in lui dolore e viceversa. È probabilmente il peggiore elemento che ti capiterà di incontrare.
+Bio[1]=Saltuariamente, capita che dei ricchi civili si comperino un posto all'interno del Torneo. Il Consiglio Direttivo Liandri non ama far partecipare al gioco dei 'normali' civili perché non sono abbastanza abili da far divertire il pubblico.
+Bio[2]=I criminali sono degli ottimi combattenti. La combinazione di rancore e disperazione alimentata da una lunga permanenza in prigione è a dir poco terapeutica.
+Bio[3]=Non esiste niente di peggio di un avvocato, ma gli economisti non sono molto meglio. La Liandri ha scoperto che i civili sono disposti a pagare molto bene, pur di vedere qualcuno di questi parassiti subire una bella batosta.
+
+
+[RatedMatchDM5]
+BotClassifications[0]=Psicotico
+BotClassifications[1]=Spadaccina Necris 
+BotClassifications[2]=Necris Phayder
+Bio[0]=La storia di Arkoth è irrilevante, in quanto ha perso la memoria nel corso del condizionamento mentale operato dalla Liandri. Adesso fa parte dei 'Corrotti' e serve le volontà di Xan Kriegor senza alcuna obiezione.
+Bio[1]=Molti dei guerrieri Necris sono donne. Conosciute come 'Spadaccine', esse combattono senza alcuna pietà, prediligendo l'uso di baionette e di spade energetiche. Visse è una prigioniera di guerra Necris, costretta a combattere nel Torneo in cambio della propria vita.
+Bio[2]=Appartenente anch'egli ai Necris, Kragoth è un rinomato membro della società segreta dei 'Phayder', un branco di assassini e di cultori del giorno del giudizio che hanno dato vita a una sorta di guerriglia contro la Terra.
+
+
+[RatedMatchDM4]
+BotClassifications[0]=Civile
+Bio[0]=Essendo sopravvissuta all'incidente dell'ISV-Kran, Luthienne fu costretta a vedere tutti i suoi amici e i suoi compagni d'equipaggio morire per mano degli Skaarj, finché, due anni più tardi, lei e altri tre elementi vennero salvati. Segnata irreparabilmente da questa esperienza, è entrata nel Torneo per sconfiggere i demoni che albergano nel suo animo e per metterli a tacere attraverso la sua stessa morte.
+
+
+[RatedMatchDM3]
+BotClassifications[0]=Veterano
+BotClassifications[1]=Esperto in demolizioni 
+BotClassifications[2]=Criminale
+BotClassifications[3]=Cannoniere
+Bio[0]=Slain ha combattuto con il 47° Battaglione Meccanizzato Imperiale durante la Prima Invasione dei Necris. È un veterano delle moderne operazioni militari. Nonostante sia più propenso all'impiego delle tattiche, è un eccellente guerriero anche nel corpo a corpo.
+Bio[1]=Non assegnare mai a un uomo un incarico da donna. Annaka è una grande esperta in demolizioni. Ha ideato e diretto oltre 20 azioni segrete contro gli Skaarj in meno di un anno e fornisce consulenze al Consiglio per le Azioni Acquatiche sullo spiegamento delle armi anfibie.
+Bio[2]=Molti combattenti del Torneo sono criminali ai quali è stata offerta la possibilità di guadagnarsi la libertà pagandola col sangue. Compensano la carenza di amore da parte del pubblico con il loro alto numero.
+Bio[3]= Lexington, guerriero degno della massima stima, è famoso per l'ampio uso delle pistole nei combattimenti. Si considera sprecato per il Torneo e preferirebbe partecipare a un duello tradizionale. La sua mira è leggendaria e, quando è armato con due pistole, la sua pericolosità raddoppia.
+
+
+[RatedMatchDM2]
+BotClassifications[0]=Soldato
+BotClassifications[1]=Spadaccina Necris
+
+
+[RatedMatchDM13]
+BotClassifications[0]=Psicotico
+BotClassifications[1]=Veterano
+BotClassifications[2]=Necris Phayder
+BotClassifications[3]=Guerriero
+Bio[0]=La psicosi di Vanessa le ha consentito di scavalcare un gran numero di guerrieri e combattenti e di raggiungere questa posizione nella graduatoria.
+Bio[1]=L'esperienza sul campo di Dovienya le ha consentito di sviluppare un'ottima mira. Adesso il suo mirino è puntato contro di te.
+Bio[2]=La Liandri sospetta la presenza di Leeb dietro le operazioni Phayder nel settore Sol, ritenendolo responsabile di 543 omicidi a sfondo politico.
+Bio[3]=A differenza di molti altri personaggi del Torneo, Drimacus ha conquistato la sua posizione scalando le graduatorie inferiori e combattendo per raggiungere i vertici delle leghe dilettantistiche. È un guerriero estremamente abile ed esperto.
+
+
+[RatedMatchDM12]
+BotClassifications[0]=Soldato
+BotClassifications[1]=Civile
+BotClassifications[2]=Specialista
+BotClassifications[3]=Psicotico
+BotClassifications[4]=Criminale
+BotClassifications[5]=Criminale
+Bio[0]=Anche se sei riuscito a sconfiggere Arys, è riuscita a distinguersi all'interno del gruppo dei perdenti ed è tornata nel Torneo.
+Bio[1]=Dopo tre tormentate vittorie nel corso dell'ultima settimana, Nikki ha dimostrato che anche i ricchi civili possono avere successo nel Torneo. Lei ha imparato rapidamente molte cose ed è tornata per farti vedere qualche nuovo trucco.
+Bio[2]='Jena dei ghiacci' è il nome in codice di Jesse Davis, uno specialista dei combattimenti nei mondi gelati. Capace di sopravvivere per settimane abbandonato fra le nevi, è riuscito a ottenere il controllo assoluto sulla mente e sul corpo.
+Bio[3]=Sembra impossibile eliminare Barktooth. Le tattiche basate sulla forza bruta e la totale indifferenza verso la sua stessa salute gli hanno consentito di arrivare sempre più in alto nella graduatoria del Torneo.
+Bio[4]=Andrew sta scontando una condanna di 30 anni per crimini perpetrati tramite il computer. È un intelligente programmatore, un cracker di sistemi e un pirata informatico. Si tratta di un soggetto molto pericoloso: sicuramente non è il tipo che vorresti tenere in prigione troppo a lungo.
+Bio[5]=Il Tagliatore, il cui vero nome è sconosciuto, è il famoso capo di una gang. Catturato durante una retata a sud della New York Ricostruita, la sua partecipazione al Torneo non è mai stata messa in dubbio.
+
+
+[RatedMatchDM11]
+BotClassifications[0]=Psicotico
+BotClassifications[1]=Guerriero
+BotClassifications[2]=Civile
+BotClassifications[3]=Criminale
+Bio[0]=Vanessa fu rinchiusa in una casa psichiatrica all'età di dodici anni per aver ucciso i genitori e il fratello. Si tratta di un caso molto singolare. Adora squarciare gli avversari con un razzo ben mirato.
+Bio[1]=Rath è più macchina che uomo. Rigenerato con dei componenti di ricambio uniti a ciò che rimaneva del suo cervello dopo l'incidente di Earthstar One, la sua instabilità mentale lo rende un eccellente guerriero.
+Bio[2]=Jayce è una ex stuntwoman del cinema. Comprendendo che poteva mettere a frutto il suo talento nel Torneo, ha deciso di arruolarsi; è efficace con tutte le armi.
+Bio[3]=Ex guardia del corpo della famosa donna di spettacolo Flabeline Xion. Dopo aver confessato di averla brutalmente assassinata, la sua unica via d'uscita era il Torneo. Nell'ambiente viene chiamato 'il cantante'.
+
+
+[RatedMatchDM10]
+BotClassifications[0]=Criminale
+BotClassifications[1]=Specialista
+BotClassifications[2]=Veterano
+BotClassifications[3]=Psicotico
+BotClassifications[4]=Guerriero 
+Bio[0]=Piuttosto che subire l'esecuzione per mano del Tribunale della Prigione di Marte, Botanika ha scelto di combattere nel Torneo. Con oltre 11 brutali omicidi alle spalle, Botanika non dovrebbe avere problemi ad adattarsi all'arena di combattimento.
+Bio[1]=Ex comandante sul campo del GNT, nonché specialista nel campo delle armi energetiche, Rhea conosce molto bene i combattimenti. Predilige la precisione del fucile a shock, ma è ben addestrata a utilizzare tutte le armi moderne.
+Bio[2]=Nata a bordo dell'incrociatore IWV Ciran-Vega e allevata sulle aride piane del tormentato pianeta Skaarj di Skrath, Dovienya è una guerriera dalla grande esperienza. Conosce le arene del Torneo meglio dei suoi simili e, sul campo di battaglia, riesce a imparare molto in fretta.
+Bio[3]=Barktooth è un vero gentiluomo. Gridando con una furia da indemoniato, preferisce fare a pezzi un avversario a mani nude piuttosto che combattere dalla lunga distanza. Quando è costretto a usare un'arma, predilige la potenza nel breve raggio del cannone contraereo.
+Bio[4]=Deslok è il compagno di clan di Drimacus. Nonostante sia più debole del suo fratello di guerra, è un guerriero competente e si dimostrerà un valido avversario.
+
+
+[RatedMatchDM1]
+BotClassifications[0]=Guerriero d'arena
+Bio[0]=Blake, un guerriero di buon livello, ha lottato duramente per entrare nel Torneo. Nonostante questo, non possiede una particolare abilità tattica e, probabilmente, sarà l'avversario più debole che ti capiterà di incontrare.
+
+
+[RatedMatchChal4]
+BotClassifications[0]=Campione del Torneo
+Bio[0]=La sua origine e la sua identità sono sconosciute. Esistono diverse ipotesi su chi o cosa sia realmente Xan. Secondo quella più seguita, è l'uomo che dirige la Liandri Corporation e che ha utilizzato la sua immensa ricchezza per costruire la più avanzata struttura da combattimento di tutti i tempi, al solo scopo di riuscire a mantenere lo status di Campione del Torneo.
+
+
+[RatedMatchChal3]
+BotClassifications[0]=Schiavo guerriero
+BotClassifications[1]=Schiavo guerriero 
+BotClassifications[2]=Schiavo guerriero 
+BotClassifications[3]=Schiavo guerriero 
+BotClassifications[4]=Schiavo guerriero 
+Bio[0]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[1]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[2]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[3]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[4]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+
+
+[RatedMatchChal2]
+BotClassifications[0]=Schiavo guerriero 
+BotClassifications[1]=Schiavo guerriero 
+BotClassifications[2]=Schiavo guerriero 
+BotClassifications[3]=Schiavo guerriero 
+Bio[0]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[1]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[2]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[3]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+
+
+[RatedMatchChal1]
+BotClassifications[0]=Schiavo guerriero 
+BotClassifications[1]=Schiavo guerriero 
+BotClassifications[2]=Schiavo guerriero 
+BotClassifications[3]=Schiavo guerriero 
+BotClassifications[4]=Schiavo guerriero 
+Bio[0]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[1]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[2]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[3]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+Bio[4]=Uno schiavo guerriero. Membro dei 'Corrotti', un gruppo di soldati riprogrammati che combattono per divertire Xan Kriegor.
+
+
+[LadderDOMDemo]
+MapTitle[0]=Tutorial DOM
+MapTitle[1]=Tomba di Sesmar
+MapTitle[2]=Fonderia di scorie
+MapTitle[3]=Condannato
+MapTitle[4]=Olden
+MapTitle[5]=Sogno di metallo
+MapDescription[0]=Impara le regole e i sistemi di base del Dominio in questo speciale ambiente d'addestramento. Metti alla prova le tue abilità contro una squadra di nemici non allenata, prima di entrare nel Torneo vero e proprio.
+MapDescription[1]=Nonostante le proteste levatesi da tutto il mondo, questo luogo storico appartiene oggi alla Liandri. Jerl Liandri, presidente dell'omonima compagnia mineraria, ha dichiarato: 'È per la gente che ci sentiamo in dovere di organizzare eventi culturali di qualità. Non ci accontenteremo di meno'.
+MapDescription[2]=Dopo dozzine di gambe rotte e di lavoratori inceneriti, la Fonderia di scorie venne finalmente chiusa e messa all'asta, dove è stata prontamente acquistata da un astuto agente della Liandri.
+MapDescription[3]=I molti scontri fra le gang hanno devastato questo violento quartiere. Gli investitori, nella speranza di trarre dei profitti dalla violenza, hanno acquistato l'area per il Torneo.
+MapDescription[4]=Questo antico tempio era sacro per la razza che lo eresse, ma non per la Liandri che, dopo averlo scoperto fra le montagne sopra le Caverne Eterne, ha deciso di utilizzarlo per i combattimenti.
+MapDescription[5]= Questa piattaforma petrolifera è stata convertita in un'arena per il Dominio. È situata nei pressi di uno strano fenomeno meteorologico in Alaska. Sfrutta l'architettura per riuscire a dominare i tuoi avversari.
+
+
+[LadderDMDemo]
+MapTitle[0]=Tutorial DM
+MapTitle[1]=Stazione di ghiaccio Zeto 
+MapTitle[2]=Monastero sul picco
+MapTitle[3]=Cattedrale Gotica
+MapTitle[4]=Phobos
+MapTitle[5]=Galeone Koos
+MapTitle[6]=Trasportatore
+MapDescription[0]=Impara le regole di base del Deatmatch in questo speciale ambiente d'addestramento. Metti alla prova le tue abilità contro una squadra di nemici non allenata, prima di entrare nel Torneo vero e proprio.
+MapDescription[1]=La Liandri Corporation, nel tentativo di recuperare le perdite finanziarie subite a causa del fallimento di un centro di ricerca sulla luna artica di Coret, ha convertito questa postazione fra i ghiacci in un'arena del Torneo.
+MapDescription[2]= Costruito originariamente dai monaci Nipi in Nepal per fuggire al degrado morale, questo sereno e incantevole luogo era un tempo dedicato alla meditazione, finché la Liandri non lo ha acquistato per utilizzarlo come arena per il Torneo.
+MapDescription[3]=...
+MapDescription[4]=Questa stazione spaziale marziana è situata fra Marte e il suo satellite Phobos, posizione che causa una caotica rotazione. Fortunatamente, i generatori di gravità funzionano abbastanza bene da garantire ai Deatmatch un ritmo adeguato.
+MapDescription[5]=La popolazione indigena del mondo di Koos è abituata a muoversi sull'acqua, e trova che questo antico galeone da trasporto sia in assoluto la migliore delle arene.
+MapDescription[6]=Questa raffineria è un'arena particolarmente equilibrata. Una camera centrale a più livelli costringe gli sfidanti a non abbassare la guardia, mentre la vicina vasca di fusione li tiene al caldo.
+
+
+[Ladder]
+Titles[0]=Inesperto
+Titles[1]=Contendente
+Titles[2]=Peso leggero
+Titles[3]=Peso massimo 
+Titles[4]=Signore della guerra
+Titles[5]=Maestro di battaglia
+Titles[6]=Campione
+
+[ServerInfo]
+ServerInfoText="Info server"
+ContactInfoText="Contatti"
+NameText="Nome:"
+AdminText="Amministr."
+EMailText="E-mail:"
+UnknownText="Sconosciuto"
+MOTD="Messaggio del giorno"
+ServerStatsText="Statistiche server"
+GamesHostedText="Partite ospitate:"
+FragsLoggedText="Uccisioni:"
+VictimsText="Numero vittime:"
+GameStatsText="Statistiche di gioco"
+GameTypeText="Tipo di gioco:"
+PlayersText="Giocatori:"
+FragsText="Uccisioni totali:"
+TopPlayersText="Giocatori migliori [Uccisioni per ora]"
+BestNameText="Nome"
+BestFPHText="Maggior U/O"
+BestRecordSetText="Record ottenuto"
+BotText="Bot"
+
+[ServerInfoCTF]
+FlagsCapturedText="Bandiere catturate:"

@@ -1,0 +1,191 @@
+[Public]
+
+[UBrowserIRCSystemPage]
+NotInAChannelText=Non in un canale!
+KickedFromText=Sei stato cacciato da
+ByText=da
+IsAwayText=Ë via
+
+[UBrowserIRCPageBase]
+HasLeftText=ha lasciato
+HasJoinedText=si Ë unito a
+WasKickedByText=Ë stato cacciato da
+NowKnownAsText=Ë ora conosciuto come
+QuitText=Esci
+SetsModeText=imposta modalit‡
+
+[UBrowserServerListWindow]
+PlayerCountName=Giocatori
+ServerCountName=Server
+QueryServerText=Interrogazione server primario
+QueryFailedText=Server primario fallito: 
+PingingText=Ping dei server
+CompleteText=Completo
+InfoName=Info
+
+[UBrowserServerPing]
+AdminEmailText=Email ammin
+AdminNameText=Nome ammin
+ChangeLevelsText=Cambia livelli
+MultiplayerBotsText=Bot in multigiocatore
+FragLimitText=Limite uccisioni
+TimeLimitText=Tempo limite
+GameModeText=Modalit‡ di gioco
+GameTypeText=Tipo di partita
+GameVersionText=Versione gioco
+WorldLogText=ngWorldStats
+MutatorsText=Mutatori
+TrueString=Attivati
+FalseString=Disttivati
+ServerAddressText=Indirizzo server
+GoalTeamScoreText=Max punteggio squadra
+MaxTeamsText=Max squadre
+FriendlyFireText=Fuoco amico:
+MinPlayersText="I bot entrano in partita con un minimo di"
+PlayersText="Giocatori"
+BalanceTeamsText="Bilancia squadre"
+BotSkillText="Livello abilit‡ del bot"
+
+[UBrowserIRCLink]
+InvalidAddressText=Indirizzo server non valido, disconnessione.
+ErrorBindingText=Errore di collegamento alla porta locale, disconnessione.
+ResolveFailedText=Impossibile collegarsi all'indirizzo del server, disconnessione.
+ConnectedText=Connesso.
+ConnectingToText=Connessione a
+TimeOutError=Tempo per la connessione scaduto.
+InviteString="ti invita a unirti"
+
+[UBrowserMainWindow]
+WindowTitleString=Unreal Motore di ricerca
+
+[UBrowserOpenBar]
+OpenText=Apri:
+OpenHelp=Entra in un URL standard o selezionane uno dall'elenco. Premi INVIO per attivare.
+
+[UBrowserIRCSetupClient]
+ServerText=Server IRC
+ChannelText=Canale predefinito
+ServerHelp=Scegli un server IRC dall'elenco o digita il nome del tuo server IRC o del tuo indirizzo IP.
+ChannelHelp=Scegli un canale predefinito al quale unirti una volta che il server si Ë connesso o digita il nome del tuo canale.
+ConnectText=Connettiti
+DisconnectText=Disconnessione
+ConnectHelp=Connettiti al server di chat IRC.
+DisconnectHelp=Disconnettiti dal server di chat IRC.
+WarningText=L'opzione di chat ti connetter‡ alla rete Internet Relay Chat (IRC).\n\nEpic Games non Ë responsabile per il contenuto dei canali IRC. Entri in questi canali a tuo rischio e pericolo.\n\nSei sicuro di volerti connettere?
+WarningTitle=Attenzione
+
+[UBrowserServerGrid]
+ServerName=Server
+PingName=Ping
+MapNameName=Nome mappa:
+PlayersName=Giocatori
+
+[UBrowserRightClickMenu]
+PlayName=&Gioca su questo server
+RefreshName=&Aggiorna tutti i server
+InfoName=&Info server e giocatore
+FavoritesName=Aggiungi a &Preferiti
+RemoveFavoritesName=Rimuovi da &Preferiti
+RefreshServerName=In&terrogazione ping server
+PingAllName=Interrogazione ping di &tutti i server
+OpenLocationName="Apri &Locazione"
+CopyName="&Copia la posizione del server"
+
+[UBrowserMainClientWindow]
+FavoritesName=Preferiti
+IRCName=Chat
+MOTDName=News
+
+[UBrowserInfoMenu]
+RefreshName=&Aggiorna Info
+CloseName=&Chiudi
+
+[UBrowserUpdateServerWindow]
+QueryText=Interrogazione server...
+FailureText=Il server non ha risposto.
+
+[UBrowserGSpyLink]
+ResolveFailedError=Impossibile raggiungere il server primario: 
+TimeOutError=Tempo per parlare col server primario scaduto
+CouldNotConnectError=Tempo per la connessione al server primario scaduto: 
+
+[UBrowserPlayerGrid]
+NameText=Nome
+FragsText=Uccisioni
+PingText=Ping
+TeamText=Squadra
+MeshText=Modello
+SkinText=Pelle
+FaceText=Faccia
+IDText=ID
+
+[UBrowserSubsetFact]
+NotFoundError=Impossibile trovare la finestra: 
+NotReadyError=Finestra non pronta: 
+
+[UBrowserHTTPLink]
+ResolveFailedError=Impossibile raggiungere il server primario: 
+TimeOutError=Tempo per parlare col server primario scaduto
+CouldNotConnectError=Tempo per la connessione al server primario scaduto: 
+
+[UBrowserRulesGrid]
+RuleText=Regola
+ValueText=Valore
+
+[UBrowserIRCWindow]
+SystemName=Sistema
+
+[UBrowserIRCSystemMenu]
+ConnectText=&Connettiti
+DisconnectText=&Disconnettiti
+JoinText=&Unisciti
+
+[UBrowserIRCChannelMenu]
+PartText=&Lascia
+JoinText=&Unisciti
+
+[UBrowserIRCPrivateMenu]
+CloseText=&Chiudi
+JoinText=&Unisciti
+
+[UBrowserNewFavoriteWindow]
+WindowTitle="Nuovo preferito"
+OKText="Nuovo"
+
+[UBrowserEditFavoriteWindow]
+WindowTitle="Modifica Preferiti"
+
+[UBrowserEditFavoriteCW]
+DescriptionText="Descrizione"
+UpdateDescriptionText="Descrizione aggiornamento automatico"
+IPText="Indirizzo IP server"
+GamePortText="Numero porta server"
+QueryPortText="Chiedi numero porta"
+
+[UBrowserFavoritesMenu]
+FavoritesName="Rimuovi da &Preferiti"
+EditFavoriteName="&Modifica Preferiti"
+NewFavoriteName="&Nuovo preferito"
+
+[UBrowserOpenWindow]
+WindowTitle=Apri sito,Connettiti a un server utilizzando il suo indirizzo IP o l'URL di Unreal.
+
+[UBrowserOpenCW]
+OpenText="Apri:"
+OpenHelp="Inserisci un URL standard o selezionane uno dalla cronologia URL. Premi Invio per attivare."
+[UMenuBotSetupBase]
+DefaultsText="Resetta"
+DefaultsHelp="Resetta tutte le configurazioni dei bot alle impostazioni predefinite."
+
+[ServerListTitles]
+UBrowserUT=Server UT
+UBrowserLAN=Server LAN
+UBrowserPopulated=Server popolati
+UBrowserDeathmatchﬁathmatch
+UBrowserTeamGames=Deathmatch a squadre
+UBrowserCTF=Cattura la bandiera
+UBrowserDOM=Dominio
+UBrowserAS=Assalto
+UBrowserLMS=Ultimo uomo rimasto
+UBrowserAll=Tutti i server
+

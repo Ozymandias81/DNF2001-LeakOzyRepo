@@ -1,0 +1,6 @@
+TEXTURE NEW NAME="AmmoCountJunk" CLASS=Texture GROUP=None USIZE=1 VSIZE=1 PACKAGE="AmmoCount"
+
+Font ImportTTF PACKAGE="AmmoCount" Name=LEDFont Font="UT_Crystal" Height=85 Include="0123456789"
+Font ImportTTF PACKAGE="AmmoCount" Name=LEDFont2 Font="UT_Crystal" Height=35 Include="0123456789"
+
+OBJ SAVEPACKAGE PACKAGE="AmmoCount" FILE="..\Botpack\Textures\AmmoCount.utx"

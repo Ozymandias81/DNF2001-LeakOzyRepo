@@ -1,0 +1,7 @@
+[LevelInfo0]
+Title=Morbias
+IdealPlayerCount=2-6
+
+[LevelSummary]
+Title=Morbias
+IdealPlayerCount=2-6

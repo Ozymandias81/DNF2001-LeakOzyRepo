@@ -2,7 +2,11 @@
 
 *.bak
 *.log
+*.php
+*.psd
+*.tmp
 
 # Then ignore these folders
 
 _Backups/*
+_Tests/*

@@ -1,0 +1,28 @@
+[LevelInfo0]
+Title=Leadworks
+IdealPlayerCount=6-12
+LevelEnterText=Has entrado en la fundición de plomo del lado sur
+
+[ControlPoint2]
+PointName=Puente
+
+[ControlPoint1]
+PointName=Torre
+
+[ControlPoint0]
+PointName=Almacén
+
+[LavaZone2]
+DamageString=200
+
+[LevelSummary]
+Title=Leadworks
+IdealPlayerCount=6-12
+LevelEnterText=Has entrado en la fundición de plomo del lado sur
+
+[ZoneInfo0]
+ZoneName=Torre
+
+[ZoneInfo6]
+ZoneName=Almacén
+

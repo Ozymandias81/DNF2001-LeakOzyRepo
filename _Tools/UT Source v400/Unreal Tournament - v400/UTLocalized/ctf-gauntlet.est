@@ -1,0 +1,23 @@
+[ZoneInfo5]
+ZoneName=Armería azul
+
+[ZoneInfo3]
+ZoneName=Sala de lava
+
+[ZoneInfo1]
+ZoneName=Base roja
+
+[ZoneInfo0]
+ZoneName=Base azul
+
+[ZoneInfo4]
+ZoneName=Vestíbulo azul
+
+[ZoneInfo2]
+ZoneName=Vestíbulo rojo
+
+[LevelInfo0]
+Title=El guantelete de hierro
+IdealPlayerCount=6-8
+
+

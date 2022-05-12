@@ -1,0 +1,22 @@
+[ZoneInfo9]
+ZoneName=Pasillo antiaéreo
+
+[ZoneInfo8]
+ZoneName=Pasillo de las escaleras
+
+[ZoneInfo6]
+ZoneName=Ascensor 1
+
+[ZoneInfo7]
+ZoneName=Central
+
+[ZoneInfo5]
+ZoneName=Espacio exterior
+
+[LevelInfo0]
+Title=Luna Fobos
+IdealPlayerCount=4-8
+
+[LevelSummary]
+Title=Luna Fobos
+IdealPlayerCount=4-8

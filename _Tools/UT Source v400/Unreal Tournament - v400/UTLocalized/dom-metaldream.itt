@@ -1,0 +1,40 @@
+[LevelInfo0]
+Title=Sogno di metallo
+IdealPlayerCount=12
+LevelEnterText=Benvenuto al sogno di metallo
+
+[ZoneInfo5]
+ZoneName=Esterno
+
+[ZoneInfo1]
+ZoneName=Stazione di controllo 4
+
+[ZoneInfo4]
+ZoneName=Deposito
+
+[ZoneInfo2]
+ZoneName=Corridoio
+
+[ControlPoint0]
+PointName=Casse
+
+[ZoneInfo14]
+ZoneName=Controllo olio
+
+[ControlPoint2]
+PointName=Gru
+
+[ZoneInfo3]
+ZoneName=Stazione di controllo 2
+
+[ControlPoint1]
+PointName=Eliporto
+
+[LevelSummary]
+Title=Sogno di metallo
+IdealPlayerCount=12
+LevelEnterText=Benvenuto al sogno di metallo
+
+[SpecialEvent7]
+DamageString=Triturato
+

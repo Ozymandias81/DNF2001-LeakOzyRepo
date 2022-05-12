@@ -1,0 +1,18 @@
+[LevelInfo0]
+Title=Barricada de Orión
+IdealPlayerCount=6-12
+
+[LevelSummary]
+Title=Barricada de Orión
+IdealPlayerCount=6-12
+
+[ZoneInfo12]
+ZoneName=Castillo
+
+[ZoneInfo11]
+ZoneName=Afueras
+
+[ZoneInfo13]
+ZoneName=Planta baja
+
+

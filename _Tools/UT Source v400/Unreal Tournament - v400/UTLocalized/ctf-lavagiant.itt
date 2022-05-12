@@ -1,0 +1,26 @@
+[locationid5]
+LocationName=Cresta del lanciamissili
+
+[locationid4]
+LocationName=Cresta dell'elettrocintura
+
+[locationid3]
+LocationName=Cresta del redentore
+
+[locationid2]
+LocationName=Base blu
+
+[locationid1]
+LocationName=Base rossa
+
+[LevelSummary]
+LevelEnterText=PRENDI QUELLE BANDIERE!!!
+
+[ZoneInfo0]
+ZoneName=Sull'isola
+
+[LevelInfo0]
+Title=Gigante di lava
+IdealPlayerCount=8-14
+LevelEnterText=PRENDI QUELLE BANDIERE!!!
+

@@ -1,0 +1,68 @@
+[LevelInfo0]
+Title=Tediosa avanzadilla
+IdealPlayerCount=8-12
+
+[ZoneInfo17]
+ZoneName=Sala roja principal
+
+[ZoneInfo18]
+ZoneName=Galería central
+
+[ZoneInfo16]
+ZoneName=Sala azul principal
+
+[ZoneInfo19]
+ZoneName=Sala roja superior
+
+[ZoneInfo20]
+ZoneName=Sala roja inferior
+
+[ZoneInfo22]
+ZoneName=Sala azul superior
+
+[ZoneInfo3]
+ZoneName=Entrada al ascensor derecho azul
+
+[ZoneInfo1]
+ZoneName=Entrada al ascensor derecho azul
+
+[ZoneInfo0]
+ZoneName=Entrada al ascensor izquierdo rojo
+
+[ZoneInfo2]
+ZoneName="Entrada al ascensor izquierdo azul"
+
+[ZoneInfo21]
+ZoneName=Sala azul inferior
+
+[ZoneInfo15]
+ZoneName=Galería azul
+
+[ZoneInfo14]
+ZoneName=Galería roja
+
+[ZoneInfo9]
+ZoneName=Ascensor izquierdo rojo
+
+[ZoneInfo8]
+ZoneName=Ascensor derecho rojo
+
+[ZoneInfo11]
+ZoneName=Ascensor izquierdo azul
+
+[ZoneInfo10]
+ZoneName=Ascensor derecho azul
+
+[SlimeZone0]
+ZoneName=Pozo de limo rojo
+
+[SlimeZone1]
+ZoneName=Pozo de limo azul
+
+[ZoneInfo13]
+ZoneName=Base roja
+
+[ZoneInfo12]
+ZoneName=Base azul
+
+

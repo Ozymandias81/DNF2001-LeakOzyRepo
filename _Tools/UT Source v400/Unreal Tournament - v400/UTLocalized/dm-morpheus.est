@@ -1,0 +1,23 @@
+[ScrollingMessageTexture2]
+ScrollingMessage=%lp encabeza la partida con %lf banderas...
+
+[ScrollingMessageTexture0]
+ScrollingMessage=%lp encabeza la partida con %lf banderas...
+
+[ScrollingMessageTexture3]
+ScrollingMessage=%lp encabeza la partida con %lf banderas...
+
+[LevelSummary]
+Title=Morfeo
+IdealPlayerCount=3 a 6
+LevelEnterText=Nadie consigue nunca realizar su primer salto.
+
+[VacuumZone0]
+DamageString=%k cayó al vacío...
+
+[LevelInfo0]
+Title=Morfeo
+IdealPlayerCount=3 a 6
+LevelEnterText=Nadie consigue nunca realizar su primer salto.
+
+

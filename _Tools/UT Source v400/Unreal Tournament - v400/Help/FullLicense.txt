@@ -1,0 +1,54 @@
+================================================
+               Epic MegaGames, Inc.
+     LIMITED USE SOFTWARE LICENSE AGREEMENT
+================================================
+
+PLEASE READ CAREFULLY.  BY USING OR INSTALLING THIS SOFTWARE, OR BY PLACING OR COPYING THIS SOFTWARE ON YOUR COMPUTER HARDWARE, COMPUTER RAM OR OTHER STORAGE MEDIUM, YOU ARE AGREEING TO BE BOUND BY THE TERMS OF THIS LICENSE. IF YOU DO NOT AGREE TO THESE TERMS, PROMPTLY RETURN THE PRODUCT IN ITS PACKAGING TO THE PLACE WHERE YOU OBTAINED IT.
+
+1. License.  The software accompanying this license (the "Software") and the related documentation are licensed to you by us and are subject to this license.  If the Software is configured for loading onto a hard drive, you may so load the Software only onto the hard drive of a single computer and run the Software off only that hard drive.  You may not delete the copyright notices or any other proprietary legends on the original copy of the Software.  If there is an editor incorporated into the Software, this license is also subject to Section 8 below.  You agree that the Software will not be shipped, transferred or exported into any country in violation of the U.S. Export Administration Act (or any other law governing such matters) by you or anyone at your direction and that you will not utilize and will not authorize anyone to utilize, in any other manner, the Software in violation of any applicable law.  The Software may not be downloaded or otherwise exported or reexported into (or to a national or resident of) any country to which the U.S. has embargoed goods or to anyone or into any country who/which are prohibited by applicable law, from receiving such property.
+
+2. Restrictions.  The Software contains copyrighted material, trade secrets and other proprietary material.  You may not decompile, modify reverse engineer, publicly display, prepare derivative works based on the Software (except as permitted in Section 8, below), disassemble or otherwise reproduce the Software.  You may not rent, sell, lease, sublicense or distribute the Software.  You may not offer the Software on a pay-per-play basis or otherwise commercially exploit the Software or use the Software for any commercial purpose.  You may not electronically transmit the Software from one computer to another or over a network.
+
+3. Termination.  This license is effective until terminated.  You may terminate this license at any time by destroying the Software and related documentation.  This license will terminate immediately without notice from us if you fail to comply with any provision of this license.  Upon termination, you must destroy the Software and related documentation.
+
+4. Disclaimer of Warranty on Software.  You are aware and agree that use of the Software and the media on which it is recorded are at your sole risk. The Software, related documentation and the media are provided "AS IS". Unless otherwise provided by applicable law, GT Interactive Software Corp. ("GT") warrants to the original purchaser of this product that the Software storage medium will be free from defects in material and workmanship under normal use for ninety (90) days from the date of purchase.  This warranty is void if the defect has arisen through accident, abuse, neglect or misapplication.
+
+GT AND EPIC MEGAGAMES, INC. ("EPIC") EXPRESSLY DISCLAIM ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. WE DO NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE SOFTWARE WILL MEET YOUR REQUIREMENTS, NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY US OR ANY OF OUR AUTHORIZED REPRESENTATIVES SHALL CREATE A WARRANTY OR IN ANY WAY INCREASE THE SCOPE OF THIS WARRANTY.  SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.
+
+5. Limitation of Liability.  UNDER NO CIRCUMSTANCES, INCLUDING, WITHOUT LIMITATION, NEGLIGENCE, SHALL GT, EPIC OR ANY OF THEIR RESPECTIVE OFFICERS. EMPLOYEES, DIRECTORS, AGENTS, LICENSEES, SUBLICENSEE OR ASSIGNS BE LIABLE FOR ANY INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES THAT RESULT FROM THE USE OR INABILITY TO USE THE SOFTWARE OR RELATED DOCUMENTATION, EVEN IF SUCH PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF THOSE DAMAGES.  SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES SO THE ABOVE LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU.
+
+In no event shall our total liability to you for all damages, losses, and causes of action (whether in contract, tort or otherwise) exceed the amount paid by you for the Software.
+
+6. Controlling Law and Severability.  This license shall be governed by and construed in accordance with the laws of the State of New York, USA. Exclusive venue for all litigation shall be in New York, New York.  If any provision of this license is unenforceable,  the rest of it shall remain in effect.
+
+7. Complete Agreement.  This license constitutes the entire agreement between the parties with respect to the use of the Software and the related documentation.
+
+8. Editor and End-user Variations.
+
+(a)  The Software includes a Beta version of the upcoming Unreal Level Editor.  An "Editor" is a feature which allows you to modify the Software or to construct new variations for use with it.  These modifications and variations can be both playable and non-playable.  An Editor includes its associated tools and utilities.  An Editor is NOT shareware.  You may not freely distribute it to any BBS, CD, floppy or any other media.  You may not sell it or repackage it for sale. The final version of the Editor will be released as a separate product along with its own manual and additional features.  Because the enclosed beta version is not the final version of the Editor, it may contain bugs or glitches which may affect the successful creation and operation of levels and other functions.  This beta version of the Editor has been included to show the potential of the final version of the Editor.  Technical support is not available from GT or Epic for the beta version of the Editor.
+
+(b) Using the Editor, you may create modifications or enhancements to the Software, including the construction of new levels (collectively referred to as "Variations"), subject to the following restrictions:
+
+i.   Your Variations must only work with the full, registered copy of the Software, not independently or with any other software. 
+
+ii.   Your Variations must not contain modifications to any executable file.
+
+iii.  Your Variations must not contain any libelous, defamatory, or other illegal  material, material that is scandalous or invades the rights of privacy or publicity of any third party, or contains any trademarks, copyright-protected work, or other recognizable property of third parties.
+
+iv.  Your variations shall not be supported by Epic, or GT Interactive Software Corp., or any of such parties affiliates and subsidiaries.
+
+v.  Your Variations must be distributed solely for free.  Neither you nor any other person or party  may sell them to anyone, commercially exploit them in any way, or charge anyone for using them without a license from Epic.  You may, however, exchange them at no charge among other end-users and distribute them to others over the Internet for free.
+
+vi. The prohibitions and restrictions in this section apply to anyone in possession of the Software or any of your Variations.
+
+9. Copyright.  The Software and all copyrights, trademarks and all other conceivable intellectual property rights related to the Software are owned by GT or its licensors and are protected by United States copyrights laws, international treaty provisions and all applicable law, such as the Lanham Act.  You must treat the Software like any other copyrighted material, as required by 17 U.S.C. section 101 et seq. and other applicable law.  You agree that you are receiving a copy of the Software by license only and not by sale and that the "first sale" doctrine of 17 U.S.C. section 109 does not apply to your receipt or use of the Software.Please do not make unauthorized copies.  The program you've purchase was produced through the efforts of many people who earn their livelihood from its lawful use.
+
+Don't make copies for other who have not paid for the right to use it.  To report copyright violations to the Software Publishers Association, call 1-800-388-PIR8 or write:
+
+Software Publishers Association
+1101 Connecticut Ave., Suite 901
+NW Washington, DC 20036
+
+This program is protected by United States federal and international copyright laws.
+
+All trademarks mentioned in this manual are the property of their respective owners.

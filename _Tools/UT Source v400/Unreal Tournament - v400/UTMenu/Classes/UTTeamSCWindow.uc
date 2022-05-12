@@ -1,0 +1,2 @@
+class UTTeamSCWindow extends UTSettingsCWindow;
+

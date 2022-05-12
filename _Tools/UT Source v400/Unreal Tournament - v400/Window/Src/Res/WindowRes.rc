@@ -1,0 +1,659 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "WindowRes.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "WindowRes.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDICON_Mainframe        ICON    DISCARDABLE     "..\\res\\Unreal.ico"
+IDICON_FolderClosed     ICON    DISCARDABLE     "..\\res\\idicon_f.ico"
+IDICON_FolderOpen       ICON    DISCARDABLE     "..\\res\\ico00001.ico"
+IDICON_Setup            ICON    DISCARDABLE     "..\\res\\idicon_s.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDDIALOG_Password DIALOG DISCARDABLE  0, 0, 204, 74
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "IDC_FailedRequirement"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_Prompt",IDC_Prompt,11,4,182,10
+    RTEXT           "IDC_NamePrompt",IDC_NamePrompt,2,21,55,10
+    EDITTEXT        IDEDIT_Name,61,19,137,13,ES_AUTOHSCROLL
+    RTEXT           "IDC_PasswordPrompt",IDC_PasswordPrompt,5,36,53,10
+    EDITTEXT        IDEDIT_Password,61,35,137,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    CONTROL         "IDOK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,6,57,50,
+                    14
+    CONTROL         "IDCANCEL",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    148,57,50,14
+END
+
+IDDIALOG_TextScroller DIALOG DISCARDABLE  0, 0, 344, 245
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IDC_TextScroller"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "IDOK",IDOK,147,230,50,14
+    EDITTEXT        IDEDIT_TextEdit,2,1,340,228,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+IDDIALOG_Language DIALOG DISCARDABLE  0, 0, 186, 42
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "IDC_Language"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,129,20,50,
+                    14
+    LTEXT           "Language:",IDC_Prompt,7,7,100,8
+    COMBOBOX        IDC_LanguageCombo,7,21,117,12,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDDIALOG_WizardDialog DIALOGEX 0, 0, 349, 253
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "IDC_WizardDialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "&Next >",IDC_Next,"Button",BS_OWNERDRAW | BS_NOTIFY | 
+                    WS_TABSTOP,122,236,50,14
+    CONTROL         "Cancel",IDCANCEL,"Button",BS_OWNERDRAW | BS_NOTIFY | 
+                    WS_TABSTOP,241,236,50,14
+    CONTROL         "< &Back",IDC_Back,"Button",BS_OWNERDRAW | BS_NOTIFY | 
+                    WS_TABSTOP,72,236,50,14
+    CONTROL         "&Finish",IDC_Finish,"Button",BS_OWNERDRAW | BS_NOTIFY | 
+                    WS_TABSTOP,182,236,50,14
+    CONTROL         "",IDC_Logo,"Static",SS_BITMAP,59,2,233,54,
+                    WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_PageHolder,"Static",SS_BLACKFRAME,3,59,344,172
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,231,349,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,58,349,1
+END
+
+IDDIALOG_Directory DIALOG DISCARDABLE  0, 0, 173, 174
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IDC_Directory"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "IDOK",IDOK,116,61,50,14
+    PUSHBUTTON      "IDCANCEL",IDCANCEL,116,79,50,14
+    LTEXT           "IDC_ChoosePrompt",IDC_ChoosePrompt,7,7,159,10
+    LTEXT           "IDC_PathTitle",IDC_PathTitle,7,22,45,8
+    EDITTEXT        IDC_PathEdit,7,32,159,12,ES_AUTOHSCROLL
+    LTEXT           "IDC_DirectoryTitle",IDC_DirectoryTitle,7,51,58,8
+    LISTBOX         IDC_DirectoriesEdit,7,61,104,78,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "IDC_DrivesTitle",IDC_DrivesTitle,7,146,50,8
+    EDITTEXT        IDC_DrivesEdit,7,155,99,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "IDC_NetworkButton",IDC_NetworkButton,116,154,50,14
+END
+
+IDDIALOG_WizardPage DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDDIALOG_FilerPageComponents DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_ComponentsText",IDC_ComponentsDescription,7,7,328,
+                    21
+    CONTROL         "",IDC_ComponentsHolder,"Static",SS_BLACKFRAME,12,43,189,
+                    63
+    GROUPBOX        "IDC_DescriptionFrame",IDC_DescriptionFrame,7,114,328,54
+    GROUPBOX        "IDC_DiskSpaceFrame",IDC_DiskSpaceFrame,213,33,122,77
+    RTEXT           "IDC_SpaceRequiredMessage",IDC_SpaceRequiredMessage,219,
+                    66,39,8
+    RTEXT           "IDC_SpaceAvailableMessage",IDC_SpaceAvailableMessage,
+                    219,77,39,8
+    LTEXT           "",IDC_SpaceRequired,261,66,68,10
+    LTEXT           "",IDC_SpaceAvailable,261,77,68,10
+    LTEXT           "",IDC_DescriptionText,13,125,317,37
+    GROUPBOX        "IDC_ComponentsPrompt",IDC_ComponentsPrompt,7,33,199,77
+END
+
+IDDIALOG_FilerPageFolder DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_FolderDescription",IDC_FolderDescription,7,14,335,
+                    88
+    GROUPBOX        "IDC_FolderHolder",IDC_FolderHolder,9,108,305,34
+    EDITTEXT        IDC_Folder,19,121,231,12,ES_AUTOHSCROLL
+    RTEXT           "IDC_SpaceAvailableMessage",IDC_SpaceAvailableMessage,13,
+                    148,153,8
+    LTEXT           "Static",IDC_SpaceAvailable,175,148,114,10
+    CONTROL         "IDC_Default",IDC_Default,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,257,120,50,14
+    RTEXT           "IDC_FullSpaceRequiredMessage",IDC_SpaceRequiredMessage,
+                    11,158,155,8,NOT WS_VISIBLE
+    LTEXT           "Static",IDC_SpaceRequired,176,158,114,10,NOT WS_VISIBLE
+END
+
+IDDIALOG_FilerPageLicense DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "IDC_LicenseQuestion",IDC_LicenseQuestion,7,156,328,12
+    EDITTEXT        IDC_LicenseEdit,7,33,328,120,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+    LTEXT           "IDC_LicenseText",IDC_LicenseText,7,7,328,25
+END
+
+IDDIALOG_FilerPageWelcome DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_LanguagePrompt",IDC_LanguagePrompt,7,98,128,11
+    LISTBOX         IDC_LanguageList,7,108,124,55,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "IDC_WelcomePrompt",IDC_WelcomePrompt,7,14,328,78
+    CONTROL         "",IDC_ProductInfoHolder,"Static",SS_BLACKFRAME,136,104,
+                    200,60
+END
+
+IDDIALOG_FilerPageProgress DIALOG DISCARDABLE  0, 0, 346, 173
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "IDC_InstallText",IDC_InstallText,7,39,326,8
+    RTEXT           "IDC_ProgressText",IDC_ProgressText,4,91,85,10
+    RTEXT           "IDC_TotalText",IDC_TotalText,8,105,81,10
+    RTEXT           "IDC_InstallingText",IDC_InstallingText,7,77,81,10
+    LTEXT           "",IDC_Installing,99,77,227,8
+    CONTROL         "Progress1",IDC_Progress,"msctls_progress32",0x0,100,91,
+                    217,9
+    CONTROL         "Progress1",IDC_Total,"msctls_progress32",0x0,100,105,
+                    217,9
+END
+
+IDDIALOG_Restart DIALOG FIXED IMPURE  6, 30, 251, 116
+STYLE DS_MODALFRAME | DS_CONTEXTHELP | WS_CHILD | WS_CLIPSIBLINGS | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "IDC_Restart"
+FONT 8, "Helv"
+BEGIN
+    CONTROL         "IDC_Restart",IDC_Restart,"Button",BS_OWNERDRAW | 
+                    WS_GROUP | WS_TABSTOP,54,96,64,14
+    CONTROL         "IDC_Exit",IDC_Exit,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    132,96,64,14
+    LTEXT           "You need to restart Windows to complete the installation.",
+                    IDC_RestartMessage,43,12,198,16
+    LTEXT           "IDC_RestartText",IDC_RestartText,43,32,198,40
+    LTEXT           "IDC_Complete",IDC_Complete,43,76,198,16
+    ICON            IDICON_Setup,1280,12,12,20,20
+END
+
+IDDIALOG_FilerPageAutoPlay DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "IDC_Play",IDC_Play,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    WS_TABSTOP,34,75,264,13
+    CONTROL         "IDC_Reinstall",IDC_Reinstall,"Button",BS_OWNERDRAW | 
+                    BS_CENTER | WS_TABSTOP,34,114,264,13
+    CONTROL         "IDC_ReleaseNotes",IDC_ReleaseNotes,"Button",
+                    BS_OWNERDRAW | BS_CENTER | WS_TABSTOP,34,88,264,13
+    CONTROL         "IDC_Web",IDC_Web,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    WS_TABSTOP,34,101,264,13
+    CTEXT           "IDC_Options",IDC_Options,36,36,260,24,SS_CENTERIMAGE
+    CONTROL         "IDC_Uninstall",IDC_Uninstall,"Button",BS_OWNERDRAW | 
+                    BS_CENTER | WS_TABSTOP,34,127,264,13
+    CTEXT           "IDC_Complete",IDC_Complete,7,8,329,21
+    CONTROL         "",IDC_Divider,"Static",SS_BLACKFRAME | SS_SUNKEN,1,34,
+                    342,1
+END
+
+IDDIALOG_FailedRequirement DIALOG DISCARDABLE  0, 0, 279, 145
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "IDC_FailedRequirement"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "IDOK",IDOK,"Button",BS_OWNERDRAW | WS_TABSTOP,117,127,
+                    50,14
+    LTEXT           "IDC_FailedMessage",IDC_FailedMessage,6,7,267,46
+    CONTROL         "",IDC_ProductInfoHolder,"Static",SS_BLACKFRAME,40,62,
+                    200,60
+END
+
+IDDIALOG_ProductInfo DIALOG DISCARDABLE  0, 0, 209, 60
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    RTEXT           "IDC_ProductText",IDC_ProductText,5,15,48,8
+    RTEXT           "IDC_DeveloperText",IDC_DeveloperText,5,40,48,8
+    RTEXT           "IDC_VersionText",IDC_VersionText,5,27,48,8
+    CONTROL         "",IDC_Product,"Button",BS_OWNERDRAW | BS_LEFT | 
+                    WS_TABSTOP,57,12,136,13
+    CONTROL         "",IDC_Version,"Button",BS_OWNERDRAW | BS_LEFT | 
+                    WS_TABSTOP,57,25,136,13
+    CONTROL         "",IDC_Developer,"Button",BS_OWNERDRAW | BS_LEFT | 
+                    WS_TABSTOP,57,38,136,13
+    GROUPBOX        "IDC_ProductHolder",IDC_ProductHolder,0,0,200,60
+END
+
+IDDIALOG_FilerPagePreInstall DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Ready",IDC_Message,7,78,328,59
+    ICON            IDICON_Setup,IDC_STATIC,159,51,21,20
+END
+
+IDDIALOG_FilerPageUninstall DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_UninstallPrompt",IDC_UninstallPrompt,7,7,328,23
+    LTEXT           "IDC_UninstallQuestion",IDC_UninstallQuestion,7,113,328,
+                    21
+    CONTROL         "IDC_Yes",IDC_Yes,"Button",BS_AUTORADIOBUTTON,98,138,109,
+                    12
+    CONTROL         "IDC_No",IDC_No,"Button",BS_AUTORADIOBUTTON,98,150,109,
+                    12
+    EDITTEXT        IDC_UninstallListEdit,7,32,330,78,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDDIALOG_FilerPageUninstallComponents DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_ComponentsText",IDC_ComponentsDescription,7,7,328,
+                    21
+    CONTROL         "",IDC_ComponentsHolder,"Static",SS_BLACKFRAME,12,43,319,
+                    118
+    GROUPBOX        "IDC_ComponentsPrompt",IDC_ComponentsPrompt,7,33,327,133
+END
+
+IDDIALOG_ConfigPageRenderer DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_RenderPrompt",IDC_RenderPrompt,7,7,328,33
+    LTEXT           "IDC_RenderNote",IDC_RenderNote,7,125,328,41
+    LISTBOX         IDC_RenderList,7,42,330,67,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "IDC_Compatible",IDC_Compatible,"Button",
+                    BS_AUTORADIOBUTTON,7,110,147,10
+    CONTROL         "IDC_All",IDC_All,"Button",BS_AUTORADIOBUTTON,190,110,
+                    147,10
+END
+
+IDDIALOG_ConfigPageDetail DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_DetailPrompt",IDC_DetailPrompt,7,7,328,23
+    EDITTEXT        IDC_DetailEdit,7,32,330,110,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "IDC_DetailNote",IDC_DetailNote,7,145,328,21
+END
+
+IDDIALOG_ConfigPageFirstTime DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_Prompt",IDC_Prompt,7,52,328,75
+END
+
+IDDIALOG_ConfigPageSafeMode DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_SafeModePrompt",IDC_SafeModePrompt,7,7,330,65
+    GROUPBOX        "",IDC_STATIC,7,74,330,92
+    CONTROL         "IDC_Run",IDC_Run,"Button",BS_OWNERDRAW | WS_TABSTOP,15,
+                    87,314,14
+    CONTROL         "IDC_SafeMode",IDC_SafeMode,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,15,106,314,14
+    CONTROL         "IDC_Video",IDC_Video,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    15,125,314,14
+    CONTROL         "IDC_Web",IDC_Web,"Button",BS_OWNERDRAW | WS_TABSTOP,15,
+                    144,314,14
+END
+
+IDDIALOG_ConfigPageSafeOptions DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_SafeOptions",IDC_SafeOptions,7,7,330,10
+    CONTROL         "IDC_NoSound",IDC_NoSound,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,33,330,10
+    CONTROL         "IDC_No3DSound",IDC_No3DSound,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,47,330,10
+    CONTROL         "IDC_No3dVideo",IDC_No3dVideo,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,61,330,10
+    CONTROL         "IDC_Res",IDC_Res,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    7,89,330,10
+    CONTROL         "IDC_Window",IDC_Window,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,75,330,10
+    CONTROL         "IDC_ResetConfig",IDC_ResetConfig,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,104,330,10
+    CONTROL         "IDC_NoProcessor",IDC_NoProcessor,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,119,330,10
+    CONTROL         "IDC_NoJoy",IDC_NoJoy,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,134,330,10
+END
+
+IDDIALOG_ConfigPageDriver DIALOG DISCARDABLE  0, 0, 344, 172
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "IDC_DriverText",IDC_DriverText,7,7,330,10
+    LTEXT           "IDC_Card",IDC_Card,33,24,304,10
+    LTEXT           "IDC_DriverInfo",IDC_DriverInfo,7,39,330,96
+    LTEXT           "IDC_Web",IDC_Web,7,141,330,8
+    CONTROL         "IDC_WebButton",IDC_WebButton,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,7,154,330,12
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDDIALOG_Password, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 197
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+
+    IDDIALOG_TextScroller, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 342
+        BOTTOMMARGIN, 244
+    END
+
+    IDDIALOG_Language, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+
+    IDDIALOG_WizardDialog, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 250
+    END
+
+    IDDIALOG_Directory, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 168
+    END
+
+    IDDIALOG_WizardPage, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_FilerPageComponents, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_FilerPageFolder, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_FilerPageLicense, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_FilerPageWelcome, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_FilerPageProgress, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 339
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 167
+    END
+
+    IDDIALOG_FilerPageAutoPlay, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_FailedRequirement, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 273
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDDIALOG_ProductInfo, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 53
+    END
+
+    IDDIALOG_FilerPagePreInstall, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_FilerPageUninstall, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_FilerPageUninstallComponents, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_ConfigPageRenderer, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_ConfigPageDetail, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_ConfigPageFirstTime, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_ConfigPageSafeMode, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_ConfigPageSafeOptions, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDDIALOG_ConfigPageDriver, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 337
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_Add                 CURSOR  DISCARDABLE     "..\\res\\add.cur"
+IDC_DragItem            CURSOR  DISCARDABLE     "..\\res\\dragitem.cur"
+IDC_ZoomIn              CURSOR  DISCARDABLE     "..\\res\\zoomin.cur"
+IDC_Draw                CURSOR  DISCARDABLE     "..\\res\\draw.cur"
+IDC_Crosshair           CURSOR  DISCARDABLE     "..\\res\\crosshai.cur"
+IDC_ZoomOut             CURSOR  DISCARDABLE     "..\\res\\zoomout.cur"
+IDC_LittlePointer       CURSOR  DISCARDABLE     "..\\res\\littlepo.cur"
+IDC_LittleArrows        CURSOR  DISCARDABLE     "..\\res\\littlear.cur"
+IDC_Hand                CURSOR  DISCARDABLE     "..\\res\\hand.cur"
+IDC_NoDrop              CURSOR  DISCARDABLE     "..\\res\\nodrop.cur"
+IDC_SplitNS             CURSOR  DISCARDABLE     "..\\res\\splitns.cur"
+IDC_SplitWE             CURSOR  DISCARDABLE     "..\\res\\splitwe.cur"
+IDC_SplitWE1            CURSOR  DISCARDABLE     "..\\res\\splitall.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDMENU_NotifyIcon MENU DISCARDABLE 
+BEGIN
+    POPUP "ID_NotifyIcon"
+    BEGIN
+        MENUITEM "ID_NotifyShowLog",            ID_NotifyShowLog
+        MENUITEM "ID_NotifyAdvancedOptions",    ID_NotifyAdvancedOptions
+        MENUITEM "ID_NotifyExit",               ID_NotifyExit
+    END
+END
+
+IDMENU_Log MENU DISCARDABLE 
+BEGIN
+    POPUP "ID_LogFile"
+    BEGIN
+        MENUITEM "ID_LogAdvancedOptions",       ID_LogAdvancedOptions
+        MENUITEM "ID_LogFileExit",              ID_LogFileExit
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

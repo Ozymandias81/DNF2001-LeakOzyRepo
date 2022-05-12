@@ -1,0 +1,147 @@
+[Public]
+Object=(Name=Engine.Console,Class=Class,MetaClass=Engine.Console)
+Preferences=(Caption="Avanzadas",Parent="Opciones avanzadas")
+Preferences=(Caption="Configuración del motor del juego",Parent="Avanzada",Class=Engine.GameEngine,Category=Settings,Immediate=True)
+Preferences=(Caption="Funciones de las teclas",Parent="Avanzadas",Class=Engine.Input,Immediate=True,Category=Aliases)
+Preferences=(Caption="Enlaces de funciones de las teclas",Parent="Avanzadas",Class=Engine.Input,Immediate=True,Category=RawKeys)
+Preferences=(Caption="Controladores",Parent="Opciones avanzadas",Class=Engine.Engine,Immediate=False,Category=Drivers)
+Preferences=(Caption="Información servidor público",Parent="En red",Class=Engine.GameReplicationInfo,Immediate=True)
+Preferences=(Caption="Configuración partida",Parent="Opciones avanzadas",Class=Engine.GameInfo,Immediate=True)
+
+[Errors]
+NetOpen=Error al abrir el archivo 
+NetWrite=Error al escribir en archivo
+NetRefused=El servidor no ha enviado '%s'
+NetClose=Error al cerrar el archivo 
+NetSize=Tamaño de archivo erróneo
+NetMove=Error al mover el archivo
+NetInvalid=Se ha recibido una petición de archivo no válida. 
+NoDownload=El paquete '%s' no se puede descargar. 
+DownloadFailed=No se ha podido descargar el paquete '%s': %s
+RequestDenied=El servidor ha solicitado el archivo del nivel pendiente: Solicitud denegada.
+ConnectionFailed=Conexión errónea
+ChAllocate=No se ha podido asignar un canal
+NetAlready=Conexión de red ya realizada
+NetListen=Comunicación fallida: No hay enlazador disponible. 
+LoadEntry=No se puede cargar entrada: %s
+InvalidUrl=URL no válido: %s
+InvalidLink=Enlace no válido: %s
+FailedBrowse=No se ha podido introducir %s: %s
+Listen=Comunicación fallida: %s
+AbortToEntry=Error; regresando a la entrada ServerOpen=Los servidores no pueden abrir los URL de red 
+ServerListen=El servidor dedicado no puede recibir: %s
+Pending=Conexión pendiente con '%s' errónea; %s
+LoadPlayerClass=No se ha podido cargar la clase de jugador.
+ServerOutdated=Versión del servidor antigua 
+
+[Progress]
+RunningNet=%s: %s (%i jugadores)
+NetReceiving=Recibiendo '%s': %i/%i
+NetReceiveOk=Se ha recibido '%s'
+NetSend=Enviando '%s'
+NetSending=Enviando '%s': %i/%i
+Connecting=Conectando...
+Listening=Esperando clientes...
+Loading=Cargando
+Saving=Guardando
+Paused=En pausa por %s
+ReceiveFile=Recibiendo '%s' (F10 para cancelar)
+ReceiveSize=Tamaño %iK, Completo %3.1f%%
+ConnectingText=Conectando (F10 para cancelar):
+ConnectingURL=unreal://%s/%s
+
+[Console]
+ClassCaption="Consola Unreal estándar"
+LoadingMessage=CARGANDO
+SavingMessage=GUARDANDO
+ConnectingMessage=CONECTANDO
+PausedMessage=EN PAUSA
+PrecachingMessage=PRECACHEANDO
+ChatChannel=(CHAT) 
+TeamChannel=(TEAM) 
+
+[General]
+Upgrade=Para acceder a este servidor, necesitarás el último parche de actualización gratuito de Unreal, disponible en el sitio web de Epic:
+UpgradeURL=http://www.unreal.com/upgrade
+UpgradeQuestion=¿Quieres abrir tu explorador de Internet y acudir a la página de actualizaciones ahora? 
+Version=Versión %i
+
+[Menu]
+HelpMessage=
+MenuList=
+LeftString=Izquierda
+RightString=Derecha
+CenterString=Centro
+EnabledString=Activado
+DisabledString=Desactivado
+HelpMessage[1]="Este menú aún no ha sido implementado."
+YesString=sí
+NoString=no
+
+[Inventory]
+PickupMessage=Se ha recogido un objeto
+M_Activated=" activado"
+M_Selected=" seleccionado"
+M_Deactivated=" desactivado"
+ItemArticle=un
+
+[WarpZoneInfo]
+OtherSideURL=
+
+[GameInfo]
+SwitchLevelMessage=Cambiando de nivel
+DefaultPlayerName=Player
+LeftMessage=" ha abandonado la partida."
+FailedSpawnMessage=No se ha podido iniciar actor del jugador
+FailedPlaceMessage=No se ha podido encontrar el punto de partida (puede que el nivel necesite un actor de "inicio de jugador")
+NameChangedMessage=El nombre ha cambiado a... 
+EnteredMessage=" se ha incorporado a la partida."
+GameName=Partida
+MaxedOutMessage=El servidor está funcionando al máximo de su capacidad.
+WrongPassword=La contraseña introducida es incorrecta.
+NeedPassword="Para unirte a esta partida, necesitas introducir una contraseña."
+FailedTeamMessage=No se ha podido encontrar equipo para el jugador.
+
+[LevelInfo]
+Title="Sin título"
+
+[Weapon]
+MessageNoAmmo=" no tiene munición."
+PickupMessage=Tienes un arma
+DeathMessage=%o ha sido asesinado por %k's %w.
+ItemName=Arma
+DeathMessage[0]=%o ha sido asesinado por %k's %w.
+DeathMessage[1]=%o ha sido asesinado por %k's %w.
+DeathMessage[2]=%o ha sido asesinado por %k's %w.
+DeathMessage[3]=%o ha sido asesinado por %k's %w.
+
+[Counter]
+CountMessage=Sólo quedan %i más...
+CompleteMessage=¡Completado!
+
+[Ammo]
+PickupMessage=Has recogido algo de munición.
+
+[Pickup]
+ExpireMessage=
+
+[SpecialEvent]
+DamageString=
+
+[DamageType]
+Name=asesinado
+AltName=asesinado
+
+[PlayerPawn]
+QuickSaveString=Guardado rápido
+NoPauseMessage=Imposible interrumpir la partida
+ViewingFrom=Ahora visto desde 
+OwnCamera=cámara propia
+FailedView=No se ha podido cambiar la vista.
+CantChangeNameMsg=No puedes cambiar tu nombre durante una partida en la que tu PC esté conectado a un servidor fuera de tu red local.
+
+[Pawn]
+NameArticle=" un "
+
+[Spectator]
+MenuName=Espectador

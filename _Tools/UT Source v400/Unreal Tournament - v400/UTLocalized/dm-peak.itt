@@ -1,0 +1,31 @@
+[LevelSummary]
+Title=The Peak Monastery
+IdealPlayerCount=6-8
+LevelEnterText=Guarda dove metti i piedi!!! La strada è lunga!!!
+
+[ZoneInfo6]
+ZoneName=Corridoio inferiore
+
+[ZoneInfo2]
+ZoneName=Sala superiore
+
+[ZoneInfo4]
+ZoneName=Sala inferiore
+
+[ZoneInfo7]
+ZoneName=Corridoio delle finestre
+
+[ZoneInfo5]
+ZoneName=Sala della fossa
+
+[ZoneInfo3]
+ZoneName=Sala principale
+
+[ZoneInfo0]
+ZoneName=Esterno
+
+[LevelInfo0]
+Title=The Peak Monastery
+IdealPlayerCount=6-8
+LevelEnterText=Guarda dove metti i piedi!!! La strada è lunga!!!
+

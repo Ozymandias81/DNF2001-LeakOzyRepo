@@ -1,0 +1,22 @@
+[ZoneInfo9]
+ZoneName=Corridoio contraereo
+
+[ZoneInfo8]
+ZoneName=Corridoio delle scale
+
+[ZoneInfo6]
+ZoneName=Ascensore 1
+
+[ZoneInfo7]
+ZoneName=Centrale
+
+[ZoneInfo5]
+ZoneName=Spazio esterno
+
+[LevelInfo0]
+Title=Phobos Moon
+IdealPlayerCount=4-8
+
+[LevelSummary]
+Title=Phobos Moon
+IdealPlayerCount=4-8

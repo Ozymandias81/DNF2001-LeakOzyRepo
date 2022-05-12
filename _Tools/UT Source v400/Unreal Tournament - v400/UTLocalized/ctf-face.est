@@ -1,0 +1,17 @@
+[SpecialEvent0]
+DamageString=poner en órbita
+
+[ZoneInfo1]
+ZoneName=Base roja
+
+[ZoneInfo2]
+ZoneName=Base azul
+
+[ZoneInfo3]
+ZoneName=Asteroide
+
+[LevelInfo0]
+Title=Mundos enfrentados
+IdealPlayerCount=6
+
+

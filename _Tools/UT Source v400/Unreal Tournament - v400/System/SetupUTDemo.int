@@ -1,0 +1,56 @@
+[Setup]
+LocalProduct=Unreal Tournament Demo
+DefaultFolder=C:\TournamentDemo
+ReadMe=Help\ReadMe.htm
+SetupWindowTitle=Unreal Tournament Demo Setup
+AutoplayWindowTitle=Unreal Tournament Demo Options
+ProductURL=http://www.unrealtournament.com/
+VersionURL=http://unreal.epicgames.com/versions.htm
+Developer=Epic Games, Inc.
+DeveloperURL=http://www.epicgames.com/
+Logo=Help\UnrealTournamentSetupLogo.bmp
+
+[General]
+PlayLevelCommand=&Play this Unreal level
+OpenLinkCommand=&Open this Unreal link
+InstallModuleCommand=&Install this Unreal module
+EditLevelCommand=&Edit this Unreal level
+
+[UnrealTournamentContentGroup]
+Caption=Game Content
+Description=Install this for best performance. If you deselect it, the game content will be loaded from CD during play, degrading performance, but using less hard disk space.
+
+[GameGroup]
+Caption=Unreal Tournament Demo
+Description=Installation is required.
+
+[NetGamesGroup]
+Caption=NetGames USA Stat Utils
+Description=These tools can be used to generate HTML statistics about your Unreal Tournament games. You can also view your global ranking online!
+
+[PlayShortcut]
+Caption=Play Unreal Tournament Demo
+
+[3dfxShortcut]
+Caption=3dfxGamers.com
+
+[SafeModeShortcut]
+Caption=Unreal Tournament Demo Safe Mode
+
+[UninstallShortcut]
+Caption=Uninstall Unreal Tournament Demo
+
+[DocumentationShortcut]
+Caption=Documentation
+
+[WebShortcut]
+Caption=Unreal Tournament Web Page
+
+[NetGamesShortcut]
+Caption=NetGames USA
+
+[LocalStatsShortcut]
+Caption=View my local UT stats. [ngStats]
+
+[GlobalStatsShortcut]
+Caption=View my global UT stats. [ngWorldStats]

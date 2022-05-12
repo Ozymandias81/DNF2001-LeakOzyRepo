@@ -1,0 +1,1 @@
+class ServerInfoTeam expands ServerInfo;

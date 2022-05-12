@@ -1,0 +1,66 @@
+[LevelInfo0]
+Title=Livello oceano 'Stazione 5'
+IdealPlayerCount=8-10
+LevelEnterText=Controlla la base sottomarina!
+
+[ZoneInfo5]
+ZoneName=Area centrale
+
+[ZoneInfo3]
+ZoneName=Area d'attracco principale
+
+[WaterZone0]
+ZoneName=Sott'acqua
+
+[ZoneInfo4]
+ZoneName=Area d'attracco secondaria
+
+[ZoneInfo1]
+ZoneName=Il sottomarino
+
+[ZoneInfo2]
+ZoneName=Il centro di comando
+
+[ZoneInfo7]
+ZoneName=Sala della rampa
+
+[LevelSummary]
+LevelEnterText=Controlla la base sottomarina!
+
+[SpecialEvent0]
+Message=Il terminal 1 è stato disattivato.
+
+[FortStandard0]
+FortName=Il terminal 3
+DestroyedMessage=è stato distrutto!
+
+[SpecialEvent10]
+Message=Il terminal 4 è stato disattivato.
+
+[FortStandard1]
+FortName=Il terminal 1
+DestroyedMessage=è stato distrutto!
+
+[FortStandard2]
+FortName=Il terminal 2
+DestroyedMessage=è stato distrutto!
+
+[FortStandard3]
+FortName=Il terminal 4
+DestroyedMessage=è stato distrutto!
+
+[AssaultInfo0]
+ObjDesc[0]=Nuota verso la base sottomarina. All'interno della base si trovano 4 terminal, ai quali sono connesse delle tastiere; per rendere inoperativa la base, dovrai distruggerle. Neutralizza il terminal 1. I terminal possono essere distrutti in qualsiasi ordine.
+ObjDesc[1]=Neutralizza il terminal 2. I terminal possono essere distrutti in qualsiasi ordine.
+ObjDesc[2]=Neutralizza il terminal 3. I terminal possono essere distrutti in qualsiasi ordine.
+ObjDesc[3]=Neutralizza il terminal 4. I terminal possono essere distrutti in qualsiasi ordine.
+
+[ZoneInfo6]
+ZoneName=Tromba dell'ascensore
+
+[SpecialEvent15]
+Message=Terminal 3 disattivato.
+
+[SpecialEvent5]
+Message=Terminal 2 disattivato.
+

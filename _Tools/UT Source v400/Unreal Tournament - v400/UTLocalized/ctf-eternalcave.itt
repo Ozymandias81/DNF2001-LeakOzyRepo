@@ -1,0 +1,23 @@
+[LevelSummary]
+LevelEnterText=PRENDI QUELLE BANDIERE!!!
+
+[ZoneInfo4]
+ZoneName=la sala superiore
+
+[ZoneInfo3]
+ZoneName=la sala superiore
+
+[ZoneInfo2]
+ZoneName=le sale inferiori 
+
+[ZoneInfo0]
+ZoneName=Caverna blu
+
+[ZoneInfo1]
+ZoneName=Caverna rossa
+
+[LevelInfo0]
+Title=Caverne eterne
+IdealPlayerCount=6
+LevelEnterText=PRENDI QUELLE BANDIERE!!!
+

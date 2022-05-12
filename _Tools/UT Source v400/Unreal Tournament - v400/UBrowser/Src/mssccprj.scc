@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[UBrowser.dsp]
+SCC_Aux_Path = "\\server\safe\vss"
+SCC_Project_Name = "$/Unreal/UBrowser/Src", FVKAAAAA
+
+[UBrowser.mak]
+SCC_Aux_Path = "\\server\safe\vss"
+SCC_Project_Name = "$/Unreal/UBrowser/Src", FVKAAAAA

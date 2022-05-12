@@ -1,0 +1,21 @@
+[LevelInfo0]
+Title=Cripta
+IdealPlayerCount=8
+LevelEnterText=Contrólate
+
+[ControlPoint4]
+PointName=Estrella de hierro
+
+[ControlPoint2]
+PointName=Cabeza demonio
+
+[ControlPoint3]
+PointName=Gárgola
+
+[LevelSummary]
+Title=Cripta
+IdealPlayerCount=8
+LevelEnterText=Contrólate
+
+
+

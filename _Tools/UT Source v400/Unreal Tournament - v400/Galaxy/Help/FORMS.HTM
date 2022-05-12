@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System File Formats (Files)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="Fileformat"></a><font size="4" face="Arial"><strong>Fileformat</strong></font></p>
+
+<p><font size="2" face="Arial">This is the Advanced Music file format specification as
+used by Digital Dreams' Galaxy Music System. The purpose of the file format is to serve as
+a, music file standard with downloadable sample/instruments. Ok, first of all we have to
+explain some basics of this file format. This is a &quot;chunked&quot; file format, the
+chunk system is originating from the amiga (IFF). The actual file just consists of
+&quot;chunks&quot; which each have a unique name specifying its contents and a chunk size,
+this allows for easy backwards compatibility. Because old program versions will only
+process chunks with names they know, unknown chunks will be ignored. So in future versions
+things can be added without having to worry about backwards compatibility. All chunks will
+have an eight byte header, from which the first four bytes will be the chunkname. The next
+four bytes will form a long chunk length (stored Little-endian). If the chunk length
+stored is odd an extra pad byte is present in the file, this to ensure word alignment. </font></p>
+
+<p><font size="2" face="Arial">The goal we had in mind was to create a digital music
+file-format which offers decent compression of note data, supports envelopes, offers
+extensive control of how the samples are stored etc. What we also wanted to make very
+clear is how all effects, envelopes and so on should be implemented. Especially the
+envelope part is often badly explained, so we made everything consistent. We hope this
+format will be used by others as well. What is also very convenient is the fact that this
+file format is either build around the normal ProTracker effect command set, no weird
+effects are implemented (although there's room for extended commands in the note data), or
+it uses a MIDI like event stream with a preallocated voice layout. This means all
+instruments/channels are already mapped to physcial voices, so the actual playback logic
+can have MIDI resolution on all notes, without having to worry about channel allocation.</font></p>
+
+<p><a name="AM-form"></a><font size="4" face="Arial"><strong>&lt;AM-form&gt;, Advanced
+Music Form</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>AM-form</strong> contains the score information
+and actual instrument forms for the entire song. Things like initial values (Panning,
+tempo etc.), score-ordering/sequencing and instruments are stored in this chunk.</font></p>
+
+<p><font size="3" face="Arial"><strong>RIFF('AM'<br>
+&lt;INIT-ck&gt;<br>
+&lt;ORDR-ck&gt;<br>
+[&lt;STRM-ck&gt;]<br>
+[&lt;PATT-ck&gt;]<br>
+[&lt;AI-form&gt;])</strong></font></p>
+
+<p><strong><font size="3" face="Arial">INIT<br>
+(<br>
+</font><font size="2" face="Arial">char </strong><em>SongMessage[32]</em><strong><br>
+char </strong><em>AuthorMessage[32]</em><strong><br>
+uchar </strong><em>PlayerMode</em><strong><br>
+uchar </strong><em>MusicChannels</em><strong><br>
+ushort </strong><em>InitialSpeed</em><strong><br>
+ushort </strong><em>InitialTempo</em><strong><br>
+ushort </strong><em>ProSlideMin</em><strong><br>
+ushort </strong><em>ProSlideMax</em><strong><br>
+uchar </strong><em>MusicVolume</em><strong><br>
+uchar </strong><em>InitialPanning[]</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Fields</strong></font></p>
+
+<p><font size="2" face="Arial"><em>SongMessage</em></font></p>
+
+<p><font size="2" face="Arial">Name of song, stored as 32 byte ASCII string (padded with
+zero bytes)</font></p>
+
+<p><font size="2" face="Arial"><em>AuthorMessage</em></font></p>
+
+<p><font size="2" face="Arial">Name of author, stored as 32 byte ASCII string (padded with
+zero bytes)</font></p>
+
+<p><font size="2" face="Arial"><em>PlayerMode</em></font></p>
+
+<p><font size="2" face="Arial">Mode in which the player has to run, in order to playback
+this song properly. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">BIT_0</font></p>
+
+<p><font size="2" face="Arial">Logarithmic period system, same as used by ProTracker only
+with an additional 4 bits of resolution. Default is a linear period system, same as used
+by FastTracker only now with an additional 2 bits of resolution</font></p>
+
+<p><font size="2" face="Arial">BIT_1</font></p>
+
+<p><font size="2" face="Arial">Sequencing is done by a Order/Pattern system as used by
+ProTracker. Default is a Order/Stream system with a variable delta time.</font></p>
+
+<p><font size="2" face="Arial"><em>MusicChannels</em></font></p>
+
+<p><font size="2" face="Arial">Physical voices needed to playback this song without losing
+notes</font></p>
+
+<p><font size="2" face="Arial"><em>InitialSpeed</em></font></p>
+
+<p><font size="2" face="Arial">Initial speed to start song with. </font></p>
+
+<p><font size="2" face="Arial"><em>InitialTempo</em></font></p>
+
+<p><font size="2" face="Arial">Initial tempo to start song with. </font></p>
+
+<p><font size="2" face="Arial"><em>ProSlideMin</em></font></p>
+
+<p><font size="2" face="Arial">Lower limit for period value, this is a 12.4 fixed point
+value. The period can NOT slide below this value.</font></p>
+
+<p><font size="2" face="Arial"><em>ProSlideMax</em></font></p>
+
+<p><font size="2" face="Arial">Upper limit for period value, this is a 12.4 fixed point
+value. The period can NOT slide beyond this value.</font></p>
+
+<p><font size="2" face="Arial"><em>MusicVolume</em></font></p>
+
+<p><font size="2" face="Arial">Global music volume to use with this song (0..127)</font></p>
+
+<p><font size="2" face="Arial"><em>InitialPanning[]</em></font></p>
+
+<p><font size="2" face="Arial">Initial stereo panning value for each voice in the song,
+the actual number of values stored will be equal to the <em>MusicChannels</em> field. The
+following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_MININSPANNING </font></p>
+
+<p><font size="2" face="Arial">The voice's panning is set to its minimum value (left)</font></p>
+
+<p><font size="2" face="Arial">GLX_MIDINSPANNING</font></p>
+
+<p><font size="2" face="Arial">The voice's panning is set to its half-way value (center)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXINSPANNING</font></p>
+
+<p><font size="2" face="Arial">The voice's panning is set to its maximum value (right)</font></p>
+
+<p><strong><font size="3" face="Arial">ORDR<br>
+(<br>
+</font><font size="2" face="Arial">uchar </strong><em>SongLength</em><strong><br>
+uchar </strong><em>Orders[]</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Fields</strong></font></p>
+
+<p><font size="2" face="Arial"><em>SongLength</em></font></p>
+
+<p><font size="2" face="Arial">Number of orders in the song, base zero. This value is also
+know as the songlength minus one, please note that this value is base zero to avoid the
+problem of saving zero-length songs.</font></p>
+
+<p><font size="2" face="Arial"><em>Orders</em></font></p>
+
+<p><font size="2" face="Arial">Pattern/Stream orders, for each song position there's a
+number indicating the pattern/stream number, base zero, that should be played for that
+song position. The actual number of values present is the value of the <em>SongLength</em>
+field PLUS one.</font></p>
+
+<p><a name="AI-form"></a><font size="4" face="Arial"><strong>&lt;AI-form&gt;, Advanced
+Instrument Form</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>AI-form</strong> contains the instrument
+information and actual sample forms for one (1) instrument. Things like articulation-data
+(Envelopes, LFOs etc.) and instrument location information are stored in this chunk.</font></p>
+
+<p><font size="3" face="Arial"><strong>RIFF('AI'<br>
+&lt;INST-ck&gt;)</strong></font></p>
+
+<p><strong><font size="3" face="Arial">INST<br>
+(<br>
+</font><font size="2" face="Arial">ulong </strong><em>Size</em><strong><br>
+uchar </strong><em>Bank</em><strong><br>
+uchar </strong><em>Program</em><strong><br>
+char </strong><em>Message[32]</em><strong><br>
+uchar </strong><em>Split[128]</em><strong><br>
+glxArti </strong><em>Articulation</em><strong><br>
+ushort </strong><em>Samples</em><strong><br>
+[&lt;AS-form&gt;</strong><em> Samples[]</em><strong>]</strong><em><br>
+</em></font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Fields</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Size</em></font></p>
+
+<p><font size="2" face="Arial">Size of actual structure stored, allows for custom data to
+be added after the <em>Samples</em> field and before the actual samples</font></p>
+
+<p><font size="2" face="Arial"><em>Bank</em></font></p>
+
+<p><font size="2" face="Arial">Bank number to store instrument into. Each bank can hold
+128 programs and currently bank 1 will be addressed as drum-bank</font></p>
+
+<p><font size="2" face="Arial"><em>Program</em></font></p>
+
+<p><font size="2" face="Arial">Program number to store instrument into. Each bank can hold
+128 programs, numbered 0..127</font></p>
+
+<p><font size="2" face="Arial"><em>Message</em></font></p>
+
+<p><font size="2" face="Arial">Name of instrument, stored as 32 byte ASCII string (padded
+with zero bytes)</font></p>
+
+<p><font size="2" face="Arial"><em>Split</em></font></p>
+
+<p><font size="2" face="Arial">Split point definitions for each indivdual note. The value
+stored points to the sample (base zero) within this instrument, which is used to play the
+given note. Where note number 60 is the central C (C-4)</font></p>
+
+<p><font size="2" face="Arial"><em>Articulation</em></font></p>
+
+<p><font size="2" face="Arial">Instrument's global articulation data. If the sample does
+NOT have any local articulation data (sample's <em>Articulation</em> pointer is NULL),
+this set of articulation data will be used to synthesize the sample. If the does have
+local articulation data, it will ALWAYS override the instrument's global articulation
+data.</font></p>
+
+<p><font size="2" face="Arial"><em>Samples</em></font></p>
+
+<p><font size="2" face="Arial">Number of samples present within this instrument</font></p>
+
+<p><a name="AS-form"></a><font size="4" face="Arial"><strong>&lt;AS-form&gt;, Advanced
+Sample Form</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>AS-form</strong> contains the sample
+information and actual sample data for one (1) sample. Things like sample-tuning (C4
+Replay speed etc.) and sample-looping information are stored in this chunk.</font></p>
+
+<p><font size="3" face="Arial"><strong>RIFF('AS'<br>
+&lt;SAMP-ck&gt;)</strong></font></p>
+
+<p><strong><font size="3" face="Arial">SAMP<br>
+(<br>
+</font><font size="2" face="Arial">ulong</strong><em> Size</em><strong><br>
+char</strong><em> Message[32]<br>
+</em><strong>ushort</strong><em> Panning<br>
+</em><strong>ushort</strong><em> Volume<br>
+</em><strong>ushort</strong><em> Type<br>
+</em><strong>ushort</strong><em> Reserved<br>
+</em><strong>ulong</strong><em> Length<br>
+</em><strong>ulong</strong><em> LoopStart<br>
+</em><strong>ulong</strong><em> LoopEnd<br>
+</em><strong>ulong</strong><em> C4Speed<br>
+</em><strong>glxArti *</strong><em> Articulation<br>
+</em><strong>void *</strong><em> Data<br>
+</em><strong>[glxArti </strong><em>Articulation</em><strong>]</strong><em><br>
+</em><strong>[...</strong><em> Samples[]</em><strong>]</strong><em><br>
+</em></font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Fields</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Size</em></font></p>
+
+<p><font size="2" face="Arial">Size of actual structure stored, allows for custom data to
+be added after the <em>Data</em> field and before the actual sample data</font></p>
+
+<p><font size="2" face="Arial"><em>Message</em></font></p>
+
+<p><font size="2" face="Arial">Name of sample, stored as 32 byte ASCII string (padded with
+zero bytes)</font></p>
+
+<p><font size="2" face="Arial"><em>Panning</em></font></p>
+
+<p><font size="2" face="Arial">Stereo panning position of sample, only to be used if bit 5
+is set in the <em>Type</em> field. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_MINSMPPANNING </font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its minimum value (left)</font></p>
+
+<p><font size="2" face="Arial">GLX_MIDSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its half-way value (center)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">The sample panning is set to its maximum value (right)</font></p>
+
+<p><font size="2" face="Arial">GLX_SURSMPPANNING</font></p>
+
+<p><font size="2" face="Arial">This flag can be specified in combination with values given
+above. This will output the sample with a ±90 degree phase-difference between the left
+and right channel. This flag has NO effect when using one output channel (monophonic
+output)</font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Sample relative volume, used to scale samples within one
+split/instrument. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_MINSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its minimum value (silence)</font></p>
+
+<p><font size="2" face="Arial">GLX_MAXSMPVOLUME</font></p>
+
+<p><font size="2" face="Arial">The sample volume is set to its maximum value (0 dB)</font></p>
+
+<p><font size="2" face="Arial"><em>Type</em></font></p>
+
+<p><font size="2" face="Arial">Sample type, stored as bit-field. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">BIT_0</font></p>
+
+<p><font size="2" face="Arial">Samples are stored as delta samples. This means that each
+'sample' value stored is the difference from the previous sample</font></p>
+
+<p><font size="2" face="Arial">BIT_1</font></p>
+
+<p><font size="2" face="Arial">Unsigned samples are used. If not set the samples are
+stored as two-complement values</font></p>
+
+<p><font size="2" face="Arial">BIT_2</font></p>
+
+<p><font size="2" face="Arial">Sixteen (16) bit samples are stored instead of eight (8)
+bit samples. Resulting in an enhanced S/N-ratio</font></p>
+
+<p><font size="2" face="Arial">BIT_3</font></p>
+
+<p><font size="2" face="Arial">Looped sample, the actual looping mode is set by both BIT_4
+and BIT_7. If not set, sample is a one-shot sample</font></p>
+
+<p><font size="2" face="Arial">BIT_4</font></p>
+
+<p><font size="2" face="Arial">Bidirectional looped sample. Use normal forward-looping if
+not set</font></p>
+
+<p><font size="2" face="Arial">BIT_5</font></p>
+
+<p><font size="2" face="Arial">Sample has a default panning assigned to it, else use the
+panning of the channel it's being playing on</font></p>
+
+<p><font size="2" face="Arial">BIT_6</font></p>
+
+<p><font size="2" face="Arial">Stereo sample (Multi layer), default is mono sample</font></p>
+
+<p><font size="2" face="Arial">BIT_7</font></p>
+
+<p><font size="2" face="Arial">Continuous loop (loop forever). If not set the loop is a
+sustain-loop, which means the looping part is played as long as a key-on is been issued.
+After a key-off the rest of the sample (from loop-end to end-of-sample) will be played.</font></p>
+
+<p><font size="2" face="Arial"><em>Reserved</em></font></p>
+
+<p><font size="2" face="Arial">Reserved for future/internal use</font></p>
+
+<p><font size="2" face="Arial"><em>Length</em></font></p>
+
+<p><font size="2" face="Arial">Length of the sample in SAMPLES, double this number for
+stereo samples and double it again for 16 bit samples to get the actual number of bytes</font></p>
+
+<p><font size="2" face="Arial"><em>LoopStart</em></font></p>
+
+<p><font size="2" face="Arial">Loop starting position in SAMPLES, this value has to be
+less than the loop ending position</font></p>
+
+<p><font size="2" face="Arial"><em>LoopEnd</em></font></p>
+
+<p><font size="2" face="Arial">Loop ending position in SAMPLES, this value has to be less
+than or equal to the sample's length. The part of the sample between the loop ending
+position and the end of the sample will be played after a key-off ONLY if continuous loop
+mode (bit 7 of the <em>Type</em> field) is disabled</font></p>
+
+<p><font size="2" face="Arial"><em>C4Speed</em></font></p>
+
+<p><font size="2" face="Arial">Replay speed in Hertz for a center C (C-4, MIDI keynumber
+60) </font></p>
+
+<p><font size="2" face="Arial"><em>Articulation</em></font></p>
+
+<p><font size="2" face="Arial">Pointer to sample's local articulation data (used
+internally). If this value is NON zero an additional <strong>glxArti</strong> structure is
+present AFTER the <strong>glxSample</strong> structure but BEFORE the actual sample data.</font></p>
+
+<p><font size="2" face="Arial"><em>Data</em></font></p>
+
+<p><font size="2" face="Arial">Pointer to sample's sample data (used internally). If this
+values is NON zero the actual sample data is present as well.</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System API (Structures)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="glxBuffer"></a><font size="4" face="Arial"><strong>glxBuffer</strong></font></p>
+
+<p><strong><font face="Arial" size="3">typedef struct<br>
+{<br>
+</font><font face="Arial" size="2">udword</strong> FourCC;<br>
+<strong>udword</strong> Size;<br>
+<strong>void *</strong>Handle;<br>
+<strong>ubyte *</strong>Data;<br>
+<strong>udword</strong> Length;<br>
+<strong>udword</strong> PlayPos;<br>
+<strong>udword</strong> WritePos;<br>
+<strong>sdword</strong> Premix;<br>
+</font><font face="Arial" size="3"><strong>} glxBuffer;</strong><br>
+<br>
+<strong>Fields</strong></font></p>
+
+<p><font face="Arial" size="2"><em>FourCC</em></font></p>
+
+<p><font face="Arial" size="2">FourCC value used for identification of structure, should
+be GLX_FOURCC_BUFF.</font></p>
+
+<p><font face="Arial" size="2"><em>Size</em></font></p>
+
+<p><font face="Arial" size="2">Size in bytes of the rest of the structure, that is
+starting AFTER the Size field.</font></p>
+
+<p><font face="Arial" size="2"><em>Handle</em></font></p>
+
+<p><font face="Arial" size="2">Pointer to Directsound secondary buffer object
+(LPDIRECTSOUNDBUFFER) or pointer to WaveOut header (LPWAVEHDR), check <em>glxOutput::Driver</em>
+field to see handle used.</font></p>
+
+<p><font face="Arial" size="2"><em>Data</em></font></p>
+
+<p><font face="Arial" size="2">Pointer to actual audio data.</font></p>
+
+<p><font face="Arial" size="2"><em>Length</em></font></p>
+
+<p><font face="Arial" size="2">Length of buffer in bytes.</font></p>
+
+<p><font face="Arial" size="2"><em>PlayPos</em></font></p>
+
+<p><font face="Arial" size="2">Current play position(=sample heard) in bytes.</font></p>
+
+<p><font face="Arial" size="2"><em>WritePos</em></font></p>
+
+<p><font face="Arial" size="2">Current write position(=first sample which is not queued
+and thus can be modified) in bytes.</font></p>
+
+<p><font face="Arial" size="2"><em>Premix</em></font></p>
+
+<p><font face="Arial" size="2">Bytes between current play position and current mixed MUSIC
+samples, this effectively gives the delay (in bytes) before a new note is heard from the
+speakers.</font></p>
+
+<p><a name="glxOutput"></a><font size="4" face="Arial"><strong>glxOutput</strong></font></p>
+
+<p><strong><font face="Arial" size="3">typedef struct<br>
+{<br>
+</font><font face="Arial" size="2">udword</strong> FourCC;<br>
+<strong>udword</strong> Size;<br>
+<strong>void *</strong>Handle;<br>
+<strong>void *</strong>Mixer;<br>
+<strong>void *</strong>Listener;<br>
+<strong>void *</strong>Extensions;<br>
+<strong>ubyte</strong> Driver;<br>
+<strong>ubyte</strong> Format;<br>
+<strong>ubyte</strong> Type;<br>
+<strong>ubyte</strong> Reserved;<br>
+</font><font face="Arial" size="3"><strong>} glxOutput</strong></font><br>
+<br>
+<font face="Arial" size="3"><strong>Fields</strong></font></p>
+
+<p><font face="Arial" size="2"><em>FourCC</em></font></p>
+
+<p><font face="Arial" size="2">FourCC value used for identification of structure, should
+be GLX_FOURCC_OUTP.</font></p>
+
+<p><font face="Arial" size="2"><em>Size</em></font></p>
+
+<p><font face="Arial" size="2">Size in bytes of the rest of the structure, that is
+starting AFTER the Size field.</font></p>
+
+<p><font face="Arial" size="2"><em>Handle</em></font></p>
+
+<p><font face="Arial" size="2">Pointer to Directsound object (LPDIRECTSOUND) or handle to
+WaveOut device (HWAVEOUT), check <em>Driver</em> field to see handle used.</font></p>
+
+<p><font face="Arial" size="2"><em>Mixer</em></font></p>
+
+<p><font face="Arial" size="2">Pointer to Directsound primary buffer object
+(LPDIRECTSOUNDBUFFER) or NULL.</font></p>
+
+<p><font face="Arial" size="2"><em>Listener</em></font></p>
+
+<p><font face="Arial" size="2">Pointer to Directsound 3D listener object
+(LPDIRECTSOUND3DLISTENER) or pointer to Galaxy G3D listener (glxVector *), check <em>Type</em>
+field to see listener used.</font></p>
+
+<p><font face="Arial" size="2"><em>Extensions</em></font></p>
+
+<p><font face="Arial" size="2">Pointer to A3D extension object (LPIA3D), pointer to EAX
+propertyset (LPKSPROPERTYSET) or NULL, check <em>Type</em> field to see extension used.</font></p>
+
+<p><font face="Arial" size="2"><em>Driver</em></font></p>
+
+<p><font face="Arial" size="2">Output driver used, can be GLX_DIRECTSOUND or
+GLX_WAVEDRIVER.</font></p>
+
+<p><font face="Arial" size="2"><em>Format</em></font></p>
+
+<p><font face="Arial" size="2">Output format used by driver, can be any combination of
+GLX_STEREO, GLX_MONO, GLX_8BIT or GLX_16BIT.</font></p>
+
+<p><font face="Arial" size="2"><em>Type</em></font></p>
+
+<p><font face="Arial" size="2">Output driver type, can be GLX_NORMAL, GLX_G3D, GLX_A3D or
+GLX_EAX.</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+UnrealTournament Linux Installation Notes
+
+The general game release notes can be found in /Help/ReadMe.htm on 
+this CD.  Please refer to them before you start to play, because there
+is a lot of useful information!
+
+Installation:
+
+Please read through all of this information before you begin your
+installation.  It will help you solve problems before they start!
+
+First, make sure that you have a drive with enough free space.  Unreal
+Tournament requires around 600 megabytes to install.  The install
+program will show you the free space you have on the filesystem you
+chose to install to.
+
+DO NOT INSTALL THE GAME AS ROOT.  If you do, all of the installed files
+will be owned by root and only the root user will be able to play the
+game.  The installed game will have the same permissions as the user you
+run the installer with.
+
+Unreal Tournament currently uses a central configuration file located
+in the System directory (UnrealTournament.ini).  Keyboard and user
+configuration information is stored in User.ini.
+
+Make sure you choose ONLY ONE configuration option.  Select Glide if you
+have a 3dfx card or select Mesa if you have an OpenGL card.  You will
+need to find the appropriate drivers and X servers for your card.
+
+If you do not have a sound card, don't have /dev/dsp, or don't have kernel
+sound support directly or through modules, start Unreal Tournament with
+the -nosound option.
+
+If you have difficulty running Unreal Tournament, send a bug report to
+utlinuxbugs@epicgames.com.  Try to include a copy of your 
+UnrealTournament.log file.
+
+Sound Issues:
+
+If sound is too loud, run a mixer program and turn down your main volume.
+I've noticed that Linux usually starts with the MAIN volume way too
+high.

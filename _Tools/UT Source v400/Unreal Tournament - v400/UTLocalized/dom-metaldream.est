@@ -1,0 +1,41 @@
+[LevelInfo0]
+Title=Sueño de metal
+IdealPlayerCount=12
+LevelEnterText=Bienvenido al Sueño de metal
+
+[ZoneInfo5]
+ZoneName=Afueras
+
+[ZoneInfo1]
+ZoneName=Estación de control 4
+
+[ZoneInfo4]
+ZoneName=Almacén
+
+[ZoneInfo2]
+ZoneName=Pasillo
+
+[ControlPoint0]
+PointName=Cajas
+
+[ZoneInfo14]
+ZoneName=Control de petróleo
+
+[ControlPoint2]
+PointName=Grúa
+
+[ZoneInfo3]
+ZoneName=Estación de control 2
+
+[ControlPoint1]
+PointName=Helipuerto
+
+[LevelSummary]
+Title=Sueño de metal
+IdealPlayerCount=12
+LevelEnterText=Bienvenido al Sueño de metal
+
+[SpecialEvent7]
+DamageString=Hecho cubitos
+
+

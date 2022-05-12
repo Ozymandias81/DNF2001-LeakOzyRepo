@@ -1,0 +1,21 @@
+[LevelInfo0]
+Title=Sesión de aprendizaje de Asalto
+IdealPlayerCount=2-4
+
+[FortStandard3]
+FortName=Torreta del tanque
+
+[FortStandard2]
+FortName=¡La puerta del garaje
+DestroyedMessage=tiene una brecha abierta!
+
+[FortStandard1]
+FortName=¡La mecha
+DestroyedMessage=ha sido encendida!
+
+[AssaultInfo2]
+ObjDesc[0]=Dispárale al fusible para prenderle fuego y hacer que el TNT explote, y entonces podrás acceder a la base subterránea.
+ObjDesc[1]=Atraviesa la base, esquivando las torretas y los enemigos que encuentres por el camino, hasta que llegues a un ascensor que te llevará a la plataforma en la que se encuentra el interruptor de activación del garaje.
+ObjDesc[2]=Una vez abierta la puerta, destruye el tanque prototipo disparando a la torreta.
+
+

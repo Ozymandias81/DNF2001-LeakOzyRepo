@@ -1,0 +1,384 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Unreal 220 Patch ReadMe</title>
+</head>
+
+<body>
+
+<h1>Unreal Version 220 Release Notes</h1>
+
+<h3>Installation Notes</h3>
+
+<p>Unzip this patch into your \Unreal\System directory, overwriting any existing files.</p>
+
+<p>The first time you run the upgraded version of Unreal, you will be asked to put your
+Unreal CD in the drive.&nbsp; This step is required because files must be loaded off the
+CD during the patching process.&nbsp; Make sure you have your original Unreal retail CD
+handy before installing the patch.</p>
+
+<p>After installing the patch, you will need to reconfigure your Unreal settings such as
+your keyboard configuration, 3D hardware, and resolution.&nbsp; However, your savegames
+will not be lost; savegames from previous versions will work properly.</p>
+
+<h3>Improvements for Gamers</h3>
+
+<h4>Multiplayer Improvements</h4>
+
+<ul>
+  <li>Player movements are now compressed with a predictor-corrector scheme, allowing for
+    smoother movement of enemies. </li>
+  <li>New multiplayer game styles, including Classic, Hardcore, and Turbo, can be selected
+    from the game options menu. </li>
+  <li>Fixed player and spectator counts. </li>
+  <li>Fixed becoming ghost when killed while starting to feign death. </li>
+  <li>Spectators can now see the scoreboard. </li>
+  <li>Spectators can cycle through other player views by pressing fire, and return to their
+    own view using the alt-fire button. </li>
+  <li>Spectators can go through portals. </li>
+  <li>Fixed support for multiple skin .int files (now can add user skins in new utx files
+    without breaking compatibility). </li>
+  <li>Improved team scoreboard.</li>
+  <li>Skin and mesh selection always remembered.</li>
+  <li>Spectators not shown in the scoreboard.</li>
+  <li>Skaarj player swimming and dodge roll animations played correctly.</li>
+  <li>In team games, players properly start at appropriate playerstarts in levels where
+    playerstarts are marked for specific teams.</li>
+  <li>Fixed King of the Hill gameplay bugs.</li>
+  <li>Fixed jumpboot respawning problem.</li>
+  <li>&nbsp;</li>
+</ul>
+
+<h4>Internet Play</h4>
+
+<ul>
+  <li>Improved bandwidth usage for temporary effects like projectiles. </li>
+  <li>Player movements are now compressed with a predictor-corrector scheme, allowing for
+    smoother movement of enemies. </li>
+  <li>Movers are simulated client-side, and players based on movers have their location
+    updated by the server relative to the mover position.&nbsp; This allows smooth mover
+    movement prediction on the client. </li>
+  <li>Optional game password can be set to limit access to a server.&nbsp; Clients can enter
+    the administrator or game password from the player selection menu. </li>
+  <li>Fixed &quot;little chess piece&quot; cheat and some other security holes..&nbsp; </li>
+</ul>
+
+<h4>Server</h4>
+
+<ul>
+  <li>Fixed remote administration (see <a
+    href="file://C:\WINNT\Profiles\Administrator\Local/ServerTips.htm">Server Tips</a> for
+    information). </li>
+  <li>Remote administrators can finally execute console commands on the server. </li>
+  <li>The &quot;AllowAdmin&quot; setting is no longer used.&nbsp; To make your server remotely
+    manageable, just set the &quot;AdminPassword&quot; in &quot;Advanced Options / Game
+    Settings&quot;.</li>
+</ul>
+
+<h4>Rendering</h4>
+
+<ul>
+  <li>&quot;TIMEDEMO 1&quot; command provides frames-per-second statistics at any time. If
+    started during the flyby sequence, it provides statistics for exactly one loop of the
+    flyby, for comparison to other systems. &nbsp; &quot;TIMEDEMO 0&quot; turns it off. Thanks
+    to Jack &quot;Mek&quot; Porter for integrating the code. </li>
+</ul>
+
+<h4>Player Controls</h4>
+
+<ul>
+  <li>bFreelook</li>
+  <li>FOV snaps back to modified value.</li>
+  <li>Optional mouse smoothing.</li>
+  <li>GetWeapon console command can be used to bind any key to a specific weapon.</li>
+  <li>Added weapon flash effects, and option to turn them off.</li>
+  <li>Fixed centerview problem.</li>
+</ul>
+
+<h4>Single Player</h4>
+
+<ul>
+  <li>Fixed problem where splashes didn't play on some levels. </li>
+  <li>Fixed problem where a healing zone reduced your health to 100 if it was above 100. </li>
+  <li>Fixed problem where pickups like the shieldbelt were de-activated after a level change. </li>
+  <li>Improved the &quot;Advanced Options&quot; screen. </li>
+  <li>Fixed problem with scuba gear interfering with armor.</li>
+  <li>Crucified nali is solid.</li>
+</ul>
+
+<h4>BotMatch</h4>
+
+<ul>
+  <li>Bots have greatly improved understanding of how to use lifts, and how to use triggered
+    doors and lifts.</li>
+  <li>Bots never get frozen after dying.</li>
+  <li>Fixed bug where bots would disappear from the game.</li>
+  <li>Bots have a better understanding of how to do the ASMD combo move and other weapon
+    special moves.</li>
+  <li>Improved navigation code for swimming, jumping up onto ledges.</li>
+</ul>
+
+<h4>Coop games</h4>
+
+<ul>
+  <li>Listen server player weapons travel from level to level.</li>
+  <li>Fixed weird movement problem in open areas on fast machines during coop play.</li>
+  <li>Translocator works properly in coop play, and everyone gets one.</li>
+</ul>
+
+<h3>Improvements for Level Designers</h3>
+
+<h4>LevelInfo</h4>
+
+<ul>
+  <li>Added bHumansOnly to specify whether only &quot;human&quot; player pawns are allowed in
+    this level. </li>
+  <li>Added bNoCheating to specify whether certain client actions, like turning lighting off
+    or using a non-standard console, are allowed. </li>
+</ul>
+
+<h4>ZoneInfo</h4>
+
+<ul>
+  <li>Added bNoInventory to specify whether inventory is allowed to exist in this zone. &nbsp;
+    If true, then any inventory in this zone not being carried by a pawn is destroyed. </li>
+</ul>
+
+<h4>AI</h4>
+
+<ul>
+  <li>Added &quot;LiftTrigger&quot; variable to LiftCenter and LiftExit.</li>
+  <li>Added &quot;ExtraCost&quot; to NavigationPoint.</li>
+  <li>Added &quot;bOneWayPath&quot; to navigationpoint.</li>
+</ul>
+
+<h3>Changes and Improvements for Script Programmers</h3>
+
+<h4>Script Compiler</h4>
+
+<ul>
+  <li>When defining a class that contains configurable variables, you can now specify whether
+    the configuration should be stored in Unreal.ini or User.ini:<ul>
+      <li>class MyClass expands SuperClass config(System); // Class should use system
+        configuration (Unreal.ini) -- the default.</li>
+      <li>class MyClass expands SuperClass config(User); // Class should use user configuration
+        (User.ini).</li>
+      <li>class MyClass expands SuperClass config(MyMod); // Class should use a mod-specific
+        configuration file named &quot;MyMod.ini&quot;.</li>
+      <li>Default &quot;System&quot; variables are stored in Default.ini.</li>
+      <li>Default &quot;User&quot; variables are stored in the new file DefUser.ini.</li>
+    </ul>
+  </li>
+  <li>You can now refer to literal objects by by their package name, for example
+    texture'UnrealI.Skins.MySkin' -- this used to cause a compiler error.</li>
+</ul>
+
+<h4>Networking</h4>
+
+<ul>
+  <li>Added bNetTemporary for temporary, simulated actors like projectile: Improves bandwidth
+    usage.&nbsp; If you set bNetTemporary=true for any of your projectiles or special-effects
+    actors, you need to destroy the actor on the client side, either by setting a LifeSpan, or
+    destroying it in a simulated function.&nbsp; In 219, all actors were destroyed
+    automatically by&nbsp; the server.&nbsp; In 220, bNetTemporary=true actors must be
+    destroyed by the client. </li>
+  <li>Use bNetOptional for purely gratuitous effects that can be skipped if not enough
+    bandwidth is available, such as smoke puffs.&nbsp; bNetOptional=true actors are only sent
+    to the client if there is spare bandwidth; they never suck bandwidth away from
+    bNetOptional=false actors. </li>
+  <li>Use bAlwaysRelevent to force an actor to always be sent to the client.&nbsp; For
+    example, we have bAlwaysRelevent=true on our PlayerReplicationInfo actors, so they are
+    always replicated to the client.&nbsp; </li>
+  <li>Fixed PreLogin function being passed just the ?option=value strings rather than the full
+    URL. </li>
+</ul>
+
+<h4>Single-player</h4>
+
+<ul>
+  <li>Fixed TravelPreAccept/TravelPostAccept not being called. </li>
+</ul>
+
+<h4>Mods</h4>
+
+<ul>
+  <li>You can now place &quot;exec&quot; functions in GameInfo subclasses, and Inventory
+    subclasses.&nbsp; &quot;exec&quot; functions are searched for in the following order, with
+    the first match called and the others ignored: The PlayerPawn actor itself, then all the
+    items in the player's inventory, then Level.GameInfo.&nbsp; In addition, you can use
+    GameInfo &quot;exec&quot; commands through the Unreal server console. </li>
+  <li>The menu lists for available game classes, player classes, bot classes, and weapon
+    classes are now loaded each time the menu is opened from the .int files.&nbsp; To add new
+    items to these lists, reference them in a .int file associated with your mod. </li>
+  <li>The GetNextInt() intrinsic function is used to read entries from the .int files. </li>
+  <li>Mod makers can now import Windows fonts for use in HUDs. This only works well for
+    true-type fonts. Use an exec command with this syntax: <i>#exec Font ImportTTF Name=MyFont
+    Font=&quot;Arial&quot; Height=12</i> . When the package file is rebuilt with <i>Unreal
+    -make</i>, a new font Texture'MyFont' which is 12 pixels high will be available. The font
+    is monochrome and can be set to any color when it is drawn on the HUD. Questions on this
+    to <a href="mailto:jack@epicgames.com">jack@epicgames.com</a>.</li>
+  <li>You can now have a custom .ini file for your mod's configuration; see the &quot;Script
+    Compiler&quot; notes above.</li>
+</ul>
+
+<h4>Separation of player and system configuration</h4>
+
+<ul>
+  <li>The new User.ini now contains all user-specific Unreal settings such as the keyboard and
+    mouse configuration.</li>
+  <li>Unreal.ini only contains system-wide options.</li>
+  <li>Default.ini contains default values for everything in both User.ini and Unreal.ini.</li>
+  <li>If you're going to a LAN party and want to bring your configuration with you, just bring
+    User.ini.</li>
+</ul>
+
+<h4>Heads Up Display</h4>
+
+<ul>
+  <li>The HUD is now responsible for drawing its owner's weapon.&nbsp; A local player's HUD
+    RenderOverlays() function is called every tick.&nbsp; It calls the RenderOverlays()
+    function for its owner's weapon (and potentially other actors).&nbsp; RenderOverlays() is
+    called before the view flash and fog is applied, unlike PostRender().&nbsp; As a result,
+    InvCalcView() was no longer needed and was removed from Inventory.</li>
+</ul>
+
+<h4>Messages</h4>
+
+<ul>
+  <li>ClientMessage has been rewritten to take an optional message type and optional message
+    beep boolean.&nbsp; The message type can be used to determine how the message is displayed
+    on the screen.&nbsp; See Engine.Console.PostRender for information. </li>
+  <li>Engine.Console.PostRender has been moved from C++ to UnrealScript. </li>
+  <li>The console now asks the gameinfo object to handle messages before it displays them.
+    &nbsp; A GameInfo class can employ DisplayMessages(Canvas C) to paint messages instead of
+    the default Console. </li>
+  <li>There are now weapon based death messages.&nbsp; Weapon deathmessages are coded strings
+    that take the form: <br>
+    <br>
+    &nbsp;&nbsp;&nbsp; %k killed %v with the %w. </li>
+  <li>%k is replaced with the killer's name. </li>
+  <li>%o is replaced with the victim's name. </li>
+  <li>%w is replaced with the killer's weapons name. </li>
+  <li>The actual order of the % codes in the deathmessage is irrelevant. </li>
+</ul>
+
+<h4>Scoreboard</h4>
+
+<ul>
+  <li>The scoreboard has been rewritten to take advantage of PlayerReplicationInfo.&nbsp; It
+    will now obtain score information as it is replicated by each client. </li>
+</ul>
+
+<h4>Menus</h4>
+
+<ul>
+  <li>Fixed several localization problems with menus, including support for localized yes/no
+    characters. </li>
+  <li>The menus have been restructured to increase code reuse. </li>
+  <li>New functions for fading in strings of text are available in UnrealShortMenu. </li>
+</ul>
+
+<h4>Artificial Intelligence</h4>
+
+<ul>
+  <li>The VisNoReachPaths[] array in NavigationPoint provides a list of NavigationPoints which
+    are visible but not directly reachable from the current NavigationPoint. </li>
+  <li>The NavigationPoint function DescribeSpec() is now a useful way of getting information
+    about a reachspec ( which describes the conditions for movement between two actors). </li>
+  <li>The RouteCache[] array in Pawn provides a list of the NavigationPoints along the best
+    path determined by the most recent FindPathTo() or FindPathToward() call.&nbsp; The first
+    NavigationPoint is the one returned by the function call, followed by the successive
+    waypoints toward the goal.</li>
+</ul>
+
+<h4>Actor features</h4>
+
+<ul>
+  <li>TransientSoundRadius is a new Actor attribute which specifies the default radius for
+    sounds played by a given actor using PlaySound() </li>
+  <li>ConsoleCommand() intrinsic function implemented for Actor, allowing scripts to call
+    console commands even when there is no local playerpawn (e.g. a dedicated server). </li>
+  <li>FellOutOfWorld() is a new event called by the physics if a falling actor's location
+    becomes invalid (outside of the level). </li>
+  <li>intrinsic final function string[64] GetNextInt( string[64] ClassName, int Num); </li>
+  <li>Use bGameRelevant to specify if an actor class is always relevant for a given game. </li>
+  <li>When an actor becomes the ViewTarget of a player, its BecomeViewTarget() function is
+    called. </li>
+  <li>The string representation of actors now includes their package prefix, i.e.
+    &quot;Engine.PlayerPawn&quot; rather than &quot;PlayerPawn&quot;.&nbsp; The GetItemName()
+    function returns the a string with the package prefixes removed. </li>
+</ul>
+
+<h4>GameInfo features</h4>
+
+<ul>
+  <li>The localized GameInfo attribute GameName contains a human readable string
+    representation of the game type's name. </li>
+  <li>The GameInfo function PlayerJumpZScaling() is used to modify the player's jumping
+    ability for a specific game type. </li>
+  <li>The GameSpy protocol code now calls GameInfo GetRules() to ask for gametype specific
+    rules that should be sent to the querying client.&nbsp; This will allow mod authors to add
+    new fields to GameSpy.&nbsp; For more information, see GetRules() and the GameSpy Open
+    Protocol guide. </li>
+  <li>GameInfo information that is regularly replicated to the client has been consolidated
+    within a GameReplicationInfo class.&nbsp; This class contains information regarding the
+    server's administrator, gamespy information, message of the day information, and so forth.
+    &nbsp; Much of this information is configurable from Advanced Options. </li>
+</ul>
+
+<h4>Pawn features</h4>
+
+<ul>
+  <li>Pawn information that is regularly replicated to the client has been consolidated within
+    PlayerReplicationInfo.&nbsp; All bots and human players have a related
+    PlayerReplicationInfo class.&nbsp; This contains information such as the player's name,
+    score and so forth.&nbsp; All PlayerReplicationInfo classes are bAlwaysRelevant to all
+    clients.&nbsp; This means that each client in a netgame has a subset of information
+    regarding all players in the game.&nbsp; (Used in scoreboard and enhanced HUDs.) </li>
+  <li>The bIsHuman attribute of pawns specifies whether a pawn class should be considered
+    human (for game types which care about whether a pawn is human or not). </li>
+  <li>The localized Pawn attributes MenuName and NameArticle contain the human readable name
+    of the pawn type. </li>
+  <li>The UpdateURL() function updates the current URL with the new option and value, and
+    optionally also updates the saved DefaultPlayer config. </li>
+  <li>The ClientInstantFlash() can be used to cause a one frame screen flash. </li>
+  <li>The Sniper rifle zoom has been moved to PlayerPawn.&nbsp; StartZoom() begins a zoom,
+    StopZoom() stops zooming, and EndZoom() unzooms. </li>
+  <li>The PlayerRestartState attribute specifies the initial state for players when they enter
+    a level or restart after dying.. </li>
+</ul>
+
+<h4>Inventory features</h4>
+
+<ul>
+  <li>The localized Inventory attributes ItemName and ItemArticle contain the human readable
+    name of the inventory type. </li>
+  <li>The ProjectileClass and AltProjectileClass attributes are now configurable.</li>
+</ul>
+
+<h3>C++ Changes And Improvements</h3>
+
+<h4>Localization Support</h4>
+
+<p>I'm incrementally adding support for Unicode to the engine.&nbsp; The TCHAR definition
+is CHAR when compiling in ANSI mode, and WORD when compiling in Unicode mode.&nbsp; The
+TEXT(&quot;str&quot;) macro emits a string either in Unicode or ANSI depending on the
+compilation mode.&nbsp; See UnBuild.h for various Unicode-related definitions.
+&nbsp;&nbsp; Unreal doesn't yet run successfully under Unicode yet, because the string
+serialization needs improving, and Windows calls need to thunk down to ANSI on Win95/98,
+and UFont objects don't support multiple pages yet.&nbsp; We expect full Unicode support
+to come together over the coming months.</p>
+
+<h4>Cleanup of Core</h4>
+
+<p>I'm improving the portability of the code by more cleanly separating functions with
+dependencies on the ANSI C library (in UnFile.cpp) and Windows (in UnPlat.cpp).</p>
+
+<h4>Multiple player configurations</h4>
+
+<p>Separating User.ini out of Unreal.ini is the first step in evolving Unreal towards
+supporting multiple player configurations.&nbsp; The goal is to eventually allow storing
+mutiple users' settings by name.</p>
+</body>
+</html>

@@ -1,0 +1,17 @@
+--------------------Configuration: Render - Win32 Release--------------------
+Begining build with project "F:\Unreal\Render\Src\Render.dsp", at root.
+Active configuration is Win32 (x86) Dynamic-Link Library (based on Win32 (x86) Dynamic-Link Library)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /Zp4 /MD /W4 /WX /vd0 /GX /Ox /Ot /Oa /Og /Oi /Ob2 /I "..\..\Core\Inc" /I "..\..\Engine\Inc" /I "..\Inc" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D RENDER_API="__declspec(dllexport)" /Fp"Release/Render.pch" /Yu"RenderPrivate.h" /Fo"Release/" /Fd"Release/" /FD /GM /GM /Zm256 /c "
+			"OLE Type Library Maker" with flags "/nologo /D "NDEBUG" /mktyplib203 /o NUL /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /d "NDEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"..\Lib/Render.bsc" "
+			"COFF Linker for 80x86" with flags "..\..\Core\Lib\Core.lib ..\..\Engine\Lib\Engine.lib /nologo /base:"0x10800000" /subsystem:windows /dll /incremental:no /pdb:"..\Lib/Render.pdb" /machine:I386 /out:"..\..\System\Render.dll" /implib:"..\Lib/Render.lib" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+
+
+
+Render.dll - 0 error(s), 0 warning(s)

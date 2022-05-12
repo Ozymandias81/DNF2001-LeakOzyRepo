@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System API (Misc)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="glxDeinit"></a><font size="4" face="Arial"><strong>glxDeinit</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxDeinit</strong> funtion deinitialises the
+library, deallocates memory and unloads DLLs. This function must be called before exiting
+the application. If this function has been called no other <strong>glx</strong> calls can
+be made anymore.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxDeinit</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><strong><font size="2" face="Arial">void<br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_OUTPUTACTIVE</font></p>
+
+<p><a name="glxInfo"></a><font size="4" face="Arial"><strong>glxInfo</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxInfo</strong> function returns two ASCIIZ
+strings (<strong>char *</strong>) containing information about the library version used
+and the current output driver used. The <em>driver<strong> </strong></em>field only
+contains valid information if the output is running (e.g. after a call to <strong>glxStartOutput</strong>)</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxInfo</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>char **</strong><em>Version</em>,<br>
+<strong>char **</strong><em>Driver</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Version</em></font></p>
+
+<p><font size="2" face="Arial">ASCIIZ string (char *) which holds information about the
+actual library version currently in use.</font></p>
+
+<p><font size="2" face="Arial"><em>Driver</em></font></p>
+
+<p><font size="2" face="Arial">ASCIIZ string (char *) which holds information about the
+output driver currently in use. This is, ofcourse, only valid if the output is running.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxInit"></a><font size="4" face="Arial"><strong>glxInit</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxInit</strong> funtion initialises the
+library, allocates memory (approximately 512 kB) and loads DLLs (if necessary). This
+function must be called before any other <strong>glx</strong> calls can be made. Each call
+to <strong>glxInit</strong> must be matched by a call to <a href="#glxDeinit"><strong>glxDeinit</strong></a>.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxInit</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><strong><font size="2" face="Arial">void<br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_OUTPUTACTIVE</font></p>
+
+<p><a name="glxLock"></a><font size="4" face="Arial"><strong>glxLock</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxLock</strong> function &quot;locks&quot; the
+internal datastructures, providing exclusive access to the channel, instrument and sample
+structures. Each call to <strong>glxLock</strong> must be matched by a call to <a href="#glxUnlock"><strong>glxUnlock</strong></a>. If <strong>glxLock</strong> is called
+the entire DSP core will NOT be processing any sample data.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxLock</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><strong><font size="2" face="Arial">void<br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Always returns GLXERR_NOERROR</font></p>
+
+<p><a name="glxUnlock"></a><font size="4" face="Arial"><strong>glxUnlock</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxUnlock</strong> funtion &quot;unlocks&quot;
+the internal datastructures, providing non-exclusive access to the channel, instrument and
+sample structures.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxUnlock</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><strong><font size="2" face="Arial">void<br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Always returns GLXERR_NOERROR </font></p>
+
+<p><a name="glxSetCallback"></a><font size="4" face="Arial"><strong>glxSetCallback</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSetCallback</strong> function sets a
+specified function as callback function. Which will be called either when a sample
+finished playing OR when a new streaming block is needed and <a href="sample.htm#glxStartSample">glxStartSample</a>/<a href="sample.htm#glxStartSample3D">glxStartSample3D</a>
+was called with the GLX_CALLBACK flag.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSetCallback</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxCallback *</strong><em>Function</em><br>
+</font><strong><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Function</em></font></p>
+
+<p><font size="2" face="Arial">Callback function to be called, the correct callback
+function prototype is : </font></p>
+
+<p><font size="2" face="Arial"><strong>int __cdecl glxCallback(glxVoice *</strong><em>Voice</em><strong>,
+void *</strong><em>Param1</em><strong>, int</strong><em> Param2</em><strong>)<br>
+(<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+)</strong></font></p>
+
+<p><font size="2" face="Arial">For sample finished callbacks Param1 will be NULL and
+Param2 will be zero. In case of a streaming callback Param1 will be a pointer to the
+buffer to be filled and Param2 will be the size of the buffer in bytes and the returned
+value is the number of bytes written to the buffer. Since the callback function is called
+at interrupt time, it is recommended not to make other (kernel) calls that take a long
+time to complete. If both Voice and Param1 are NULL and Param2 is zero the callback is an
+end of music callback.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxInit"></a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

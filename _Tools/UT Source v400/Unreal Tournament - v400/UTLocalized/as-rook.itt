@@ -1,0 +1,34 @@
+[LevelInfo0]
+Title=Torre
+IdealPlayerCount=6-10
+LevelEnterText=Indossa l'armatura, preparati alla battaglia
+
+[LevelSummary]
+LevelEnterText=Indossa l'armatura, preparati alla battaglia
+
+[SpecialEvent0]
+Message=Il posto di guardia adesso è aperto!
+
+[FortStandard6]
+FortName=La biblioteca
+DestroyedMessage=" adesso è aperta!"
+
+[FortStandard2]
+FortName=Le porte principali
+DestroyedMessage=adesso sono aperte!
+
+[FortStandard3]
+DestroyedMessage=
+
+[FortStandard0]
+DestroyedMessage=
+
+[FortStandard1]
+DestroyedMessage=
+
+[AssaultInfo0]
+ObjDesc[0]=Esci dal castello e girati verso destra; qui individuerai l'interruttore che ti consentirà di entrare nella biblioteca.
+ObjDesc[1]=Procedi attraverso la biblioteca, dove troverai un argano tenuto in posizione da due catene. Distruggendo queste catene, potrai accedere al posto di guardia nel cortile.
+ObjDesc[2]=Torna nel cortile e muovi di nuovo l'interruttore situato nel posto di guardia, in modo da aprire le porte frontali del castello.
+ObjDesc[3]=Scappa dal castello attraverso le porte principali!
+

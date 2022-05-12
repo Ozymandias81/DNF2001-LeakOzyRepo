@@ -1,0 +1,28 @@
+[LevelInfo0]
+Title=Fonderia
+IdealPlayerCount=6-12
+LevelEnterText=Ingresso alla fonderia meridionale
+
+[ControlPoint2]
+PointName=Ponte
+
+[ControlPoint1]
+PointName=Torrer
+
+[ControlPoint0]
+PointName=Deposito
+
+[LavaZone2]
+DamageString=200
+
+[LevelSummary]
+Title=Fonderia
+IdealPlayerCount=6-12
+LevelEnterText=Ingresso alla fonderia meridionale
+
+[ZoneInfo0]
+ZoneName=Torrer
+
+[ZoneInfo6]
+ZoneName=Deposito
+

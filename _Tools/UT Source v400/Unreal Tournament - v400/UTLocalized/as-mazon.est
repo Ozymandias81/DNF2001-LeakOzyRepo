@@ -1,0 +1,28 @@
+[LevelInfo0]
+Title=Fortaleza del Laberinto
+IdealPlayerCount=8-12
+
+[FortStandard0]
+FortName=¡Las puertas
+DestroyedMessage=están abiertas!
+
+[FortStandard2]
+FortName=La cadena 1
+
+[AssaultInfo0]
+ObjDesc[0]="Tu enemigo está utilizando Taridio, un elemento potente y volátil, como combustible para sus máquinas de guerra. Debes infiltrarte en la base destruyendo los dos contrapesos que hay en la parte exterior del ala oeste del fuerte. De este modo se abrirán las puertas de la fortaleza."
+ObjDesc[1]=También puedes buscar el interruptor que controla el acceso por la puerta principal del castillo y tratar de abrirla, para que así tus compañeros de equipo puedan acceder al castillo más fácilmente.
+ObjDesc[2]=Busca el interruptor que controla el acceso principal y actívalo para poder entrar a la sala del reactor de Taridio.
+ObjDesc[3]=Por último, destruye el cristal de energía de Taridio para finalizar la operación.
+
+[FortStandard5]
+FortName=Cristal
+
+[FortStandard4]
+FortName=La cadena 2
+
+[FortStandard6]
+FortName=¡Las puertas de la sala del reactor
+DestroyedMessage=están abiertas!
+
+

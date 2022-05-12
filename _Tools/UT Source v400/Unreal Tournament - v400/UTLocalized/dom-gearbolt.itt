@@ -1,0 +1,31 @@
+[LevelInfo0]
+Title=Dardo a ingranaggi
+IdealPlayerCount=6-8
+LevelEnterText=Vai fuori e domina!
+
+[ZoneInfo8]
+ZoneName=Ponte
+
+[ZoneInfo7]
+ZoneName=Rampa
+
+[ZoneInfo9]
+ZoneName=Ascensore
+
+[ZoneInfo10]
+ZoneName=Scantinato
+
+[ControlPoint2]
+PointName=Ponte
+
+[ControlPoint0]
+PointName=Ascensore
+
+[ControlPoint1]
+PointName=Rampa
+
+[LevelSummary]
+Title=Dardo a ingranaggi
+IdealPlayerCount=6-8
+LevelEnterText=Vai fuori e domina!
+

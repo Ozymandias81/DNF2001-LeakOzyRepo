@@ -1,0 +1,44 @@
+[LevelInfo0]
+Title=Struttura Coret
+IdealPlayerCount=4-8
+LevelEnterText=Benvenuto al centro d'addestramento Coret
+
+[ZoneInfo1]
+ZoneName=Area centrale
+
+[ZoneInfo3]
+ZoneName=Base rossa
+
+[ZoneInfo4]
+ZoneName=Base blu
+
+[ZoneInfo6]
+ZoneName=Sala principale blu
+
+[ZoneInfo11]
+ZoneName=Sala principale rossa
+
+[ZoneInfo7]
+ZoneName=Sala laterale blu
+
+[ZoneInfo2]
+ZoneName=Accesso laterale rosso
+
+[ZoneInfo5]
+ZoneName=Atrio blu
+
+[ZoneInfo10]
+ZoneName=Atrio rosso
+
+[ZoneInfo8]
+ZoneName=Sala superiore blu
+
+[ZoneInfo9]
+ZoneName=Sala superiore rossa
+
+[ZoneInfo0]
+ZoneName=Area centrale - alto
+
+[LevelSummary]
+LevelEnterText=Benvenuto al centro d'addestramento Coret
+

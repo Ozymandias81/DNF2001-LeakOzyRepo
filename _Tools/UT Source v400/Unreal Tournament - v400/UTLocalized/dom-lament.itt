@@ -1,0 +1,19 @@
+[LevelInfo0]
+Title=Lamento
+IdealPlayerCount=2-4
+LevelEnterText=Controlla tutto!
+
+[ControlPoint0]
+PointName=Centrale
+
+[ControlPoint1]
+PointName=Superiore
+
+[ControlPoint2]
+PointName=Inferiore
+
+[LevelSummary]
+Title=Lamento
+IdealPlayerCount=2-4
+LevelEnterText=Controlla tutto!
+

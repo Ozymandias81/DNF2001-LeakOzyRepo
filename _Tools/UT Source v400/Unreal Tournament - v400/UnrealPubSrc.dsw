@@ -1,0 +1,157 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "D3DDrv"=.\D3DDrv\Src\D3DDrv.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Unreal/D3DDrv/Src", WDHAAAAA
+    .\d3ddrv
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Launch"=.\Launch\Src\Launch.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Unreal/Launch", FAAAAAAA
+    .\launch
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Engine
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Window
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "OpenGLDrv"=.\OpenGlDrv\Src\OpenGLDrv.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Unreal/OpenGLDrv/Src", HFMAAAAA
+    .\opengldrv\src
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Engine
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "RunSFX"=.\RunSFX\RunSFX.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Unreal/RunSFX", TJQAAAAA
+    .\runsfx
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "RunSetup"=.\RunSetup\RunSetup.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Unreal/RunSetup", TTQAAAAA
+    .\runsetup
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Setup"=.\Setup\Src\Setup.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Unreal/Setup/Src", RJGAAAAA
+    .\setup\src
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Window
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "UCC"=.\UCC\Src\UCC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Unreal/UCC/Src", NKLAAAAA
+    .\ucc\src
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Unreal/System", KAAAAAAA
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

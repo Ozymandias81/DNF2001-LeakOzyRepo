@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System API (Output)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="glxDetectOutput"></a><font size="4" face="Arial"><strong>glxDetectOutput</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxDetectOutput</strong> function detects if
+any or the specified hardware/driver combination is present. If so the <a href="structs.htm#glxOutput"><strong>glxOutput</strong></a> structure will be filled
+according to the actual hardware/driver capabilities.</font></p>
+
+<p align="left"><font size="3" face="Arial"><strong>int</strong> <strong>glxDetectOutput</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>CardType</em>,<br>
+<strong>int </strong><em>Base</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>CardType</em></font></p>
+
+<p><font size="2" face="Arial">Device to detect. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_AUTODETECT</font></p>
+
+<p><font size="2" face="Arial">Use whatever device/driver is available</font></p>
+
+<p><font size="2" face="Arial">GLX_DIRECTSOUND</font></p>
+
+<p><font size="2" face="Arial">Use Directsound(tm) ONLY for sample output</font></p>
+
+<p><font size="2" face="Arial">GLX_WAVEDRIVER</font></p>
+
+<p><font size="2" face="Arial">Use Windows(r) Wave drivers ONLY for sample output</font></p>
+
+<p><font size="2" face="Arial">GLX_NOSOUND</font></p>
+
+<p><font size="2" face="Arial">Use nothing for sample output (all further sound-related
+calls can be made as normal)</font></p>
+
+<p><font size="2" face="Arial"><em>Base</em></font></p>
+
+<p><font size="2" face="Arial">Reserved, must be zero</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR and a filled <strong>SoundCard</strong>
+structure if successful or one of the following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_OUTPUTACTIVE</font></p>
+
+<p><font size="2" face="Arial">GLXERR_UNSUPPORTEDDEVICE</font></p>
+
+<p><a name="glxFlushOutput"></a><font size="4" face="Arial"><strong>glxFlushOutput</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxFlushOutput</strong> function discards and
+clears the entire DSP outputbuffer and starts outputting new data immediately.</font></p>
+
+<p align="left"><font size="3" face="Arial"><strong>int</strong> <strong>glxFlushOutput</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><strong><font size="2" face="Arial">void<br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Always returns GLXERR_NOERROR</font></p>
+
+<p><a name="glxStartOutput"></a><font size="4" face="Arial"><strong>glxStartOutput</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStartOutput</strong> function initialises
+the DSP-Core and audio hardware/drivers first. Then fills the <a href="structs.htm#glxOutput"><strong>glxOutput</strong></a> and <a href="structs.htm#glxBuffer"><strong>glxBuffer</strong></a> structures with the correct
+values and finally starts outputting the actual sample-stream. A call to <strong>glxStartOutput</strong>
+must be matched by a call to <a href="#glxStopOutput"><strong>glxStopOutput</strong></a>.</font></p>
+
+<p align="left"><font size="3" face="Arial"><strong>int</strong> <strong>glxStartOutput</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>void *</strong><em>Owner</em>, <br>
+<strong>int</strong> <em>Rate</em>,<br>
+<strong>int</strong> <em>Format</em>,<br>
+<strong>int</strong> <em>Mixahead</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Owner</em></font></p>
+
+<p><font size="2" face="Arial">Owner window of sample-stream, needed for low latency
+DirectSound(tm) output. If a NULL pointer is supplied low latency Directsound(tm) output
+will NOT be used, even when available.</font></p>
+
+<p><font size="2" face="Arial"><em>Rate</em></font></p>
+
+<p><font size="2" face="Arial">Framerate to use for sample-stream in Hertz (8000..48000
+Hz)</font></p>
+
+<p><font size="2" face="Arial"><em>Format</em></font></p>
+
+<p><font size="2" face="Arial">Format to use for sample-stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_MONO </font></p>
+
+<p><font size="2" face="Arial">Use one (1) channel for output (monophonic output)</font></p>
+
+<p><font size="2" face="Arial">GLX_STEREO</font></p>
+
+<p><font size="2" face="Arial">Use two (2) channels for output (stereophonic output)</font></p>
+
+<p><font size="2" face="Arial">GLX_8BIT </font></p>
+
+<p><font size="2" face="Arial">Use eight (8) bits for output samples (48 dB S/N Ratio)</font></p>
+
+<p><font size="2" face="Arial">GLX_16BIT </font></p>
+
+<p><font size="2" face="Arial">Use sixteen (16) bits for output samples (96 dB S/N Ratio)</font></p>
+
+<p><font size="2" face="Arial">GLX_SHOLD</font></p>
+
+<p><font size="2" face="Arial">Use sample and hold for sample pitch shifting (no
+filtering)</font></p>
+
+<p><font size="2" face="Arial">GLX_COSINE</font></p>
+
+<p><font size="2" face="Arial">Use adaptive second order filtering for sample pitch
+shifting</font></p>
+
+<p><font size="2" face="Arial">GLX_2DAUDIO</font></p>
+
+<p><font size="2" face="Arial">Use two-dimensional audio routines (stereo panning)</font></p>
+
+<p><font size="2" face="Arial">GLX_3DAUDIO </font></p>
+
+<p><font size="2" face="Arial">Use three-dimensional positional audio routines (Galaxy
+software surround or hardware 3D positional audio)</font></p>
+
+<p><font size="2" face="Arial"><em>Mixahead</em></font></p>
+
+<p><font size="2" face="Arial">Mixahead in milliseconds for the soundeffects. (5..495
+msec)</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_OUTPUTACTIVE</font></p>
+
+<p><font size="2" face="Arial">GLXERR_UNSUPPORTEDFORMAT</font></p>
+
+<p><font size="2" face="Arial">GLXERR_DEVICEBUSY</font></p>
+
+<p><a name="glxStopOutput"></a><font size="4" face="Arial"><strong>glxStopOutput</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStopOutput</strong> function stops
+outputting the sample-stream first. Then deinitialises the DSP-Core and audio
+hardware/drivers.</font></p>
+
+<p align="left"><font size="3" face="Arial"><strong>int</strong> <strong>glxStopOutput</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><strong><font size="2" face="Arial">void<br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_OUTPUTNOTACTIVE</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

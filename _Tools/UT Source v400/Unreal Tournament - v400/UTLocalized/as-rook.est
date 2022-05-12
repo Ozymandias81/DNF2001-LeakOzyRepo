@@ -1,0 +1,35 @@
+[LevelInfo0]
+Title=Torre
+IdealPlayerCount=6-10
+LevelEnterText=Poneos vuestra armadura y preparaos para la batalla.
+
+[LevelSummary]
+LevelEnterText=Poneos vuestra armadura y preparaos para la batalla.
+
+[SpecialEvent0]
+Message=¡La garita está abierta!
+
+[FortStandard6]
+FortName=¡La biblioteca
+DestroyedMessage=" está abierta!"
+
+[FortStandard2]
+FortName=¡Las puertas
+DestroyedMessage=están abiertas!
+
+[FortStandard3]
+DestroyedMessage=
+
+[FortStandard0]
+DestroyedMessage=
+
+[FortStandard1]
+DestroyedMessage=
+
+[AssaultInfo0]
+ObjDesc[0]=Al salir del castillo, gira todo a la derecha y verás un interruptor que te permitirá acceder a la biblioteca.
+ObjDesc[1]=Atraviesa la biblioteca y verás una manivela sujeta por dos cadenas. Destruye las cadenas; entonces podrás acceder a la torre de entrada que hay en el patio.
+ObjDesc[2]=Regresa al patio y acciona el interruptor que hay en la torre de entrada para abrir las puertas delanteras del castillo.
+ObjDesc[3]=¡Huye con vida del castillo por la entrada principal!
+
+

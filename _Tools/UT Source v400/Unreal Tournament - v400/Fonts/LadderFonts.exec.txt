@@ -1,0 +1,15 @@
+#exec ..\fonts\LadderFonts.exec.txt
+TEXTURE NEW NAME="LadderJunk" CLASS=Texture GROUP=None USIZE=1 VSIZE=1 PACKAGE="LadderFonts"
+
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder8 FontName="Arial" Height=8 AntiAlias=1 CharactersPerPage=256
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder10 FontName="Arial" Height=10 AntiAlias=1 CharactersPerPage=256
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder12 FontName="Arial" Height=12 AntiAlias=1 CharactersPerPage=256
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder14 FontName="Arial" Height=14 AntiAlias=1 CharactersPerPage=256
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder16 FontName="Arial" Height=16 AntiAlias=1 CharactersPerPage=256
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder18 FontName="Arial" Height=18 AntiAlias=1 CharactersPerPage=128
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder20 FontName="Arial" Height=20 AntiAlias=1 CharactersPerPage=128
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder22 FontName="Arial" Height=22 AntiAlias=1 CharactersPerPage=128
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder24 FontName="Arial" Height=24 AntiAlias=1 CharactersPerPage=128
+new TrueTypeFontFactory PACKAGE="LadderFonts" Name=UTLadder30 FontName="Arial" Height=30 AntiAlias=1 CharactersPerPage=64
+
+OBJ SAVEPACKAGE PACKAGE="LadderFonts" FILE="..\Textures\LadderFonts.utx"

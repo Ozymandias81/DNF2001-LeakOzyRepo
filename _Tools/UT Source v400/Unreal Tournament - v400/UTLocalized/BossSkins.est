@@ -1,0 +1,160 @@
+{\rtf1 \ansi\deff3\deflang1033 \uc1 \deflangfe1033 
+{\fonttbl 
+{\f3 \froman\fprq2 {\*\panose 02020603050405020304}\fcharset0 Times New Roman;}
+{\f1 \fmodern\fprq1 {\*\panose 02070309020205020404}\fcharset0 Courier New;}
+{\f2 \fswiss\fprq2 \fcharset0 Arial;}}
+{\colortbl \red0\green0\blue0;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet 
+{\s0 \snext0 \nowidctlpar\widctlpar\adjustright \fs20\lang3081\cgrid0 Normal;}
+{\cs8 \additive Default Paragraph Font;}
+{\s10 \sbasedon0\snext10 \nowidctlpar\widctlpar\adjustright \f1\fs20\lang3081\cgrid0 Plain Text;}
+{\cs1 \additive \v\f1\cf12\sub tw4winMark;}
+{\cs2 \cf4\fs40\f1 tw4winError;}
+{\cs7 \cf2 tw4winTerm;}
+{\cs3 \f1\cf11\lang1024 tw4winPopup;}
+{\cs4 \f1\cf10\lang1024 tw4winJump;}
+{\cs5 \f1\cf15\lang1024 tw4winExternal;}
+{\cs6 \f1\cf6\lang1024 tw4winInternal;}}
+
+{\info 
+{\title 
+[public]}
+{\author 
+Jorge Uphoff}
+{\operator 
+Jorge Uphoff}
+{\creatim \yr1999\mo7\dy7\hr14\min42 }
+{\revtim \yr1999\mo7\dy7\hr14\min42 }\version2\edmins1\nofpages1\nofwords23\nofchars1041 
+{\*\company 
+Akzent Language Engineering}\nofcharsws0\vern71 }\paperw11906\paperh16838\margl1152\margr1152\widowctrl\ftnbj\aenddoc\makebackup\hyphcaps0\formshade\viewkind4\viewscale112\viewzk2\pgbrdrhead\pgbrdrfoot\fet0 
+\sectd\linex0\headery709\footery709\colsx709\endnhere\sectdefaultcl0 
+{\*\pnseclvl1 \pnucrm\pnstart1\pnindent720\pnhang 
+{\pntxta 
+.}}
+{\*\pnseclvl2 \pnucltr\pnstart1\pnindent720\pnhang 
+{\pntxta 
+.}}
+{\*\pnseclvl3 \pndec\pnstart1\pnindent720\pnhang 
+{\pntxta 
+.}}
+{\*\pnseclvl4 \pnlcltr\pnstart1\pnindent720\pnhang 
+{\pntxta 
+)}}
+{\*\pnseclvl5 \pndec\pnstart1\pnindent720\pnhang 
+{\pntxtb 
+(}
+{\pntxta 
+)}}
+{\*\pnseclvl6 \pnlcltr\pnstart1\pnindent720\pnhang 
+{\pntxtb 
+(}
+{\pntxta 
+)}}
+{\*\pnseclvl7 \pnlcrm\pnstart1\pnindent720\pnhang 
+{\pntxtb 
+(}
+{\pntxta 
+)}}
+{\*\pnseclvl8 \pnlcltr\pnstart1\pnindent720\pnhang 
+{\pntxtb 
+(}
+{\pntxta 
+)}}
+{\*\pnseclvl9 \pnlcrm\pnstart1\pnindent720\pnhang 
+{\pntxtb 
+(}
+{\pntxta 
+)}}
+\pard\s10\nowidctlpar\widctlpar\adjustright \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+[public]}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss1,Class=Texture,Description=Jefe)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss1t_0,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss1t_1,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss1t_2,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss1t_3,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss2,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss2t_0,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss2t_1,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss2t_2,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss2t_3,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss3,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss3t_0,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss3t_1,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss3t_2,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss3t_3,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss4,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss4t_0,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss4t_1,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss4t_2,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss4t_3,Class=Texture)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss4Xan,Class=Texture,Description=Xan)}
+\par 
+\s10 \plain \fs20\lang3081\f1\cgrid0 
+{\fs20\f1\cgrid0\lang1034 
+Object=(Name=BossSkins.Boss5Xan,Class=Texture)}
+\par 
+}

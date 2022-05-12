@@ -1,0 +1,18 @@
+[UWindowConsoleWindow]
+WindowTitle=Console di sistema
+
+[UWindowMessageBoxCW]
+YesText=Sì
+NoText=No
+OKText=OK
+CancelText=Annulla
+
+[UWindowSmallCloseButton]
+CloseText=Chiudi
+
+[UWindowSmallCancelButton]
+CancelText=Annulla
+
+[UWindowSmallOKButton]
+OKText=OK
+

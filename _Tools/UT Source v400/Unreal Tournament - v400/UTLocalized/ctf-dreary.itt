@@ -1,0 +1,67 @@
+[LevelInfo0]
+Title=Dreary Outpost
+IdealPlayerCount=8-12
+
+[ZoneInfo17]
+ZoneName=Sala principale rossa
+
+[ZoneInfo18]
+ZoneName=Soffitta centrale
+
+[ZoneInfo16]
+ZoneName=Sala principale blu
+
+[ZoneInfo19]
+ZoneName=Sala superiore rossa
+
+[ZoneInfo20]
+ZoneName=Sala inferiore rossa
+
+[ZoneInfo22]
+ZoneName=Sala superiore blu
+
+[ZoneInfo3]
+ZoneName=Ingresso ascensore destro blu
+
+[ZoneInfo1]
+ZoneName=Ingresso ascensore destro blu
+
+[ZoneInfo0]
+ZoneName=Ingresso ascensore sinistro rosso
+
+[ZoneInfo2]
+ZoneName="Ingresso ascensore sinistro blu"
+
+[ZoneInfo21]
+ZoneName=Sala inferiore blu
+
+[ZoneInfo15]
+ZoneName=Soffitta blu
+
+[ZoneInfo14]
+ZoneName=Soffitta rossa
+
+[ZoneInfo9]
+ZoneName=Ascensore sinistro rosso
+
+[ZoneInfo8]
+ZoneName=Ascensore destro rosso
+
+[ZoneInfo11]
+ZoneName=Ascensore sinistro blu
+
+[ZoneInfo10]
+ZoneName=Ascensore destro blu
+
+[SlimeZone0]
+ZoneName=Pozza di fango rossa
+
+[SlimeZone1]
+ZoneName=Pozza di fango blu
+
+[ZoneInfo13]
+ZoneName=Base rossa
+
+[ZoneInfo12]
+ZoneName=Base blu
+

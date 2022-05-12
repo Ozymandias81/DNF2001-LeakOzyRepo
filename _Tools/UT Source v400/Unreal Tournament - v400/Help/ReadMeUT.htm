@@ -1,0 +1,461 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>Unreal Release Notes</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<CENTER>
+<IMG SRC="UnrealTournamentSetupLogo.bmp"><BR>
+<h1>Unreal Tournament &quot;ReadMe&quot; notes.</h1>
+</CENTER>
+
+<p>
+Developed by: Epic Games &amp; Digital Extremes<br>
+Distributed by: GT Interactive</p>
+
+<h3>Useful Web Links</h3>
+<ul>
+  <li><a href="http://www.unrealtournament.com/" target="_parent">Unreal
+    Tournament Home Page</a> -- Visit for the latest updates, patches, and
+    community events!</li>
+  <li><a href="http://www.epicgames.com/" target="_parent">Epic Games Home Page</a>
+    -- Information about other Epic games.</li>
+  <li><a href="http://unreal.epicgames.com/" target="_parent">Unreal Technology
+    Page</a> -- Latest news from the Epic development team.  Great resources for programmers, mod authors, and enthusiasts.</li>
+</ul>
+
+<h3>Starting the Game</h3>
+
+<p>To start Unreal Tournament:
+
+<ol>
+  <li>Click on the &quot;Start&quot; button at the bottom of the screen.</li>
+  <li>Move the mouse to the &quot;Programs&quot; choice.</li>
+  <li>Move the mouse to the &quot;Unreal Tournament&quot; choice.</li>
+  <li>Click on the &quot;Play Unreal Tournament&quot; icon.</li>
+</ol>
+
+<h3>Technical Support</h3>
+
+<p>Please see the manual accompanying the retail version of the game for instructions on
+obtaining technical support.&nbsp; Or visit the <a href="http://www.unrealtournament.com/" target="_parent">Unreal
+Tournament Home Page</a>.</p>
+
+<hr>
+
+<h2>Troubleshooting</h2>
+
+<h3>Lockups</h3>
+
+<p>If Unreal Tournament locks up or crashes when you run it, then a list of
+&quot;Safe Mode&quot; options will appear the next time you run it.&nbsp; To
+access the &quot;Safe Mode&quot; options directly, start Unreal Tournament via the
+&quot;Safe Mode&quot; icon available in the Start menu (Start/Programs/Unreal
+Tournament/Safe Mode). This mode is similar to Windows 95's Safe Mode.
+It runs with sound, DirectDraw, and 3D hardware support disabled. This way, you can
+modify your options&nbsp; that may be causing
+problems, then run the game again.</p>
+
+<h3>Crashes</h3>
+
+<p>If Unreal Tournament stops with a &quot;Ran out of virtual memory&quot; message, you
+need to free up more hard disk space on your primary drive (C:) in order to play.
+Unreal Tournament's
+large levels and rich textures take up a lot of virtual memory.&nbsp; We recommend having
+150 megabytes of free hard disk space for running the game, and 300 megabytes or more of
+free hard disk space for the editor.</p>
+
+<h3>Direct3D issues</h3>
+
+<p>Some video cards ship with drivers which do not support Unreal Tournament
+properly.&nbsp; If you experience any of the following problems, your Direct3D
+driver may need updating:</p>
+
+<ul>
+  <li>Crashes when starting up.</li>
+  <li>Crashes when changing video resolutions.</li>
+  <li>Corrupted textures: garbage pixels appearing on surfaces; unexpected
+    bright flashy colors on the screen; incorrect textures on surfaces.</li>
+  <li>Unusually slower performance.</li>
+</ul>
+<p>If you have any of these problems, please visit our <a href="http://unreal.epicgames.com/Direct3d.htm">Get
+A Fixed Direct3D Driver Page</a> on the web.</p>
+
+<h3>Sound issues</h3>
+
+<p>The sound playback rate defaults to 22 kHz, which is optimal for Pentium machines with
+MMX. If you have an older, non-MMX machine, you can get better performance (though lower
+sound quality) by setting the playback rate to 11 kHz in the &quot;Advanced Options&quot;
+menu. If you have a fast, shiny new Pentium II, you might try using 44 kHz for the
+ultimate in sound quality.</p>
+
+<p>If using an Aureal A3D 3D sound accelerator board such as the Diamond Monster Sound 3D,
+you need to go into &quot;Advanced Options/Audio&quot; and turn on
+&quot;Use3dHardware&quot; to enable 3D sound card support. You need to upgrade to the
+latest version of Aureal's A3D drivers in order to get acceptable 3D sound performance.
+Using Unreal Tournament in conjunction with earlier versions of the drivers causes severe
+&nbsp; performance problems (major slowdowns on the order of 30-50% while playing sound).</p>
+
+<p>If your computer is hooked up to a Dolby SurroundSound receiver, you should go into
+&quot;Advanced Options&quot; and turn on the &quot;UseSurround&quot; to take advantage of
+360-degree Dolby sound panning, which rocks.</p>
+
+<p>Known sound issues:
+
+<ul>
+  <li>A small number of computer configurations we've tested exhibit infrequent lockups when
+    playing in full-screen DirectDraw (software rendered) mode using DirectSound for audio
+    output.&nbsp; On most of these machines, going into &quot;Advanced Options/Audio&quot;,
+    and turning off the &quot;UseDirectSound&quot; option prevented the lockups.&nbsp; Playing
+    in a window also prevented the lockups.<br>
+  </li>
+  <li>Because of the way the OS works, many Windows NT machines experience significant latency
+    in their sound effects, sometimes up to 1/4th second.<br>
+  </li>
+  <li>If you have an Aureal A3D sound card with 3D sound enabled, you must disable the
+    Aureal's &quot;A3D Splash Screen&quot; in the Aureal configuration utility. If this is not
+    disabled, the game may be unable to go into full-screen mode because of the splash screen
+    interfering.
+  </li>
+</ul>
+
+<h3>Network play issues</h3>
+
+<p>The minimum speed connection for acceptable Internet play performance is a 28.8K modem
+connection to your Internet Service Provider.</p>
+
+<p>Known network play issues:
+
+<ul>
+  <li>When a new player enters a network game, clients may experience a 1/4-second pause while
+    the mesh, skin, and other data is loaded for that player. This is by design.<br>
+  </li>
+  <li>Unreal Tournament's Internet play performance is highly dependent on the bandwidth of your
+    connection, the latency (ping time), and the packet loss.&nbsp; The game is designed to be
+    playable up to 300 msec ping times, 5% packet loss, and 28.8K connection speeds.
+    Performance degrades heavily under worse latency, packet loss, and bandwidth connections.
+  </li>
+</ul>
+
+<h3>Control issues</h3>
+
+<p>Some PC keyboards can't recognize certain combinations of 3 or more simultaneously
+pressed keys.</p>
+
+<hr>
+
+<h2>Performance</h2>
+
+<h3>Memory</h3>
+
+<p>Unreal Tournament's performance is highly dependent on the amount of RAM you have in your machine,
+and the amount of memory that is available. Machines with less memory will access their
+hard disk more frequently to load data, which causes sporadic pauses in gameplay. Thus, if
+you have a 32 megabyte (or less) machine, you should make sure that you don't have other
+unnecessary programs loaded in memory when playing Unreal Tournament.</p>
+
+<p>How the game will perform under different RAM conditions:
+
+<ul>
+  <li>32 megabytes or less: Probably unplayable.</li>
+  <li>48 megabytes: Some swapping; use the Preferences/Video &quot;low texture
+    detail&quot; setting to improve this.</li>
+  <li>64 megabytes: Great, with a bit of swapping.</li>
+  <li>128 megabytes: Oh Yes!</li>
+</ul>
+
+<h3>CPU Speed</h3>
+
+<p>The game is also very sensitive to CPU speed, memory bandwidth, and cache performance.
+&nbsp; Thus, it runs far better on leading-edge processors such as Pentium II's than it
+does on older ones such as non-MMX Pentiums.</p>
+
+<p>How Unreal Tournament will perform on different classes of machines:
+
+<ul>
+  <li>Non-MMX P166 class machines: Slow rendering; large frame rate variations. We recommend
+    playing in 320x200 resolution if available. We recommend setting the sound playback to
+    11025 Hz.<br>
+  </li>
+  <li>P200 MMX: Good rendering speed; some frame rate variations. We recommend running low
+    resolutions like 320x240 or 400x300. We recommend keeping the sound playback at 22050 Hz.<br>
+  </li>
+  <li>Pentium II; K6-2 with 3DNow!: Very nice rendering speed; consistent frame rate. Software
+    rendering runs smooth in 512x384, 32-bit color resolution. You might try 44 kHz audio for
+    best sound quality.</li>
+</ul>
+
+<h3>Considering upgrading?</h3>
+
+<p>For people considering upgrading their machines, here are some tips based on our
+experience running Unreal Tournament on a variety of machines:
+
+<ol>
+  <li>The biggest performance gain in Unreal Tournament comes from having a Pentium II class processor.
+    &nbsp; Pentium II's have dramatically improved cache performance, memory performance, and
+    floating-point performance compared to earlier Pentiums, and that all translates to faster
+    gameplay.&nbsp; The performance improvements in Pentium II's are especially accentuated in
+    Unreal Tournament, which contains way more content (textures, sounds, animations, level geometry)
+    than other 3D action games.</li>
+  <li>The next upgrade that tends to improve Unreal Tournament performance dramatically is a 3dfx Voodoo
+    or Voodoo2 class 3D accelerator. Especially in conjunction with a Pentium II processor,
+    these accelerators rock!</li>
+  <li>Finally, lots of RAM helps.&nbsp; With memory prices continually falling, it's now
+    reasonably affordable to upgrade to 64 or 128 megabytes of memory.</li>
+</ol>
+
+<h3>Requirements</h3>
+
+<p>Minimum system requirement:
+
+<ul>
+  <li>233 MHz Pentium MMX or AMD K6 class computer.</li>
+  <li>32 megabytes of RAM.</li>
+  <li>4 megabyte video card.</li>
+</ul>
+
+<p>Typical system:
+
+<ul>
+  <li>300 MHz Pentium II or AMD K6-3.</li>
+  <li> 64 megabytes of RAM.</li>
+  <li>3dfx Voodoo 2 / Riva TNT class 3d accelerator.</li>
+</ul>
+
+<p>Awesome system:
+
+<ul>
+  <li>Pentium III 500 or AMD Athlon 550 or faster PC.</li>
+  <li> 128 megabytes of RAM.</li>
+  <li>3dfx Voodoo3 / Riva TNT2 class 3D accelerator.</li>
+</ul>
+
+<h3>Getting Better UT Performance</h3>
+
+<p>The first thing to do is to increase your minimum desired framerate.  UT will try to meet your framerate
+requirements by subtely dropping detail levels during complex scenes and fire fights.  The default
+MinDesiredFrameRate is dependent on the speed of your computer.  If you have hardware acceleration
+and a 300MHz or better CPU the MinDesiredFrameRate defaults to 30, otherwise it is 20.  The higher
+the framerate, the more aggressive Unreal Tournament will be in eliminating excess special effects
+and detailing.  To change the value open Advanced Options and click on Display.  There will be an
+edit tab for the MinDesiredFrameRate variable.  The change will take place immidiately.</p>
+
+<p>If increasing MinDesiredFrameRate doesn't help, try decreasing your texture detail levels in the
+Preferences window.  You can also try lowering your screen resolution.</p>
+
+<hr>
+
+<h2>
+ Controls</h2>
+
+<h3>Keyboard</h3>
+
+<p>You can bind new keys to controls by clicking on the "Controls" tab of the Preferences menu
+inside of Unreal Tournament.  There are a lot of controls to bind, so here is a list of defaults.</p>
+
+<TABLE BORDER=1 WIDTH=80%>
+<TR>
+<TD WIDTH=25%><FONT SIZE=+1><B>Key</B></FONT></TD>
+<TD WIDTH=75%><FONT SIZE=+1><B>Function</B></FONT></TD>
+</TR>
+<TR>
+<TD>TAB</TD>
+<TD>Opens a mini system console line.</TD>
+</TR>
+<TR>
+<TD>Shift</TD>
+<TD>Hold shift while moving to walk slowly.</TD>
+</TR>
+<TR>
+<TD>Ctrl, Space</TD>
+<TD>Ctrl or Space causes your player to jump.</TD>
+</TR>
+<TR>
+<TD>Alt</TD>
+<TD>Alt will fire your weapon's primary attack.</TD>
+</TR>
+<TR>
+<TD>Pause</TD>
+<TD>Pause will freeze the game.</TD>
+</TR>
+<TR>
+<TD>Escape</TD>
+<TD>The Escape key will open the menus.</TD>
+</TR>
+<TR>
+<TD>Arrow Keys</TD>
+<TD>The arrow keys will move you forward and back or strafe left and right.</TD>
+</TR>
+<TR>
+<TD>Number Keys [0..9]</TD>
+<TD>The number keys cycle through your weapons in order.
+</TR>
+<TR>
+<TD>H, J, K, L</TD>
+<TD>These keys will cause your character to animate in a taunt.</TD>
+</tR>
+<TR>
+<TD>F1</TD>
+<TD>Displays the scoreboard.</TD>
+</TR>
+<TR>
+<TD>F2</TD>
+<TD>Displays the message of the day.</TD>
+</TR>
+<TR>
+<TD>F3</TD>
+<TD>In an Assault game, F3 lists the current objectives.</TD>
+</TR>
+<TR>
+<TD>F5</TD>
+<TD>Allows you to cycle through your teammates viewpoints.</TD>
+</TR>
+<TR>
+<TD>F6, F7</TD>
+<TD>QuickSave and QuickLoad respectively.</TD>
+</TR>
+<TR>
+<TD>F9</TD>
+<TD>Take a screenshot.  (Appears in your UnrealTournament\System directory.)</TD>
+</TR>
+<TR>
+<TD>F11</TD>
+<TD>Adjust screen gamma.</TD>
+</TR>
+<TR>
+<TD>T</TD>
+<TD>Send a chat message to the public channel.</TD>
+</TR>
+<TR>
+<TD>R</TD>
+<TD>Send a chat message to your team only channel.</TD>
+</TR>
+<TR>
+<TD>~</TD>
+<TD>Open the system command console.</TD>
+</TR>
+<TR>
+<TD>F</TD>
+<TD>Drop to the ground and pretend you are dead. (Feign death.)</TD>
+</TR>
+<TR>
+<TD><B>V</B></TD>
+<TD>Press and hold V to access the speech menu.  Use this menu to give orders and taunt enemies.</TD>
+</TR>
+</TABLE>
+
+<h3>Mouse</h3>
+
+<p>Although you can rely solely on your keyboard to move around in and interact in
+Unreal Tournament's 3D universe, using both the keyboard and mouse simultaneously gives you much more
+fluid and responsive control.</p>
+
+<p>When you use the mouse to control your rotational movement and aiming you gain a degree
+of precision and speed that players using keyboard-only controls can't touch. The keyboard
+is best used for easy lateral and forward/backward movement, and for jumping.</p>
+
+<p>To master the default controls in Unreal Tournament, keep your left hand on the keyboard, using
+the arrow keys for movement, the 0-9 keys for weapon selection, and the space bar for
+jumping. Your right hand operates the mouse, controlling rotation, aiming, and firing. Of
+course, you can customize these controls to suit your preferences via the Options Menu.</p>
+
+<h3>Speech Menu</h3>
+
+<p>Press and hold the V key to open the speech menu.  While you hold V your mouse will become
+activated and you can select various commands and taunts.  Under the <b>Orders</b> submenu
+you can select a job to assign to a teammate.  If your bot is a teammate they will automatically
+carry out your orders.  The available orders are:</p>
+
+<DL>
+<DT><B>Defend the Base.</B></DT>
+<DD>The ordered bot will immidiately make his way to your base and protect it from enemy attack.
+<DT><B>Cover Me.</B></DT>
+<DD>The bot will find you and follow you attacking enemies that you encounter.
+<DT><B>Assault the Base.</B></DT>
+<DD>Orders the bot to go offensive.  In CTF this order is replaced with "Capture the Enemy Flag."
+<DT><B>Hold this Position.</B></DT>
+<DD>The bot will find your current location and try to protect it from enemy attack.
+<DT><B>Freelance.</B></DT>
+<DD>Releases the bot from previous orders.  A freelancing bot will make their own battlefield decisions.
+</DL>
+
+<p>If you give an order to "All" then every bot on your team will attempt to complete the order.  If you look
+at a bot the speech menu will have the option to "Order This Bot."</p>
+
+<hr>
+
+<h2>
+ Dedicated
+Network Servers</h2>
+
+<h3>Explanation</h3>
+
+<p>For optimal network play performance, you can launch a dedicated copy of the Unreal
+Tournament server on a computer.&nbsp; This improves performance compared to using a non-dedicated
+server but, of course, it ties up a PC.</p>
+
+<p>Anybody may freely run dedicated servers on the Internet; you don't need to
+get permission or fill out any paperwork.&nbsp;&nbsp;</p>
+
+<h3>Launching</h3>
+
+<p>You can launch a dedicated server by going through the regular Unreal
+Tournament &quot;Start
+Game&quot; menu, setting the appropriate options, then choosing &quot;Launch Dedicated
+Servers&quot;.&nbsp; This is what you'll want to do for quick LAN games where you have an
+extra machine sitting around that can act as a dedicated server.</p>
+
+<p>Alternatively, you can launch a dedicated server from the command line by running
+UnrealTournament.exe directly (which usually resides in the c:\UnrealTournament\System directory, or the
+System subdirectory of whatever other directory you installed the game in).&nbsp; For
+example, to launch the level &quot;DM-Zeto.unr&quot;, run:</p>
+
+<p>&nbsp;&nbsp; UnrealTournament.exe DM-Zeto.unr -server</p>
+
+<h3>Multiple Servers Per Machine</h3>
+
+<p>Each copy of the dedicated server can serve one and only one level at a time.</p>
+
+<p>However, you can run multiple level servers on one machine. To do this, you must give
+each server a unique TCP/IP port number. The default port number is 7777. To specify
+a port, use the following kind of command line:</p>
+
+<p>&nbsp;&nbsp; UnrealTournament.exe DM-Zeto.unr port=7778 -server</p>
+
+<h3>General performance guidelines</h3>
+
+<p>We find that a 400 MHz Pentium II can usually handle about 16 players with decent
+performance.&nbsp; The performance varies with level complexity and other machine speed
+factors, so your mileage may differ.&nbsp; Note that there is no absolute maximum player
+limit in the game; performance simply degrades as the number of players grows huge.</p>
+
+<p>If you're running multiple levels simultaneously, Windows NT outperforms Windows 95
+because of its superior multitasking and TCP/IP processing capabilities.</p>
+
+<p>For best performance, we recommend having 64 megabytes of memory per running level.
+&nbsp; For example, for running 4 simultaneous levels, 256 megabytes is ideal.</p>
+
+<p>The Unreal Tournament server uses up at least 28.8Kbits per second of outgoing bandwidth per
+player (on Internet), so if you run the server on a machine connected by a 28.8K modem,
+you'll only be able to support one client with decent performance.&nbsp; Dedicated servers
+that support many players generally require the outgoing bandwidth of a T1 line or better.</p>
+
+<h3>More Information</h3>
+<p>Visit the <a href="http://unreal.epicgames.com/">Unreal Technology Page</a>
+for way more information about running Unreal Tournament servers.&nbsp; Some
+topics addressed there include:</p>
+<ul>
+  <li>Remote server administration</li>
+  <li>Linux version of the server</li>
+  <li>Serving custom levels and game types</li>
+  <li>Administering public servers that appear in the server list</li>
+</ul>
+<h2>End</h2>
+
+<hr>
+
+</body>
+</html>

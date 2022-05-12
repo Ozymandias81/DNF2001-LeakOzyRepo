@@ -1,0 +1,28 @@
+[LevelInfo0]
+Title=Falda acquifera
+IdealPlayerCount=4-6
+
+[ControlPoint1]
+PointName=Inferiore
+
+[ControlPoint2]
+PointName=Superiore
+
+[ControlPoint0]
+PointName=Centrale
+
+[TranslatorEvent0]
+Message=Inchinati di fronte alle Tenebre... Ecco D.G.
+
+[LevelSummary]
+Title=Falda acquifera
+IdealPlayerCount=4-6
+
+[ZoneInfo2]
+ZoneName=Inferiore
+
+[ZoneInfo0]
+ZoneName=Centrale
+
+[ZoneInfo1]
+ZoneName=Superiore

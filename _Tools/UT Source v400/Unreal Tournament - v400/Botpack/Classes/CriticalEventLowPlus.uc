@@ -1,0 +1,1 @@
+class CriticalEventLowPlus extends CriticalEventPlus;

@@ -1,0 +1,53 @@
+[LevelInfo0]
+Title=Alta velocità 
+IdealPlayerCount=4-8
+LevelEnterText=Controlla il treno! NESSUNA PIETÀ!
+
+[ZoneInfo8]
+ZoneName=il terzo vagone
+
+[ZoneInfo10]
+ZoneName=il primo vagone
+
+[ZoneInfo9]
+ZoneName=il secondo vagone
+
+[SpecialEvent0]
+DamageString=%s è caduto fra due vagoni... che male...
+
+[LevelSummary]
+LevelEnterText=Controlla il treno! NESSUNA PIETÀ!!!
+
+[AssaultInfo0]
+ObjDesc[0]="Cerca di raggiungere l'inizio del treno. Nel primo vagone, al livello superiore, troverai un interruttore che apre le porte della cabina di comando sottostante. Attivalo."
+ObjDesc[1]=Salta giù nella sala comandi. Lì troverai una leva che annullerà i comandi del treno.
+
+[FortStandard0]
+FortName=Il treno
+DestroyedMessage=è stato conquistato!!!
+
+[SpecialEvent9]
+Message=IL TRENO È STATO CATTURATO!!!
+
+[FortStandard1]
+FortName=Gli assaltatori sono
+DestroyedMessage=oltre il serbatoio di acido!!!
+
+[FortStandard2]
+FortName=Gli assaltatori sono
+DestroyedMessage=nel VAGONE 3!!!
+
+[FortStandard3]
+FortName=Gli assaltatori stanno
+DestroyedMessage=entrando nel VAGONE 1!!!
+
+[SpecialEvent1]
+DamageString=%s si è mangiato una pala di elicottero...
+
+[FortStandard4]
+FortName=cabina di comando
+DestroyedMessage=interruttore di accesso attivato!!!
+
+[SpecialEvent3]
+Message=Gli assaltatori sono sul tetto!!!
+

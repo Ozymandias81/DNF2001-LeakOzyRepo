@@ -1,0 +1,45 @@
+[LevelInfo0]
+Title=Operazione Overlord
+IdealPlayerCount=8-12
+LevelEnterText=Neutralizza il cannone a lungo raggio distruggendo il congegno nei comandi principali
+
+[ZoneInfo2]
+ZoneName=Caserma
+
+[ZoneInfo5]
+ZoneName=Sala munizioni
+
+[ZoneInfo3]
+ZoneName=Caldaia
+
+[ZoneInfo6]
+ZoneName=Caverna del cannone
+
+[KillingField0]
+ZoneName=Spiaggia
+
+[ZoneInfo1]
+ZoneName=Buche
+
+[ZoneInfo0]
+ZoneName=Rampa d'ingresso
+
+[ZoneInfo8]
+ZoneName=Ultimo passaggio.
+
+[WaterZone0]
+ZoneName=Acqua
+
+[AssaultInfo0]
+ObjDesc[0]=Per disattivare il cannone a lungo raggio, devi attraversare la base nemica fino a raggiungere la grossa caverna del cannone all'interno delle pareti della scogliera. Lì troverai la sala dei comandi principali. Distruggi il congegno che vi si trova dentro.
+
+[FortStandard4]
+FortName=" "
+DestroyedMessage=Gli assaltatori hanno fatto irruzione nella caldaia.
+
+[LevelSummary]
+LevelEnterText=Neutralizza il cannone a lungo raggio distruggendo il congegno nei comandi principali
+
+[FortStandard0]
+FortName=
+DestroyedMessage=Gli assaltatori hanno fatto irruzione nella testa di ponte.

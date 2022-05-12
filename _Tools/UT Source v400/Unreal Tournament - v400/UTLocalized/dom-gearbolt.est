@@ -1,0 +1,32 @@
+[LevelInfo0]
+Title=Engranajes
+IdealPlayerCount=6-8
+LevelEnterText=¡Adelante y a dominar!
+
+[ZoneInfo8]
+ZoneName=Puente
+
+[ZoneInfo7]
+ZoneName=Rampa
+
+[ZoneInfo9]
+ZoneName=Ascensor
+
+[ZoneInfo10]
+ZoneName=Planta baja
+
+[ControlPoint2]
+PointName=Puente
+
+[ControlPoint0]
+PointName=Ascensor
+
+[ControlPoint1]
+PointName=Rampa
+
+[LevelSummary]
+Title=Engranajes
+IdealPlayerCount=6-8
+LevelEnterText=¡Adelante y a dominar!
+
+

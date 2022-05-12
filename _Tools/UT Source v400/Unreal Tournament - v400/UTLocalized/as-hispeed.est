@@ -1,0 +1,71 @@
+[LevelInfo0]
+Title=A toda velocidad 
+IdealPlayerCount=4-8
+LevelEnterText=¡Controla el tren! ¡¡SIN COMPASIÓN!!
+
+[ZoneInfo8]
+ZoneName=el tercer vagón
+
+[ZoneInfo10]
+ZoneName=el primer vagón
+
+[ZoneInfo9]
+ZoneName=el segundo vagón
+
+[SpecialEvent0]
+DamageString=%s ha caído entre los vagones... uh, eso debe doler..
+
+[LevelSummary]
+LevelEnterText=¡Controla el tren! ¡¡SIN COMPASIÓN!!
+
+[AssaultInfo0]
+ObjDesc[0]="Llega hasta la parte delantera del tren. En el nivel superior del primer vagón encontrarás un interruptor que abre la puerta de la cabina de control que hay debajo. Activa el interruptor."
+ObjDesc[1]=Da un salto para bajar a la sala de control. Allí encontrarás una palanca que neutralizará los controles del tren.
+
+[FortStandard0]
+FortName=¡El tren 
+DestroyedMessage=ha sido controlado!
+
+[SpecialEvent9]
+Message=¡EL TREN HA SIDO CAPTURADO!
+
+[FortStandard1]
+FortName=¡Los atacantes están
+DestroyedMessage=al otro lado del tanque de ácido!
+
+[FortStandard2]
+FortName=¡Los atacantes están
+DestroyedMessage=en el VAGÓN 3!
+
+[FortStandard3]
+FortName=¡Los atacantes están
+DestroyedMessage=entrando en el VAGÓN 1!
+
+[SpecialEvent1]
+DamageString=%s se comió una pala del helicóptero...
+
+[FortStandard4]
+FortName=¡cabina de control
+DestroyedMessage=con interruptor de acceso activado!
+
+[SpecialEvent3]
+Message=¡Los atacantes están en el tejado!
+
+[ZoneInfo0]
+ZoneName=Fuera del primero vagón
+
+[SlimeZone0]
+ZoneName=Tanque de acido
+
+[locationid5]
+LocationName=loaded flatbed
+
+[locationid6]
+LocationName=loaded flatbed
+
+[locationid7]
+LocationName=empty flatbed
+
+[locationid4]
+LocationName=Tanque de acido
+

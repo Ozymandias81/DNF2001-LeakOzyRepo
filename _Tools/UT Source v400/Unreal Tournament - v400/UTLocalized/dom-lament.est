@@ -1,0 +1,20 @@
+[LevelInfo0]
+Title=El lamento
+IdealPlayerCount=2-4
+LevelEnterText=¡Contrólalo todo!
+
+[ControlPoint0]
+PointName=Central
+
+[ControlPoint1]
+PointName=Superior
+
+[ControlPoint2]
+PointName=Inferior
+
+[LevelSummary]
+Title=El lamento
+IdealPlayerCount=2-4
+LevelEnterText=¡Contrólalo todo!
+
+

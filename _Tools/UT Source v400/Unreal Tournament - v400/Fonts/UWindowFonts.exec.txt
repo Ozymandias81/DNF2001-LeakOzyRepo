@@ -1,0 +1,16 @@
+#exec ..\fonts\uwindowfonts.exec.txt
+TEXTURE NEW NAME="UWindowFontsJunk" CLASS=Texture GROUP=None USIZE=1 VSIZE=1 PACKAGE="UWindowFonts"
+
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=Tahoma10 FontName="Tahoma" Height=10 AntiAlias=0 CharactersPerPage=256
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=Tahoma20 FontName="Tahoma" Height=20 AntiAlias=1 CharactersPerPage=128
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=Tahoma30 FontName="Tahoma" Height=30 AntiAlias=1 CharactersPerPage=32
+
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=TahomaB10 FontName="Tahoma Bold" Height=10 AntiAlias=1 CharactersPerPage=256
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=TahomaB20 FontName="Tahoma Bold" Height=20 AntiAlias=1 XPad=2 CharactersPerPage=128
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=TahomaB30 FontName="Tahoma Bold" Height=30 AntiAlias=1 CharactersPerPage=32 XPad=2
+
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=UTFont12 FontName="Verdana" Height=12 AntiAlias=0 CharactersPerPage=256
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=UTFont24 FontName="Arial Narrow" Height=24 AntiAlias=1 CharactersPerPage=128
+new TrueTypeFontFactory PACKAGE="UWindowFonts" Name=UTFont40 FontName="Arial Bold" Height=40 CharactersPerPage=32 AntiAlias=1
+
+OBJ SAVEPACKAGE PACKAGE="UWindowFonts" FILE="..\Textures\UWindowFonts.utx"

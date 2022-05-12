@@ -1,0 +1,180 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Unreal 222 Release Notes</title>
+</head>
+
+<body>
+
+<h1>Unreal Version 223 Release Notes</h1>
+
+<h3>Useful Information</h3>
+
+<ul>
+  <li><a href="ReadMe.htm">General Troubleshooting, Hints, Tips &amp; Information</a></li>
+  <li><a href="http://www.unreal.com/" target="_parent">Unreal Home Page</a></li>
+  <li><a href="http://www.epicgames.com/" target="_parent">Epic MegaGames Home Page</a></li>
+  <li><a href="http://unreal.epicgames.com/" target="_parent">Unreal Technology Page</a></li>
+</ul>
+
+<h3>Fixes and Improvements</h3>
+
+<h4>General</h4>
+
+<ul>
+  <li>Fixed new problem in 220 where users who had performed a partial install of Unreal (with
+    maps kept on the CD) didn't see any maps listed in the Deathmatch/BotMatch menus.</li>
+  <li>&quot;FOV #&quot; command now takes effect permanently.</li>
+  <li>Minigun and stinger sounds are now properly replicated to all clients.</li>
+  <li>Botmatch skill bug in 220 fixed.</li>
+  <li>Lookspring fixed.</li>
+  <li>Kevlar vest pickup sound and dead guy in Vortex Rikers sound fixed.</li>
+  <li>Bubbles now float properly on clients.</li>
+  <li>Fixed projectiles not appearing on client side because local player ran into them.</li>
+  <li>Carcasses are now simulated for smoother death animations, and all the nali and skaarj
+    gibs are properly replicated.</li>
+  <li>Fixed bug where quick taps of fire button didn't register in network games.</li>
+  <li>Slightly reduced damage multiplier in Hardcore mode (150% instead of 170%), and rocket
+    damage radius in Classic mode is back to the old value.</li>
+  <li>Fixed razorjack sound crash problem with 3D sound.</li>
+  <li>Fixed problem where the editor light torches were showing up in some levels in network
+    play.</li>
+  <li>Fixed client prediction going through portals.</li>
+  <li>Eliminated menu bar when playing in windowed mode.</li>
+  <li>Fixed inability to join a network game while you are running a non-dedicated server.</li>
+</ul>
+
+<h4>Video</h4>
+
+<ul>
+  <li>Fixed menu bar disappearing when switching from Glide to the software renderer.</li>
+  <li>Fixed potential crash while taking screenshots on 3dfx.</li>
+  <li>Works properly on Voodoo3. Voodoo3 support was broken in Unreal 209 through 220.</li>
+</ul>
+
+<h4>OpenGL Beta Driver</h4>
+
+<ul>
+  <li>New, rewritten OpenGL driver.</li>
+  <li>Works quite well on the Riva TNT. Important: you need the latest TNT Detonator drivers
+    from NVidia's web site for this to work.</li>
+  <li>Other cards are in the early testing phase now. Don't expect a lot. We can't provide
+    support for getting Unreal OpenGL running on other cards or answer questions about them at
+    this time. </li>
+</ul>
+
+<h4>Networking</h4>
+
+<ul>
+  <li>Fixed remote administration (didn't accept password).</li>
+  <li>Fixed administrator &quot;Kick &lt;playername&gt;&quot; crash.</li>
+  <li>Fixed dedicated server potential crash when player limit is reached.</li>
+  <li>Added &quot;userini=&lt;inifilename&gt;&quot; command-line parameter to set user
+    configuration file.</li>
+  <li>Added server-side demo recording - currently in alpha state.  You can record demos in botmatch or
+    on a dedicated or non-dedicated server.   Demos can be played back from any perspective.
+  <li>The Unreal Server Browser (UBrowser) is included.
+</ul>
+
+<h4>Scripting</h4>
+
+<ul>
+  <li>Fixed &quot;Unreal -make&quot; lockup with class names over 32 characters.</li>
+  <li>The new keyword &quot;native&quot; is now synonymous with &quot;intrinsic&quot;, and the
+    Unreal 1 scripts have been updated to reflect this.</li>
+  <li>In network play, on the client side, static functions are always called locally and
+    never sent across the network, regardless of the calling actor's replication statements.</li>
+  <li>Fixed compiler logic error which caused bool variables within structs to appear to
+    always be zero.</li>
+  <li>Removing &quot;abstract&quot; keyword from a class and recompiling now works.</li>
+  <li>Player classes with no mesh no longer hard-coded to use name &quot;Spectator&quot; in
+    mesh menu.&nbsp; Instead, the pawn MenuName attribute is used as the string representation
+    for all playerpawn classes.</li>
+  <li>All strings are now dynamically sized, meaning there is no longer any limit to their
+    length.&nbsp; Declaring strings with the syntax &quot;string[255]&quot; is now obsolete;
+    just use &quot;string&quot;.</li>
+  <li>The Chr() function converts generates a one-character string whose first character is
+    the ASCII/Unicode value you specify. Exception: Chr(0) returns a zero-length string.</li>
+  <li>The Asc() function returns the ASCII/Unicode character code of the first character of
+    the string you specify, or 0 if the string is empty.</li>
+  <li>New array&lt;type&gt; construct for defining dynamically sizable arrays.&nbsp; This is
+    only implemented for configuration loading and C++ access; dynamic arrays aren't
+    accessible by script yet.</li>
+  <li>Fixed broken EDITACTOR console command.</li>
+  <li>Actor class now contains MultiSkins array enabling multiple skins to be applied to
+    meshes. Not used in any Unreal 1 classes, though. Will be exploited in Unreal Tournament.</li>
+  <li>New string concatenation operator &quot;@&quot; concatenates two strings (like
+    &quot;$&quot;) but adds a space between them (unlike &quot;$&quot;).</li>
+</ul>
+
+<h4>Installer</h4>
+
+<ul>
+  <li>Reduced virtual memory usage (was unreasonably high).</li>
+  <li>Progress window is now updated as the patch installs.</li>
+  <li>New standalone installer.</li>
+  <li>Supports selectable groups.</li>
+  <li>Supports partial installation.</li>
+  <li>Does not yet support user mod installation.&nbsp; Probably will happen along with Unreal
+    Tournament.</li>
+</ul>
+
+<h4>C++ General Changes</h4>
+
+<ul>
+  <li>Changed &quot;INTRINSIC&quot; macro to &quot;DECLARE_FUNCTION&quot;, and
+    &quot;AUTOREGISTER_INTRINSIC&quot; to &quot;IMPLEMENT_FUNCTION&quot; (to follow the
+    convention set by DECLARE_CLASS and IMPLEMENT_CLASS).</li>
+  <li>Changed all occurances of &quot;intrinsic&quot; to &quot;native&quot; (moving toward the
+    Java convention).</li>
+  <li>Moved FBitReader, FBitWriter archives to Core.</li>
+  <li>Improved generality of appCeilLogTwo.</li>
+  <li>Command-line compiler is now invoked with &quot;ucc make&quot; rather than the old
+    &quot;unreal -make&quot;. This is now a non-windowed, command-line application. You can
+    run it as an external tool through Visual C++, and direct the outputs to the results
+    window. This is the preferred mode of operation, because the compiler now outputs error
+    messages in Visual C++'s standard error format, enabling you to double-click on the error
+    message in the VC++ IDE and jump right to the error.</li>
+  <li>The compiler now generates warnings when you do things that are dangerous but non-fatal,
+    for example using &quot;#exec&quot; commands to import non-existant files.</li>
+  <li>All UnrealScript strings are now represented internally as FString structures, which
+    manage dynamic, variable-length, infinitey-expandable strings.&nbsp; This impacts all
+    auto-generated C++ headers such as EngineClasses.h.</li>
+  <li>Static functions are always called in network play, regardless of their replication and
+    simulatedness.</li>
+  <li>Warning: Strings greater than approximately 400 characters won't be replicated in
+    network play. They won't fit in packets.</li>
+  <li>UnrealScript interpretter has been modified, improved, and optimized to handle data
+    types which need to be dynamically constructed and destructed on the stack frame, such as
+    dynamic strings (now) and dynamic arrays (coming later).</li>
+  <li>Improved and generalized TMap, a template for mapping arbitrary keys to arbitrary
+    values. Considering exposing to UnrealScript later.</li>
+  <li>appAlloca works like the ANSI C alloca. Useful for allocating temporary memory on stack.</li>
+</ul>
+
+<h4>C++ Unicode Changes</h4>
+
+<ul>
+  <li>All the C++ code now compiles under Unicode by default. </li>
+  <li>ANSICHAR=8-bit signed ANSI character.</li>
+  <li>UNICHAR=16-bit unsigned Unicode character.</li>
+  <li>TCHAR=Either ANSICHAR or UNICHAR depending on compile options; currently always UNICHAR.</li>
+  <li>All of the Visual C++ projects define UNICODE and _UNICODE.</li>
+  <li>Since Windows 95/98 do not support most of the Windows API Unicode entry points, there
+    are a lot of checks of the variable GUnicodeOS which is 0 when running the Unicode version
+    of Unreal on a non-Unicode OS like Windows 95/98. There are also macros like TCHAR_CALL_OS
+    which calll the appropriate ANSI/Unicode function depending on OS support.</li>
+  <li>ATcpLink and AUdpLink text exchange functions use ANSI text exclusively.</li>
+</ul>
+
+<h4>UnrealScript Windowing System (UWindow)</h4>
+
+<ul>
+  <li>The UWindow windowing system is included.</li>
+  <li>The UBrowser (Unreal Server Browser) provides a good example of how to use the UWindow classes, should mod-makers be interested in the UT user interface system.</li>
+</ul>
+
+<h3>End</h3>
+</body>
+</html>

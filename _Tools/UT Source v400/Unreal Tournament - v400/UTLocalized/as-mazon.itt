@@ -1,0 +1,27 @@
+[LevelInfo0]
+Title=Fortezza Mazon
+IdealPlayerCount=8-12
+
+[FortStandard0]
+FortName=Le porte principali
+DestroyedMessage=sono aperte!
+
+[FortStandard2]
+FortName=Catena 1
+
+[AssaultInfo0]
+ObjDesc[0]="I tuoi nemici stanno utilizzando il Tarydium, un potente elemento volatile, per alimentare le loro macchine da guerra. Devi infiltrarti nella base, distruggendo prima i due contrappesi situati all'esterno dell'ala occidentale della fortezza."
+ObjDesc[1]=Se vuoi, puoi individuare l'interruttore d'accesso al cancello principale e aprire l'entrata primaria del castello, consentendo ai tuoi compagni di squadra un ingresso più diretto.
+ObjDesc[2]=Trova e attiva l'interruttore di accesso primario per poter entrare nella camera del reattore al Tarydium.
+ObjDesc[3]=Infine distruggi il cristallo energetico Tarydium  per terminare l'operazione.
+
+[FortStandard5]
+FortName=Cristallo
+
+[FortStandard4]
+FortName=Catena 2
+
+[FortStandard6]
+FortName=Le porte della sala reattore
+DestroyedMessage=sono aperte!
+

@@ -1,0 +1,97 @@
+#=============================================================================
+# makefile-general: General-purpose rules for Unreal makefiles.
+#
+# Makefiles should define the following variables before including this file:
+# 	Directories:
+# 		SRC_DIRS	= Source code directories.
+# 		BUILD_DIR	= Intermediate file directory.
+# 	Compiler/linker options:
+# 		CXX		= C++ compiler.
+# 		CXXFLAGS	= C++ compiler options.
+# 		LDFLAGS		= Linker options.
+# 		LIBS		= Libraries.
+# 	Files:
+# 		OBJS		= Object files.
+# 		OUT		= Output file. (Full path.)
+#
+# Revision history:
+# 	* Created by Mike Danylchuk
+#=============================================================================
+
+# Disable implicit suffix rules.
+.SUFFIXES:
+
+# Search paths.
+vpath
+vpath %.cpp	$(SRC_DIRS)
+vpath %.o	$(BUILD_DIR)
+vpath %.d	$(BUILD_DIR)
+
+# Add build path to object filenames.
+BUILD_OBJS = $(OBJS:%.o=$(BUILD_DIR)/%.o)
+
+# Dependencies are updated automatically, so only include them when necessary.
+USE_DEPENDENCIES = unknown
+ifeq ($(USE_DEPENDENCIES),unknown)
+.DEFAULT : usedeps
+.PHONY : usedeps
+usedeps : dirs
+	@$(MAKE) USE_DEPENDENCIES=yes --no-print-directory
+.PHONY : nodeps
+nodeps : dirs
+	@$(MAKE) USE_DEPENDENCIES=no --no-print-directory
+else
+
+#-----------------------------------------------------------------------------
+# Rules.
+#-----------------------------------------------------------------------------
+
+# Default goal - build the output file.
+$(OUT) : $(BUILD_OBJS)
+	$(CXX) -o $@ $(LDFLAGS) $^ $(LIBS)
+
+# Compile a C++ file.
+$(BUILD_DIR)/%.o : %.cpp
+	$(CXX) -c $(CXXFLAGS) -o $@ $<
+
+# Generate dependencies for a C++ file.
+$(BUILD_DIR)/%.d : %.cpp
+	@echo Generating dependencies for $(notdir $<)
+	@echo $(@:%.d=%.o) $@ : \\ > $@
+	@$(SHELL) -ec '$(CXX) -MM $(CXXFLAGS) $< | \
+		sed -e '\''s/.*://'\'' >> $@'
+
+# Include dependency files.
+ifeq ($(USE_DEPENDENCIES),yes)
+-include $(BUILD_OBJS:%.o=%.d)
+endif
+
+endif
+
+#-----------------------------------------------------------------------------
+# Maintenance.
+#-----------------------------------------------------------------------------
+
+.PHONY : dirs
+dirs :
+	@-mkdir -p $(BUILD_DIR)
+	@-mkdir -p $(dir $(OUT))
+
+.PHONY : clean
+clean : clean-objs clean-deps
+
+.PHONY : clean-objs
+clean-objs :
+	-rm -f $(BUILD_DIR)/*.o
+
+.PHONY : clean-deps
+clean-deps :
+	-rm -f $(BUILD_DIR)/*.d
+
+.PHONY : clean-out
+clean-out :
+	-rm -f $(OUT)
+
+#-----------------------------------------------------------------------------
+# The End.
+#-----------------------------------------------------------------------------

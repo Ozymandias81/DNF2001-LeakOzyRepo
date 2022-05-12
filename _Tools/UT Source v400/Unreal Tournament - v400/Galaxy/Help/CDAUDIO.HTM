@@ -1,0 +1,129 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System API (CD Audio)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="glxSetCDAudioVolume"></a><font size="4" face="Arial"><strong>glxSetCDAudioVolume</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSetAudioCDVolume</strong> function sets the
+overall CD Audio volume (this does NOT affect the music and/or sample volume).</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSetCDAudioVolume</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Volume,</em><br>
+<strong>int </strong><em>Speed</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the overall CD Audio volume (0..127). </font></p>
+
+<p><font size="2" face="Arial"><em>Speed</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the CD Audio volume change speed in units per
+millisecond. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLSET</font></p>
+
+<p><font size="2" face="Arial">The overall CD Audio volume is changed immediately.</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLFADE</font></p>
+
+<p><font size="2" face="Arial">The overall CD Audio volume is changed by one (1) unit per
+millisecond (giving a full scale ramp time of 128 milliseconds)</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLFADE2</font></p>
+
+<p><font size="2" face="Arial">The overall CD Audio volume is changed by two (2) units per
+millisecond (giving a full scale ramp time of 64 milliseconds)</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxStartCDAudio"></a><font size="4" face="Arial"><strong>glxStartCDAudio</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStartCDAudio</strong> funtion plays the
+specified CD Audio track(s) and starts CD Audio output.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxStartCDAudio</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>StartTrack,</em><strong><br>
+int </strong><em>EndTrack</em><strong><br>
+)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>StartTrack</em></font></p>
+
+<p><font size="2" face="Arial">Number of first CD Audio track to play</font></p>
+
+<p><font size="2" face="Arial"><em>EndTrack</em></font></p>
+
+<p><font size="2" face="Arial">Number of last CD Audio track to play</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxStartCDAudio"></a><a name="glxStopCDAudio"></a><font size="4" face="Arial"><strong>glxStopCDAudio</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStopCDAudio</strong> funtion stops the
+current playing CD Audio track(s) and stops CD Audio output.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxStopCDAudio</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>void<br>
+)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Always returns GLXERR_NOERROR</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

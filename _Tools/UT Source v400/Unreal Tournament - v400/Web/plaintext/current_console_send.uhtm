@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<form method="post" action="%PostAction%" name="" target="_parent">
+  <table width="100%%">
+    <tr>
+      <td><input type="text" name="SendText" value="%DefaultSendText%" size="60"></td>
+      <td nowrap width="1%%"><input type="submit" name="Send" value="Send"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System API (Music)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="glxControlChannel"></a><font size="4" face="Arial"><strong>glxControlChannel</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxControlChannel</strong> function offers
+realtime control over music channel attributes (like volume, status, mode etc.). Music
+channels consist of one or more voices. If you need low-level voice control use
+glxControlVoice.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxControlChannel</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Channel,<br>
+</em><strong>int </strong><em>Command,<br>
+</em><strong>int </strong><em>Parameter1,</em><br>
+<strong>int </strong><em>Parameter2</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Channel</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the channel number to which the command should be
+applied</font></p>
+
+<p><font size="2" face="Arial"><em>Command</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the command to apply to the selected channel. The
+following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_SETMODE</font></p>
+
+<p><font size="2" face="Arial">The channel mode is set to either GLX_OFF (disabled) or
+GLX_ON (enabled)</font></p>
+
+<p><font size="2" face="Arial">GLX_SETVOLUME</font></p>
+
+<p><font size="2" face="Arial">The channel volume (first parameter) is set to 0 (silence)
+until 127 (maximum), the speed of change (second parameter) ranges from 0 (GLX_VOLSET) to
+127 (maximum)</font></p>
+
+<p><font size="2" face="Arial"><em>Parameter1</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the first parameter to the command</font></p>
+
+<p><font size="2" face="Arial"><em>Parameter2</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the second (optional) parameter to the command</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxLoadMusic"></a><a name="glxControlMusic"></a><font size="4" face="Arial"><strong>glxControlMusic</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxControlMusic</strong> function offers
+realtime control over important music attributes (like position, looping etc.)</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxControlMusic</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Command,<br>
+</em><strong>int </strong><em>Parameter</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Command</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the command to apply to the music processing. The
+following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_SETLOOPMODE</font></p>
+
+<p><font size="2" face="Arial">The music looping mode is set to either GLX_LOOP (looping
+enabled) or GLX_NOLOOP (looping disabled)</font></p>
+
+<p><font size="2" face="Arial">GLX_SETPOSITION</font></p>
+
+<p><font size="2" face="Arial">The music position is set to GLX_PREV (rewind), GLX_CURR
+(no change) or GLX_NEXT (forward) effective immediately</font></p>
+
+<p><font size="2" face="Arial">GLX_SETPOSITION2</font></p>
+
+<p><font size="2" face="Arial">The music position is set to GLX_PREV (rewind), GLX_CURR
+(no change) or GLX_NEXT (forward) AFTER the current pattern has finished</font></p>
+
+<p><font size="2" face="Arial"><em>Parameter</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the parameter to the command</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxLoadMusic"></a><font size="4" face="Arial"><strong>glxLoadMusic</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxLoadMusic</strong> function loads and
+converts a piece of music from a given type of stream (file, memory etc.) to the internal,
+advanced music, format.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxLoadMusic</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to read music data from. This can either be a FILE *
+or a pointer to a custom structure (like a glxMemory *). The following formats will be
+recognized : </font></p>
+
+<p><font size="2" face="Arial">669</font></p>
+
+<p><font size="2" face="Arial">669 music streams from ComposD</font></p>
+
+<p><font size="2" face="Arial">AM</font></p>
+
+<p><font size="2" face="Arial">Advanced music streams, our internal format.</font></p>
+
+<p><font size="2" face="Arial">FAR</font></p>
+
+<p><font size="2" face="Arial">Farandole music streams from Farandole composer</font></p>
+
+<p><font size="2" face="Arial">IT</font></p>
+
+<p><font size="2" face="Arial">Impulse Tracker music streams from ImpulseTracker 2.xx and
+up</font></p>
+
+<p><font size="2" face="Arial">MOD</font></p>
+
+<p><font size="2" face="Arial">Amiga module streams from SoundTracker, ProTracker,
+FastTracker etc.</font></p>
+
+<p><font size="2" face="Arial">MTM</font></p>
+
+<p><font size="2" face="Arial">MultiTracker music streams from MultiTracker</font></p>
+
+<p><font size="2" face="Arial">PTM</font></p>
+
+<p><font size="2" face="Arial">PolyTracker music streams from PolyTracker</font></p>
+
+<p><font size="2" face="Arial">S3M</font></p>
+
+<p><font size="2" face="Arial">ScreamTracker 3 music streams from ScreamTracker 3.xx</font></p>
+
+<p><font size="2" face="Arial">STM</font></p>
+
+<p><font size="2" face="Arial">ScreamTracker music streams from ScreamTracker 2.xx</font></p>
+
+<p><font size="2" face="Arial">ULT</font></p>
+
+<p><font size="2" face="Arial">UltraTracker music streams from UltraTracker 1.xx</font></p>
+
+<p><font size="2" face="Arial">XM</font></p>
+
+<p><font size="2" face="Arial">Extended Module streams from FastTracker 2.xx</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+glxMemory *</font></p>
+
+<p><font size="2" face="Arial">GLX_LOADFROMARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><font size="2" face="Arial">GLXERR_MUSICLOADED</font></p>
+
+<p><font size="2" face="Arial">GLXERR_UNSUPPORTEDFORMAT</font></p>
+
+<p><font size="2" face="Arial">GLXERR_DAMAGEDFILE</font></p>
+
+<p><font size="2" face="Arial">GLXERR_OUTOFSAMPLEMEM</font></p>
+
+<p><a name="glxResetMusic"></a><font size="4" face="Arial"><strong>glxResetMusic</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxResetMusic</strong> funtion resets the music
+channels and initialises all global music variables.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxResetMusic</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><strong><font size="2" face="Arial">void<br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_MUSICPLAYING</font></p>
+
+<p><a name="glxSaveMusic"></a><font size="4" face="Arial"><strong>glxSaveMusic</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSaveMusic</strong> function saves the
+currently loaded piece of music to a given type of stream (file, memory etc.) as an
+advanced music (AM) stream.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSaveMusic</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>void *</strong><em>Stream</em>,<br>
+<strong>int </strong><em>Flags</em><strong><br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Stream</em></font></p>
+
+<p><font size="2" face="Arial">Stream to save advanced music (AM) stream to. This can
+either be a FILE * or a pointer to a custom structure (like a glxMemory *). If a NULL
+pointer is supplied, this function will still return the correct number of bytes saved to <em>Stream</em>.</font></p>
+
+<p><font size="2" face="Arial"><em>Flags</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the type of the stream. The following values are
+defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOSTREAM</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a FILE *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOMEMORY</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+glxMemory *</font></p>
+
+<p><font size="2" face="Arial">GLX_SAVETOARCHIVE</font></p>
+
+<p><font size="2" face="Arial">The value of <em>Stream</em> will be assumed to be a
+pointer to a custom structure and will be passed unmodified to the I/O routines. This
+option has to be used in conjunction with <strong>glxSetIOInterface</strong>, which has to
+be used to set user defineable I/O routines</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns the number of bytes saved to <em>Stream</em> or one
+of the following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLX_NULL</font></p>
+
+<p><a name="glxSetMusicVolume"></a><font size="4" face="Arial"><strong>glxSetMusicVolume</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSetMusicVolume</strong> funtion sets the
+overall music volume (this does NOT affect the sample volume).</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSetMusicVolume</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>int </strong><em>Volume,</em><br>
+<strong>int </strong><em>Speed</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Volume</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the overall music volume (0..127). </font></p>
+
+<p><font size="2" face="Arial"><em>Speed</em></font></p>
+
+<p><font size="2" face="Arial">Specifies the music volume change speed in units per
+millisecond. The following values are defined :</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLSET</font></p>
+
+<p><font size="2" face="Arial">The overall music volume is changed immediately.</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLFADE</font></p>
+
+<p><font size="2" face="Arial">The overall music volume is changed by one (1) unit per
+millisecond (giving a full scale ramp time of 128 milliseconds)</font></p>
+
+<p><font size="2" face="Arial">GLX_VOLFADE2</font></p>
+
+<p><font size="2" face="Arial">The overall music volume is changed by two (2) units per
+millisecond (giving a full scale ramp time of 64 milliseconds)</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxSetMusicReverb"></a><font size="4" face="Arial"><strong>glxSetMusicReverb</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxSetMusicReverb</strong> funtion sets the
+overall music reverb parameters, such as type and volume (this does NOT affect the sample
+reverb). If a NULL pointer is supplied reverb processing for the music will be disabled.
+Reverb processing will use approximately 384 kB of memory.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxSetMusicReverb</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>glxReverb *</strong><em>Reverb</em><br>
+</font><font size="3" face="Arial"><strong>)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial"><em>Reverb</em></font></p>
+
+<p><font size="2" face="Arial">Pointer to a glxReverb structure containing parameters for
+the music reverb.</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_BADPARAMETER</font></p>
+
+<p><a name="glxStartMusic"></a><font size="4" face="Arial"><strong>glxStartMusic</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStartMusic</strong> funtion enables the
+music channels and starts music processing. A call to <strong>glxStartMusic</strong> must
+be matched by a call to <a href="#glxStopMusic"><strong>glxStopMusic</strong></a>.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxStartMusic</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><strong><font size="2" face="Arial">void<br>
+</font><font size="3" face="Arial">)</font></strong></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_MUSICPLAYING</font></p>
+
+<p><font size="2" face="Arial">GLXERR_NOMUSICLOADED</font></p>
+
+<p><a name="glxStopMusic"></a><font size="4" face="Arial"><strong>glxStopMusic</strong></font></p>
+
+<p><font size="2" face="Arial">The <strong>glxStopMusic</strong> funtion disables the
+music channels and stops music processing.</font></p>
+
+<p align="left"><strong><font size="3" face="Arial">int glxStopMusic</font><font size="2" face="Arial"><br>
+</font><font size="3" face="Arial">(</strong><br>
+</font><font size="2" face="Arial"><strong>void<br>
+)</strong></font></p>
+
+<p><font size="3" face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font size="2" face="Arial">None</font></p>
+
+<p><font size="3" face="Arial"><strong>Return values</strong></font></p>
+
+<p><font size="2" face="Arial">Returns GLXERR_NOERROR if successful or one of the
+following errors otherwise :</font></p>
+
+<p><font size="2" face="Arial">GLXERR_NOMUSICPLAYING</font></p>
+
+<p><font size="2" face="Arial">GLXERR_NOMUSICLOADED</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

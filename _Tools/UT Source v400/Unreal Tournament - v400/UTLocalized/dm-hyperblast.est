@@ -1,0 +1,14 @@
+[LevelSummary]
+Title=Hiperexplosión
+IdealPlayerCount=2-8
+LevelEnterText=¡¡ES LA HORA CLAVE!!
+
+[VacuumZone0]
+DamageString=¡¡%k Fue catapultado al espacio!!
+
+[LevelInfo0]
+Title=Hiperexplosión
+IdealPlayerCount=2-8
+LevelEnterText=¡¡ES LA HORA CLAVE!!
+
+

@@ -1,0 +1,32 @@
+[LevelInfo0]
+Title=Fonderia di scorie
+IdealPlayerCount=6-8
+
+[LevelSummary]
+Title=Fonderia di scorie
+IdealPlayerCount=6-8
+
+[ZoneInfo18]
+ZoneName=Angolino
+
+[ZoneInfo21]
+ZoneName=Lato sud
+
+[ZoneInfo20]
+ZoneName=Lava
+
+[ControlPoint2]
+PointName=Angolino
+
+[ControlPoint1]
+PointName=Lava
+
+[ControlPoint0]
+PointName=Superiore
+
+[ZoneInfo22]
+ZoneName=Ascensore elevato
+
+[ZoneInfo19]
+ZoneName=Area principale
+

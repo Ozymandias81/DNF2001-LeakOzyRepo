@@ -1,0 +1,43 @@
+[LevelInfo0]
+Title=Jardín
+
+[LevelSummary]
+Title=Jardín
+
+[ZoneInfo13]
+ZoneName=Sótano
+
+[ZoneInfo12]
+ZoneName=Sala hacia arriba
+
+[ControlPoint2]
+PointName=Arriba
+
+[ZoneInfo8]
+ZoneName=Plataforma de observación
+
+[ZoneInfo11]
+ZoneName=Sala hacia abajo
+
+[ControlPoint0]
+PointName=Abajo
+
+[ControlPoint3]
+PointName=Centro
+
+[ZoneInfo10]
+ZoneName=Cámara de explosión 1
+
+[ZoneInfo9]
+ZoneName=Cámara de explosión 2
+
+[locationid7]
+LocationName=Sala central: abajo
+
+[locationid6]
+LocationName=Sala central: arriba
+
+[locationid8]
+LocationName=Sala central: medio
+
+

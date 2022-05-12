@@ -1,0 +1,197 @@
+[Public]
+
+[UBrowserIRCSystemPage]
+NotInAChannelText=¡No estás en ningún canal!
+KickedFromText=has sido expulsado de
+ByText=por
+IsAwayText=está fuera
+
+[UBrowserIRCPageBase]
+HasLeftText=se ha ido
+HasJoinedText=se ha unido
+WasKickedByText=ha sido expulsado por
+NowKnownAsText=es conocido ahora como
+QuitText=Salir
+SetsModeText=ajusta el modo
+
+[UBrowserServerListWindow]
+PlayerCountName=Jugadores
+ServerCountName=Servidores
+QueryServerText=Consultando al servidor maestro
+QueryFailedText=El servidor maestro falló: 
+PingingText=Ping en Servidores
+CompleteText=completo
+InfoName=Información
+
+[UBrowserServerPing]
+AdminEmailText=Correo electr. de registro
+AdminNameText=Nombre de registro
+MultiplayerBotsText=Robots en las partidas multijugador
+FragLimitText=Límite de bajas enemigas
+TimeLimitText=Límite de tiempo
+GameModeText=Modalidad de juego 
+GameTypeText=Tipo de partida
+GameVersionText=Versión del juego
+WorldLogText=ngWorldStats
+MutatorsText=Agente mutador
+TrueString=Activado
+FalseString=Desactivado
+ServerAddressText=Dirección del servidor
+GoalTeamScoreText=Puntuación máx. del equipo
+MaxTeamsText=Máximo de equipos
+FriendlyFireText=Fuego aliado:
+MinPlayersText="Robots a introducir en la partida para un mínimo de" 
+PlayersText="Jugadores"
+ChangeLevelsText="Cambiar niveles"
+BalanceTeamsText="Equilibrar equipos"
+BotSkillText="Destreza de la robot"
+
+[UBrowserIRCLink]
+InvalidAddressText=Dirección incorrecta del servidor, cancelando.
+ErrorBindingText=Error de enlace de puerto local, cancelando.
+ResolveFailedText=Fallo al conectar con la dirección del servidor, cancelando.
+ConnectedText=Conectado.
+ConnectingToText=Conectando con
+TimeOutError=Se ha excedido el tiempo para conectar con el servidor.
+InviteString="te invita a unirte"
+
+[UBrowserMainWindow]
+WindowTitleString=Buscador de servidores Unreal
+
+[UBrowserOpenBar]
+OpenText=Abrir:
+OpenHelp=Introduce una URL estándar o selecciona una del historial de URL.  Pulsa Intro para activar.
+
+[UBrowserIRCSetupClient]
+ServerText=Servidor de IRC
+ChannelText=Canal predeter.
+ServerHelp=Elige un servidor de IRC de la lista o escribe el nombre de tu propior servidor de IRC o su dirección IP.
+ChannelHelp=Elige un canal predeterminado para unirte una vez conectado al servidor o teclea el nombre de tu propio canal.
+ConnectText=Conectar
+DisconnectText=Desconectar
+ConnectHelp=Conectar al servidor de charla IRC.
+DisconnectHelp=Desconectar del servidor de charla IRC.
+WarningText=La utilidad de charla te conectará a la red "Internet Relay Chat" (IRC).\n\nEpic Games no se hace responsable del contenido de ninguno de los canales en IRC. Entras en estos canales bajo tu propia responsabilidad.\n\n¿Estás seguro de que aun así quieres conectarte?
+WarningTitle=Advertencia
+
+[UBrowserServerGrid]
+ServerName=Servidor
+PingName=Ping
+MapNameName=Nombre de mapa
+PlayersName=Jugadores
+
+[UBrowserRightClickMenu]
+PlayName=&Jugar en este servidor
+RefreshName=&Actualizar todos los servidores
+InfoName=Información de &servidores y jugadores
+FavoritesName=Agregar a &Favoritos
+RemoveFavoritesName=Eliminar de &Favoritos
+RefreshServerName=Hacer p&ing en este servidor
+PingAllName=Hacer ping en &todos los servidores
+OpenLocationName="Abrir &emplazamiento"
+CopyName="&Copiar esta localización del servidor"
+
+[UBrowserMainClientWindow]
+FavoritesName=Favoritos
+IRCName=Charla
+MOTDName=Noticias
+
+[UBrowserInfoMenu]
+RefreshName=&Actualizar información
+CloseName=&Cerrar
+
+[UBrowserUpdateServerWindow]
+QueryText=Consultando al servidor...
+FailureText=El servidor no respondió.
+
+[UBrowserGSpyLink]
+ResolveFailedError=No puede resolverse el servidor maestro: 
+TimeOutError=Se ha excedido el tiempo de comunicación con el servidor maestro
+CouldNotConnectError=Se ha excedido el tiempo para conectar con el servidor maestro: 
+
+[UBrowserPlayerGrid]
+NameText=Nombre
+FragsText=Bajas enemigas
+PingText=Ping
+TeamText=Equipo
+MeshText=Malla
+SkinText=Piel
+FaceText=Cara
+IDText=ID
+
+[UBrowserSubsetFact]
+NotFoundError=No pudo encontrarse la ventana: 
+NotReadyError=La ventana no está preparada: 
+
+[UBrowserHTTPLink]
+ResolveFailedError=No puede resolverse el servidor maestro: 
+TimeOutError=Se ha excedido el tiempo de comunicación con el servidor maestro
+CouldNotConnectError=Se ha excedido el tiempo para conectar con el servidor maestro: 
+
+[UBrowserRulesGrid]
+RuleText=Regla
+ValueText=Valor
+
+[UBrowserIRCWindow]
+SystemName=Sistema
+
+[UBrowserIRCSystemMenu]
+ConnectText=&Conectar
+DisconnectText=&Desconectar
+JoinText=&Unirse
+
+[UBrowserIRCChannelMenu]
+PartText=&Abandonar
+JoinText=&Unirse
+
+[UBrowserIRCPrivateMenu]
+CloseText=&Cerrar 
+JoinText=&Unirse
+
+[UBrowserEditFavoriteWindow]
+WindowTitle="Edit Favorite"
+OKText=Aceptar
+
+[UBrowserOpenWindow]
+OKText=Aceptar
+WindowTitle=Abrir sitio
+
+[UBrowserNewFavoriteWindow]
+WindowTitle="Nuevo favorito"
+OKText="Nuevo"
+
+[UBrowserEditFavoriteWindow]
+WindowTitle="Editar favorito"
+
+[UBrowserEditFavoriteCW]
+DescriptionText="Descripción"
+UpdateDescriptionText="Actualizar descripción automáticamente"
+IPText="Dirección IP del servidor"
+GamePortText="Número de puerto del servidor"
+QueryPortText="Número de puerto de la consulta"
+
+[UBrowserFavoritesMenu]
+FavoritesName="Quitar de &Favoritos"
+EditFavoriteName="&Editar favorito"
+NewFavoriteName="&Nuevo favorito"
+
+[UBrowserOpenCW]
+OpenText="Abrir:"
+OpenHelp="Introduce una URL estándar, o selecciona una del historial de URL.  Pulsa Intro para activarla."
+
+[UMenuBotSetupBase]
+DefaultsText="Restablecer"
+DefaultsHelp="Restablece la configuración de todos los robots a sus valores originales."
+
+[ServerListTitles]
+UBrowserUT=Servidores de UT 
+UBrowserLAN=Servidores LAN
+UBrowserPopulated=Servidores utilizados por multijugador 
+UbrowserDeathmatch=Combate mortal
+UBrowserTeamGames=Combate mortal por equipos
+UBrowserCTF=Capturar la bandera
+UBrowserDOM=Dominación
+UBrowserAS=Asalto
+UBrowserLMS=Último hombre en pie
+UBrowserAll=Todos los servidores
+

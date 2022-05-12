@@ -1,0 +1,45 @@
+[LevelInfo0]
+Title=Instalación Coret 
+IdealPlayerCount=4-8
+LevelEnterText=Bienvenido al Centro de Entrenamiento Coret
+
+[ZoneInfo1]
+ZoneName=Área central
+
+[ZoneInfo3]
+ZoneName=Base roja
+
+[ZoneInfo4]
+ZoneName=Base azul
+
+[ZoneInfo6]
+ZoneName=Sala azul principal
+
+[ZoneInfo11]
+ZoneName=Sala roja principal
+
+[ZoneInfo7]
+ZoneName=Sala lateral azul
+
+[ZoneInfo2]
+ZoneName=Acceso lateral rojo
+
+[ZoneInfo5]
+ZoneName=Vestíbulo azul
+
+[ZoneInfo10]
+ZoneName=Vestíbulo rojo
+
+[ZoneInfo8]
+ZoneName=Sala azul superior
+
+[ZoneInfo9]
+ZoneName=Sala roja superior
+
+[ZoneInfo0]
+ZoneName=Área central - Arriba
+
+[LevelSummary]
+LevelEnterText=Bienvenido al Centro de Entrenamiento Coret
+
+

@@ -1,0 +1,7 @@
+[UTBrowserServerGrid]
+ngStatsName=ngWorldStats
+EnabledText=Activado
+
+[UTBrowserMainWindow]
+WindowTitleString=Buscador de servidores Unreal Tournament
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="yes"?>
+<install product="UnrealTournament" desc="Unreal Tournament" version="346">
+  <option install="true" help="The basic stuff you need to play.">
+    Unreal Tournament Base 
+    <files>
+      Help/*
+      Logs/*
+      Maps/*
+      Music/*
+      Sounds/*
+      Textures/*
+      Web/*
+      System/*.u
+      System/*.int
+      System/DefUser.ini
+      LinuxCoreSystem.tar.gz
+    </files>
+  </option>
+  <option install="true" help="Configures UT for Glide.">
+    Glide Configuration [3dfx cards]
+    <files>
+      LinuxGlideSystem.tar.gz
+    </files>
+  </option>
+  <option install="true" help="Tools to generate HTML statistics about your gameplay.">
+    NetGames USA Stat Utils
+    <files>
+      NetGamesUSA.com/*
+    </files>
+  </option>
+</install>

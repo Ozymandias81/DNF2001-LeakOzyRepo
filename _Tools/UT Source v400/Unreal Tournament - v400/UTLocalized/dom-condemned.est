@@ -1,0 +1,50 @@
+[LevelInfo0]
+Title=En ruinas
+IdealPlayerCount=6
+LevelEnterText=¡Domina la competición!
+
+[LevelSummary]
+Title=En ruinas
+IdealPlayerCount=6
+LevelEnterText=¡Domina la competición!
+
+[ZoneInfo1]
+ZoneName=el tejado
+
+[ControlPoint2]
+PointName=Arturo
+
+[ControlPoint1]
+PointName=Techo
+
+[ZoneInfo0]
+ZoneName=el edificio en ruinas
+
+[ControlPoint0]
+PointName=puerta del taller
+
+[ZoneInfo4]
+ZoneName=los callejones
+
+[ScrollingMessageTexture0]
+ScrollingMessage=ESTA NOCHE, A LAS 10:00PM ... %p CONDUCE AL EQUIPO INVICTO %h AL CAMPO EN RUINAS
+
+[locationid0]
+LocationName=el taller
+
+[locationid2]
+LocationName=bar Arturo
+
+[locationid1]
+LocationName=bar Arturo
+
+[locationid3]
+LocationName=Techo
+
+[locationid4]
+LocationName=Techo
+
+[locationid5]
+LocationName=Techo
+
+

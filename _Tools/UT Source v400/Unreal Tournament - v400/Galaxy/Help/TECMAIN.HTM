@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Galaxy Music System Technical Help (Main)</title>
+</head>
+
+<body stylesrc="help.htm" bgcolor="#000080" text="#FFFF00" link="#00FF00" vlink="#008000">
+
+<p><a name="Vision"></a><font size="3" face="Arial"><strong>Vision</strong></font></p>
+
+<p><font size="2" face="Arial">The Galaxy Music System is build to make a cutting-edge
+immersive audio experience possible without the need to invest a lot of time and manpower
+into expensive research. It's a ready and easy-to-use solution especially aimed for
+demanding multimedia applications, like computer-games, technology-demos and multimedia
+presentations. This is accomplished through a very intelligible API and no-nonsens
+technical support, we're known to deliver custom modifications and routines in extremely
+short periods of time. Galaxy is made for YOU so we listen to YOUR suggestions and those
+of the public, which results in a top-class audio solution with support for the latest
+technologies.</font></p>
+
+<p><a name="Features"></a><font size="3" face="Arial"><strong>Features</strong></font></p>
+
+<p><font size="2" face="Arial">The Galaxy Music System is build around a highly optimized
+and very flexible Software-DSP. This part will describe some of the used algorithms in
+general, because these are trade-secrets they will NOT be discussed into detail. Anyway,
+it should give those interested a brief idea of what is involved in giving you the best
+possible sound quality. The entire digital sound domain is handled by the advanced
+LightSpeed (tm) ]I[ Highperformance Software-DSP. Which is a privately developed, very
+flexible, Software-DSP with the following key features :</font> 
+
+<ul>
+  <li><font size="2" face="Arial">256 Full featured software voices all running at a maximum
+    frame-rate of 48 Khz. </font></li>
+  <li><font size="2" face="Arial">Full resampling with adaptive second order interpolation on
+    a per channel basis.</font></li>
+  <li><font size="2" face="Arial">Support for realtime decompression of&nbsp; MPEG Layer 1,2
+    or 3 audio streams.</font></li>
+  <li><font size="2" face="Arial">32 bit high-precision resolution on internal audio
+    processing algorithms.</font></li>
+  <li><font size="2" face="Arial">Dolby Surround (tm) Pro-logic and full support for 3D
+    Positional audio.</font></li>
+  <li><font size="2" face="Arial">Support for General MIDI files in combination with DLS-1
+    Collections.</font></li>
+  <li><font size="2" face="Arial">2 Programmable effect busses per voice with variable send
+    levels.</font></li>
+  <li><font size="2" face="Arial">Support for instruction-set extensions (MMX and 3DNow!).</font></li>
+  <li><font size="2" face="Arial">Highly optimized for Pentium (tm) class processors.</font></li>
+  <li><font size="2" face="Arial">2 Built-in effects routines : Reverb and Chorus.</font></li>
+</ul>
+
+<p><font size="2" face="Arial">These are some of the highlights of the LightSpeed (tm) ]I[
+Highperformance Software-DSP, as you can see multiple professional algorithms are employed
+in our Software-DSP. This will bring you cutting-edge audio technology for use in your
+applications, with the possibility for customizing through the use of external effects
+processing routines.</font></p>
+
+<p><a name="Positional audio"></a><font size="3" face="Arial"><strong>Positional audio</strong></font></p>
+
+<p><font size="2" face="Arial">Galaxy offers 3D-positional audio through 3D equivalents of
+the regular sample control functions (<strong>glxStartSample3D, glxControlSample3D </strong>and
+<strong>glxStopSample3D</strong>).If one of these functions is called, the sample will be
+positioned through 3D positional algorithms. These can be either in hardware (A3D, EAX
+etc.) or in software (G3D). Galaxy will automatically try the hardware solutions first, if
+these are not present OR they are out of resources Galaxy will do software fallback using
+G3D. Which are Galaxy's own proprietary positional audio algorithms with the following key
+features : </font>
+
+<ul>
+  <li><font size="2" face="Arial">Physically correct distance cueing, through inverse square
+    law.</font></li>
+  <li><font size="2" face="Arial">Realistic sound placement, with support for Dolby
+    Surround(tm).</font></li>
+  <li><font size="2" face="Arial">True doppler shifting, supports both moving listener AND
+    source.</font></li>
+  <li><font size="2" face="Arial">Effects processing such as reverb is possible on all 3D
+    sources.</font></li>
+  <li><font size="2" face="Arial">Works on every plain stereo soundcard, runs entirely in
+    software.</font></li>
+</ul>
+
+<p><font size="2" face="Arial">These are some of the features G3D has to offer, as
+developer you can write a single 3D positional audio based application with Galaxy taking
+care of addressing hardware (when available) or emulating your call in software with as
+little CPU overhead as possible while maintaining accurate sound placement.</font></p>
+
+<p><a name="Internal Timing"></a><font size="3" face="Arial"><strong>Internal Timing</strong></font></p>
+
+<p><font size="2" face="Arial">Since Advanced Musics (AM) are based on both Amiga
+ProTracker Modules (MOD) and General Midi Files (MID) their timing systems are also
+related. In order to use and support this file format it is important to know and
+understand how the internal timing works. First of all the timing system is build around
+two factors, the main speed and the main tempo parameters. Those can be modified
+independently but they can both contribute to the overall timing in the following manners
+:</font></p>
+
+<p><font size="2" face="Arial"><strong>ProTracker Compatibility Mode :</strong></font></p>
+
+<p><font size="2" face="Arial">The main speed value specifies how many 'time units' are
+spend in each EVENT, one event is normally called a ROW. Multiple ROWs constitute a
+PATTERN, these PATTERNs can be sequenced in any ORDER to form a song. The main tempo value
+specifies the number of 'beats' per minute, one beat consists of four EVENTS (at main
+speed 6). Only the latter value translates to the length of the 'time units' used. The
+length of the 'time units' can be calculated using the formula below :</font></p>
+
+<p><font size="2" face="Arial">time unit length = 1/time units per second = 5/(Main
+tempo*2)</font></p>
+
+<p><font size="2" face="Arial">The default value for the main speed is 6 'time units' per
+EVENT (=ROW) and the default value for the main tempo is 125 'beats' per minute this comes
+down to 50 'time units' per second, thus each 'time unit' has a length of 1/50th of a
+second. In the end this gives a resolution of 6*4=24 'time units' per beat.</font></p>
+
+<p><font size="2" face="Arial"><strong>Midi Compatibility Mode :</strong></font></p>
+
+<p><font size="2" face="Arial">The main speed value specifies how many 'time units' are
+spend in each BEAT, one quarter note is normally called a BEAT. Multiple BEATs constitute
+a STREAM, these STREAMs can be sequenced in any ORDER to form a song. The main tempo value
+specifies the number of beats per minute, one beat is one quarter note. Both of these
+values translate to the length of the 'time units' used. The length of the 'time units'
+can be calculated using the formula below :</font></p>
+
+<p><font size="2" face="Arial">time unit length = 1/time units per second = 60/(Main
+tempo*Main speed)</font></p>
+
+<p><font size="2" face="Arial">The default value for the main speed is 48 'time units' per
+BEAT and the default value for the main tempo is 120 beats per minute this comes down to
+96 'time units' per second, thus each 'time unit' has a length of 1/96th of a second.</font></p>
+
+<p><a name="Envelopes"></a><font size="3" face="Arial"><strong>Envelopes</strong></font></p>
+
+<p><font size="2" face="Arial">Advanced Music (AM) files offer envelopes to create
+realistic wavetable instruments. Volume, pitch and panning envelopes are supported. These
+envelopes offer a scale factor which is linear in amplitude (not in dBs!), pitch (not in
+Hz!) or position. Further all envelopes offer looping capabilities along with a fadeout
+(=release). The envelope points have both a DESTINATION value and a time value. This time
+is absolute, meaning that all points with the same time value are processed at the same
+time. This section will explain how the envelopes should be working in both modes : </font></p>
+
+<p><font size="2" face="Arial"><strong>ProTracker Compatibility Mode :</strong></font></p>
+
+<p><font size="2" face="Arial">Whenever a note is played (key on issued) the envelope is
+updated at a resolution of 16 times the internal 'time unit' resolution. Starting at point
+zero, the actual envelope value can be found by interpolating between the current envelope
+value and the next point. As long as the note is played (key is pressed) the envelope will
+continue upto the sustain point. It will stay at the sustain point until a key off is
+issued, then it will continue to play the rest of the volume envelope (including
+looppoints). After a key off you'll also have to update the fadeout value, which has an
+initial value of 32767. Each 'time unit' after a key off you have to subtract the
+envelope's fadeout step from the current fadeout value.</font></p>
+
+<p><font size="2" face="Arial"><strong>Midi Compatibility Mode :</strong></font></p>
+
+<p><font size="2" face="Arial">Whenever a note is played (key on issued) the envelope is
+updated each internal 'millisecond'. Starting at point zero, the actual envelope value can
+be found by interpolating between the current envelope value and the next point. As long
+as the note is played (key is pressed) the envelope will continue upto the sustain point.
+It will stay at the sustain point until a key off is issued. If a key off is issued, it
+will continue playing the volume envelope starting at the SUSTAIN point (even if the
+sustain point was NOT reached). After a key off you'll also have to update the fadeout
+value, which has an initial value of 32767. Each 'millisecond' after a key off you have to
+subtract the envelope's fadeout step from the current fadeout value. </font></p>
+
+<p><a name="Splitpoints"></a><font size="3" face="Arial"><strong>Splitpoints</strong></font></p>
+
+<p><font size="2" face="Arial">Advanced Music (AM) files offer user configureable per-note
+splitpoint capabilities, this means that each key can have an individual sample (using
+either a global or local set of articulation data) assigned to it. Each Advanced
+Instrument (AI) contains an array of 128 bytes stating which sample (in the instrument) to
+use for that particular key-number. The values are base zero, meaning the sample index
+values can range from zero until the number of samples in the instrument MINUS one.</font></p>
+
+<p><a name="LFOs"></a><font size="3" face="Arial"><strong>LFOs</strong></font></p>
+
+<p><font size="2" face="Arial">In addition Advanced Music (AM) files also offer two Low
+Frequency Oscillators (LFOs) to modulate the pitch and/or volume. Both LFOs have variable
+startup delay and user selectable waveforms (sine, sawtooth, pulse and triangle). The
+frequency can range from 0..1024 Hz in steps of 1/64th Hz. The pitch (vibrato) LFO has a
+depth value range from -10..+10 octaves in steps of 1/256th semi-tone.</font></p>
+
+<p></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

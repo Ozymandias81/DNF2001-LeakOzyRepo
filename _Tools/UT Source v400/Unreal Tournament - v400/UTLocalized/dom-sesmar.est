@@ -1,0 +1,38 @@
+[LevelInfo0]
+Title=Tumba de Sesmar 
+IdealPlayerCount=10
+LevelEnterText=¡¡DOMINA!!
+
+[ZoneInfo3]
+ZoneName=Afueras
+
+[ZoneInfo0]
+ZoneName=Sala de las Columnas
+
+[ZoneInfo5]
+ZoneName=Cruz de Ank roja
+
+[ZoneInfo4]
+ZoneName=Cruz de Ank azul
+
+[ZoneInfo2]
+ZoneName=Pasadizos
+
+[ZoneInfo1]
+ZoneName=Pasadizos
+
+[ControlPoint3]
+PointName=Sala de las Columnas
+
+[ControlPoint0]
+PointName=Cruz de Ank azul
+
+[ControlPoint1]
+PointName=Cruz de Ank roja
+
+[LevelSummary]
+Title=Tumba de Sesmar 
+IdealPlayerCount=10
+LevelEnterText=¡¡DOMINA!!
+
+

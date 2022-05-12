@@ -1,0 +1,470 @@
+[Public]
+Object=(Name=UTMenu.UTConsole,Class=Class,MetaClass=Consola de la máquina)
+
+[OnlineServices]
+MPlayer=Partidas Internet en mplayer.com,Selecciona esta opción para jugar en Internet utilizando el servicio en linea de mplayer.com,CMDQUIT,mplayer
+Heat=Partidas Internet en HEAT,Selecciona esta opción para jugar en Internet utilizando el servicio en linea de HEAT,CMDQUIT,heat
+WON=Partidas Internet en WON,Selecciona esta opción para jugar en Internet utilizando el servicio en linea de WON.,URL,http://www.won.net/channels/action/ut/
+
+[PhysicalChildWindow]
+PhysicalTaunts[0]="Satisfacción"
+PhysicalTaunts[1]="Movimiento pelvis"
+PhysicalTaunts[2]="Danza victoria"
+PhysicalTaunts[3]="Adiós"
+
+[UTConsole]
+ClassCaption=Consola de Torneo de Unreal
+
+[UTLadder]
+MapText=Mapa:
+AuthorText=Autor:
+FragText=Límite de bajas enemigas:
+TeamScoreText=Límite de puntuación por equipo:
+
+[MatchButton]
+UnknownText=Desconocido
+
+[ManagerWindow]
+DMText=Combate mortal
+DOMText=Dominación
+CTFText="Capturar la bandera "
+ASText=Asalto
+ChallengeText=Desafío
+ChallengeString=DESAFÍO FINAL DEL TORNEO
+ChalPosString=Clasificación de Desafío:
+TrophyText=Sala de trofeos
+RankString[0]=Clasificación de Combate mortal:
+RankString[1]=Clasificación de Dominación:
+RankString[2]=Clasificación de Capturar la bandera:
+RankString[3]=Clasificación de Asalto:
+MatchesString=Partidas completadas:
+
+[SpeechWindow]
+Options[0]=Rendirse
+Options[1]=Fuego aliado
+Options[2]=Órdenes
+Options[3]=Provocaciones
+Options[4]=Varios
+Options[5]=Gesto
+Options[6]=Dirigir este robot
+WindowTitle=Órdenes
+
+[SlotWindow]
+EmptyText=SIN UTILIZAR
+AvgRankStr=Clasificación media:
+CompletedStr=Partidas ganadas:
+
+[NewCharacterWindow]
+MaleText=Hombre
+FemaleText=Mujer
+SkillText[0]=Aprendiz
+SkillText[1]=Iniciado
+SkillText[2]=Ducho
+SkillText[3]=Experimentado
+SkillText[4]=Experto
+SkillText[5]=Maestro
+SkillText[6]=Sobrehumano
+SkillText[7]=Supremo
+CCText="Crea personaje"
+TeamNameString=Nombre de equipo:
+NameText=Nombre
+SexText=Sexo
+TeamText=Equipo
+FaceText=Cara
+SkillsText=Nivel de habilidad
+
+[UTIndivBotSetupClient]
+SkillText=Ajuste de destreza
+SkillHelp=Ajusta la destreza de este robot; comienza desde el nivel básico.
+VoicePackText=Voz
+VoicePackHelp=Elige una voz para los insultos y las órdenes de tu jugador.
+FavoriteWeaponText=Arma favorita
+FavoriteWeaponHelp=Selecciona el arma favorita de este robot.
+NoFavoriteWeapon=(no favorita)
+AccuracyText=Puntería
+AccuracyHelp=Cambia puntería del robot. La posición central=normal, extrema izquierda=mínima y extrema derecha=máxima.
+AlertnessText=Estado de alerta
+AlertnessHelp=Cambia el estado de alerta de este robot. La posición central es el estado normal.
+CampingText=Cámping
+CampingHelp=Cambia la predisposición del robot para acampar.
+CombatStyleText=Estilo de lucha
+CombatStyleHelp=Selecciona el estilo de lucha de este robot.
+CombatStyleValues[1]=0.500000
+CombatStyleValues[2]=1.000000
+CombatStyleValues[3]=-0.500000
+CombatStyleValues[4]=-1.000000
+CombatStyleNames[0]=Normal
+CombatStyleNames[1]=Agresivo
+CombatStyleNames[2]=Poseso
+CombatStyleNames[3]=Precavido
+CombatStyleNames[4]=Esquivo
+JumpyText=Comport. de salto
+JumpyHelp=Este robot suele saltar demasiado en el nivel, al igual que algunos jugadores.
+
+[UTChallengeHUDConfig]
+ShowHUDText=Mostrar monitor frontal (HUD)
+ShowHUDHelp=Mostrar monitor frontal (HUD).
+ShowWeaponsText=Mostrar la pantalla de armas
+ShowWeaponsHelp=Mostrar la pantalla de armas en el HUD.
+ShowStatusText=Mostrar el estado del jugador
+ShowStatusHelp=Mostrar el indicador de estado del jugador (arriba a la derecha) en el HUD.
+ShowAmmoText=Mostrar recuento de munición
+ShowAmmoHelp="Mostrar tu recuento actual de munición en el HUD."
+ShowTeamInfoText=Mostrar información sobre el equipo
+ShowTeamInfoHelp=Mostrar información relacionada con el equipo en el HUD.
+ShowFacesText=Mostrar el área de charla
+ShowFacesHelp=Mostrar el área de charla en la esquina superior izquierda, donde aparecen mensajes y bajas.
+ShowFragsText=Mostrar bajas enemigas
+ShowFragsHelp=Mostrar el recuento de bajas enemigas en el HUD.
+UseTeamColorText=Usar colores de equipo en part. por equip.
+UseTeamColorHelp=En las partidas por equipos, esta configuración utiliza el color de tu equipo en el HUD.
+HUDColorText=Color de HUD
+HUDColorHelp=Cambiar color preferido del HUD. En partidas por equipos, se utilizará el color de tu equipo.
+HUDColorNames[0]=Rojo
+HUDColorNames[1]=Violeta
+HUDColorNames[2]=Azul claro
+HUDColorNames[3]=Turquesa
+HUDColorNames[4]=Verde
+HUDColorNames[5]=Naranja
+HUDColorNames[6]=Dorado
+HUDColorNames[7]=Rosa
+HUDColorNames[8]=Blanco
+HUDColorNames[9]=Azul oscuro
+HUDColorNames[10]=Personalizado
+HUDColorValues[0]=16,0,0
+HUDColorValues[1]=16,0,16
+HUDColorValues[2]=0,8,16
+HUDColorValues[3]=0,16,16
+HUDColorValues[4]=0,16,0
+HUDColorValues[5]=16,8,0
+HUDColorValues[6]=16,16,0
+HUDColorValues[7]=16,0,8
+HUDColorValues[8]=16,16,16
+HUDColorValues[9]=0,0,16
+HUDColorValues[10]=personalizado
+HUDRText=Color de HUD Rojo
+HUDRHelp=Utiliza las regletas de rojo, verde y azul para personalizar el color del HUD.
+HUDGText=Color del HUD verde
+HUDGHelp=Utiliza las regletas de rojo, verde y azul para personalizar el color del HUD.
+HUDBText=Color del HUD azul
+HUDBHelp=Utiliza las regletas de rojo, verde y azul para personalizar el color del HUD.
+OpacityText=Transparencia del HUD
+OpacityHelp=Ajusta el nivel de transparencia del HUD.
+HUDScaleText=Tamaño del HUD
+HUDScaleHelp=Ajusta el tamaño de los elementos del HUD.
+WeaponScaleText=Tamaño iconos armas
+WeaponScaleHelp=Ajusta el tamaño de los iconos de las armas en el HUD.
+StatusScaleText=Tamaño de estado
+ShowStatusHelp=Ajusta la barra de estado del jugador (arriba a la derecha) en el HUD.
+CrosshairText=Estilo del punto de mira
+CrosshairHelp=Elige el punto de mira que aparecerá en el centro de tu pantalla.
+CrosshairColorText=Color de punto de mira
+CrosshairColorHelp=Cambiar el color preferido del punto de mira.
+CrosshairRText=Color de punto de mira R.
+CrosshairRHelp=Utiliza las barras de rojo, verde y azul para personalizar el color del punto de mira.
+CrosshairGText=Color del punto de mira V.
+CrosshairGHelp=Utiliza las barras de rojo, verde y azul para personalizar el color del punto de mira.
+CrosshairBText=Color del punto de mira A.
+CrosshairBHelp=Utiliza las barras de rojo, verde y azul para personalizar el color del punto de mira.
+DefaultsText=Restablecer
+DefaultsHelp=Restablece la configuración predeterminada del HUD.
+
+[SpeechBinderCW]
+LabelText=Asignar a tecla:
+NotApplicable=No procede
+AllString=Todo
+LeaderString=Líder del equipo
+PlayerString=Miembro del equipo
+NotBound=No asignado
+DefaultsText=Restablecer
+DefaultsHelp=Anular todas las teclas de diálogo.
+
+[TeamBrowser]
+NameString=Nombre:
+ClassString=Clasificación:
+BrowserName=Lista del equipo
+
+[EnemyBrowser]
+NameString=Nombre:
+ClassString=Clasificación:
+BrowserName=Lista de enemigos
+
+[ObjectiveBrowser]
+BrowserName=Objetivos de la misión
+OrdersTransmissionText=Transmisión de órdenes
+
+[InGameObjectives]
+ObjectiveString=Objetivo
+BrowserName=Objetivos de la misión
+OrdersTransmissionText=Transmisión de órdenes
+
+[UTPlayerSetupClient]
+VoicePackText=Voz
+VoicePackHelp=Elige una voz para los insultos y las órdenes de tu jugador.
+SpectatorText=Juega como espectador
+SpectatorHelp=Marca esta casilla para ver la acción del juego como un espectador.
+StatsText="Contraseña ngWorldStats"
+StatsButtonText="Cambio"
+
+[UTTeamRCWindow]
+TeamScoreText=Bajas enemigas
+TeamScoreHelp=Si un equipo logra esta puntuación, termina la partida.
+MaxTeamsText=Máximo de equipos
+MaxTeamsHelp=El máximo numero de equipos que pueden participar en esta partida.
+FFText=Fuego aliado:
+FFHelp=La barra ajusta el máximo daño que el fuego aliado puede causar a los compañeros de equipo.
+BalancePlayersText="Igualar equipos"
+BalancePlayersHelp=" Si la opción está marcada, los jugadores serán obligados a incorporarse al equipo que haga falta para igualar los equipos."
+
+[UTRulesCWindow]
+JumpMatchText=Partida de saltos
+JumpMatchHelp=Si se marca esta casilla, los jugadores podrán saltar muy alto.
+TourneyText=Torneo
+TourneyHelp=La partida no comenzará hasta que cada jugadores pulsen el botón de disparo indicando que están listos.
+AllowFOVText=Cambio campo vista
+AllowFOVHelp=Los jugadores podrán cambiar el campo de vista (puede considerarse trampa, ya que podrán acercarse).
+ForceRespawnText="Forzar regeneración"
+ForceRespawnHelp="Si esta opción está marcada, los jugadores se regenerarán automáticamente tras ser eliminados, sin que sea necesario pulsar el botón de disparo." 
+
+[SpeechChildWindow]
+WindowTitle=
+
+[UTBotConfigClient]
+BalanceTeamsText=Equilibrar equipos
+BalanceTeamsHelp=Los robots cambiarán automáticamente de equipo para que no haya desproporción.
+DumbDownText=IA del equipo activada
+DumbDownHelp=Activa la inteligencia artificial de los robots del equipo en esta partida.
+MinPlayersText=Mínimo de jugadores
+MinPlayersHelp=Si no hay suficientes jugadores, se crearán robots hasta lograr el No. mínimo. El 0 desactiva los robots.
+Skills[2]=Ducho
+Skills[3]=Experimentado
+Skills[4]=Experto
+Skills[5]=Maestro
+Skills[6]=Sobrehumano
+Skills[7]=Supremo
+SkillTaunts[1]=Parece que no se andan con tonterías.
+SkillTaunts[2]=Te crees muy listo, ¿verdad?
+SkillTaunts[3]=Te crees muy fuerte, ¿no?
+SkillTaunts[4]=Demuéstrame de lo que eres capaz.
+SkillTaunts[5]=¿Crees en la reencarnación?
+SkillTaunts[6]=Estás muerto.
+SkillTaunts[7]=Yo soy el principio y el fin.
+
+[PhysicalChildWindow]
+WindowTitle=
+
+[SpeechMiniDisplay]
+NameString=Nombre:
+OrdersString=Órdenes:
+LocationString=Ubicación:
+HumanString=Ningún <Humano>
+
+[OrdersChildWindow]
+WindowTitle=
+
+[TargetChildWindow]
+AllString=Todo
+WindowTitle=
+
+[UTSettingsCWindow]
+TranslocText=Translocalizador
+TranslocHelp=Si se marca esta casilla, cada jugador será equipado con un dispositivo de transporte personal o Translocalizador.
+AirControlText=Control aéreo
+AirControlHelp=Esta barra especifica el grado de control sobre los movimientos de tus jugadores mientras estén en el aire.
+
+[UTMenuStartMatchCW]
+ChangeLevelsText=Cambio autom. nivel
+ChangeLevelsHelp=Si marcas esta casilla, el servidor cambiará de nivel según la lista de mapas para este tipo de partida.
+
+[UTAudioClientWindow]
+AutoTauntText=Provocación autom.
+AutoTauntHelp=Si marcas esta casilla, el jugador enviará automáticamente un mensaje de provocación cuando apuntes una baja.
+VoiceTauntsText=Provoc. verbales
+VoiceTauntsHelp=Si marcas esta casilla, oirás provocaciones procedentes de otros jugadores.
+Use3DHardwareText="Utilizar A3D/EAX"
+Use3DHardwareHelp="Si la opción está marcada, UT utilizará el hardware de sonido en 3D para conseguir efectos de entorno más realistas."
+UseSurroundSoundText="Utilizar sonido envolvente"
+UseSurroundSoundHelp="Si la opción está marcada, UT utilizará el receptor digital para lograr el efecto de sonido envolvente."
+ConfirmHardwareTitle="Confirmar la utilización de hardware de sonido en 3D"
+ConfirmHardwareText="Para utilizar hardware de sonido en 3D, hay que tener una tarjeta de sonido en 3D compatible con A3D o EAX. Si se activa esta opción, puede que el rendimiento del juego se vea seriamente afectado en algunos casos.\\n\\n¿Seguro que quieres activar esta opción?"
+ConfirmSurroundTitle="Confirmar la utilización del sonido envolvente"
+ConfirmSurroundText=" Para utilizar el sonido envolvente, hay que tener un receptor de sonido envolvente compatible conectado a la tarjeta de sonido.  Si se activa esta opción sin contar con el receptor adecuado, se podrían producir anomalías en el sonido.\\n\\n¿Seguro que quieres activar esta opción?"
+NoMatureLanguageText="Provoc. vulgares desactiva"
+NoMatureLanguageHelp="Si la opción está marcada, no se escucharán las provocaciones que utilicen lenguaje vulgar."
+AnnouncerVolumeText="Volumen del comentarista"
+AnnouncerVolumeHelp="Sirve para ajustar el volumen del comentarista durante el juego."
+MessageSettingsText="Reproducir mensajes/voz"
+MessageSettingsHelp="Con esta opción puedes controlar qué mensajes de voz enviados por otros jugadores se oirán."
+MessageSettings[0]="Todos"
+MessageSettings[1]="Provocaciones automáticas desactivadas"
+MessageSettings[2]="Provocaciones desactivadas"
+MessageSettings[3]="Ninguno"
+
+[UTInputOptionsCW]
+InstantRocketText=Disp. instánt. cohete
+InstantRocketHelp="El lanzacohetes disparará un cohete con sólo apretar el botón de disparo (no espera hasta cargar más cohetes)."
+SpeechBinderText=Asignador de diálogos
+SpeechBinderHelp=Utiliza esta ventana especial para asignar las órdenes y las provocaciones a determinadas teclas.
+
+[ngWorldSecretClient]
+DescText[0]=Ésta es tu contraseña en ngWorldStats. Se usa junto con
+DescText[1]=el nombre de tu jugador para mantener tus estadíticas de juego
+DescText[2]=aparte de otros jugadores. Si cambias ésta o tu nombre,
+DescText[3]=se creará una nueva identidad en el sistema ngWorldStats.
+DescText[4]=Si quieres, puedes jugar con varias identidades. Utiliza la contraseña
+DescText[5]=que se te ofrece o elige tú una para usarla siempre.
+SecretText=Contraseña:
+OKText=Aceptar
+SecretDesc="Elige tu contraseña para distinguir tus estadísticas en línea en ngWorldStats."
+QuitHelp="Selecciona [Sí] para guardar tu nueva contraseña."
+QuitTitle="Confirmar cambio de contraseña"
+QuitText="¡Atención! Si juegas con esta nueva contraseña, se creará una cuenta nueva en ngWorldStats para ti la próxima vez que te incorpores a una partida en el servidor de ngWorldStats. ¿Seguro que quieres continuar?"
+EmptyTitle="Confirmar anulación de contraseña"
+EmptyText="Nota: Has decidido no contar con una contraseña para ngWorldStats.  Tus estadísticas de las partidas en línea no se guardarán. ¿Seguro que quieres continuar?"
+
+[KillGameQueryClient]
+QueryText=¿Seguro que quieres borrar esta partida?
+YesText=Sí
+NoText=No
+
+[UTLadderChal]
+TrophyMap=EOL_Challenge.unr
+LadderName=Desafío final
+
+[FreeSlotsClient]
+QueryText=Debes dejar libre una ranura
+DoneText=Aceptar
+
+[UTLadderDM]
+TrophyMap=EOL_DeathMatch.unr
+LadderName=Combate mortal
+
+[UTLadderDOM]
+TrophyMap=EOL_Domination.unr
+LadderName=Dominación
+
+[UTStartGameCW]
+DedicatedText=Dedicado
+DedicatedHelp=Pulsa para ejecutar un servidor dedicado.
+ServerText=Servidor
+ConfirmTitle="Confirmar inicio de partida"
+ConfirmText="Estás a punto de incorporarte a una partida en red a través de un servidor de NGWorldStats pero no has indicado ninguna contraseña para ngWorldStats. Si no especificas una contraseña, las estadísticas de tu partida no se guardarán. ¿Quieres escribir una contraseña ahora?"
+
+[UTLadderCTF]
+ShortTitle=CLB
+TrophyMap=EOL_CTF.unr
+LadderName=Capturar la bandera
+
+[UTLadderAS]
+TrophyMap=EOL_Assault.unr
+LadderName=Asalto
+
+[KillGameQueryWindow]
+WindowTitle=Verificación de eliminación de partida
+
+[UTGameMenu]
+NewGameName=&Comenzar el Torneo de Unreal
+NewGameHelp=Selecciona este botón para comenzar una nueva partida de Torneo de Unreal
+LoadGameName=&Reanudar Torneo guardado de Unreal 
+LoadGameHelp=Selecciona este botón para volver a una partida guardada de Torneo de Unreal.
+BotmatchName=Comenzar una sesión de &prácticas
+BotmatchHelp=Selecciona este botón para empezar una partida de práctica contra robots.
+ReturnToGameName=Volver a la &partida
+ReturnToGameHelp=Abandona el menú y regresa a la partida. También volverás a la partida que jugabas si pulsas la tecla ESC.
+QuitName=&Salir
+QuitHelp=Selecciona este botón si deseas guardar tus opciones y salir de Unreal.
+QuitTitle=Confirmar Salida
+QuitText=¿Seguro que quieres Salir?
+
+[SpeechBinderWindow]
+WindowTitle=Asignador de diálogos
+
+[UTConfigIndivBotsWindow]
+WindowTitle=Configuración individual de robots
+
+[FreeSlotsWindow]
+WindowTitle=Todas las ranuras están llenas
+
+[UTBotmatchWindow]
+WindowTitle=Comienzo de la sesión de prácticas
+
+[ngWorldSecretWindow]
+WindowTitle=Selección de contraseña para el programa ngWorldStats
+
+
+[UTCustomizeClientWindow]
+LabelList[0]=Controles,Disparo
+LabelList[1]=Disparo alternativo
+LabelList[2]=Avanzar
+LabelList[3]=Retroceder
+LabelList[4]=Desplazarse a la izda
+LabelList[5]=Desplazarse a la dcha
+LabelList[6]=Girar a la izquierda
+LabelList[7]=Girar a la derecha
+LabelList[8]=Saltar
+LabelList[9]=Agacharse
+LabelList[10]=Vistas con el ratón
+LabelList[11]=Mirar hacia arriba
+LabelList[12]=Mirar hacia abajo
+LabelList[13]=Centrar vista
+LabelList[14]=Caminar
+LabelList[15]=Desplazato. lateral
+LabelList[16]=Simular muerte
+LabelList[17]="Provocaciones / Charla,Hablar"
+LabelList[18]="Mensaje para tu equipo"
+LabelList[19]="Mostrar menú de voz"
+LabelList[20]="Movimiento pelvis"
+LabelList[21]="Adiós""
+LabelList[22]="Danza victoria"
+LabelList[23]="Satisfacción"
+LabelList[24]="Armas,Ste. arma"
+LabelList[25]="Arma Anterior"
+LabelList[26]="Lanzar Arma"
+LabelList[27]="Selecc. Mejor Arma"
+LabelList[28]="Translocalizador"
+LabelList[29]="Motosierra"
+LabelList[30]="Martillo de impacto"
+LabelList[31]="Reforzador"
+LabelList[32]="Rifle de choque"
+LabelList[33]="Bio Rifle"
+LabelList[34]="Arma de impulsos"
+LabelList[35]="Rifle de precisión"
+LabelList[36]="Destripador"
+LabelList[37]="Minipistola"
+LabelList[38]="Cañón antiaéreo"
+LabelList[39]="Lanzacohetes"
+LabelList[40]="Redentor"
+LabelList[41]="Vista del Compañero,Compañero 1"
+LabelList[42]="Compañero 2"
+LabelList[43]="Compañero 3"
+LabelList[44]="Compañero 4"
+LabelList[45]="Compañero 5"
+LabelList[46]="Compañero 6"
+LabelList[47]="Compañero 7"
+LabelList[48]="Compañero 8"
+LabelList[49]="Compañero 9"
+LabelList[50]="Compañero 10"
+LabelList[51]="HUD,Aumentar HUD"
+LabelList[52]="Reducir HUD"
+LabelList(53)="Tecla, Tecla"
+LabelList(54)="Tecla de acceso directo"
+
+[UTPasswordWindow]
+WindowTitle="Introduce la contraseña del servidor."
+
+[UTPasswordCW]
+PasswordText="`Contraseña:"
+
+[UTServerSetupPage]
+GamePasswordText="Contraseña partida"
+GamePasswordHelp="Si se introduce una, el jugador tendrá que utilizar esta contraseña para poder acceder al servidor."
+AdminPasswordText="Contraseña admin."
+AdminPasswordHelp="Si esta opción está activada, el jugador podrá acceder al servidor con esta contraseña y modificar parámetros del administrador."
+EnableWebserverText="Administrador remoto"
+EnableWebserverHelp="Si esta opción está marcada, podrás administrar a distancia el servidor de UT utilizando un explorador Web."
+WebAdminUsernameText="Nombre de usuario"
+WebAdminUsernameHelp="Es el nombre de usuario que se necesita para acceder al administrador del servidor remoto a través de Internet."
+WebAdminPasswordText="Contraseña WWW"
+WebAdminPasswordHelp="Es la contraseña que se necesita para acceder al administrador del servidor remoto a través de Internet."
+ListenPortText="Número del puerto"
+ListenPortHelp="Es el número del puerto a través del cual el servidor Web de administración remota recibirá las conexiones."

@@ -1,0 +1,52 @@
+[LevelInfo0]
+Title=Giardino
+
+[ControlPoint0]
+PointName=Inferiore
+
+[ControlPoint3]
+PointName=Centrale
+
+[ControlPoint2]
+PointName=Superiore
+
+[LevelSummary]
+Title=Giardino
+IdealPlayerCount=4-6
+
+[ZoneInfo13]
+ZoneName=Seminterrato
+
+[ZoneInfo12]
+ZoneName=Sala superiore
+
+[ControlPoint2]
+PointName=Alto
+
+[ZoneInfo8]
+ZoneName=Ponte di osservazione
+
+[ZoneInfo11]
+ZoneName=Sala inferiore
+
+[ControlPoint0]
+PointName=Basso
+
+[ControlPoint3]
+PointName=Centro
+
+[ZoneInfo10]
+ZoneName=Fornace 1
+
+[ZoneInfo9]
+ZoneName=Fornace 2
+
+[locationid7]
+LocationName=Stanza centrale - Basso 
+
+[locationid6]
+LocationName=Stanza centrale - Alto
+
+[locationid8]
+LocationName=Stanza centrale - Centro
+

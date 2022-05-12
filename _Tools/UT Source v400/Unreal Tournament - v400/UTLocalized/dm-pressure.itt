@@ -1,0 +1,43 @@
+[WaterZone1]
+ZoneName=Serbatoio d'acqua
+
+[ZoneInfo3]
+ZoneName=Sala della passerella
+
+[ZoneInfo5]
+ZoneName=Sala dei pilastri
+
+[WaterZone0]
+ZoneName=Serbatoio d'acqua
+
+[ZoneInfo2]
+ZoneName=Sala pressurizzata
+
+[ZoneInfo7]
+ZoneName=Galleria dei fucili
+
+[PressureZone0]
+ZoneName=Camera pressurizzata
+
+[ZoneInfo6]
+ZoneName=Sala dei pilastri
+
+[ZoneInfo1]
+ZoneName=Sala pressurizzata
+
+[ZoneInfo4]
+ZoneName=Sala dei pilastri
+
+[ZoneInfo0]
+ZoneName=Sala della passerella
+
+[LevelInfo0]
+Title=Pressione
+IdealPlayerCount=8
+LevelEnterText=PORTALI NELLA CAMERA PRESSURIZZATA!!!
+
+[LevelSummary]
+Title=Pressione
+IdealPlayerCount=8
+LevelEnterText=PORTALI NELLA CAMERA PRESSURIZZATA!!!
+
