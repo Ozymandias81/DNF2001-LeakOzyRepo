@@ -5,6 +5,6 @@ xcopy /y /d /s o:\duke4\dist\*.*
 xcopy /y /d /s o:\duke4\packages\*.*
 
 ECHO Copying current font to Windows directory, Don't worry if you see a sharing violation below, it is normal.
-copy impact.ttf c:\windows\fonts
+copy impact.ttf %windir%\fonts\
 
 del system\*.ilk
