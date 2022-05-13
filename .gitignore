@@ -9,6 +9,7 @@
 # Then ignore these folders
 
 _Backups/*
+Exported/*
 /Stable/Players/*
 /Stable/System/DukeForever.log
 /Stable/System/Detected.log

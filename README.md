@@ -41,7 +41,6 @@ It needs to be added yet
 - StrikerMan780: Several fixes regarding Multiplayer and Sounds (https://github.com/StrikerMan780/DNF2001Fixes)
 - Xinerki: DXVK Wrapper
 - BFG9000: Other minor wrappers attempts (D3D8-9)
-- neoxaero: Discord Coordinator Lead
 
 # Known Bugs #
 
