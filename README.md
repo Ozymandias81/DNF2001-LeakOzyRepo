@@ -10,11 +10,9 @@ This repository has multiple aims:
 
 # The Content #
 
-As you might have notice, this version has different folders names compared to its original leak, that can be found at https://archive.org/details/duke-nukem-forever-2001-leak . 
+As you might have notice, this version has different folders names compared to its original leak, that can be found at https://archive.org/details/duke-nukem-forever-2001-leak
 
-You now have Stable and Unstable folder, plus the Rips one which contains resources useful for modders (Doom mainly I think)
-
-The Stable folder was originally the "October 26" folder, that has been patched with the MegaPatch and the dnGame.u file re-enabled inside System thanks to Zombie (you can find the thread here https://forums.duke4.net/topic/12013-leaked-duke-nukem-forever-2001/ ).
+The Stable folder was originally the "October 26" folder, that has been patched with the MegaPatch and the dnGame.u file re-enabled inside System thanks to Zombie (you can find the thread here https://forums.duke4.net/topic/12013-leaked-duke-nukem-forever-2001/ )
 
 The Unstable folder was originally the "August 21" folder, that only had System in it, and which has been built with unpatched files from October 26 version. While in game, in order to access the menu you must open the console and use ccmds. A list soon will be provided here.
 
@@ -40,13 +38,14 @@ It needs to be added yet
 # Authors #
 
 - Ozymandias81: Archive Maintainer, Programmer
-- neoxaero: Discord Coordinator Lead
+- StrikerMan780: Several fixes regarding Multiplayer and Sounds (https://github.com/StrikerMan780/DNF2001Fixes)
 - Xinarki: DXVK Wrapper
-- BFG9000: Othe minor wrappers attempts (D3D8-9)
+- BFG9000: Other minor wrappers attempts (D3D8-9)
+- neoxaero: Discord Coordinator Lead
 
 # Known Bugs #
 
-DO NOT PRESS F10 IN GAME, IT TRIES TO SAVE A SCREENSHOT BUT INSTEAD IT FREEZES THE APP (though the shot gets saved)
+DO NOT PRESS F10 IN GAME, IT TRIES TO SAVE A SCREENSHOT BUT INSTEAD IT FREEZES THE APP (it works with DXVK wrapper)
 Changing brightness with F11 works only with the unpatched wrapper on October 26 folder (Stable) , other wrappers doesn't
 Obviously the game is not complete at all, it is very unstable and you can't save properly the game in several situations
 

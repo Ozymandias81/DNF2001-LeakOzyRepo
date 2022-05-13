@@ -1,7 +1,7 @@
 # Let's remove these from commits
 
 *.bak
-*.log
+*.dxvk-cache
 *.php
 *.psd
 *.tmp
@@ -10,4 +10,8 @@
 
 _Backups/*
 _Tests/*
-Stable/System/*.log
+/Stable/Players/*
+/Stable/System/DukeForever.log
+/Stable/System/Detected.log
+/Stable/System/UCC.log
+/Unstable/System/DukeForever.log
