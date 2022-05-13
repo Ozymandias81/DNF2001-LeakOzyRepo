@@ -1,0 +1,1 @@
+most recent snapshot of the widescreen patch thing, sniper scope is usable again, objectives are probably activated, idk what else

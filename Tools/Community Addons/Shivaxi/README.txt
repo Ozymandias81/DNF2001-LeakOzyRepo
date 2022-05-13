@@ -1,0 +1,1 @@
+Simple fix to fix the NPC Guide soft lock.  Triggers are now re-triggerable so you don't have to worry about running ahead.  This also creates a hilarious side effect where if you run backwards, the NPC backtracks and follows you.  Also locks the door that leads into a wall.
