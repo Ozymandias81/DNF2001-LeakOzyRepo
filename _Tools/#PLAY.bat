@@ -24,15 +24,14 @@ ECHO Welcome to Ozy's DNF 2001 Leak BAT Loader, choose an option by
 ECHO typing the relative number and that's all. Use "X" to leave.
 ECHO --------------------------------------------------------------
 ECHO.
-ECHO  [1] Run DNF 2001 (October 26 Leak - More Stable)
-ECHO  [2] Run DNF 2001 (August 21 Leak - Less Stable)
-ECHO  [3] Run Cannibal Editor
-ECHO  [4] Run DNF 2001 Editor
+ECHO  [1] Run DNF 2001 (October 26 Leak - More Stable, Improved)
+ECHO  [2] Run DNF 2001 (August 21 Leak - Less Stable, Not Improved)
+ECHO  [3] Run DNF 2001 Editor
+ECHO  [4] Run Cannibal Editor (Still not Working)
 ECHO.
 ECHO  - USE FOLLOWING ONLY IF YOU KNOW WHAT ARE YOU DOING -
 ECHO.
 ECHO  [5] Reset your Config (delete generated .ini files)
-ECHO  [6] Rebuild the Source Code (not sure how this works)
 ECHO.
 ECHO  [X] Exit
 ECHO -----------------------------------------------------
@@ -63,19 +62,15 @@ IF "%STDIN%" EQU "2" (
     GOTO :EOF
 )
 IF "%STDIN%" EQU "3" (
-    CALL CANNIBAL.bat
+    CALL DUKE-ED.bat
     GOTO :EOF
 )
 IF "%STDIN%" EQU "4" (
-    CALL DUKE-ED.bat
+    CALL CANNIBAL.bat
     GOTO :EOF
 )
 IF "%STDIN%" EQU "5" (
     CALL RESET.bat
-    GOTO :MainMenu
-)
-IF "%STDIN%" EQU "6" (
-    CALL REBUILD.bat
     GOTO :MainMenu
 )
 IF /I "%STDIN%" EQU "X" (
