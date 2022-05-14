@@ -1,3 +1,11 @@
 # Auto detect text files and perform LF normalization
 
-*.bat   text eol=crlf
+*.bat   	text eol=crlf
+*.dds		-text
+*.jpg		-text
+*.pcx		-text
+*.png		-text
+*.sh		text eol=lf
+*.tga		-text
+*.txt		text
+*.vcproj	text eol=crlf

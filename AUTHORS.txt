@@ -1,0 +1,93 @@
+# Here you will find an exhaustive list of the original authors found while digging the leak #
+# The following list has been compiled by looking at these files extension: cpp, h, Changelog, uc, c, asm, mk, plg, py, txt, rc #
+# List dumped by Ozymandias81 #
+
+- MODELS
+Brian
+David Turner
+Matt Wood
+
+- SKINS
+Brian
+David Turner
+Ruben Cabrera
+
+- TEXTURES
+A. Pomianowski
+Tomas G. Lane
+
+- SOUNDS
+Carlo Vogelsang
+John Miles
+Lee Jackson
+Sonic Foundry
+
+- MAPPING
+Charlie Wiederhold
+
+- PROGRAMMING
+A. Pomianowski
+Aaron Leiby
+Allen H. Blum III
+Andrew Scheidecker
+Andy Hanson
+Anthony Fok
+Anthony Wong
+Brandon Reinhart
+Carlo Vogelsang
+Charlie Wiederhold
+Chris Hargrove
+Christoph Lameter
+Chucko
+Darin Adler
+David Turner
+Erik De Neve
+Francesco Zappa Nardelli
+Gordon Matzigkeit
+Henrik Grubbström
+Jack Porter
+Jess Crable
+John Miles
+John Pollard
+John Robbins
+Jouk Jansen
+Keith Packard
+Keith Schuler
+Laurence Withers
+M. Michon
+Marcelo E. Magallon
+Matt Wood
+Matthew Crosby
+Mike Danylchuk
+Mike Owens
+NJS
+Nick Shaffner
+Noah Friedman
+Paul Dubois
+Richard Shupak
+Scott Alden
+Seth Sowerby
+Stephen Cole
+Steven Polge
+Tim Sweeney
+Timothy L. Weisser
+Tom Kacvinsky
+Tomas G. Lane
+Warren Marshall
+Wolfgang Domröse
+Yamano-Uchi Hidetoshi
+
+- COMPANIES
+3d Realms
+Advanced Micro Devices
+Aureal Semiconductor (Scott T. Etherton and Micah Mason)
+Catharon Productions
+Epic Games
+Free Software Foundation
+FreeType Project (Just van Rossum, David Turner, Robert Wilhelm, and Werner Lemberg)
+Infinite Machine
+Legend Entertainment
+Massachusetts Institute of Technology M.I.T.
+Microsoft Corporation
+Sonic Foundry
+Sven Technologies

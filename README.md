@@ -35,12 +35,13 @@ values under Engine.WindowsClient list. You might also attempt to play with D3DD
 
 It needs to be added yet
 
-# Authors #
+# Credits #
 
 - Ozymandias81: Archive Maintainer, Programmer
 - StrikerMan780: Several fixes regarding Multiplayer and Sounds (https://github.com/StrikerMan780/DNF2001Fixes)
 - Xinerki: DXVK Wrapper
 - Zombie: Unstable menu fixes
+- NUKEMDAVE: Textures fixes
 
 # Known Bugs #
 
