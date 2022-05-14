@@ -23,7 +23,11 @@ Lee Jackson
 Sonic Foundry
 
 - MAPPING
+Allen H. Blum III
 Charlie Wiederhold
+John Pollard
+Keith Schuler
+Stephen Cole
 
 - PROGRAMMING
 A. Pomianowski
