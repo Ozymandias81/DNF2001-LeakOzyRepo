@@ -30,6 +30,7 @@ REBUILD.bat - This should rebuild somehow the whole structure of "Stable" files,
 If you want to edit your windowed/fullscreen resolutions and settings, check inside Stable-Unstable/Players folder and edit the
 DukeForever.ini file inside the folder of your Profile name. My monitor can't handle more than 1280x1024, but you will find those
 values under Engine.WindowsClient list. You might also attempt to play with D3DDrv.D3DRenderDevice settings.
+You can also press F12 in game and type setres YOURRESOLUTION and press enter: it will freeze the app, but you can close it and load it again and the chosen res will be applied (windowed).
 
 # Features #
 
@@ -43,10 +44,25 @@ It needs to be added yet
 - Zombie: Unstable menu fixes
 - NUKEMDAVE: Textures fixes
 
+# CCMDS (use SOS) #
+
+setres YOURxRES - apply desired resolution, freeze the app, you must run the game again
+
+# Cheats (use SOS) #
+
+AllAmmo - All Weapons
+Fly - You Fly
+Ghost - NoClip
+God - GodMode
+God2 - GodMode Alternative
+
 # Known Bugs #
 
 DO NOT PRESS F10 IN GAME, IT TRIES TO SAVE A SCREENSHOT BUT INSTEAD IT FREEZES THE APP (it works with DXVK wrapper)
 Changing brightness with F11 works only with the unpatched wrapper on October 26 folder (Stable) , other wrappers doesn't
+Save/Load game doesn't work properly, sometimes yes sometimes no
+You can pee in any circumstances and in a infinite way (default bind F)
+Some actors routines might break during gameplay and softlock your game
 Obviously the game is not complete at all, it is very unstable and you can't save properly the game in several situations
 
 # License #
