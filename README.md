@@ -40,7 +40,7 @@ It needs to be added yet
 - Ozymandias81: Archive Maintainer, Programmer
 - StrikerMan780: Several fixes regarding Multiplayer and Sounds (https://github.com/StrikerMan780/DNF2001Fixes)
 - Xinerki: DXVK Wrapper
-- BFG9000: Other minor wrappers attempts (D3D8-9)
+- Zombie: Unstable menu fixes
 
 # Known Bugs #
 
