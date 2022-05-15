@@ -26,12 +26,17 @@ ECHO --------------------------------------------------------------
 ECHO.
 ECHO  [1] Run DNF 2001 (October 26 Leak - More Stable, Improved)
 ECHO  [2] Run DNF 2001 (August 21 Leak - Less Stable, Not Improved)
-ECHO  [3] Run DNF 2001 Editor
-ECHO  [4] Run Cannibal Editor (Still not Working)
+ECHO  [3] Run DNF 2001 Editor (Stable, D3D8 or higher)
+ECHO  [4] Run DNF 2001 Editor (Unstable, Software Mode)
+ECHO  [5] Run MeshED (Not fully working)
+ECHO  [6] Run Cannibal Editor (Still not Working)
 ECHO.
-ECHO  - USE FOLLOWING ONLY IF YOU KNOW WHAT ARE YOU DOING -
+ECHO  - USE FOLLOWING ONLY IF YOU HAVE ISSUES -
 ECHO.
-ECHO  [5] Reset your Config (delete generated .ini files)
+ECHO  [7] Reset your Config - Stable (del generated .ini files)
+ECHO  [8] Reset Everything - Stable (del Players and .log files)
+ECHO  [9] Reset your Config - Unstable (del generated .ini files)
+ECHO  [0] Reset Everything - Unstable (del Players and .log files)
 ECHO.
 ECHO  [X] Exit
 ECHO -----------------------------------------------------
@@ -66,11 +71,31 @@ IF "%STDIN%" EQU "3" (
     GOTO :EOF
 )
 IF "%STDIN%" EQU "4" (
-    CALL CANNIBAL.bat
+    CALL DUKE-EDu.bat
     GOTO :EOF
 )
 IF "%STDIN%" EQU "5" (
+    CALL MESH-ED.bat
+    GOTO :EOF
+)
+IF "%STDIN%" EQU "6" (
+    CALL CANNIBAL.bat
+    GOTO :EOF
+)
+IF "%STDIN%" EQU "7" (
     CALL RESET.bat
+    GOTO :MainMenu
+)
+IF "%STDIN%" EQU "8" (
+    CALL RESET2.bat
+    GOTO :MainMenu
+)
+IF "%STDIN%" EQU "9" (
+    CALL RESETu.bat
+    GOTO :MainMenu
+)
+IF "%STDIN%" EQU "0" (
+    CALL RESET2u.bat
     GOTO :MainMenu
 )
 IF /I "%STDIN%" EQU "X" (
