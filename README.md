@@ -39,8 +39,9 @@ It needs to be added yet
 # Credits #
 
 - Ozymandias81: Archive Maintainer, Programmer
-- StrikerMan780: Several fixes regarding Multiplayer and Sounds (https://github.com/StrikerMan780/DNF2001Fixes)
+- StrikerMan780: Some fixes regarding Multiplayer and Sounds
 - Xinerki: DXVK Wrapper
+- Shivaxi: Some maps fixes
 - Zombie: Unstable menu fixes
 - NUKEMDAVE: Textures fixes
 
