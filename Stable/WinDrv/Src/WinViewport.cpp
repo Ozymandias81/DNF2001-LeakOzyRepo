@@ -1703,7 +1703,6 @@ UBOOL UWindowsViewport::diSetupKeyboardMouse()
 		appErrorf( NAME_Init, TEXT("Failed to set DirectInput mouse device data format.") );
 		return false;
 	}
-	hr = diMouse->SetCooperativeLevel( Window->hWnd, DISCL_FOREGROUND | DISCL_EXCLUSIVE );
 	if ( FAILED( hr ) )
 	{
 		appErrorf( NAME_Init, TEXT("Failed to set DirectInput mouse device cooperative level.") );
