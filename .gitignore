@@ -9,11 +9,19 @@
 # Then ignore these folders
 
 _Backups/*
-Exported/*
 /Stable/Players/*
-/Stable/System/DukeForever.log
+/Stable/System/Detected.ini
 /Stable/System/Detected.log
+/Stable/System/DukeForever.log
+/Stable/System/System.ini
 /Stable/System/UCC.log
-/Unstable/System/DukeForever.log
+/Stable/System/dsoundlog.txt
+/Stable/System/tempedit.mac
+/Unstable/Players/*
+/Unstable/System/Detected.ini
 /Unstable/System/Detected.log
+/Unstable/System/DukeForever.log
+/Unstable/System/System.ini
 /Unstable/System/UCC.log
+/Unstable/System/dsoundlog.txt
+/Unstable/System/tempedit.mac
