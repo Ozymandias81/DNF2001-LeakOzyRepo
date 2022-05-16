@@ -1,1 +1,0 @@
-Patch for the August 21 build that repairs the broken main menu. Incldues the decompiled & patched UnrealScript sources (delete dnWindow folder first if you want to use that code).

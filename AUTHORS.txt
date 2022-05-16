@@ -1,5 +1,4 @@
 # Here you will find an exhaustive list of the original authors found while digging the leak #
-# The following list has been compiled by looking at these files extension: cpp, h, Changelog, uc, c, asm, mk, plg, py, txt, rc #
 # List dumped by Ozymandias81 #
 
 - MODELS

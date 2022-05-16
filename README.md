@@ -42,8 +42,13 @@ It needs to be added yet
 - NUKEMDAVE: Graphical resources fixes
 - StrikerMan780: Some fixes regarding Multiplayer and Sounds
 - Xinerki: DXVK Wrapper
-- Shivaxi: Several maps fixes
+- Shivaxi: Maps fixes
 - Zombie: Unstable menu fixes
+
+Extra Content:
+- Novak/YeOldeFellerNoob: DM-WolfGrid map
+- TheBaratusII: DM-DNFLiandri map
+- Protox: Duke Nukem skin fixes
 
 # CCMDS (use SOS) #
 
@@ -57,19 +62,15 @@ More commands can be found at https://www.oldunreal.com/UnrealReference/Console.
 - behindview 0/1 > first/third person toggle
 - open MAPNAME > opens specified map which is present inside "maps" folder
 - summon ITEMNAME > spawns instantly specified item in front of you
-- killpawns > removes everyone but you from the game
 - killall ITEMNAME > removes all items of the indicated type
 
 # Cheats (use SOS) #
 
 - AllAmmo > All Weapons
-- Loaded > Not Tested
-- Walk > Takes you out of Ghost or Fly mode
 - Fly > Fly mode On
 - Ghost > NoClip
 - God > GodMode On
 - God2 > GodMode Alternative
-- playersonly > Stops time for everyone but you
 - suicide > Kills the player
 
 # Known Bugs #

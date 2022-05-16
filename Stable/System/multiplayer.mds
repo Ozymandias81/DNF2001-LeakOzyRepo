@@ -259,3 +259,30 @@ Object=(Name=p_portraiticons.p_damguide1,Class=Texture,Description="Tim Icon",  
 /--------------------------
 / LizTrooper
 Object=(Name=c_characters.alien_Liztrooper, Class=DukeMesh,Description="Liztrooper",Parent="dnGame.dnMalePlayer")
+
+// Duke Nukem
+Object=(Name=c_characters.Duke, Class=DukeMesh, Description="Duke Nukem", Parent="dnGame.dnMalePlayer")
+
+// Duke Group
+Group=(Name="AllDukeMeshes",Members="c_characters.Duke")
+Group=(Name="AllDukeTorsos",Members="m_characters.TempDuke2 DukeFix.DukeFace_2")
+Group=(Name="AllDukeTorsos",Members="m_characters.TempDuke2 DukeFix.DukeFace_3")
+Group=(Name="AllDukeFaces",Members="m_characters.TempDuke3 DukeFix.Dukefix")
+Group=(Name="AllDukePants",Members="m_characters.malepants2aRC")
+Group=(Name="Normal",Members="m_characters.TempDuke3")
+Group=(Name="Fixed",Members="DukeFix.Dukefix")
+Group=(Name="Alternative",Members="DukeFix.DukeFace_2")
+Group=(Name="Shades",Members="DukeFix.DukeFace_3")
+
+// Torso
+Object=(Name=m_characters.TempDuke3,Class=Texture,Description="Normal",Category=Face,Parent="AllDukeMeshes")
+Object=(Name=DukeFix.Dukefix,Class=Texture,Description="Fixed",Category=Face,Parent="AllDukeMeshes")
+
+// Faces
+Object=(Name=m_characters.TempDuke2,Class=Texture,Description="Default",Category=Torso,Parent="AllDukeMeshes AllDukeFaces")
+Object=(Name=DukeFix.DukeFace_2,Class=Texture,Description="Alternative",Category=Torso,Parent="AllDukeMeshes AllDukeFaces")
+Object=(Name=DukeFix.DukeFace_3,Class=Texture,Description="Shades",Category=Torso,Parent="AllDukeMeshes AllDukeFaces")
+
+
+// Pants
+Object=(Name=m_characters.malepants2aRC,Class=Texture,Description="Normal",Category=Legs, Parent="AllDukeMeshes AllDukeFaces AllDukeTorsos")
