@@ -75,6 +75,8 @@ More commands can be found at https://www.oldunreal.com/UnrealReference/Console.
 
 # Known Bugs #
 
+- ONLY FOR WINDOWS7 USERS: in order to make DukeED work, you have to make a copy of your Stable folder and move it on minimal directory, like C:/Stable, and from there remove any .log files inside your System folder and remove everything from Players folder; after that, remove all wrappers belonging to d3d8 fix. After these changes you can run DukeED, and make sure that you didn't altered too much the DukeED.ini file (all X-Y values should be set to 0).
+
 - DO NOT PRESS F10 IN GAME, IT TRIES TO SAVE A SCREENSHOT BUT INSTEAD IT FREEZES THE APP (it works with DXVK wrapper)
 - Changing brightness with F11 works only with the unpatched wrapper on October 26 folder (Stable) , other wrappers doesn't
 - Save/Load game doesn't work properly, but it works instead on Unstable build
