@@ -1,0 +1,626 @@
+Log: Log file open, 05/17/22 18:49:11
+Init: Name subsystem initialized
+Init: Detected: Microsoft Windows NT 6.1 (Build: 7601)
+Init: Version: 400
+Init: Compiled: Aug 21 2001 18:27:31
+Init: Command line: 
+Init: Base directory: C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstable\System\
+Init: Character set: Unicode
+Init: Profile: DukeEd
+Log: Bound to Editor.dll
+Log: Bound to Engine.dll
+Init: Object subsystem initialized.
+Init: Computer: VIRJPC
+Init: User: virj
+Init: Memory total: Phys=4194303K Pagef=4194303K Virt=2097024K
+Init: Working set: 32000 / 159000
+Init: CPU Speed=3515.860828 MHz
+Init: CPU Page size=4096, Processors=6
+Init: CPU Detected: Unknown processor (AuthenticAMD)
+Init: CPU Features: CMov FPU RDTSC PAE MMX KNI
+Log: Loading: Package Editor
+Log: Loading: Package Engine
+Init: Unreal engine initialized.  Lincoln is pleased.
+Log: Bound to Galaxy.dll
+Init: Galaxy is using WinMM
+Init: Galaxy initialized
+Init: Transaction tracking system initialized
+Log: Loading: Package UWindow
+Log: Bound to Fire.dll
+Log: Loading: Package Fire
+Log: Loading: Package IPServer
+Log: Bound to UWeb.dll
+Log: Loading: Package UWeb
+Log: Loading: Package UBrowser
+Log: Loading: Package dnParticles
+Log: Loading: Package t_generic
+Log: Loading: Package t_detail
+Log: Loading: Package t_firefx
+Log: Loading: Package a_impact
+Log: Loading: Package m_dnWeapon
+Log: Loading: Package palettes
+Log: Loading: Package m_vehicles
+Log: Loading: Package c_FX
+Log: Loading: Package t_explosionFx
+Log: Loading: Package dnModulation
+Log: Loading: Package afbproship
+Log: Loading: Package mario
+Log: Loading: Package a_generic
+Log: Loading: Package dnsWeapn
+Log: Loading: Package a_edf
+Log: Loading: Package t_test
+Log: Loading: Package m_generic
+Log: Loading: Package a_transport
+Log: Loading: Package c_generic
+Log: Loading: Package m_zone1_vegas
+Log: Loading: Package a_ambient
+Log: Loading: Package c_zone1_vegas
+Log: Loading: Package petalumahouse
+Log: Loading: Package dnGame
+Log: Loading: Package hud_effects
+Log: Loading: Package powerpuzzle1
+Log: Loading: Package c_dnWeapon
+Log: Loading: Package a_dukevoice
+Log: Loading: Package circuitpuzzle1
+Log: Loading: Package ezmail
+Log: Loading: Package ezvend
+Log: Loading: Package EZPhone
+Log: Loading: Package c_dukeitems
+Log: Loading: Package keypads
+Log: Loading: Package a_zone1_vegas
+Log: Loading: Package m_turretfx
+Log: Loading: Package a_switch
+Log: Loading: Package c_characters
+Log: Loading: Package a_inventory
+Log: Loading: Package c_hands
+Log: Loading: Package a_creatures
+Log: Loading: Package m_hands
+Log: Loading: Package SMK6
+Log: Loading: Package crane
+Log: Loading: Package ts01
+Log: Loading: Package SMK5
+Log: Loading: Package dnsMaterials
+Log: Loading: Package m_characters
+Log: Loading: Package smk8
+Log: Loading: Package vegas
+Log: Loading: Package ShieldFX
+Log: Loading: Package canvasfx
+Log: Loading: Package arcadeFX
+Log: Loading: Package SMK4
+Log: Loading: Package dukeed_gfx
+Log: Loading: Package a_npcvoice
+Log: Loading: Package modelfx
+Log: Loading: Package c_vehicles
+Log: Loading: Package D3DSounds
+Log: Loading: Package dnMountables
+Log: Loading: Package dnAI
+Log: Loading: Package m_zone3_canyon
+Log: Loading: Package c_zone3_canyon
+Log: Loading: Package TEMPVOICE
+Log: Loading: Package a_doors
+Log: Loading: Package m_fx
+Log: Loading: Package dnWindow
+Log: Loading: Package SMK3
+Log: Loading: Package SMK7
+Log: Loading: Package U_Generic
+Log: Loading: Package airforcebase
+Log: Loading: Package Airforcebase2
+Log: Loading: Package c_zone4_afb
+Log: Loading: Package RocketFX
+Log: Loading: Package U_Zone1_Vegas
+Log: Loading: Package U_Zone2_Dam
+Log: Loading: Package c_zone2_dam
+Log: Loading: Package U_Zone3_Canyon
+Log: Loading: Package U_Zone4_AFB
+Log: Loading: Package U_Zone5_Area51
+Log: Loading: Package c_zone5_area51
+Log: Loading: Package computer
+Log: Loading: Package m_zone5_area51
+Log: Loading: Package U_Zone6_Ship
+Log: Loading: Package dnMaterial
+Log: Loading: Package U_Fragment
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Warning: Property bDarkenModulate of Class Engine.Texture not found
+Warning: Skipping 0 bytes of type 3
+Init: Win32 client initialized.
+Init: Lighting manager initialized.
+Init: Render core initialized.
+Init: Editor engine initialized
+Log: Startup time: 1.961375 seconds
+Cmd: MODE MAPEXT=dnf
+Init: Input system initialized for U2Viewport0
+Localization: No localization: Engine.General.ViewXY (int)
+Localization: No localization: Engine.General.ViewXY (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: Bound to D3DDrv.dll
+Init: Direct3D adapters detected:
+Log: Adaptor Detected: nvd3dum.dll/NVIDIA GeForce GT 1030
+Init: DukeForever Direct3D support initializing.
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:0b660000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Log: SetRes(NewX=314,NewY=173,NewColorBytes=4,Fullscreen0) (this:0b660000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0b660000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0b660000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Input system initialized for U2Viewport1
+Localization: No localization: Engine.General.ViewXY (int)
+Localization: No localization: Engine.General.ViewXZ (int)
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:0dd70000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: SetRes(NewX=314,NewY=173,NewColorBytes=4,Fullscreen0) (this:0dd70000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0dd70000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0dd70000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Input system initialized for U2Viewport2
+Localization: No localization: Engine.General.ViewXZ (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:0dfc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=314,NewY=173,NewColorBytes=4,Fullscreen0) (this:0dfc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0dfc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0dfc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Init: Input system initialized for U2Viewport3
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewYZ (int)
+Localization: No localization: Engine.General.ViewYZ (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:0fa10000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Log: SetRes(NewX=314,NewY=173,NewColorBytes=4,Fullscreen0) (this:0fa10000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0fa10000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Log: SetRes(NewX=4,NewY=0,NewColorBytes=4,Fullscreen0) (this:0fa10000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Log: SetRes(NewX=567,NewY=442,NewColorBytes=4,Fullscreen0) (this:0b660000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Log: SetRes(NewX=615,NewY=442,NewColorBytes=4,Fullscreen0) (this:0dd70000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: SetRes(NewX=567,NewY=442,NewColorBytes=4,Fullscreen0) (this:0dfc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=615,NewY=442,NewColorBytes=4,Fullscreen0) (this:0fa10000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Init: Input system initialized for MeshViewer
+Localization: No localization: Engine.General.ViewYZ (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=256,NewY=256,NewColorBytes=4,Fullscreen0) (this:0ffc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=28694 MISC2=0
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=28694 MISC2=0
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=28694 MISC2=0
+Log: SetRes(NewX=336,NewY=366,NewColorBytes=4,Fullscreen0) (this:0ffc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=336,NewY=387,NewColorBytes=4,Fullscreen0) (this:0ffc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=336,NewY=367,NewColorBytes=4,Fullscreen0) (this:0ffc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: 4.00 268.00 673.00 130.00
+Log: 4.00 268.00 673.00 130.00
+Log: 4.00 268.00 673.00 130.00
+Log: 4.00 270.00 673.00 131.00
+Log: 4.00 270.00 673.00 131.00
+Init: Input system initialized for TextureBrowser
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Log: Trying D3DDrv.D3DRenderDevice
+Log: SetRes(NewX=320,NewY=200,NewColorBytes=4,Fullscreen0) (this:12340000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=661,NewY=298,NewColorBytes=4,Fullscreen0) (this:12340000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Cmd: CAMERA UPDATE FLAGS=8832 MISC1=128 MISC2=0 REN=17 NAME=TextureBrowser PACKAGE="afbproship" GROUP="WMD" NAMEFILTER=""
+Log: SetRes(NewX=661,NewY=299,NewColorBytes=4,Fullscreen0) (this:12340000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=567,NewY=432,NewColorBytes=4,Fullscreen0) (this:0b660000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXY (int)
+Log: SetRes(NewX=615,NewY=432,NewColorBytes=4,Fullscreen0) (this:0dd70000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: SetRes(NewX=567,NewY=432,NewColorBytes=4,Fullscreen0) (this:0dfc0000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewOther (int)
+Log: SetRes(NewX=615,NewY=432,NewColorBytes=4,Fullscreen0) (this:0fa10000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewYZ (int)
+Localization: No localization: Engine.General.ViewOther (int)
+Cmd: MAP LOAD FILE="C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstable\maps\!z1l0_1.dnf"
+Log: Inside appThrowf
+Log: Can't find file 'C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstab'
+Warning: Failed to load 'C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstab': Can't find file 'C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstab'
+Log: Inside appThrowf
+Log: Can't find file 'C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstab'
+Warning: Failed loading package: Can't find file 'C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstab'
+Warning: Failed loading package: Can't find file 'C:\Users\virj\Documents\GitHub\_OzyGits\DNF2001-Ozy\DNF2001-LeakOzyRepo\Unstab'
+Log: Matched Viewport U2Viewport0
+Log: Matched Viewport U2Viewport1
+Log: Matched Viewport U2Viewport2
+Log: Matched Viewport U2Viewport3
+Log: Matched Viewport MeshViewer
+Log: Matched Viewport TextureBrowser
+Log: BspValidateBrush linked 0 of 0 polys
+Log: Collecting garbage
+Log: Purging garbage - DispatchDestroy
+Log: Purging garbage - DeleteGarbage
+Log: Purging garbage - DeleteNames
+Log: Garbage: objects: 45158->45115; refs: 653458
+Log: Garbage collection complete.
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=28714 MISC2=0
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=28714 MISC2=0
+Cmd: CAMERA UPDATE NAME=MeshViewer MESH="alien_Adultsnatcher" FLAGS=8832 REN=18 MISC1=28714 MISC2=0
+Cmd: CAMERA UPDATE FLAGS=8832 MISC1=128 MISC2=0 REN=17 NAME=TextureBrowser PACKAGE="afbproship" GROUP="WMD" NAMEFILTER=""
+Cmd: SETPAUSE 0
+Localization: No localization: Engine.General.ViewXY (int)
+Cmd: FireDown 
+Cmd: OnRelease FireUp
+Cmd: FireUp
+Cmd: PrevWeaponAction
+Cmd: PrevWeaponAction
+Cmd: PrevWeaponAction
+Cmd: PrevWeaponAction
+Cmd: PrevWeaponAction
+Cmd: NextWeaponAction
+Cmd: NextWeaponAction
+Cmd: NextWeaponAction
+Cmd: NextWeaponAction
+Cmd: SETPAUSE 1
+Localization: No localization: Engine.General.ViewXY (int)
+Cmd: SETPAUSE 0
+Localization: No localization: Engine.General.ViewXZ (int)
+Cmd: FireDown 
+Cmd: OnRelease FireUp
+Cmd: FireUp
+Cmd: NextWeaponAction
+Cmd: NextWeaponAction
+Cmd: NextWeaponAction
+Cmd: SETPAUSE 1
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: SetRes(NewX=1189,NewY=891,NewColorBytes=4,Fullscreen0) (this:0dd70000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: SetRes(NewX=615,NewY=432,NewColorBytes=4,Fullscreen0) (this:0dd70000);
+Log: Using back-buffer format 21(32-bit) (D3DFMT_A8R8G8B8)
+Log: Using depth-buffer format 75(32-bit)
+Init: D3D Driver: Supports trilinear
+Init: D3D Driver: Supports specular gouraud
+Init: D3D Driver: Supports BLENDDIFFUSEALPHA
+Localization: No localization: Engine.General.ViewXZ (int)
+Log: Found 0 coplanar sets in 2
+Log: BspMergeCoplanars reduced 2->2
+Log: BspValidateBrush linked 0 of 2 polys
+Cmd: BRUSHCLIP DELETE
+Cmd: BRUSHCLIP FLIP
+Cmd: BRUSHCLIP
+Log: BRUSHCLIP : You don't have enough ClipMarkers to perform this operation.
+Cmd: BRUSHCLIP SPLIT
+Log: BRUSHCLIP : You don't have enough ClipMarkers to perform this operation.
+Cmd: MODE TERRAINEDIT
+Cmd: MODE FACEDRAG
+Cmd: MODE BRUSHCLIP
+Cmd: MODE POLYGON
+Cmd: MODE TEXTUREROTATE
+Cmd: MODE TEXTUREPAN
+Cmd: MODE BRUSHSNAP
+Cmd: MODE BRUSHROTATE
+Cmd: MODE VERTEXEDIT
+Cmd: MODE CAMERAMOVE
+Cmd: TRANSACTION UNDO
+Log: Undo Brush Set
+Cmd: TRANSACTION REDO
+Log: Redo Brush Set
+Cmd: TRANSACTION REDO
+Cmd: TRANSACTION UNDO
+Log: Undo Brush Set
+Cmd: TRANSACTION UNDO
+Log: Undo Brush Set
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: Unloading TrueType fonts.
+Log: appRequestExit(0)
+Exit: Preparing to exit.
+Log: Purging garbage - DispatchDestroy
+Log: Unbound to Editor.dll
+Log: Unbound to Engine.dll
+Log: Unloading: Package Editor
+Log: Unloading: Package Engine
+Exit: Editor shut down
+Log: Cannibal shutdown...
+Log: ...Cannibal shutdown complete.
+Log: Unbound to Galaxy.dll
+DevAudio: Galaxy SetViewport: NULL
+Exit: Galaxy shut down
+Exit: Transaction tracking system shut down
+Log: Unloading: Package UWindow
+Log: Unbound to Fire.dll
+Log: Unloading: Package Fire
+Log: Unloading: Package IPServer
+Log: Unbound to UWeb.dll
+Log: Unloading: Package UWeb
+Log: Unloading: Package UBrowser
+Log: Unloading: Package dnParticles
+Log: Unloading: Package t_generic
+Log: Unloading: Package t_detail
+Log: Unloading: Package t_firefx
+Log: Unloading: Package a_impact
+Log: Unloading: Package m_dnWeapon
+Log: Unloading: Package palettes
+Log: Unloading: Package m_vehicles
+Log: Unloading: Package c_FX
+Log: Unloading: Package t_explosionFx
+Log: Unloading: Package dnModulation
+Log: Unloading: Package afbproship
+Log: Unloading: Package mario
+Log: Unloading: Package a_generic
+Log: Unloading: Package dnsWeapn
+Log: Unloading: Package a_edf
+Log: Unloading: Package t_test
+Log: Unloading: Package m_generic
+Log: Unloading: Package a_transport
+Log: Unloading: Package c_generic
+Log: Unloading: Package m_zone1_vegas
+Log: Unloading: Package a_ambient
+Log: Unloading: Package c_zone1_vegas
+Log: Unloading: Package petalumahouse
+Log: Unloading: Package dnGame
+Log: Unloading: Package hud_effects
+Log: Unloading: Package powerpuzzle1
+Log: Unloading: Package c_dnWeapon
+Log: Unloading: Package a_dukevoice
+Log: Unloading: Package circuitpuzzle1
+Log: Unloading: Package ezmail
+Log: Unloading: Package ezvend
+Log: Unloading: Package EZPhone
+Log: Unloading: Package c_dukeitems
+Log: Unloading: Package keypads
+Log: Unloading: Package a_zone1_vegas
+Log: Unloading: Package m_turretfx
+Log: Unloading: Package a_switch
+Log: Unloading: Package c_characters
+Log: Unloading: Package a_inventory
+Log: Unloading: Package c_hands
+Log: Unloading: Package a_creatures
+Log: Unloading: Package m_hands
+Log: Unloading: Package SMK6
+Log: Unloading: Package crane
+Log: Unloading: Package ts01
+Log: Unloading: Package SMK5
+Log: Unloading: Package dnsMaterials
+Log: Unloading: Package m_characters
+Log: Unloading: Package smk8
+Log: Unloading: Package vegas
+Log: Unloading: Package ShieldFX
+Log: Unloading: Package canvasfx
+Log: Unloading: Package arcadeFX
+Log: Unloading: Package SMK4
+Log: Unloading: Package dukeed_gfx
+Log: Unloading: Package a_npcvoice
+Log: Unloading: Package modelfx
+Log: Unloading: Package c_vehicles
+Log: Unloading: Package D3DSounds
+Log: Unloading: Package dnMountables
+Log: Unloading: Package dnAI
+Log: Unloading: Package m_zone3_canyon
+Log: Unloading: Package c_zone3_canyon
+Log: Unloading: Package TEMPVOICE
+Log: Unloading: Package a_doors
+Log: Unloading: Package m_fx
+Log: Unloading: Package dnWindow
+Log: Unloading: Package SMK3
+Log: Unloading: Package SMK7
+Log: Unloading: Package U_Generic
+Log: Unloading: Package airforcebase
+Log: Unloading: Package Airforcebase2
+Log: Unloading: Package c_zone4_afb
+Log: Unloading: Package RocketFX
+Log: Unloading: Package U_Zone1_Vegas
+Log: Unloading: Package U_Zone2_Dam
+Log: Unloading: Package c_zone2_dam
+Log: Unloading: Package U_Zone3_Canyon
+Log: Unloading: Package U_Zone4_AFB
+Log: Unloading: Package U_Zone5_Area51
+Log: Unloading: Package c_zone5_area51
+Log: Unloading: Package computer
+Log: Unloading: Package m_zone5_area51
+Log: Unloading: Package U_Zone6_Ship
+Log: Unloading: Package dnMaterial
+Log: Unloading: Package U_Fragment
+Exit: Windows client shut down
+Exit: Rendering shut down
+Log: Unbound to D3DDrv.dll
+Log: Purging garbage - DeleteGarbage
+Log: Purging garbage - DeleteNames
+Log: Garbage: objects: 45175->0; refs: 653458
+Exit: Object subsystem successfully closed.
+Exit: Exiting.
+Uninitialized: Name subsystem shut down
+Uninitialized: Memory Allocation Status
+Uninitialized: Curr Memory  0.182M /  3.309M
+Uninitialized: Peak Memory  47.846M /  49.684M
+Uninitialized: Allocs        4784 Current /  251147 Total
+Uninitialized: Log file closed, 05/17/22 18:50:53
