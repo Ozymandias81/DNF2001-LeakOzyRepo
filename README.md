@@ -41,13 +41,14 @@ It needs to be added yet
 - Ozymandias81: Archive Maintainer, Playtester
 - NUKEMDAVE: Graphical resources fixes
 - StrikerMan780: Some fixes regarding Multiplayer and Sounds
-- Xinerki: DXVK Wrapper
 - Shivaxi: Maps fixes
+- MisterzPvP: Some Slick Willy maps fixes
 - Zombie: Unstable menu fixes
 
 Extra Content:
+- Xinerki: DXVK Wrapper
+- TheBaratusII: Several UT maps conversions
 - Novak/YeOldeFellerNoob: DM-WolfGrid map
-- TheBaratusII: DM-DNFLiandri map
 - Protox: Duke Nukem skin fixes
 
 # CCMDS (use SOS) #
