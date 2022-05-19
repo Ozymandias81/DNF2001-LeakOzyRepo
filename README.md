@@ -1,5 +1,7 @@
 # Welcome to Duke Nukem Forever 2001 Leak repository Ozy Variant #
 
+IMPORTANT NOTE: THIS REPOSITORY IS NOT INTENDED TO BE USED WITH THEBaratusII Multiplayer Repository, THINGS HERE ARE IN CONTINUED DEVELOPMENT AND THAT'S NOT A GOOD THING WHEN IT COMES MP. INSTEAD USE https://github.com/sirbaratusii/DNF01-MP-PatchPackage FOR A MP EXPERIENCE AND READ CAREFULLY THE README AT https://github.com/sirbaratusii/DNF01-MP-PatchPackage#readme
+
 This repository has multiple aims:
 
 - Let the leak live Forever in the web with also my little contribute
@@ -47,8 +49,9 @@ It needs to be added yet
 
 Extra Content:
 - Xinerki: DXVK Wrapper
-- TheBaratusII: Several UT maps conversions
 - Novak/YeOldeFellerNoob: DM-WolfGrid map
+- Slade: Various DM maps conversions
+- TheBaratusII: Various DM maps conversions
 - Protox: Duke Nukem skin fixes
 
 # CCMDS (use SOS) #
