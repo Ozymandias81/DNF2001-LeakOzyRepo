@@ -43,9 +43,10 @@ It needs to be added yet
 - Ozymandias81: Archive Maintainer, Playtester
 - NUKEMDAVE: Graphical resources fixes
 - StrikerMan780: Some fixes regarding Multiplayer and Sounds
-- Shivaxi: Maps fixes
+- Shivaxi: Maps & Scripts fixes
 - MisterzPvP: Some Slick Willy maps fixes
-- Zombie: Unstable menu fixes
+- Zombie: Unstable menu fixes, some maps fixes
+- Raziel: Hair fix, pistol ammo clip fix
 
 Extra Content:
 - Xinerki: DXVK Wrapper
