@@ -5,6 +5,7 @@ IMPORTANT NOTE: THIS REPOSITORY IS NOT INTENDED TO BE USED WITH THEBaratusII Mul
 This repository has multiple aims:
 
 - Let the leak live Forever in the web with also my little contribute
+- Improved experience for Windows 7 users mainly
 - An easy to go build that allows you to run all of its leaked versions and relative editors
 - Pack all improvements and such from the Duke3d community and by myself avoiding conflicts
 - Have a repository where all can contribute easily through pushing requests
@@ -24,19 +25,11 @@ The Tools folder might contain in future apps necessary to create a packed .pk3 
 
 Simply double-click on #PLAY.bat and follow on screen directions.
 
-RESET.bat - It removes previously generated .ini files from the very first start of the game, unlike any old UE1 games you had 
-to follow your accelerator card tests to see which rendering method was the best for you, though here we have only Direct3d
-
-REBUILD.bat - This should rebuild somehow the whole structure of "Stable" files, but it should work properly only under Win98.
-
 If you want to edit your windowed/fullscreen resolutions and settings, check inside Stable-Unstable/Players folder and edit the
 DukeForever.ini file inside the folder of your Profile name. My monitor can't handle more than 1280x1024, but you will find those
 values under Engine.WindowsClient list. You might also attempt to play with D3DDrv.D3DRenderDevice settings.
+
 You can also press F12 in game and type setres YOURRESOLUTION and press enter: it will freeze the app, but you can close it and load it again and the chosen res will be applied (windowed).
-
-# Features #
-
-It needs to be added yet
 
 # Credits #
 
