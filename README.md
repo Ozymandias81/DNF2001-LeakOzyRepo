@@ -81,6 +81,7 @@ More commands can be found at https://www.oldunreal.com/UnrealReference/Console.
 - You can pee in any circumstances and in a infinite way (default bind F)
 - Some actors routines might break during gameplay and softlock your game
 - Obviously the game is not complete at all, it is very unstable and you can't save properly the game in several situations
+- AVOID USING FOLDERS WITH SPACES, LIKE "October 26" SHOULD BE AT LEAST RENAMED AS "October_26"; ALSO IT IS BETTER TO STITCH TO 8 CHARS FOR FOLDER NAME, such as Duke4
 
 # License #
 
@@ -88,6 +89,6 @@ It needs to be added yet
 
 # EOF #
 
-Join our Discord Channel for a better feedback: https://discord.gg/ZxaexEwgSv
+Join our Discord Channel for a better feedback: https://discord.gg/eRWJPe2WTx
 
-==> ALWAYS BET ON DUKE COMMUNITY <==
+==> ALWAYS BET ON DUKE AND ITS COMMUNITY <==
